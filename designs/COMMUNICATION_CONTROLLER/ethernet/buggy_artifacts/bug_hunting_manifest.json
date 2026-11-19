@@ -1,0 +1,211 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "eth_maccontrol.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(RxValid<->r_PassAll) -> Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(RxValid), .RxStartFrm...  ==>  Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(r_PassAll), .RxStartF...",
+      "target_line": 295
+    },
+    {
+      "changed_rtl_files": [
+        "eth_maccontrol.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 286: (PadIn | SendingCtrlFrm)  ==>  And @ line 0: (PadIn & SendingCtrlFrm)",
+      "target_line": 286
+    },
+    {
+      "changed_rtl_files": [
+        "eth_maccontrol.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b1;  ==>  NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b0;",
+      "target_line": 213
+    },
+    {
+      "changed_rtl_files": [
+        "eth_macstatus.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. AVC(3->5) -> Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[3:0] == 4'he);  ==>  Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[1:0] == 4'he);",
+      "target_line": 317
+    },
+    {
+      "changed_rtl_files": [
+        "eth_macstatus.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 357: (~Collision & (RxByteCnt[5:0] == CollValid[5:0]))  ==>  Or @ line 0: (~Collision | (RxByteCnt[5:0] == CollValid[5:0]))",
+      "target_line": 357
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "eth_maccontrol.v",
+      "target_line": 213,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b1;  ==>  NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b0;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 84,
+            "base_end": 85,
+            "matched_start": 84,
+            "matched_end": 85
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "eth_maccontrol.v",
+      "target_line": 286,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 286: (PadIn | SendingCtrlFrm)  ==>  And @ line 0: (PadIn & SendingCtrlFrm)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 336,
+        "target_line": 286
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "eth_maccontrol.v",
+      "target_line": 295,
+      "mutation_log": "applied. CSW(RxValid<->r_PassAll) -> Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(RxValid), .RxStartFrm...  ==>  Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(r_PassAll), .RxStartF...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 348,
+        "line_b": 353,
+        "token_a": "RxValid",
+        "token_b": "r_PassAll"
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "eth_macstatus.v",
+      "target_line": 317,
+      "mutation_log": "applied. AVC(3->5) -> Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[3:0] == 4'he);  ==>  Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[1:0] == 4'he);",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 135,
+            "base_end": 165,
+            "matched_start": 135,
+            "matched_end": 165
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "eth_macstatus.v",
+      "target_line": 357,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 357: (~Collision & (RxByteCnt[5:0] == CollValid[5:0]))  ==>  Or @ line 0: (~Collision | (RxByteCnt[5:0] == CollValid[5:0]))",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 167,
+            "base_end": 184,
+            "matched_start": 153,
+            "matched_end": 170
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_clockgen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_crc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_maccontrol.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_macstatus.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_miim.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_outputcontrol.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_random.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_receivecontrol.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_register.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_registers.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_rxaddrcheck.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_rxcounters.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_rxethmac.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_rxstatem.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_shiftreg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_spram_256x32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_transmitcontrol.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_txcounters.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_txethmac.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_txstatem.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/eth_wishbone.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/ethmac_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/timescale.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/merged_buggy_rtl/xilinx_dist_ram_16x32.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(RxValid<->r_PassAll) -> Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(RxValid), .RxStartFrm...  ==>  Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(r_PassAll), .RxStartF...",
+      "operator": "CSW",
+      "target_module": "eth_maccontrol",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ethernet/include/eth_maccontrol.v",
+      "target_signal": "ControlFrmAddressOK",
+      "target_signal_id": "eth_maccontrol.ControlFrmAddressOK"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 286: (PadIn | SendingCtrlFrm)  ==>  And @ line 0: (PadIn & SendingCtrlFrm)",
+      "operator": "LOR",
+      "target_module": "eth_maccontrol",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ethernet/include/eth_maccontrol.v",
+      "target_signal": "PadIn",
+      "target_signal_id": "eth_maccontrol.PadIn"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b1;  ==>  NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b0;",
+      "operator": "AVC",
+      "target_module": "eth_maccontrol",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ethernet/include/eth_maccontrol.v",
+      "target_signal": "TxUsedDataOut",
+      "target_signal_id": "eth_maccontrol.TxUsedDataOut"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. AVC(3->5) -> Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[3:0] == 4'he);  ==>  Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[1:0] == 4'he);",
+      "operator": "AVC",
+      "target_module": "eth_macstatus",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ethernet/include/eth_macstatus.v",
+      "target_signal": "MRxD",
+      "target_signal_id": "eth_macstatus.MRxD"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 357: (~Collision & (RxByteCnt[5:0] == CollValid[5:0]))  ==>  Or @ line 0: (~Collision | (RxByteCnt[5:0] == CollValid[5:0]))",
+      "operator": "LOR",
+      "target_module": "eth_macstatus",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ethernet/include/eth_macstatus.v",
+      "target_signal": "RxByteCnt",
+      "target_signal_id": "eth_macstatus.RxByteCnt"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/mutations",
+  "top_module": "eth_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet/buggy_artifacts/consensus_merge_report"
+}

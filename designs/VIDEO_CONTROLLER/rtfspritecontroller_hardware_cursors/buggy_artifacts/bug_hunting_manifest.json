@@ -1,0 +1,177 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "edge_det.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 45: (~ed & i)  ==>  Or @ line 0: (~ed | i)",
+      "target_line": 45
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSpriteController.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(32'd0->32'd1) -> Assign @ line 1031: assign dob = (rstb)? 32'd0 : mem[radrb];  ==>  Assign @ line 1031: assign dob = (rstb)? 32'd1 : mem[radrb];",
+      "target_line": 1031
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSpriteController.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(1'b1<->1'b0) -> CaseStatement @ line 1027: case(radra[1]) 1'b0: doa <= mem[radra[10:1]][15:0]; 1'b1: doa <= mem[radra[10:1]][31:16]; endcase  ==>  CaseStatement @ line 1027: case(radra[1]) 1'b1: doa <= mem[radra[10:1]][15:0]; 1'b0: doa <= mem[radra[10:1]][31:16]; endcase",
+      "target_line": 1027
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSpriteController.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(11->12) -> NonblockingSubstitution @ line 994: doa <= mem[radra[11:2]][31:24];  ==>  NonblockingSubstitution @ line 994: doa <= mem[radra[12:2]][31:24];",
+      "target_line": 994
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSpriteController.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DIE -> Partselect @ line 295: m_adr_o[3:0]  ==>  Partselect @ line 295: m_adr_o[31:28]",
+      "target_line": 295
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "edge_det.v",
+      "target_line": 45,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 45: (~ed & i)  ==>  Or @ line 0: (~ed | i)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 44,
+        "target_line": 45
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "rtfSpriteController.v",
+      "target_line": 295,
+      "mutation_log": "applied. DIE -> Partselect @ line 295: m_adr_o[3:0]  ==>  Partselect @ line 295: m_adr_o[31:28]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 294,
+        "target_line": 295
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "rtfSpriteController.v",
+      "target_line": 994,
+      "mutation_log": "applied. AVC(11->12) -> NonblockingSubstitution @ line 994: doa <= mem[radra[11:2]][31:24];  ==>  NonblockingSubstitution @ line 994: doa <= mem[radra[12:2]][31:24];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 993,
+        "target_line": 994
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "rtfSpriteController.v",
+      "target_line": 1027,
+      "mutation_log": "applied. CSE(1'b1<->1'b0) -> CaseStatement @ line 1027: case(radra[1]) 1'b0: doa <= mem[radra[10:1]][15:0]; 1'b1: doa <= mem[radra[10:1]][31:16]; endcase  ==>  CaseStatement @ line 1027: case(radra[1]) 1'b1: doa <= mem[radra[10:1]][15:0]; 1'b0: doa <= mem[radra[10:1]][31:16]; endcase",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          1026,
+          1030
+        ],
+        "token_a": "1'b1",
+        "token_b": "1'b0",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "rtfSpriteController.v",
+      "target_line": 1031,
+      "mutation_log": "applied. AVC(32'd0->32'd1) -> Assign @ line 1031: assign dob = (rstb)? 32'd0 : mem[radrb];  ==>  Assign @ line 1031: assign dob = (rstb)? 32'd1 : mem[radrb];",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 986,
+            "base_end": 998
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts/merged_buggy_rtl/busTimeoutCtr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts/merged_buggy_rtl/edge_det.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts/merged_buggy_rtl/rtfSpriteController.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 45: (~ed & i)  ==>  Or @ line 0: (~ed | i)",
+      "operator": "LOR",
+      "target_module": "edge_det",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/include/edge_det.v",
+      "target_signal": "i",
+      "target_signal_id": "edge_det.i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(32'd0->32'd1) -> Assign @ line 1031: assign dob = (rstb)? 32'd0 : mem[radrb];  ==>  Assign @ line 1031: assign dob = (rstb)? 32'd1 : mem[radrb];",
+      "operator": "AVC",
+      "target_module": "rtfSpriteRam16",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/rtfSpriteController.v",
+      "target_signal": "adrb",
+      "target_signal_id": "rtfSpriteRam16.adrb"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(1'b1<->1'b0) -> CaseStatement @ line 1027: case(radra[1]) 1'b0: doa <= mem[radra[10:1]][15:0]; 1'b1: doa <= mem[radra[10:1]][31:16]; endcase  ==>  CaseStatement @ line 1027: case(radra[1]) 1'b1: doa <= mem[radra[10:1]][15:0]; 1'b0: doa <= mem[radra[10:1]][31:16]; endcase",
+      "operator": "CSE",
+      "target_module": "rtfSpriteRam16",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/rtfSpriteController.v",
+      "target_signal": "doa",
+      "target_signal_id": "rtfSpriteRam16.doa"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(11->12) -> NonblockingSubstitution @ line 994: doa <= mem[radra[11:2]][31:24];  ==>  NonblockingSubstitution @ line 994: doa <= mem[radra[12:2]][31:24];",
+      "operator": "AVC",
+      "target_module": "rtfSpriteRam8",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/rtfSpriteController.v",
+      "target_signal": "adra",
+      "target_signal_id": "rtfSpriteRam8.adra"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DIE -> Partselect @ line 295: m_adr_o[3:0]  ==>  Partselect @ line 295: m_adr_o[31:28]",
+      "operator": "DIE",
+      "target_module": "rtfSpriteController",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/rtfSpriteController.v",
+      "target_signal": "m_adr_o",
+      "target_signal_id": "rtfSpriteController.m_adr_o"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/mutations",
+  "top_module": "rtfSpriteController",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors/buggy_artifacts/consensus_merge_report"
+}

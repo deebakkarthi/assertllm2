@@ -1,0 +1,200 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "fault_sm.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMO -> Pointer @ line 246: local_fault_msg_det[1]  ==>  Pointer @ line 246: local_fault_msg_det[0] (new index=0)",
+      "target_line": 246
+    },
+    {
+      "changed_rtl_files": [
+        "fault_sm.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 277: (reset_xgmii_rx_n == 1'b0)  ==>  NotEq @ line 0: (reset_xgmii_rx_n != 1'b0)",
+      "target_line": 277
+    },
+    {
+      "changed_rtl_files": [
+        "fault_sm.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(2'd2->2'd1) -> NonblockingSubstitution @ line 268: status_remote_fault_crx <= (curr_state == SM_FAULT) && (link_fault == 2'd2);  ==>  NonblockingSubstitution @ line 268: status_remote_fault_crx <= (curr_state == SM_FAULT) && (link_fault == 2'd1);",
+      "target_line": 268
+    },
+    {
+      "changed_rtl_files": [
+        "fault_sm.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 243: remote_fault_msg_det[0]  ==>  Pointer @ line 243: remote_fault_msg_det[1] (new index=1)",
+      "target_line": 243
+    },
+    {
+      "changed_rtl_files": [
+        "rx_data_fifo.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(wrst_n<->wfull) -> Instance @ line 198: fifo0 ( .wclk(clk_xgmii_rx), .wrst_n(reset_xgmii_rx_n), .wen(rxdfifo_wen), .wdata({ rxdfifo_wstatus, rxdfifo_wdata }), .wfull(rxdfifo_wfu...  ==>  Instance @ line 198: fifo0 ( .wclk(clk_xgmii_rx), .wrst_n(rxdfifo_wfull), .wen(rxdfifo_wen), .wdata({ rxdfifo_wstatus, rxdfifo_wdata }), .wfull(reset_xgmii_rx...",
+      "target_line": 198
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "fault_sm.v",
+      "target_line": 243,
+      "mutation_log": "applied. DMO -> Pointer @ line 243: remote_fault_msg_det[0]  ==>  Pointer @ line 243: remote_fault_msg_det[1] (new index=1)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 112,
+        "target_line": 243
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "fault_sm.v",
+      "target_line": 246,
+      "mutation_log": "applied. DMO -> Pointer @ line 246: local_fault_msg_det[1]  ==>  Pointer @ line 246: local_fault_msg_det[0] (new index=0)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 115,
+        "target_line": 246
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "fault_sm.v",
+      "target_line": 268,
+      "mutation_log": "applied. AVC(2'd2->2'd1) -> NonblockingSubstitution @ line 268: status_remote_fault_crx <= (curr_state == SM_FAULT) && (link_fault == 2'd2);  ==>  NonblockingSubstitution @ line 268: status_remote_fault_crx <= (curr_state == SM_FAULT) && (link_fault == 2'd1);",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 77,
+            "base_end": 82,
+            "matched_start": 77,
+            "matched_end": 82
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "fault_sm.v",
+      "target_line": 277,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 277: (reset_xgmii_rx_n == 1'b0)  ==>  NotEq @ line 0: (reset_xgmii_rx_n != 1'b0)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 78,
+        "target_line": 277
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "rx_data_fifo.v",
+      "target_line": 198,
+      "mutation_log": "applied. CSW(wrst_n<->wfull) -> Instance @ line 198: fifo0 ( .wclk(clk_xgmii_rx), .wrst_n(reset_xgmii_rx_n), .wen(rxdfifo_wen), .wdata({ rxdfifo_wstatus, rxdfifo_wdata }), .wfull(rxdfifo_wfu...  ==>  Instance @ line 198: fifo0 ( .wclk(clk_xgmii_rx), .wrst_n(rxdfifo_wfull), .wen(rxdfifo_wen), .wdata({ rxdfifo_wstatus, rxdfifo_wdata }), .wfull(reset_xgmii_rx...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 78,
+        "line_b": 81,
+        "token_a": "wrst_n",
+        "token_b": "wfull"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/CRC32_D64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/CRC32_D8.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/fault_sm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/generic_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/generic_fifo_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/generic_mem_medium.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/generic_mem_small.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/meta_sync.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/meta_sync_single.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/rx_data_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/rx_dequeue.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/rx_enqueue.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/rx_hold_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/rx_stats_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/stats.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/stats_sm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/sync_clk_wb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/sync_clk_xgmii_tx.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/tx_data_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/tx_dequeue.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/tx_enqueue.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/tx_hold_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/tx_stats_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/utils.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/wishbone_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/merged_buggy_rtl/xge_mac.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMO -> Pointer @ line 246: local_fault_msg_det[1]  ==>  Pointer @ line 246: local_fault_msg_det[0] (new index=0)",
+      "operator": "DMO",
+      "target_module": "fault_sm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/10Gemac/include/fault_sm.v",
+      "target_signal": "local_fault_msg_det",
+      "target_signal_id": "fault_sm.local_fault_msg_det"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 243: remote_fault_msg_det[0]  ==>  Pointer @ line 243: remote_fault_msg_det[1] (new index=1)",
+      "operator": "DMO",
+      "target_module": "fault_sm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/10Gemac/include/fault_sm.v",
+      "target_signal": "remote_fault_msg_det",
+      "target_signal_id": "fault_sm.remote_fault_msg_det"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 277: (reset_xgmii_rx_n == 1'b0)  ==>  NotEq @ line 0: (reset_xgmii_rx_n != 1'b0)",
+      "operator": "LOR",
+      "target_module": "fault_sm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/10Gemac/include/fault_sm.v",
+      "target_signal": "reset_xgmii_rx_n",
+      "target_signal_id": "fault_sm.reset_xgmii_rx_n"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(2'd2->2'd1) -> NonblockingSubstitution @ line 268: status_remote_fault_crx <= (curr_state == SM_FAULT) && (link_fault == 2'd2);  ==>  NonblockingSubstitution @ line 268: status_remote_fault_crx <= (curr_state == SM_FAULT) && (link_fault == 2'd1);",
+      "operator": "AVC",
+      "target_module": "fault_sm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/10Gemac/include/fault_sm.v",
+      "target_signal": "status_remote_fault_crx",
+      "target_signal_id": "fault_sm.status_remote_fault_crx"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(wrst_n<->wfull) -> Instance @ line 198: fifo0 ( .wclk(clk_xgmii_rx), .wrst_n(reset_xgmii_rx_n), .wen(rxdfifo_wen), .wdata({ rxdfifo_wstatus, rxdfifo_wdata }), .wfull(rxdfifo_wfu...  ==>  Instance @ line 198: fifo0 ( .wclk(clk_xgmii_rx), .wrst_n(rxdfifo_wfull), .wen(rxdfifo_wen), .wdata({ rxdfifo_wstatus, rxdfifo_wdata }), .wfull(reset_xgmii_rx...",
+      "operator": "CSW",
+      "target_module": "rx_data_fifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/10Gemac/include/rx_data_fifo.v",
+      "target_signal": "reset_156m25_n",
+      "target_signal_id": "rx_data_fifo.reset_156m25_n"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/10Gemac/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/10Gemac/mutations",
+  "top_module": "xge_mac",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/10Gemac/buggy_artifacts/consensus_merge_report"
+}

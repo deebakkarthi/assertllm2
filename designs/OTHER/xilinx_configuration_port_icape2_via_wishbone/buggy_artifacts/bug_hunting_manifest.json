@@ -1,0 +1,170 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "wbicapetwo.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(5'h02<->5'h07) -> CaseStatement @ line 126: case(state) 5'h00: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b...  ==>  CaseStatement @ line 126: case(state) 5'h00: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b...",
+      "target_line": 126
+    },
+    {
+      "changed_rtl_files": [
+        "wbicapetwo.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 217: o_wb_ack <= 1'b0;  ==>  NonblockingSubstitution @ line 217: o_wb_ack <= 1'b1;",
+      "target_line": 217
+    },
+    {
+      "changed_rtl_files": [
+        "wbicapetwo.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 207: o_wb_stall <= 1'b0;  ==>  NonblockingSubstitution @ line 207: o_wb_stall <= 1'b1;",
+      "target_line": 207
+    },
+    {
+      "changed_rtl_files": [
+        "wbicapetwo.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 140: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "target_line": 140
+    },
+    {
+      "changed_rtl_files": [
+        "wbicapetwo.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 127: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b0; r_addr <= i_wb_a...  ==>  Block @ line 127: begin cfg_cs_n <= 1'b0; cfg_rdwrn <= 1'b0; cfg_in <= 32'h00000000; state <= 5'h01; o_wb_ack <= 1'b1; o_wb_stall <= 1'b1; r_addr <= i_wb_a...",
+      "target_line": 127
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "wbicapetwo.v",
+      "target_line": 126,
+      "mutation_log": "applied. CSE(5'h02<->5'h07) -> CaseStatement @ line 126: case(state) 5'h00: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b...  ==>  CaseStatement @ line 126: case(state) 5'h00: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b...",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "wbicapetwo.v",
+      "target_line": 127,
+      "mutation_log": "applied. SMC -> Block @ line 127: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b0; r_addr <= i_wb_a...  ==>  Block @ line 127: begin cfg_cs_n <= 1'b0; cfg_rdwrn <= 1'b0; cfg_in <= 32'h00000000; state <= 5'h01; o_wb_ack <= 1'b1; o_wb_stall <= 1'b1; r_addr <= i_wb_a...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 71,
+            "base_end": 72,
+            "matched_start": 71,
+            "matched_end": 72
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "wbicapetwo.v",
+      "target_line": 140,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 140: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 51,
+        "target_line": 140
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "wbicapetwo.v",
+      "target_line": 207,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 207: o_wb_stall <= 1'b0;  ==>  NonblockingSubstitution @ line 207: o_wb_stall <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 47,
+        "target_line": 207
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "wbicapetwo.v",
+      "target_line": 217,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 217: o_wb_ack <= 1'b0;  ==>  NonblockingSubstitution @ line 217: o_wb_ack <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 36,
+        "target_line": 217
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/buggy_artifacts/merged_buggy_rtl/wbicapetwo.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(5'h02<->5'h07) -> CaseStatement @ line 126: case(state) 5'h00: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b...  ==>  CaseStatement @ line 126: case(state) 5'h00: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b...",
+      "operator": "CSE",
+      "target_module": "wbicapetwo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/wbicapetwo.v",
+      "target_signal": "i_wb_addr",
+      "target_signal_id": "wbicapetwo.i_wb_addr"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 127: begin cfg_cs_n <= 1'b1; cfg_rdwrn <= 1'b1; cfg_in <= 32'hffffffff; state <= 5'h00; o_wb_ack <= 1'b0; o_wb_stall <= 1'b0; r_addr <= i_wb_a...  ==>  Block @ line 127: begin cfg_cs_n <= 1'b0; cfg_rdwrn <= 1'b0; cfg_in <= 32'h00000000; state <= 5'h01; o_wb_ack <= 1'b1; o_wb_stall <= 1'b1; r_addr <= i_wb_a...",
+      "operator": "SMC",
+      "target_module": "wbicapetwo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/wbicapetwo.v",
+      "target_signal": "i_wb_cyc",
+      "target_signal_id": "wbicapetwo.i_wb_cyc"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 217: o_wb_ack <= 1'b0;  ==>  NonblockingSubstitution @ line 217: o_wb_ack <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "wbicapetwo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/wbicapetwo.v",
+      "target_signal": "o_wb_ack",
+      "target_signal_id": "wbicapetwo.o_wb_ack"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 207: o_wb_stall <= 1'b0;  ==>  NonblockingSubstitution @ line 207: o_wb_stall <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "wbicapetwo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/wbicapetwo.v",
+      "target_signal": "o_wb_stall",
+      "target_signal_id": "wbicapetwo.o_wb_stall"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 140: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "operator": "LOR",
+      "target_module": "wbicapetwo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/wbicapetwo.v",
+      "target_signal": "i_wb_cyc",
+      "target_signal_id": "wbicapetwo.i_wb_cyc"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/mutations",
+  "top_module": "wbicapetwo",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/buggy_artifacts/consensus_merge_report"
+}

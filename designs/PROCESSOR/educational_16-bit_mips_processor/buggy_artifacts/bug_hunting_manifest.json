@@ -1,0 +1,181 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "EX_stage.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(3->1) -> Assign @ line 111: assign ex_op_dest = pipeline_reg_in[3:1];  ==>  Assign @ line 111: assign ex_op_dest = pipeline_reg_in[1:1];",
+      "target_line": 111
+    },
+    {
+      "changed_rtl_files": [
+        "EX_stage.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(21->23) -> NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[21:0];  ==>  NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[23:0];",
+      "target_line": 105
+    },
+    {
+      "changed_rtl_files": [
+        "ID_stage.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->1) -> BlockingSubstitution @ line 319: branch_taken = 0;  ==>  BlockingSubstitution @ line 319: branch_taken = 1;",
+      "target_line": 319
+    },
+    {
+      "changed_rtl_files": [
+        "ID_stage.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 149: ((instruction_decode_en)? ir_dest : 0)  ==>  (cond removed)",
+      "target_line": 149
+    },
+    {
+      "changed_rtl_files": [
+        "ID_stage.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 130: instruction_reg <= 0;  ==>  NonblockingSubstitution @ line 130: instruction_reg <= 1;",
+      "target_line": 130
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "EX_stage.v",
+      "target_line": 105,
+      "mutation_log": "applied. AVC(21->23) -> NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[21:0];  ==>  NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[23:0];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 51,
+        "target_line": 105
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "EX_stage.v",
+      "target_line": 111,
+      "mutation_log": "applied. AVC(3->1) -> Assign @ line 111: assign ex_op_dest = pipeline_reg_in[3:1];  ==>  Assign @ line 111: assign ex_op_dest = pipeline_reg_in[1:1];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 57,
+        "target_line": 111
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "ID_stage.v",
+      "target_line": 130,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 130: instruction_reg <= 0;  ==>  NonblockingSubstitution @ line 130: instruction_reg <= 1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 76,
+        "target_line": 130
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "ID_stage.v",
+      "target_line": 149,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 149: ((instruction_decode_en)? ir_dest : 0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 42,
+            "base_end": 291
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "ID_stage.v",
+      "target_line": 319,
+      "mutation_log": "applied. AVC(0->1) -> BlockingSubstitution @ line 319: branch_taken = 0;  ==>  BlockingSubstitution @ line 319: branch_taken = 1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 202,
+        "target_line": 319
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/EX_stage.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/ID_stage.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/IF_stage.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/MEM_stage.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/WB_stage.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/alu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/data_mem.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/hazard_detection_unit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/instruction_mem.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/mips_16_core_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/mips_16_defs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/merged_buggy_rtl/register_file.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(3->1) -> Assign @ line 111: assign ex_op_dest = pipeline_reg_in[3:1];  ==>  Assign @ line 111: assign ex_op_dest = pipeline_reg_in[1:1];",
+      "operator": "AVC",
+      "target_module": "EX_stage",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/include/EX_stage.v",
+      "target_signal": "ex_op_dest",
+      "target_signal_id": "EX_stage.ex_op_dest"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(21->23) -> NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[21:0];  ==>  NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[23:0];",
+      "operator": "AVC",
+      "target_module": "EX_stage",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/include/EX_stage.v",
+      "target_signal": "pipeline_reg_out",
+      "target_signal_id": "EX_stage.pipeline_reg_out"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->1) -> BlockingSubstitution @ line 319: branch_taken = 0;  ==>  BlockingSubstitution @ line 319: branch_taken = 1;",
+      "operator": "AVC",
+      "target_module": "ID_stage",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/include/ID_stage.v",
+      "target_signal": "branch_taken",
+      "target_signal_id": "ID_stage.branch_taken"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 130: instruction_reg <= 0;  ==>  NonblockingSubstitution @ line 130: instruction_reg <= 1;",
+      "operator": "AVC",
+      "target_module": "ID_stage",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/include/ID_stage.v",
+      "target_signal": "instruction",
+      "target_signal_id": "ID_stage.instruction"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 149: ((instruction_decode_en)? ir_dest : 0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "ID_stage",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/include/ID_stage.v",
+      "target_signal": "instruction_decode_en",
+      "target_signal_id": "ID_stage.instruction_decode_en"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor/mutations",
+  "top_module": "mips_16_core_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/educational_16-bit_mips_processor/buggy_artifacts/consensus_merge_report"
+}

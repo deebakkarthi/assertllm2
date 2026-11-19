@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sdr_ctrl",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/sdrc_core.v"
+      ],
+      "log": "M_0000: applied. CSW(req<->req_ack) -> Instance @ line 301: u_req_gen ( .clk(clk), .reset_n(reset_n), .cfg_colbits(cfg_colbits), .sdr_width(sdr_width), .r2x_idle(r2x_idle), .req(app_req), .req_id(4...  ==>  Instance @ line 301: u_req_gen ( .clk(clk), .reset_n(reset_n), .cfg_colbits(cfg_colbits), .sdr_width(sdr_width), .r2x_idle(r2x_idle), .req(app_req_wrap), .req...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sdrc_core.v"
+      ],
+      "log": "M_0001: applied. CCW(1<->3) -> Concat @ line 275: { sdr_cs_n, sdr_ras_n, sdr_cas_n, sdr_we_n }  ==>  Concat @ line 275: { sdr_cs_n, sdr_we_n, sdr_cas_n, sdr_ras_n }",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0002: applied. AVC(1'b0->1'b1) -> Assign @ line 158: assign wb_ack_o = (wb_stb_i && wb_cyc_i && wb_we_i)? !cmdfifo_full && !wrdatafifo_full : (wb_stb_i && wb_cyc_i && !wb_we_i)? !rddatafifo_...  ==>  Assign @ line 158: assign wb_ack_o = (wb_stb_i && wb_cyc_i && wb_we_i)? !cmdfifo_full && !wrdatafifo_full : (wb_stb_i && wb_cyc_i && !wb_we_i)? !rddatafifo_...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b0->1'b1) -> Assign @ line 170: assign cmdfifo_wr = (wb_stb_i && wb_cyc_i && wb_we_i && !cmdfifo_full)? wb_ack_o : (wb_stb_i && wb_cyc_i && !wb_we_i && !cmdfifo_full)? !...  ==>  Assign @ line 170: assign cmdfifo_wr = (wb_stb_i && wb_cyc_i && wb_we_i && !cmdfifo_full)? wb_ack_o : (wb_stb_i && wb_cyc_i && !wb_we_i && !cmdfifo_full)? !...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sdrc_core.v"
+      ],
+      "log": "M_0004: applied. CSW(a2b_req_depth<->xfr_bank_sel) -> Instance @ line 340: u_bank_ctl ( .clk(clk), .reset_n(reset_n), .a2b_req_depth(cfg_req_depth), .r2b_req(r2b_req), .r2b_req_id(r2b_req_id), .r2b_start(r2b_star...  ==>  Instance @ line 340: u_bank_ctl ( .clk(clk), .reset_n(reset_n), .a2b_req_depth(xfr_bank_sel), .r2b_req(r2b_req), .r2b_req_id(r2b_req_id), .r2b_start(r2b_start...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0005: applied. CSW(wr_en<->full) -> Instance @ line 335: u_rddatafifo ( .wr_clk(sdram_clk), .wr_reset_n(sdram_resetn), .wr_en(rddatafifo_wr), .wr_data({ sdr_last_rd, sdr_rd_data }), .afull(), .f...  ==>  Instance @ line 335: u_rddatafifo ( .wr_clk(sdram_clk), .wr_reset_n(sdram_resetn), .wr_en(rddatafifo_full), .wr_data({ sdr_last_rd, sdr_rd_data }), .afull(), ...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0006: applied. CCW(0<->1) -> Concat @ line 340: { sdr_last_rd, sdr_rd_data }  ==>  Concat @ line 340: { sdr_rd_data, sdr_last_rd }",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0007: applied. CCW(1<->2) -> Concat @ line 234: { sdr_req_len, sdr_req_wr_n, sdr_req_addr }  ==>  Concat @ line 234: { sdr_req_len, sdr_req_addr, sdr_req_wr_n }",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0008: applied. CSW(wr_en<->full) -> Instance @ line 275: u_wrdatafifo ( .wr_clk(wb_clk_i), .wr_reset_n(!wb_rst_i), .wr_en(wrdatafifo_wr), .wr_data({ ~wb_sel_i, wb_dat_i }), .afull(), .full(wrdat...  ==>  Instance @ line 275: u_wrdatafifo ( .wr_clk(wb_clk_i), .wr_reset_n(!wb_rst_i), .wr_en(wrdatafifo_full), .wr_data({ ~wb_sel_i, wb_dat_i }), .afull(), .full(wrd...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0009: applied. CSW(wr_en<->full) -> Instance @ line 217: u_cmdfifo ( .wr_clk(wb_clk_i), .wr_reset_n(!wb_rst_i), .wr_en(cmdfifo_wr), .wr_data({ burst_length, !wb_we_i, wb_addr_i }), .afull(), .fu...  ==>  Instance @ line 217: u_cmdfifo ( .wr_clk(wb_clk_i), .wr_reset_n(!wb_rst_i), .wr_en(cmdfifo_full), .wr_data({ burst_length, !wb_we_i, wb_addr_i }), .afull(), ....",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0010: applied. CMC(false_only) -> Cond @ line 207: ((cmdfifo_wr && !wb_we_i)? 1'b1 : (wb_stb_i & wb_cyc_i & !wb_we_i & wb_ack_o)? 1'b0 : pending_read)  ==>  (cond removed)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 207: pending_read <= (cmdfifo_wr && !wb_we_i)? 1'b1 : (wb_stb_i & wb_cyc_i & !wb_we_i & wb_ack_o)? 1'b0 : pending_read;  ==>  NonblockingSubstitution @ line 207: pending_read <= (cmdfifo_wr && !wb_we_i)? 1'b1 : (wb_stb_i & wb_cyc_i & !wb_we_i & wb_ack_o)? 1'b1 : pending_read;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0012: applied. LOR(Land->Lor) -> Land @ line 171: (wb_stb_i && wb_cyc_i && !wb_we_i)  ==>  Lor @ line 0: (wb_stb_i && wb_cyc_i || !wb_we_i)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0013: applied. CMC(true_only) -> Cond @ line 208: ((wb_stb_i & wb_cyc_i & !wb_we_i & wb_ack_o)? 1'b0 : pending_read)  ==>  (cond removed)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0014: applied. LOR(Land->Lor) -> Land @ line 170: (wb_stb_i && wb_cyc_i && wb_we_i)  ==>  Lor @ line 0: (wb_stb_i && wb_cyc_i || wb_we_i)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0015: applied. CCW(0<->1) -> Concat @ line 292: { sdr_wr_en_n, sdr_wr_data }  ==>  Concat @ line 292: { sdr_wr_data, sdr_wr_en_n }",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0016: applied. CCW(0<->1) -> Concat @ line 352: { rd_eop, wb_dat_o }  ==>  Concat @ line 352: { wb_dat_o, rd_eop }",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0017: applied. CCW(0<->2) -> Concat @ line 222: { burst_length, !wb_we_i, wb_addr_i }  ==>  Concat @ line 222: { wb_addr_i, !wb_we_i, burst_length }",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0018: applied. LOR(And->Or) -> And @ line 208: (wb_stb_i & wb_cyc_i & !wb_we_i & wb_ack_o)  ==>  Or @ line 0: (wb_stb_i & wb_cyc_i & !wb_we_i | wb_ack_o)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb2sdrc.v"
+      ],
+      "log": "M_0019: applied. CMC(true_only) -> Cond @ line 171: ((wb_stb_i && wb_cyc_i && !wb_we_i && !cmdfifo_full)? !pending_read : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

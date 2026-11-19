@@ -1,0 +1,182 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "aes_cipher_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wo_1<->wo_3) -> Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w1), .wo_2(w2), .wo_3(w3) )  ==>  Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w3), .wo_2(w2), .wo_3(w1) )",
+      "target_line": 154
+    },
+    {
+      "changed_rtl_files": [
+        "aes_cipher_top.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 240: text_out[023:016]  ==>  Partselect @ line 240: text_out[111:104]",
+      "target_line": 240
+    },
+    {
+      "changed_rtl_files": [
+        "aes_cipher_top.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 144: text_in_r[103:096]  ==>  Partselect @ line 144: text_in_r[31:24]",
+      "target_line": 144
+    },
+    {
+      "changed_rtl_files": [
+        "aes_cipher_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 122: (!(|dcnt[3:1]) & dcnt[0] & !ld)  ==>  Or @ line 0: (!(|dcnt[3:1]) & dcnt[0] | !ld)",
+      "target_line": 122
+    },
+    {
+      "changed_rtl_files": [
+        "gfm128_16.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(82->81) -> Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[82] & b_in[11] ^ v_in[81] & b_in[...  ==>  Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[81] & b_in[11] ^ v_in[81] & b_in[...",
+      "target_line": 207
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "aes_cipher_top.v",
+      "target_line": 122,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 122: (!(|dcnt[3:1]) & dcnt[0] & !ld)  ==>  Or @ line 0: (!(|dcnt[3:1]) & dcnt[0] | !ld)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 56,
+        "target_line": 122
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "aes_cipher_top.v",
+      "target_line": 144,
+      "mutation_log": "applied. DIE -> Partselect @ line 144: text_in_r[103:096]  ==>  Partselect @ line 144: text_in_r[31:24]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 101,
+        "target_line": 144
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "aes_cipher_top.v",
+      "target_line": 154,
+      "mutation_log": "applied. CSW(wo_1<->wo_3) -> Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w1), .wo_2(w2), .wo_3(w3) )  ==>  Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w3), .wo_2(w2), .wo_3(w1) )",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "aes_cipher_top.v",
+      "target_line": 240,
+      "mutation_log": "applied. DIE -> Partselect @ line 240: text_out[023:016]  ==>  Partselect @ line 240: text_out[111:104]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 298,
+        "target_line": 240
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "gfm128_16.v",
+      "target_line": 207,
+      "mutation_log": "applied. AVC(82->81) -> Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[82] & b_in[11] ^ v_in[81] & b_in[...  ==>  Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[81] & b_in[11] ^ v_in[81] & b_in[...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 43,
+            "base_end": 306,
+            "matched_start": 43,
+            "matched_end": 306
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl/aes_cipher_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl/aes_key_expand_128.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl/aes_rcon.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl/aes_sbox.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl/gcm_aes_v0.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/merged_buggy_rtl/gfm128_16.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wo_1<->wo_3) -> Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w1), .wo_2(w2), .wo_3(w3) )  ==>  Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w3), .wo_2(w2), .wo_3(w1) )",
+      "operator": "CSW",
+      "target_module": "aes_cipher_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/include/aes_cipher_top.v",
+      "target_signal": "clk",
+      "target_signal_id": "aes_cipher_top.clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 122: (!(|dcnt[3:1]) & dcnt[0] & !ld)  ==>  Or @ line 0: (!(|dcnt[3:1]) & dcnt[0] | !ld)",
+      "operator": "LOR",
+      "target_module": "aes_cipher_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/include/aes_cipher_top.v",
+      "target_signal": "ld",
+      "target_signal_id": "aes_cipher_top.ld"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 144: text_in_r[103:096]  ==>  Partselect @ line 144: text_in_r[31:24]",
+      "operator": "DIE",
+      "target_module": "aes_cipher_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/include/aes_cipher_top.v",
+      "target_signal": "text_in",
+      "target_signal_id": "aes_cipher_top.text_in"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 240: text_out[023:016]  ==>  Partselect @ line 240: text_out[111:104]",
+      "operator": "DIE",
+      "target_module": "aes_cipher_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/include/aes_cipher_top.v",
+      "target_signal": "text_out",
+      "target_signal_id": "aes_cipher_top.text_out"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(82->81) -> Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[82] & b_in[11] ^ v_in[81] & b_in[...  ==>  Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[81] & b_in[11] ^ v_in[81] & b_in[...",
+      "operator": "AVC",
+      "target_module": "gfm128_16",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/include/gfm128_16.v",
+      "target_signal": "b_in",
+      "target_signal_id": "gfm128_16.b_in"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/mutations",
+  "top_module": "gcm_aes_v0",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0004",
+        "rtl_name": "gfm128_16.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g/buggy_artifacts/consensus_merge_report"
+}

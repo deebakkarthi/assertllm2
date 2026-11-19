@@ -1,0 +1,322 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "int_ctrl.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(11->9) -> BlockingSubstitution @ line 100: sys_interrupt_source_o = 11;  ==>  BlockingSubstitution @ line 100: sys_interrupt_source_o = 9;",
+      "target_line": 100
+    },
+    {
+      "changed_rtl_files": [
+        "int_ctrl.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 47: (sys_reset_i == 1)  ==>  NotEq @ line 0: (sys_reset_i != 1)",
+      "target_line": 47
+    },
+    {
+      "changed_rtl_files": [
+        "rst_ctrl.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 986: begin cluster_cken_o <= 0; cmp_grst_o <= 0; cmp_arst_o <= 0; ctu_tst_pre_grst_o <= 0; adbginit_o <= 0; gdbginit_o <= 0; sys_reset_final_o...  ==>  Block @ line 986: begin cluster_cken_o <= 1; cmp_grst_o <= 1; cmp_arst_o <= 1; ctu_tst_pre_grst_o <= 1; adbginit_o <= 1; gdbginit_o <= 1; sys_reset_final_o...",
+      "target_line": 986
+    },
+    {
+      "changed_rtl_files": [
+        "sparc.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(so<->adbginit_l) -> Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(scan0_7), .adbginit_l(adbginit_l), .arst_l(cmp_arst_l)...  ==>  Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(adbginit_l), .adbginit_l(scan0_7), .arst_l(cmp_arst_l)...",
+      "target_line": 5243
+    },
+    {
+      "changed_rtl_files": [
+        "sparc.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 3627: ctu_sscan_tid[3:0]  ==>  Partselect @ line 3627: ctu_sscan_tid[0:0]",
+      "target_line": 3627
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "int_ctrl.v",
+      "target_line": 47,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 47: (sys_reset_i == 1)  ==>  NotEq @ line 0: (sys_reset_i != 1)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 46,
+            "base_end": 110,
+            "matched_start": 46,
+            "matched_end": 110
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "int_ctrl.v",
+      "target_line": 100,
+      "mutation_log": "applied. AVC(11->9) -> BlockingSubstitution @ line 100: sys_interrupt_source_o = 11;  ==>  BlockingSubstitution @ line 100: sys_interrupt_source_o = 9;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 99,
+        "target_line": 100
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "rst_ctrl.v",
+      "target_line": 986,
+      "mutation_log": "applied. SMC -> Block @ line 986: begin cluster_cken_o <= 0; cmp_grst_o <= 0; cmp_arst_o <= 0; ctu_tst_pre_grst_o <= 0; adbginit_o <= 0; gdbginit_o <= 0; sys_reset_final_o...  ==>  Block @ line 986: begin cluster_cken_o <= 1; cmp_grst_o <= 1; cmp_arst_o <= 1; ctu_tst_pre_grst_o <= 1; adbginit_o <= 1; gdbginit_o <= 1; sys_reset_final_o...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 166,
+            "base_end": 166,
+            "matched_start": 166,
+            "matched_end": 166
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sparc.v",
+      "target_line": 3627,
+      "mutation_log": "applied. DIE -> Partselect @ line 3627: ctu_sscan_tid[3:0]  ==>  Partselect @ line 3627: ctu_sscan_tid[0:0]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 3626,
+        "target_line": 3627
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sparc.v",
+      "target_line": 5243,
+      "mutation_log": "applied. CSW(so<->adbginit_l) -> Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(scan0_7), .adbginit_l(adbginit_l), .arst_l(cmp_arst_l)...  ==>  Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(adbginit_l), .adbginit_l(scan0_7), .arst_l(cmp_arst_l)...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 5132,
+        "line_b": 5249,
+        "token_a": "so",
+        "token_b": "adbginit_l"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_clk_cl_sparc_cmp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_dcd.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_frf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_icd.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_idct.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_irf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_irf_register.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_rf16x160.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_rf16x32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_rf32x152b.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_rf32x80.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_scm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/bw_r_tlb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/cluster_header.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/cmp_sram_redhdr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/cpx_spc_buf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/cpx_spc_rpt.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/int_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_asi_decode.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_dc_parity_gen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_dcache_lfsr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_dcdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_dctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_dctldp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_excpctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_pcx_qmon.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_qctl1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_qctl2.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_qdp1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_qdp2.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_rrobin_picker2.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_stb_ctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_stb_ctldp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_stb_rwctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_stb_rwdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_tagdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/lsu_tlbdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/m1_lib.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/mul64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/rst_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/s1_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_alu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_alu_16eql.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_aluadder64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_aluaddsub.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_alulogic.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_aluor32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_aluspr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_aluzcmp64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_byp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_byp_eccgen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_div.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_div_32eql.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_div_yreg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecc_dec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecl_cnt6.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecl_divcntl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecl_eccctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecl_mdqctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_ecl_wb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_eclbyplog.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_eclbyplog_rs1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_eclccr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_eclcomp7.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_reg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_rml.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_rml_cwp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_rml_inc3.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_rndrob.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_exu_shft.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ffu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ffu_ctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ffu_ctl_visctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ffu_dp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ffu_part_add32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ffu_vis.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_cmp35.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_ctr5.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_dcl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_dec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_errctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_errdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_fcl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_fdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_ifqctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_ifqdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_imd.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_incr46.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_invctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_lfsr5.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_lru4.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_mbist.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_milfsm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_par16.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_par32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_par34.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_rndrob.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_sscan.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_swl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_swpla.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_thrcmpl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_thrfsm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_ifu_wseldp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_mul_cntl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_mul_dp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_mul_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_tlu_dec64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_tlu_intctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_tlu_intdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_tlu_penc64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/sparc_tlu_zcmp64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/spc2wbm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/swrvr_clib.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/swrvr_dlib.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/synchronizer_asr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/test_stub_bist.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/test_stub_scan.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_addern_32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_hyperv.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_incr64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_misctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_mmu_ctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_mmu_dp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_pib.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_prencoder16.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_rrobin_picker.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_tcl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/tlu_tdp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/merged_buggy_rtl/u1_lib.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(11->9) -> BlockingSubstitution @ line 100: sys_interrupt_source_o = 11;  ==>  BlockingSubstitution @ line 100: sys_interrupt_source_o = 9;",
+      "operator": "AVC",
+      "target_module": "int_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/s1_core/include/int_ctrl.v",
+      "target_signal": "sys_interrupt_source_o",
+      "target_signal_id": "int_ctrl.sys_interrupt_source_o"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 47: (sys_reset_i == 1)  ==>  NotEq @ line 0: (sys_reset_i != 1)",
+      "operator": "LOR",
+      "target_module": "int_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/s1_core/include/int_ctrl.v",
+      "target_signal": "sys_reset_i",
+      "target_signal_id": "int_ctrl.sys_reset_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 986: begin cluster_cken_o <= 0; cmp_grst_o <= 0; cmp_arst_o <= 0; ctu_tst_pre_grst_o <= 0; adbginit_o <= 0; gdbginit_o <= 0; sys_reset_final_o...  ==>  Block @ line 986: begin cluster_cken_o <= 1; cmp_grst_o <= 1; cmp_arst_o <= 1; ctu_tst_pre_grst_o <= 1; adbginit_o <= 1; gdbginit_o <= 1; sys_reset_final_o...",
+      "operator": "SMC",
+      "target_module": "rst_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/s1_core/include/rst_ctrl.v",
+      "target_signal": "cluster_cken_o",
+      "target_signal_id": "rst_ctrl.cluster_cken_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(so<->adbginit_l) -> Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(scan0_7), .adbginit_l(adbginit_l), .arst_l(cmp_arst_l)...  ==>  Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(adbginit_l), .adbginit_l(scan0_7), .arst_l(cmp_arst_l)...",
+      "operator": "CSW",
+      "target_module": "sparc",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/s1_core/include/sparc.v",
+      "target_signal": "cmp_arst_l",
+      "target_signal_id": "sparc.cmp_arst_l"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 3627: ctu_sscan_tid[3:0]  ==>  Partselect @ line 3627: ctu_sscan_tid[0:0]",
+      "operator": "DIE",
+      "target_module": "sparc",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/s1_core/include/sparc.v",
+      "target_signal": "ctu_sscan_tid",
+      "target_signal_id": "sparc.ctu_sscan_tid"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/s1_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/s1_core/mutations",
+  "top_module": "s1_top",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0002",
+        "rtl_name": "rst_ctrl.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/s1_core/buggy_artifacts/consensus_merge_report"
+}

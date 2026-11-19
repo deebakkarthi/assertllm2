@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/datetime",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/edge_det.v"
+      ],
+      "log": "M_0000: applied. LOR(And->Or) -> And @ line 46: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sync2s.v"
+      ],
+      "log": "M_0001: applied. AVC(1->0) -> Assign @ line 16: assign o = s[1];  ==>  Assign @ line 16: assign o = s[0];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0002: applied. CSW(ce<->i) -> Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(tods), .pe(tod_edge), .ne(), .ee() )  ==>  Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(tods), .i(1'b1), .pe(tod_edge), .ne(), .ee() )",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0003: applied. AVC(64'd0->64'd1) -> NonblockingSubstitution @ line 344: dat_o <= 64'd0;  ==>  NonblockingSubstitution @ line 344: dat_o <= 64'd1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0004: applied. DMO -> Pointer @ line 314: sel_i[6]  ==>  Pointer @ line 314: sel_i[1] (new index=1)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0005: applied. AVC(2'b00->2'b10) -> BlockingSubstitution @ line 242: tod_freq = 2'b00;  ==>  BlockingSubstitution @ line 242: tod_freq = 2'b10;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0006: applied. AVC(1'b0->1'b1) -> Assign @ line 201: assign ack_o = (cs)? (we_i)? 1'b1 : ack1 : 1'b0;  ==>  Assign @ line 201: assign ack_o = (cs)? (we_i)? 1'b1 : ack1 : 1'b1;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/edge_det.v"
+      ],
+      "log": "M_0007: applied. LOR(And->Or) -> And @ line 45: (~ed & i)  ==>  Or @ line 0: (~ed | i)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0008: applied. LOR(Land->Lor) -> Land @ line 196: (cyc_i && stb_i)  ==>  Lor @ line 0: (cyc_i || stb_i)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0009: applied. AVC(5->4) -> Assign @ line 196: assign cs = cyc_i && stb_i && (adr_i[23:5] == pIOAddress[23:5]);  ==>  Assign @ line 196: assign cs = cyc_i && stb_i && (adr_i[23:4] == pIOAddress[23:5]);",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sync2s.v"
+      ],
+      "log": "M_0010: applied. CCW(0<->1) -> Concat @ line 14: { s[0], i }  ==>  Concat @ line 14: { i, s[0] }",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0011: applied. DIE -> Partselect @ line 322: dat_i[10:9]  ==>  Partselect @ line 322: dat_i[54:53]",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0012: applied. AVC(5'b0->5'b00001) -> NonblockingSubstitution @ line 339: dat_o <= { mars, 5'b0, tod_freq, tod_en, alarm_care };  ==>  NonblockingSubstitution @ line 339: dat_o <= { mars, 5'b00001, tod_freq, tod_en, alarm_care };",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0013: applied. DMO -> Pointer @ line 299: sel_i[2]  ==>  Pointer @ line 299: sel_i[7] (new index=7)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0014: applied. CSE(2'd0<->2'd2) -> CaseStatement @ line 294: case(adr_i[4:3]) 2'd0: begin if(sel_i[0]) begin jiffyL <= dat_i[3:0]; jiffyH <= dat_i[7:4]; end if(sel_i[1]) begin secL <= dat_i[3:0]; se...  ==>  CaseStatement @ line 294: case(adr_i[4:3]) 2'd2: begin if(sel_i[0]) begin jiffyL <= dat_i[3:0]; jiffyH <= dat_i[7:4]; end if(sel_i[1]) begin secL <= dat_i[3:0]; se...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0015: applied. CMC(false_only) -> Cond @ line 201: ((we_i)? 1'b1 : ack1)  ==>  (cond removed)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0016: applied. DMO -> Pointer @ line 324: dat_i[16]  ==>  Pointer @ line 324: dat_i[9] (new index=9)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0017: applied. LOR(Eq->NotEq) -> Eq @ line 86: (tod_freq == 2'b01)  ==>  NotEq @ line 0: (tod_freq != 2'b01)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0018: applied. DMO -> Pointer @ line 321: dat_i[8]  ==>  Pointer @ line 321: dat_i[9] (new index=9)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "Datetime.v"
+      ],
+      "log": "M_0019: applied. DMO -> Pointer @ line 308: sel_i[0]  ==>  Pointer @ line 308: sel_i[3] (new index=3)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

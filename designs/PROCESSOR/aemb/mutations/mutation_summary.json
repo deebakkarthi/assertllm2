@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/aemb",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0000: applied. LOR(Or->And) -> Or @ line 99: (dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i)  ==>  And @ line 0: ((dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i) & !iwb_ack_i)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0001: applied. CSW(fsl_adr_o<->rRB) -> Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(fsl_adr_o[6:2]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESUL...  ==>  Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(rRB[4:0]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESULT[31:0...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0002: applied. DIE -> Partselect @ line 210: dwb_sel_o[3:0]  ==>  Partselect @ line 210: dwb_sel_o[0:0]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0003: applied. CSW(rREGA<->rRESULT) -> Instance @ line 180: regf ( .rREGA(rREGA[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC(r...  ==>  Instance @ line 180: regf ( .rREGA(rRESULT[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0004: applied. LOR(And->Or) -> And @ line 98: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) & !rSTALL)  ==>  Or @ line 0: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) | !rSTALL)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0005: applied. DIE -> Partselect @ line 120: iwb_dat_i[31:0]  ==>  Partselect @ line 120: iwb_dat_i[0:0]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0006: applied. DIE -> Partselect @ line 187: fsl_dat_o[31:0]  ==>  Partselect @ line 187: fsl_dat_o[0:0]",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0007: applied. CSW(rRW<->rRD) -> Instance @ line 128: ctrl ( .rMXDST(rMXDST[1:0]), .rMXSRC(rMXSRC[1:0]), .rMXTGT(rMXTGT[1:0]), .rMXALT(rMXALT[1:0]), .rMXALU(rMXALU[2:0]), .rRW(rRW[4:0]), .dwb...  ==>  Instance @ line 128: ctrl ( .rMXDST(rMXDST[1:0]), .rMXSRC(rMXSRC[1:0]), .rMXTGT(rMXTGT[1:0]), .rMXALT(rMXALT[1:0]), .rMXALU(rMXALU[2:0]), .rRW(rRD[4:0]), .dwb...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0008: applied. CSW(rBRA<->gena) -> Instance @ line 160: bpcu ( .iwb_adr_o(iwb_adr_o[IW-1:2]), .rPC(rPC[31:2]), .rPCLNK(rPCLNK[31:2]), .rBRA(rBRA), .rDLY(rDLY), .rMXALT(rMXALT[1:0]), .rOPC(rOPC[...  ==>  Instance @ line 160: bpcu ( .iwb_adr_o(iwb_adr_o[IW-1:2]), .rPC(rPC[31:2]), .rPCLNK(rPCLNK[31:2]), .rBRA(gena), .rDLY(rDLY), .rMXALT(rMXALT[1:0]), .rOPC(rOPC[...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "aeMB_core.v"
+      ],
+      "log": "M_0009: applied. CSW(dwb_wre_o<->fsl_wre_o) -> Instance @ line 107: edk32 ( .dwb_adr_o(dwb_adr_o[DSIZ-1:2]), .dwb_dat_o(dwb_dat_o[31:0]), .dwb_sel_o(dwb_sel_o[3:0]), .dwb_stb_o(dwb_stb_o), .dwb_wre_o(dwb_w...  ==>  Instance @ line 107: edk32 ( .dwb_adr_o(dwb_adr_o[DSIZ-1:2]), .dwb_dat_o(dwb_dat_o[31:0]), .dwb_sel_o(dwb_sel_o[3:0]), .dwb_stb_o(dwb_stb_o), .dwb_wre_o(fsl_w...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "aeMB_core.v"
+      ],
+      "log": "M_0010: applied. DIE -> Partselect @ line 118: fsl_tag_o[1:0]  ==>  Partselect @ line 118: fsl_tag_o[0:0]",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0011: applied. CSW(rRA<->rRB) -> Instance @ line 103: ibuf ( .rIMM(rIMM[15:0]), .rRA(rRA[4:0]), .rRD(rRD[4:0]), .rRB(rRB[4:0]), .rALT(rALT[10:0]), .rOPC(rOPC[5:0]), .rSIMM(rSIMM[31:0]), .xIRE...  ==>  Instance @ line 103: ibuf ( .rIMM(rIMM[15:0]), .rRA(rRB[4:0]), .rRD(rRD[4:0]), .rRB(rRA[4:0]), .rALT(rALT[10:0]), .rOPC(rOPC[5:0]), .rSIMM(rSIMM[31:0]), .xIRE...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0012: applied. DMI -> Partselect @ line 211: fsl_adr_o[6:2];  ==>  Partselect @ line 211: fsl_adr_o[3:2];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "aeMB_core.v"
+      ],
+      "log": "M_0013: applied. DMI -> Partselect @ line 115: fsl_adr_o[6:2];  ==>  Partselect @ line 115: fsl_adr_o[3:2];",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0014: applied. DIE -> Partselect @ line 200: dwb_dat_i[31:0]  ==>  Partselect @ line 200: dwb_dat_i[0:0]",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0015: applied. DIE -> Partselect @ line 201: fsl_dat_i[31:0]  ==>  Partselect @ line 201: fsl_dat_i[0:0]",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aeMB_edk32.v"
+      ],
+      "log": "M_0016: applied. DIE -> Partselect @ line 212: fsl_tag_o[1:0]  ==>  Partselect @ line 212: fsl_tag_o[0:0]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "aeMB_core.v"
+      ],
+      "log": "M_0017: applied. DIE -> Partselect @ line 124: dwb_dat_i[31:0]  ==>  Partselect @ line 124: dwb_dat_i[0:0]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "aeMB_core.v"
+      ],
+      "log": "M_0018: applied. DIE -> Partselect @ line 111: dwb_dat_o[31:0]  ==>  Partselect @ line 111: dwb_dat_o[0:0]",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "aeMB_core.v"
+      ],
+      "log": "M_0019: applied. DIE -> Partselect @ line 126: fsl_dat_i[31:0]  ==>  Partselect @ line 126: fsl_dat_i[0:0]",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

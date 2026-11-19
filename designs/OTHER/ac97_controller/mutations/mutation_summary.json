@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/ac97_controller",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/ac97_cra.v"
+      ],
+      "log": "M_0000: applied. AVC(16'h0->16'h2) -> NonblockingSubstitution @ line 298: crac_din <= #1 16'h0;  ==>  NonblockingSubstitution @ line 298: crac_din <= #1 16'h2;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_cra.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 316: (crac_we_r & !crac_out[31])  ==>  Or @ line 0: (crac_we_r | !crac_out[31])",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_cra.v"
+      ],
+      "log": "M_0002: applied. DIE -> Partselect @ line 289: out_slt1[11:0]  ==>  Partselect @ line 289: out_slt1[19:8]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_cra.v"
+      ],
+      "log": "M_0003: applied. DIE -> Partselect @ line 293: out_slt2[3:0]  ==>  Partselect @ line 293: out_slt2[19:16]",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_dma_if.v"
+      ],
+      "log": "M_0004: applied. CSW(dma_req<->dma_ack) -> Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_req[0]), .dma_ack(dma_ack[0]) )  ==>  Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_ack[0]), .dma_ack(dma_req[0]) )",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_int.v"
+      ],
+      "log": "M_0005: applied. DIE -> Partselect @ line 270: cfg[5:4]  ==>  Partselect @ line 270: cfg[3:2]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_int.v"
+      ],
+      "log": "M_0006: applied. AVC(0->1) -> NonblockingSubstitution @ line 277: int_set[0] <= #1 cfg[0] & full_empty;  ==>  NonblockingSubstitution @ line 277: int_set[0] <= #1 cfg[1] & full_empty;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_int.v"
+      ],
+      "log": "M_0007: applied. AVC(2'h3->2'h1) -> NonblockingSubstitution @ line 276: int_set[0] <= #1 cfg[0] & (full_empty | (status < 2'h3));  ==>  NonblockingSubstitution @ line 276: int_set[0] <= #1 cfg[0] & (full_empty | (status < 2'h1));",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_int.v"
+      ],
+      "log": "M_0008: applied. CSE(2'h3<->2'h0) -> CaseStatement @ line 270: case(cfg[5:4]) 2'h2: int_set[0] <= #1 cfg[0] & (full_empty | (status == 2'h0)); 2'h1: int_set[0] <= #1 cfg[0] & (full_empty | (status[1] ...  ==>  CaseStatement @ line 270: case(cfg[5:4]) 2'h2: int_set[0] <= #1 cfg[0] & (full_empty | (status == 2'h0)); 2'h1: int_set[0] <= #1 cfg[0] & (full_empty | (status[1] ...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_prc.v"
+      ],
+      "log": "M_0009: applied. DMO -> Pointer @ line 468: ic1_cfg[0]  ==>  Pointer @ line 468: ic1_cfg[4] (new index=4)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sout.v"
+      ],
+      "log": "M_0010: applied. DIE -> Partselect @ line 304: slt2_r[18:0]  ==>  Partselect @ line 304: slt2_r[19:1]",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sout.v"
+      ],
+      "log": "M_0011: applied. CCW(0<->1) -> Concat @ line 304: { slt2_r[18:0], slt3_r[19] }  ==>  Concat @ line 304: { slt3_r[19], slt2_r[18:0] }",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_dma_if.v"
+      ],
+      "log": "M_0012: applied. DMO -> Pointer @ line 284: dma_req[0]  ==>  Pointer @ line 284: dma_req[1] (new index=1)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_dma_if.v"
+      ],
+      "log": "M_0013: applied. CSW(dma_req<->dma_ack) -> Instance @ line 347: u6 ( .clk(clk), .rst(rst), .cfg(ic0_cfg), .status(i3_status), .full_empty(i3_full), .dma_req(dma_req[6]), .dma_ack(dma_ack[6]) )  ==>  Instance @ line 347: u6 ( .clk(clk), .rst(rst), .cfg(ic0_cfg), .status(i3_status), .full_empty(i3_full), .dma_req(dma_ack[6]), .dma_ack(dma_req[6]) )",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_int.v"
+      ],
+      "log": "M_0014: applied. LOR(And->Or) -> And @ line 283: (empty & re)  ==>  Or @ line 0: (empty | re)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sin.v"
+      ],
+      "log": "M_0015: applied. AVC(0->1) -> NonblockingSubstitution @ line 305: sr <= #1 { sr[18:0], sdata_in_r };  ==>  NonblockingSubstitution @ line 305: sr <= #1 { sr[18:1], sdata_in_r };",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sout.v"
+      ],
+      "log": "M_0016: applied. AVC(15->17) -> Assign @ line 292: assign sdata_out = slt0_r[15];  ==>  Assign @ line 292: assign sdata_out = slt0_r[13];",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sout.v"
+      ],
+      "log": "M_0017: applied. DIE -> Partselect @ line 344: slt12_r[18:0]  ==>  Partselect @ line 344: slt12_r[19:1]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sout.v"
+      ],
+      "log": "M_0018: applied. AVC(0->1) -> NonblockingSubstitution @ line 300: slt1_r <= #1 { slt1_r[18:0], slt2_r[19] };  ==>  NonblockingSubstitution @ line 300: slt1_r <= #1 { slt1_r[18:1], slt2_r[19] };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ac97_sout.v"
+      ],
+      "log": "M_0019: applied. DMO -> Pointer @ line 304: slt3_r[19]  ==>  Pointer @ line 304: slt3_r[10] (new index=10)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

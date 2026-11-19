@@ -1,0 +1,327 @@
+
+
+module vga_enh_top
+(
+  wb_clk_i,
+  wb_rst_i,
+  rst_i,
+  wb_inta_o,
+  wbs_adr_i,
+  wbs_dat_i,
+  wbs_dat_o,
+  wbs_sel_i,
+  wbs_we_i,
+  wbs_stb_i,
+  wbs_cyc_i,
+  wbs_ack_o,
+  wbs_rty_o,
+  wbs_err_o,
+  wbm_adr_o,
+  wbm_dat_i,
+  wbm_cti_o,
+  wbm_bte_o,
+  wbm_sel_o,
+  wbm_we_o,
+  wbm_stb_o,
+  wbm_cyc_o,
+  wbm_ack_i,
+  wbm_err_i,
+  clk_p_i,
+  clk_p_o,
+  hsync_pad_o,
+  vsync_pad_o,
+  csync_pad_o,
+  blank_pad_o,
+  r_pad_o,
+  g_pad_o,
+  b_pad_o
+);
+
+  parameter ARST_LVL = 1'b0;
+  parameter LINE_FIFO_AWIDTH = 7;
+  input wb_clk_i;
+  input wb_rst_i;
+  input rst_i;
+  output wb_inta_o;
+  input [11:0] wbs_adr_i;
+  input [31:0] wbs_dat_i;
+  output [31:0] wbs_dat_o;
+  input [3:0] wbs_sel_i;
+  input wbs_we_i;
+  input wbs_stb_i;
+  input wbs_cyc_i;
+  output wbs_ack_o;
+  output wbs_rty_o;
+  output wbs_err_o;
+  output [31:0] wbm_adr_o;
+  input [31:0] wbm_dat_i;
+  output [3:0] wbm_sel_o;
+  output wbm_we_o;
+  output wbm_stb_o;
+  output wbm_cyc_o;
+  output [2:0] wbm_cti_o;
+  output [1:0] wbm_bte_o;
+  input wbm_ack_i;
+  input wbm_err_i;
+  input clk_p_i;
+  output clk_p_o;
+  output hsync_pad_o;
+  output vsync_pad_o;
+  output csync_pad_o;
+  output blank_pad_o;
+  output [7:0] r_pad_o;output [7:0] g_pad_o;output [7:0] b_pad_o;
+  wire arst;assign arst = rst_i ^ ARST_LVL;
+  wire ctrl_bl;wire ctrl_csl;wire ctrl_vsl;wire ctrl_hsl;wire ctrl_pc;wire ctrl_cbsw;wire ctrl_vbsw;wire ctrl_ven;
+  wire [1:0] ctrl_cd;wire [1:0] ctrl_vbl;wire [1:0] ctrl_dvi_odf;
+  wire [7:0] Thsync;wire [7:0] Thgdel;wire [7:0] Tvsync;wire [7:0] Tvgdel;
+  wire [15:0] Thgate;wire [15:0] Thlen;wire [15:0] Tvgate;wire [15:0] Tvlen;
+  wire [31:2] VBARa;wire [31:2] VBARb;
+  wire [8:0] cursor_adr;
+  wire [31:0] cursor0_xy;wire [31:0] cursor1_xy;
+  wire cursor0_en;wire cursor1_en;
+  wire [31:11] cursor0_ba;wire [31:11] cursor1_ba;
+  wire cursor0_ld;wire cursor1_ld;
+  wire cursor0_res;wire cursor1_res;
+  wire [15:0] cc0_dat_o;wire [15:0] cc1_dat_o;
+  wire stat_avmp;wire stat_acmp;wire vmem_swint;wire clut_swint;wire hint;wire vint;wire sint;
+  wire wmb_busy;
+  reg luint;
+  wire [3:0] cc0_adr_i;wire [3:0] cc1_adr_i;
+  wire fb_data_fifo_rreq;wire fb_data_fifo_empty;
+  wire [31:0] fb_data_fifo_q;
+  wire ImDoneFifoQ;
+  wire line_fifo_wreq;wire line_fifo_rreq;wire line_fifo_empty_rd;
+  wire [23:0] line_fifo_d;wire [23:0] line_fifo_q;
+  wire ext_clut_req;wire ext_clut_ack;
+  wire [23:0] ext_clut_q;
+  wire cp_clut_req;wire cp_clut_ack;
+  wire [8:0] cp_clut_adr;
+  wire [23:0] cp_clut_q;
+
+  vga_wb_slave
+  wbs
+  (
+    .clk_i(wb_clk_i),
+    .rst_i(wb_rst_i),
+    .arst_n(arst),
+    .adr_i(wbs_adr_i[11:2]),
+    .dat_i(wbs_dat_i),
+    .dat_o(wbs_dat_o),
+    .sel_i(wbs_sel_i),
+    .we_i(wbs_we_i),
+    .stb_i(wbs_stb_i),
+    .cyc_i(wbs_cyc_i),
+    .ack_o(wbs_ack_o),
+    .rty_o(wbs_rty_o),
+    .err_o(wbs_err_o),
+    .inta_o(wb_inta_o),
+    .wbm_busy(wbm_busy),
+    .dvi_odf(ctrl_dvi_odf),
+    .bl(ctrl_bl),
+    .csl(ctrl_csl),
+    .vsl(ctrl_vsl),
+    .hsl(ctrl_hsl),
+    .pc(ctrl_pc),
+    .cd(ctrl_cd),
+    .vbl(ctrl_vbl),
+    .cbsw(ctrl_cbsw),
+    .vbsw(ctrl_vbsw),
+    .ven(ctrl_ven),
+    .acmp(stat_acmp),
+    .avmp(stat_avmp),
+    .cursor0_res(cursor0_res),
+    .cursor0_en(cursor0_en),
+    .cursor0_xy(cursor0_xy),
+    .cursor0_ba(cursor0_ba),
+    .cursor0_ld(cursor0_ld),
+    .cc0_adr_i(cc0_adr_i),
+    .cc0_dat_o(cc0_dat_o),
+    .cursor1_res(cursor1_res),
+    .cursor1_en(cursor1_en),
+    .cursor1_xy(cursor1_xy),
+    .cursor1_ba(cursor1_ba),
+    .cursor1_ld(cursor1_ld),
+    .cc1_adr_i(cc1_adr_i),
+    .cc1_dat_o(cc1_dat_o),
+    .vbsint_in(vmem_swint),
+    .cbsint_in(clut_swint),
+    .hint_in(hint),
+    .vint_in(vint),
+    .luint_in(luint),
+    .sint_in(sint),
+    .Thsync(Thsync),
+    .Thgdel(Thgdel),
+    .Thgate(Thgate),
+    .Thlen(Thlen),
+    .Tvsync(Tvsync),
+    .Tvgdel(Tvgdel),
+    .Tvgate(Tvgate),
+    .Tvlen(Tvlen),
+    .VBARa(VBARa),
+    .VBARb(VBARb),
+    .clut_acc(ext_clut_req),
+    .clut_ack(ext_clut_ack),
+    .clut_q(ext_clut_q)
+  );
+
+
+  vga_wb_master
+  wbm
+  (
+    .clk_i(wb_clk_i),
+    .rst_i(wb_rst_i),
+    .nrst_n(arst),
+    .cyc_o(wbm_cyc_o),
+    .stb_o(wbm_stb_o),
+    .cti_o(wbm_cti_o),
+    .bte_o(wbm_bte_o),
+    .we_o(wbm_we_o),
+    .adr_o(wbm_adr_o),
+    .sel_o(wbm_sel_o),
+    .ack_i(wbm_ack_i),
+    .err_i(wbm_err_i),
+    .dat_i(wbm_dat_i),
+    .sint(sint),
+    .ctrl_ven(ctrl_ven),
+    .ctrl_cd(ctrl_cd),
+    .ctrl_vbl(ctrl_vbl),
+    .ctrl_vbsw(ctrl_vbsw),
+    .busy(wbm_busy),
+    .VBAa(VBARa),
+    .VBAb(VBARb),
+    .Thgate(Thgate),
+    .Tvgate(Tvgate),
+    .stat_avmp(stat_avmp),
+    .vmem_switch(vmem_swint),
+    .ImDoneFifoQ(ImDoneFifoQ),
+    .cursor_adr(cursor_adr),
+    .cursor0_ba(cursor0_ba),
+    .cursor0_ld(cursor0_ld),
+    .cursor1_ba(cursor1_ba),
+    .cursor1_ld(cursor1_ld),
+    .fb_data_fifo_rreq(fb_data_fifo_rreq),
+    .fb_data_fifo_q(fb_data_fifo_q),
+    .fb_data_fifo_empty(fb_data_fifo_empty)
+  );
+
+
+  vga_csm_pb
+  #(
+    24,
+    9
+  )
+  clut_mem
+  (
+    .clk_i(wb_clk_i),
+    .req0_i(cp_clut_req),
+    .ack0_o(cp_clut_ack),
+    .adr0_i(cp_clut_adr),
+    .dat0_i(24'h0),
+    .dat0_o(cp_clut_q),
+    .we0_i(1'b0),
+    .req1_i(ext_clut_req),
+    .ack1_o(ext_clut_ack),
+    .adr1_i(wbs_adr_i[10:2]),
+    .dat1_i(wbs_dat_i[23:0]),
+    .dat1_o(ext_clut_q),
+    .we1_i(wbs_we_i)
+  );
+
+
+  vga_pgen
+  pixel_generator
+  (
+    .clk_i(wb_clk_i),
+    .ctrl_ven(ctrl_ven),
+    .ctrl_HSyncL(ctrl_pc),
+    .Thsync(Thsync),
+    .Thgdel(Thgdel),
+    .Thgate(Thgate),
+    .Thlen(Thlen),
+    .ctrl_VSyncL(ctrl_vsl),
+    .Tvsync(Tvsync),
+    .Tvgdel(Tvgdel),
+    .Tvgate(Tvgate),
+    .Tvlen(Tvlen),
+    .ctrl_CSyncL(ctrl_csl),
+    .ctrl_BlankL(cursor0_en),
+    .eoh(hint),
+    .eov(cp_clut_req),
+    .fb_data_fifo_rreq(fb_data_fifo_rreq),
+    .fb_data_fifo_q(fb_data_fifo_q),
+    .fb_data_fifo_empty(blank_pad_o),
+    .ImDoneFifoQ(vint),
+    .stat_acmp(stat_acmp),
+    .clut_req(cursor1_res),
+    .clut_ack(cp_clut_ack),
+    .clut_adr(cp_clut_adr),
+    .clut_q(cp_clut_q),
+    .ctrl_cbsw(clk_p_o),
+    .clut_switch(clut_swint),
+    .cursor_adr(cursor_adr),
+    .cursor0_en(ctrl_bl),
+    .cursor0_res(cursor0_res),
+    .cursor0_xy(cursor0_xy),
+    .cc0_adr_o(cc0_adr_i),
+    .cc0_dat_i(cc0_dat_o),
+    .cursor1_en(cursor1_en),
+    .cursor1_res(ImDoneFifoQ),
+    .cursor1_xy(cursor1_xy),
+    .cc1_adr_o(cc1_adr_i),
+    .cc1_dat_i(cc1_dat_o),
+    .ctrl_dvi_odf(ctrl_dvi_odf),
+    .ctrl_cd(ctrl_cd),
+    .ctrl_pc(ctrl_hsl),
+    .line_fifo_wreq(line_fifo_wreq),
+    .line_fifo_d(line_fifo_d),
+    .line_fifo_full(line_fifo_full_wr),
+    .line_fifo_rreq(line_fifo_rreq),
+    .line_fifo_q(line_fifo_q),
+    .pclk_i(clk_p_i),
+    .pclk_o(ctrl_cbsw),
+    .hsync_o(hsync_pad_o),
+    .vsync_o(vsync_pad_o),
+    .csync_o(csync_pad_o),
+    .blank_o(fb_data_fifo_empty),
+    .r_o(r_pad_o),
+    .g_o(g_pad_o),
+    .b_o(b_pad_o)
+  );
+
+  wire ctrl_ven_not;assign ctrl_ven_not = ~ctrl_ven;
+
+  vga_fifo_dc
+  #(
+    LINE_FIFO_AWIDTH,
+    24
+  )
+  line_fifo
+  (
+    .rclk(clk_p_i),
+    .wclk(wb_clk_i),
+    .rclr(1'b0),
+    .wclr(ctrl_ven_not),
+    .wreq(line_fifo_wreq),
+    .d(line_fifo_d),
+    .rreq(line_fifo_rreq),
+    .q(line_fifo_q),
+    .empty(line_fifo_empty_rd),
+    .full(line_fifo_full_wr)
+  );
+
+  reg luint_pclk;reg sluint;
+
+  always @(posedge clk_p_i) luint_pclk <= #1 line_fifo_rreq & line_fifo_empty_rd;
+
+
+  always @(posedge wb_clk_i) if(!ctrl_ven) begin
+    sluint <= #1 1'b0;
+    luint <= #1 1'b0;
+  end else begin
+    sluint <= #1 luint_pclk;
+    luint <= #1 sluint;
+  end
+
+
+endmodule
+

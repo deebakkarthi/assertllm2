@@ -1,0 +1,194 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "sd_scoreboard.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CCW(2<->3) -> Concat @ line 79: { c_txid, c_req_type, c_itemid, c_data }  ==>  Concat @ line 79: { c_txid, c_req_type, c_data, c_itemid }",
+      "target_line": 79
+    },
+    {
+      "changed_rtl_files": [
+        "behave1p_mem.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 19: (addr_sz - 1)  ==>  Plus @ line 0: (addr_sz + 1)",
+      "target_line": 19
+    },
+    {
+      "changed_rtl_files": [
+        "sd_input.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 52: (c_srdy & c_drdy)  ==>  Or @ line 0: (c_srdy | c_drdy)",
+      "target_line": 52
+    },
+    {
+      "changed_rtl_files": [
+        "sd_output.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 53: p_srdy <= #1 0;  ==>  NonblockingSubstitution @ line 53: p_srdy <= #1 1;",
+      "target_line": 53
+    },
+    {
+      "changed_rtl_files": [
+        "sd_scoreboard_fsm.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 65: begin ip_drdy = 0; ic_srdy = 0; ic_data = 0; wr_en = 0; rd_en = 0; d_in = 0; addr = ip_itemid; nxt_state = state; nxt_txid = txid; if(use...  ==>  Block @ line 65: begin ip_drdy = 1; ic_srdy = 1; ic_data = 1; wr_en = 1; rd_en = 1; d_in = 1; addr = ip_itemid; nxt_state = state; nxt_txid = txid; if(use...",
+      "target_line": 65
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "behave1p_mem.v",
+      "target_line": 19,
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 19: (addr_sz - 1)  ==>  Plus @ line 0: (addr_sz + 1)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 18,
+            "base_end": 19,
+            "matched_start": 18,
+            "matched_end": 19
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "sd_input.v",
+      "target_line": 52,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 52: (c_srdy & c_drdy)  ==>  Or @ line 0: (c_srdy | c_drdy)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 51,
+        "target_line": 52
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "sd_output.v",
+      "target_line": 53,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 53: p_srdy <= #1 0;  ==>  NonblockingSubstitution @ line 53: p_srdy <= #1 1;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 41,
+            "base_end": 46,
+            "matched_start": 41,
+            "matched_end": 46
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sd_scoreboard.v",
+      "target_line": 79,
+      "mutation_log": "applied. CCW(2<->3) -> Concat @ line 79: { c_txid, c_req_type, c_itemid, c_data }  ==>  Concat @ line 79: { c_txid, c_req_type, c_data, c_itemid }",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 39,
+            "base_end": 62,
+            "matched_start": 39,
+            "matched_end": 62
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sd_scoreboard_fsm.v",
+      "target_line": 65,
+      "mutation_log": "applied. SMC -> Block @ line 65: begin ip_drdy = 0; ic_srdy = 0; ic_data = 0; wr_en = 0; rd_en = 0; d_in = 0; addr = ip_itemid; nxt_state = state; nxt_txid = txid; if(use...  ==>  Block @ line 65: begin ip_drdy = 1; ic_srdy = 1; ic_data = 1; wr_en = 1; rd_en = 1; d_in = 1; addr = ip_itemid; nxt_state = state; nxt_txid = txid; if(use...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 0,
+            "base_end": 132,
+            "matched_start": 0,
+            "matched_end": 132
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/merged_buggy_rtl/behave1p_mem.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/merged_buggy_rtl/sd_input.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/merged_buggy_rtl/sd_output.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/merged_buggy_rtl/sd_scoreboard.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/merged_buggy_rtl/sd_scoreboard_fsm.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 19: (addr_sz - 1)  ==>  Plus @ line 0: (addr_sz + 1)",
+      "operator": "LOR",
+      "target_module": "behave1p_mem",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/include/behave1p_mem.v",
+      "target_signal": "addr",
+      "target_signal_id": "behave1p_mem.addr"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 52: (c_srdy & c_drdy)  ==>  Or @ line 0: (c_srdy | c_drdy)",
+      "operator": "LOR",
+      "target_module": "sd_input",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/include/sd_input.v",
+      "target_signal": "c_drdy",
+      "target_signal_id": "sd_input.c_drdy"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 53: p_srdy <= #1 0;  ==>  NonblockingSubstitution @ line 53: p_srdy <= #1 1;",
+      "operator": "AVC",
+      "target_module": "sd_output",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/include/sd_output.v",
+      "target_signal": "p_srdy",
+      "target_signal_id": "sd_output.p_srdy"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 65: begin ip_drdy = 0; ic_srdy = 0; ic_data = 0; wr_en = 0; rd_en = 0; d_in = 0; addr = ip_itemid; nxt_state = state; nxt_txid = txid; if(use...  ==>  Block @ line 65: begin ip_drdy = 1; ic_srdy = 1; ic_data = 1; wr_en = 1; rd_en = 1; d_in = 1; addr = ip_itemid; nxt_state = state; nxt_txid = txid; if(use...",
+      "operator": "SMC",
+      "target_module": "sd_scoreboard_fsm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/include/sd_scoreboard_fsm.v",
+      "target_signal": "addr",
+      "target_signal_id": "sd_scoreboard_fsm.addr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CCW(2<->3) -> Concat @ line 79: { c_txid, c_req_type, c_itemid, c_data }  ==>  Concat @ line 79: { c_txid, c_req_type, c_data, c_itemid }",
+      "operator": "CCW",
+      "target_module": "sd_scoreboard",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/sd_scoreboard.v",
+      "target_signal": "c_req_type",
+      "target_signal_id": "sd_scoreboard.c_req_type"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/LIBRARY/srdy-drdy-library/mutations",
+  "top_module": "sd_scoreboard",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/srdy-drdy-library/buggy_artifacts/consensus_merge_report"
+}

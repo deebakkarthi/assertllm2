@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0000: applied. CMC(true_only) -> Cond @ line 664: (((writeSelect[i] == 1'b1) && !forceRead)? writeEnable : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0001: applied. CMC(false_only) -> Cond @ line 660: (((writeSelect[i] == 1'b1) && !forceRead && writeEnable)? writeAddress : readAddress)  ==>  (cond removed)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0002: applied. CSW(advanceRead2<->forceRead) -> Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(advanceRead2), .advanceWrite(advanceWrite), .forceRead(f...  ==>  Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(forceRead), .advanceWrite(advanceWrite), .forceRead(adva...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0003: applied. AVC(1->3) -> NonblockingSubstitution @ line 233: dOutValidInt <= 1;  ==>  NonblockingSubstitution @ line 233: dOutValidInt <= 3;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0004: applied. AVC(0->2) -> Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 0) & dInValid & nextDin;  ==>  Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 2) & dInValid & nextDin;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0005: applied. LOR(Eq->NotEq) -> Eq @ line 511: (writeRowCount == inputYRes)  ==>  NotEq @ line 0: (writeRowCount != inputYRes)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 495: (writeColCount == inputXRes)  ==>  NotEq @ line 0: (writeColCount != inputXRes)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0007: applied. CMC(swap) -> Cond @ line 475: ((inputDiscardCnt > 0)? 1'b1 : 1'b0)  ==>  Cond @ line 475: ((inputDiscardCnt > 0)? 1'b0 : 1'b1)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0008: applied. LOR(Eq->NotEq) -> Eq @ line 307: (nearestNeighbor == 1'b0)  ==>  NotEq @ line 0: (nearestNeighbor != 1'b0)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0009: applied. LOR(Land->Lor) -> Land @ line 185: (nextDout && dOutValidInt)  ==>  Lor @ line 0: (nextDout || dOutValidInt)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0010: applied. LOR(Eq->NotEq) -> Eq @ line 187: (outputColumn == outputXRes)  ==>  NotEq @ line 0: (outputColumn != outputXRes)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0011: applied. LOR(Land->Lor) -> Land @ line 263: (nextDout && dOutValidInt && !lineSwitchOutputDisable)  ==>  Lor @ line 0: (nextDout && dOutValidInt || !lineSwitchOutputDisable)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0012: applied. AVC(1->0) -> NonblockingSubstitution @ line 241: yScaleAmountNext <= (outputLine + 1) * yScale + { { OUTPUT_Y_RES_WIDTH{ 1'b0 } }, topFracOffset };  ==>  NonblockingSubstitution @ line 241: yScaleAmountNext <= (outputLine + 0) * yScale + { { OUTPUT_Y_RES_WIDTH{ 1'b0 } }, topFracOffset };",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0013: applied. AVC(1->3) -> NonblockingSubstitution @ line 305: xBlend <= { 1'b0, xScaleAmount[SCALE_FRAC_BITS-1:SCALE_FRAC_BITS-FRACTION_BITS] };  ==>  NonblockingSubstitution @ line 305: xBlend <= { 1'b0, xScaleAmount[SCALE_FRAC_BITS-3:SCALE_FRAC_BITS-FRACTION_BITS] };",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0014: applied. LOR(Plus->Minus) -> Plus @ line 415: (writeOutputLine * yScale + { { OUTPUT_Y_RES_WIDTH + SCALE_INT_BITS{ 1'b0 } }, topFracOffset })  ==>  Minus @ line 0: (writeOutputLine * yScale - { { OUTPUT_Y_RES_WIDTH + SCALE_INT_BITS{ 1'b0 } }, topFracOffset })",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0015: applied. LOR(And->Or) -> And @ line 540: ((writeColCount == inputXRes) & (discardInput == 0) & dInValid)  ==>  Or @ line 0: ((writeColCount == inputXRes) & (discardInput == 0) | dInValid)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0016: applied. LOR(Or->And) -> Or @ line 550: (rst | start)  ==>  And @ line 0: (rst & start)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 475: discardInput <= (inputDiscardCnt > 0)? 1'b1 : 1'b0;  ==>  NonblockingSubstitution @ line 475: discardInput <= (inputDiscardCnt > 0)? 1'b1 : 1'b1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0018: applied. AVC(0->1) -> NonblockingSubstitution @ line 160: dOutValidInt <= 0;  ==>  NonblockingSubstitution @ line 160: dOutValidInt <= 1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "streamScaler.v"
+      ],
+      "log": "M_0019: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 173: yScaleAmount <= { { INPUT_Y_RES_WIDTH{ 1'b0 } }, topFracOffset };  ==>  NonblockingSubstitution @ line 173: yScaleAmount <= { { INPUT_Y_RES_WIDTH{ 1'b1 } }, topFracOffset };",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

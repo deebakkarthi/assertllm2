@@ -1,0 +1,188 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "pit_count.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 83: cnt_flag_o <= 0;  ==>  NonblockingSubstitution @ line 83: cnt_flag_o <= 1;",
+      "target_line": 83
+    },
+    {
+      "changed_rtl_files": [
+        "pit_count.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 92: (rollover && counter_sync && !sync_reset)  ==>  Lor @ line 0: (rollover && counter_sync || !sync_reset)",
+      "target_line": 92
+    },
+    {
+      "changed_rtl_files": [
+        "pit_prescale.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 102: ((pit_slave)? ext_sync_i : cnt_sync_o)  ==>  Cond @ line 102: ((pit_slave)? cnt_sync_o : ext_sync_i)",
+      "target_line": 102
+    },
+    {
+      "changed_rtl_files": [
+        "pit_regs.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b0;  ==>  NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b1;",
+      "target_line": 92
+    },
+    {
+      "changed_rtl_files": [
+        "pit_regs.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(4'b0001<->4'b0011) -> CaseStatement @ line 98: case(write_regs) 4'b0011: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...  ==>  CaseStatement @ line 98: case(write_regs) 4'b0001: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...",
+      "target_line": 98
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "pit_count.v",
+      "target_line": 83,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 83: cnt_flag_o <= 0;  ==>  NonblockingSubstitution @ line 83: cnt_flag_o <= 1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 80,
+        "target_line": 83
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "pit_count.v",
+      "target_line": 92,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 92: (rollover && counter_sync && !sync_reset)  ==>  Lor @ line 0: (rollover && counter_sync || !sync_reset)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 91,
+        "target_line": 92
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "pit_prescale.v",
+      "target_line": 102,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 102: ((pit_slave)? ext_sync_i : cnt_sync_o)  ==>  Cond @ line 102: ((pit_slave)? cnt_sync_o : ext_sync_i)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 126,
+            "base_end": 126,
+            "matched_start": 101,
+            "matched_end": 101
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "pit_regs.v",
+      "target_line": 92,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b0;  ==>  NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 82,
+        "target_line": 92
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "pit_regs.v",
+      "target_line": 98,
+      "mutation_log": "applied. CSE(4'b0001<->4'b0011) -> CaseStatement @ line 98: case(write_regs) 4'b0011: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...  ==>  CaseStatement @ line 98: case(write_regs) 4'b0001: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          97,
+          123
+        ],
+        "token_a": "4'b0001",
+        "token_b": "4'b0011",
+        "changed_lines": 2
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/merged_buggy_rtl/pit_count.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/merged_buggy_rtl/pit_prescale.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/merged_buggy_rtl/pit_regs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/merged_buggy_rtl/pit_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/merged_buggy_rtl/pit_wb_bus.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 83: cnt_flag_o <= 0;  ==>  NonblockingSubstitution @ line 83: cnt_flag_o <= 1;",
+      "operator": "AVC",
+      "target_module": "pit_count",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/programmable_interval_timer/include/pit_count.v",
+      "target_signal": "cnt_flag_o",
+      "target_signal_id": "pit_count.cnt_flag_o"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 92: (rollover && counter_sync && !sync_reset)  ==>  Lor @ line 0: (rollover && counter_sync || !sync_reset)",
+      "operator": "LOR",
+      "target_module": "pit_count",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/programmable_interval_timer/include/pit_count.v",
+      "target_signal": "counter_sync",
+      "target_signal_id": "pit_count.counter_sync"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 102: ((pit_slave)? ext_sync_i : cnt_sync_o)  ==>  Cond @ line 102: ((pit_slave)? cnt_sync_o : ext_sync_i)",
+      "operator": "CMC",
+      "target_module": "pit_prescale",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/programmable_interval_timer/include/pit_prescale.v",
+      "target_signal": "ext_sync_i",
+      "target_signal_id": "pit_prescale.ext_sync_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b0;  ==>  NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "pit_regs",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/programmable_interval_timer/include/pit_regs.v",
+      "target_signal": "pit_flg_clr",
+      "target_signal_id": "pit_regs.pit_flg_clr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(4'b0001<->4'b0011) -> CaseStatement @ line 98: case(write_regs) 4'b0011: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...  ==>  CaseStatement @ line 98: case(write_regs) 4'b0001: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...",
+      "operator": "CSE",
+      "target_module": "pit_regs",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/programmable_interval_timer/include/pit_regs.v",
+      "target_signal": "pit_ien",
+      "target_signal_id": "pit_regs.pit_ien"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/programmable_interval_timer/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/programmable_interval_timer/mutations",
+  "top_module": "pit_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0004",
+        "rtl_name": "pit_regs.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/programmable_interval_timer/buggy_artifacts/consensus_merge_report"
+}

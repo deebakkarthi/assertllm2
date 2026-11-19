@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtfspritecontroller_hardware_cursors",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/edge_det.v"
+      ],
+      "log": "M_0000: applied. LOR(And->Or) -> And @ line 45: (~ed & i)  ==>  Or @ line 0: (~ed | i)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0001: applied. AVC(32'd0->32'd1) -> Assign @ line 1031: assign dob = (rstb)? 32'd0 : mem[radrb];  ==>  Assign @ line 1031: assign dob = (rstb)? 32'd1 : mem[radrb];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0002: applied. CSE(1'b1<->1'b0) -> CaseStatement @ line 1027: case(radra[1]) 1'b0: doa <= mem[radra[10:1]][15:0]; 1'b1: doa <= mem[radra[10:1]][31:16]; endcase  ==>  CaseStatement @ line 1027: case(radra[1]) 1'b1: doa <= mem[radra[10:1]][15:0]; 1'b0: doa <= mem[radra[10:1]][31:16]; endcase",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0003: applied. AVC(11->12) -> NonblockingSubstitution @ line 994: doa <= mem[radra[11:2]][31:24];  ==>  NonblockingSubstitution @ line 994: doa <= mem[radra[12:2]][31:24];",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0004: applied. CMC(swap) -> Cond @ line 996: ((rstb)? 32'd0 : mem[radrb])  ==>  Cond @ line 996: ((rstb)? mem[radrb] : 32'd0)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0005: applied. DIE -> Partselect @ line 295: m_adr_o[3:0]  ==>  Partselect @ line 295: m_adr_o[31:28]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0006: applied. CMC(true_only) -> Cond @ line 506: ((m_cyc_o)? m_adr_o[11:2] : s_adr_i[11:2])  ==>  (cond removed)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 275: begin dmaStart <= 1'b0; m_soc_o <= 1'b0; if(!dmaActive) begin cob <= 8'd0; dmaStart <= |sprDt; dmaActive <= |sprDt; dmaOwner <= 0; for(n=...  ==>  Block @ line 275: begin dmaStart <= 1'b1; m_soc_o <= 1'b1; if(!dmaActive) begin cob <= 8'd0; dmaStart <= |sprDt; dmaActive <= |sprDt; dmaOwner <= 0; for(n=...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0008: applied. AVC(23->22) -> NonblockingSubstitution @ line 438: sprDt[23:16] <= sprDt[23:16] | s_dat_i[23:16];  ==>  NonblockingSubstitution @ line 438: sprDt[23:16] <= sprDt[22:16] | s_dat_i[23:16];",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0009: applied. DMO -> Pointer @ line 949: s_sel_i[0]  ==>  Pointer @ line 949: s_sel_i[2] (new index=2)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0010: applied. CSW(ce<->pe) -> Instance @ line 564: ed1 ( .rst(rst_i), .clk(vclk), .ce(1'b1), .i(vSync), .pe(vSyncEdge), .ne(), .ee() )  ==>  Instance @ line 564: ed1 ( .rst(rst_i), .clk(vclk), .ce(vSyncEdge), .i(vSync), .pe(vSyncEdge), .ne(), .ee() )",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0011: applied. CSE(2'b10<->2'b01) -> CaseStatement @ line 990: case(radra[1:0]) 2'b00: doa <= mem[radra[11:2]][7:0]; 2'b01: doa <= mem[radra[11:2]][15:8]; 2'b10: doa <= mem[radra[11:2]][23:16]; 2'b11:...  ==>  CaseStatement @ line 990: case(radra[1:0]) 2'b00: doa <= mem[radra[11:2]][7:0]; 2'b10: doa <= mem[radra[11:2]][15:8]; 2'b01: doa <= mem[radra[11:2]][23:16]; 2'b11:...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0012: applied. CSW(ce<->pe) -> Instance @ line 563: ed0 ( .rst(rst_i), .clk(vclk), .ce(1'b1), .i(hSync), .pe(hSyncEdge), .ne(), .ee() )  ==>  Instance @ line 563: ed0 ( .rst(rst_i), .clk(vclk), .ce(hSyncEdge), .i(hSync), .pe(hSyncEdge), .ne(), .ee() )",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0013: applied. DIE -> Partselect @ line 507: m_dat_i[31:0]  ==>  Partselect @ line 507: m_dat_i[0:0]",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0014: applied. AVC(2'b01->2'b10) -> Assign @ line 902: assign bkCollision = outact && (rgbPriority == 2'b01);  ==>  Assign @ line 902: assign bkCollision = outact && (rgbPriority == 2'b10);",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0015: applied. LOR(Land->Lor) -> Land @ line 241: (s_cyc_i && s_stb_i && (s_adr_i[31:12] == 20'hFFDAD))  ==>  Lor @ line 0: (s_cyc_i && s_stb_i || (s_adr_i[31:12] == 20'hFFDAD))",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0016: applied. AVC(32'd0->32'd2) -> Assign @ line 996: assign dob = (rstb)? 32'd0 : mem[radrb];  ==>  Assign @ line 996: assign dob = (rstb)? 32'd2 : mem[radrb];",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0017: applied. LOR(And->Or) -> And @ line 998: (ceb & web)  ==>  Or @ line 0: (ceb | web)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0018: applied. CSE(8'b11110000<->8'b11110010) -> CaseStatement @ line 357: case(s_adr_i[9:2]) 8'b11110000: s_dat_o <= sprEn; 8'b11110001: s_dat_o <= { sprBkIRQPending | sprSprIRQPending, 5'b0, sprBkIRQPending, sp...  ==>  CaseStatement @ line 357: case(s_adr_i[9:2]) 8'b11110010: s_dat_o <= sprEn; 8'b11110001: s_dat_o <= { sprBkIRQPending | sprSprIRQPending, 5'b0, sprBkIRQPending, sp...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSpriteController.v"
+      ],
+      "log": "M_0019: applied. LOR(And->Or) -> And @ line 1033: (ceb & web)  ==>  Or @ line 0: (ceb | web)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

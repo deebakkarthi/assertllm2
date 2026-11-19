@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/i2c slave",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0000: applied. CSW(writeEn<->clearStartStopDet) -> Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(writeEn), .regA...  ==>  Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(clearStartStopD...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0001: applied. AVC(48->49) -> NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 48{ 1'b1 } };  ==>  NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 49{ 1'b1 } };",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0002: applied. CMC(true_only) -> Cond @ line 164: ((sdaOut == 1'b0)? 1'b0 : 1'bz)  ==>  (cond removed)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0003: applied. CSW(dataOut<->myReg6) -> Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(dataFromRegIF), .myReg0(myReg0), .myRe...  ==>  Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(myReg6), .myReg0(myReg0), .myReg1(myRe...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "i2cSlaveTop.v"
+      ],
+      "log": "M_0004: applied. AVC(8'h12->8'h13) -> Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h12), .myReg5(8'h34)...  ==>  Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h13), .myReg5(8'h34)...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0005: applied. AVC(1->0) -> Assign @ line 175: assign rstSyncToClk = rstPipe[1];  ==>  Assign @ line 175: assign rstSyncToClk = rstPipe[0];",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 190: (|sclPipe[10*48/48-1:1] == 1'b0)  ==>  NotEq @ line 0: (|sclPipe[10*48/48-1:1] != 1'b0)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0007: applied. LOR(Eq->NotEq) -> Eq @ line 233: (sdaDelayed[4 * 48 / 48 - 1] == 1'b1)  ==>  NotEq @ line 0: (sdaDelayed[4 * 48 / 48 - 1] != 1'b1)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0008: applied. LOR(Eq->NotEq) -> Eq @ line 230: (sclDeb == 1'b1)  ==>  NotEq @ line 0: (sclDeb != 1'b1)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0009: applied. LOR(Eq->NotEq) -> Eq @ line 192: (&sdaPipe[10*48/48-1:1] == 1'b1)  ==>  NotEq @ line 0: (&sdaPipe[10*48/48-1:1] != 1'b1)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0010: applied. LOR(Land->Lor) -> Land @ line 224: ((sclDeb == 1'b1) && (sdaDelayed[4 * 48 / 48 - 2] == 1'b0))  ==>  Lor @ line 0: ((sclDeb == 1'b1) || (sdaDelayed[4 * 48 / 48 - 2] == 1'b0))",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0011: applied. CCW(0<->1) -> Concat @ line 186: { sdaPipe[10*48/48-2:0], sdaIn }  ==>  Concat @ line 186: { sdaIn, sdaPipe[10*48/48-2:0] }",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0012: applied. LOR(Eq->NotEq) -> Eq @ line 207: (rstSyncToClk == 1'b1)  ==>  NotEq @ line 0: (rstSyncToClk != 1'b1)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0013: applied. AVC(2'b11->2'b00) -> NonblockingSubstitution @ line 170: rstPipe <= 2'b11;  ==>  NonblockingSubstitution @ line 170: rstPipe <= 2'b00;",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0014: applied. LOR(Eq->NotEq) -> Eq @ line 179: (rstSyncToClk == 1'b1)  ==>  NotEq @ line 0: (rstSyncToClk != 1'b1)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0015: applied. LOR(Eq->NotEq) -> Eq @ line 188: (&sclPipe[10*48/48-1:1] == 1'b1)  ==>  NotEq @ line 0: (&sclPipe[10*48/48-1:1] != 1'b1)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0016: applied. CCW(0<->1) -> Concat @ line 187: { sclPipe[10*48/48-2:0], scl }  ==>  Concat @ line 187: { scl, sclPipe[10*48/48-2:0] }",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0017: applied. DMO -> Pointer @ line 172: rstPipe[0]  ==>  Pointer @ line 172: rstPipe[1] (new index=1)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0018: applied. AVC(2->0) -> NonblockingSubstitution @ line 187: sclPipe <= { sclPipe[10*48/48-2:0], scl };  ==>  NonblockingSubstitution @ line 187: sclPipe <= { sclPipe[10*48/48-4:0], scl };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2cSlave.v"
+      ],
+      "log": "M_0019: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 181: sdaDeb <= 1'b1;  ==>  NonblockingSubstitution @ line 181: sdaDeb <= 1'b0;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

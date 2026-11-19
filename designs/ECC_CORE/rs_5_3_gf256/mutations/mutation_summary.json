@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/rs_5_3_gf256",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0000: applied. DMO -> Pointer @ line 50: b[7]  ==>  Pointer @ line 50: b[1] (new index=1)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0001: applied. AVC(5->3) -> Assign @ line 50: assign z[0] = b[5] ^ b[7];  ==>  Assign @ line 50: assign z[0] = b[3] ^ b[7];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0002: applied. CSW(b<->z) -> Instance @ line 91: mult_ ( .a(SYND1_), .b(SYND2_inv), .z(mult_out) )  ==>  Instance @ line 91: mult_ ( .a(SYND1_), .b(mult_out), .z(SYND2_inv) )",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0003: applied. DMO -> Pointer @ line 54: b[1]  ==>  Pointer @ line 54: b[5] (new index=5)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0004: applied. AVC(1->3) -> Assign @ line 54: assign z[4] = b[1] ^ b[3] ^ b[5] ^ b[6] ^ b[7] ^ b[7];  ==>  Assign @ line 54: assign z[4] = b[3] ^ b[3] ^ b[5] ^ b[6] ^ b[7] ^ b[7];",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0005: applied. AVC(0->1) -> Assign @ line 51: assign z[1] = b[0] ^ b[6];  ==>  Assign @ line 51: assign z[1] = b[1] ^ b[6];",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0006: applied. DMO -> Pointer @ line 93: LOC[2]  ==>  Pointer @ line 93: LOC[0] (new index=0)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0007: applied. AVC(0->1) -> NonblockingSubstitution @ line 504: DATA_OUT <= 0;  ==>  NonblockingSubstitution @ line 504: DATA_OUT <= 1;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0008: applied. CSE(7<->4) -> CaseStatement @ line 432: case(cntr1_) 0: if(!DATA_VALID_IN) if(E_D) cntr1_ <= 1; else cntr1_ <= 5; 1: if(!DATA_VALID_IN) cntr1_ <= 2; 2: if(!DATA_VALID_IN) cntr1_...  ==>  CaseStatement @ line 432: case(cntr1_) 0: if(!DATA_VALID_IN) if(E_D) cntr1_ <= 1; else cntr1_ <= 5; 1: if(!DATA_VALID_IN) cntr1_ <= 2; 2: if(!DATA_VALID_IN) cntr1_...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0009: applied. AVC(0->1) -> NonblockingSubstitution @ line 492: DATA_VALID_OUT <= 0;  ==>  NonblockingSubstitution @ line 492: DATA_VALID_OUT <= 1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0010: applied. LOR(Lor->Land) -> Lor @ line 549: (!DATA_VALID_OUT && !E_D || (cntr1_ >= 5) || (cntr1_ <= 8))  ==>  Land @ line 0: ((!DATA_VALID_OUT && !E_D || (cntr1_ >= 5)) && (cntr1_ <= 8))",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0011: applied. AVC(6->8) -> Assign @ line 57: assign z[7] = b[4] ^ b[6];  ==>  Assign @ line 57: assign z[7] = b[4] ^ b[4];",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0012: applied. AVC(1->0) -> Assign @ line 93: assign LOC[2] = ~(mult_out[1] | mult_out[2]);  ==>  Assign @ line 93: assign LOC[2] = ~(mult_out[0] | mult_out[2]);",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0013: applied. DMO -> Pointer @ line 53: b[2]  ==>  Pointer @ line 53: b[5] (new index=5)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0014: applied. CMC(false_only) -> Cond @ line 404: ((E_D)? SYND1_ ^ MULT2_ : MULT2_)  ==>  (cond removed)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0015: applied. DMO -> Pointer @ line 52: b[1]  ==>  Pointer @ line 52: b[3] (new index=3)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0016: applied. AVC(2->0) -> Assign @ line 95: assign LOC[0] = mult_out[2];  ==>  Assign @ line 95: assign LOC[0] = mult_out[0];",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0017: applied. AVC(4->6) -> Assign @ line 55: assign z[5] = b[2] ^ b[4] ^ b[6] ^ b[7];  ==>  Assign @ line 55: assign z[5] = b[2] ^ b[6] ^ b[6] ^ b[7];",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0018: applied. DMO -> Pointer @ line 94: LOC[1]  ==>  Pointer @ line 94: LOC[0] (new index=0)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_5_3_GF256.v"
+      ],
+      "log": "M_0019: applied. AVC(7->6) -> Assign @ line 56: assign z[6] = b[3] ^ b[5] ^ b[7];  ==>  Assign @ line 56: assign z[6] = b[3] ^ b[5] ^ b[6];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

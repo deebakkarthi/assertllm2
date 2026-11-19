@@ -1,0 +1,185 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "uart2bus_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(rx_data<->tx_data) -> Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(rx_data), .new_rx_data(new_rx_data), .tx_data(tx_data)...  ==>  Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(tx_data), .new_rx_data(new_rx_data), .tx_data(rx_data)...",
+      "target_line": 55
+    },
+    {
+      "changed_rtl_files": [
+        "uart_parser.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 452: (int_gnt && read_req)  ==>  Lor @ line 0: (int_gnt || read_req)",
+      "target_line": 452
+    },
+    {
+      "changed_rtl_files": [
+        "uart_parser.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 478: (bin_write_op && int_write)  ==>  Lor @ line 0: (bin_write_op || int_write)",
+      "target_line": 478
+    },
+    {
+      "changed_rtl_files": [
+        "uart_parser.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 408: begin write_req <= 1'b0; int_write <= 1'b0; int_wr_data <= 0; end  ==>  Block @ line 408: begin write_req <= 1'b1; int_write <= 1'b1; int_wr_data <= 2; end",
+      "target_line": 408
+    },
+    {
+      "changed_rtl_files": [
+        "uart_parser.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 309: ((main_sm == 4'b1000) && new_rx_data && (rx_data[5:4] == 2'b01))  ==>  Lor @ line 0: ((main_sm == 4'b1000) && new_rx_data || (rx_data[5:4] == 2'b01))",
+      "target_line": 309
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "uart2bus_top.v",
+      "target_line": 55,
+      "mutation_log": "applied. CSW(rx_data<->tx_data) -> Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(rx_data), .new_rx_data(new_rx_data), .tx_data(tx_data)...  ==>  Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(tx_data), .new_rx_data(new_rx_data), .tx_data(rx_data)...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 58,
+        "line_b": 59,
+        "token_a": "rx_data",
+        "token_b": "tx_data"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "uart_parser.v",
+      "target_line": 309,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 309: ((main_sm == 4'b1000) && new_rx_data && (rx_data[5:4] == 2'b01))  ==>  Lor @ line 0: ((main_sm == 4'b1000) && new_rx_data || (rx_data[5:4] == 2'b01))",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 209,
+            "base_end": 259,
+            "matched_start": 209,
+            "matched_end": 259
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "uart_parser.v",
+      "target_line": 408,
+      "mutation_log": "applied. SMC -> Block @ line 408: begin write_req <= 1'b0; int_write <= 1'b0; int_wr_data <= 0; end  ==>  Block @ line 408: begin write_req <= 1'b1; int_write <= 1'b1; int_wr_data <= 2; end",
+      "applied": {
+        "mode": "mutant_block_splice",
+        "cur_span": [
+          363,
+          366
+        ],
+        "mutant_span": [
+          182,
+          185
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "uart_parser.v",
+      "target_line": 452,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 452: (int_gnt && read_req)  ==>  Lor @ line 0: (int_gnt || read_req)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 406,
+        "target_line": 452
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "uart_parser.v",
+      "target_line": 478,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 478: (bin_write_op && int_write)  ==>  Lor @ line 0: (bin_write_op || int_write)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 432,
+        "target_line": 478
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl/baud_gen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl/uart2bus_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl/uart_parser.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl/uart_rx.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl/uart_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/merged_buggy_rtl/uart_tx.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(rx_data<->tx_data) -> Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(rx_data), .new_rx_data(new_rx_data), .tx_data(tx_data)...  ==>  Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(tx_data), .new_rx_data(new_rx_data), .tx_data(rx_data)...",
+      "operator": "CSW",
+      "target_module": "uart2bus_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/uart2bus_top.v",
+      "target_signal": "clock",
+      "target_signal_id": "uart2bus_top.clock"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 452: (int_gnt && read_req)  ==>  Lor @ line 0: (int_gnt || read_req)",
+      "operator": "LOR",
+      "target_module": "uart_parser",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/include/uart_parser.v",
+      "target_signal": "int_gnt",
+      "target_signal_id": "uart_parser.int_gnt"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 408: begin write_req <= 1'b0; int_write <= 1'b0; int_wr_data <= 0; end  ==>  Block @ line 408: begin write_req <= 1'b1; int_write <= 1'b1; int_wr_data <= 2; end",
+      "operator": "SMC",
+      "target_module": "uart_parser",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/include/uart_parser.v",
+      "target_signal": "int_wr_data",
+      "target_signal_id": "uart_parser.int_wr_data"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 478: (bin_write_op && int_write)  ==>  Lor @ line 0: (bin_write_op || int_write)",
+      "operator": "LOR",
+      "target_module": "uart_parser",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/include/uart_parser.v",
+      "target_signal": "int_write",
+      "target_signal_id": "uart_parser.int_write"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 309: ((main_sm == 4'b1000) && new_rx_data && (rx_data[5:4] == 2'b01))  ==>  Lor @ line 0: ((main_sm == 4'b1000) && new_rx_data || (rx_data[5:4] == 2'b01))",
+      "operator": "LOR",
+      "target_module": "uart_parser",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/include/uart_parser.v",
+      "target_signal": "new_rx_data",
+      "target_signal_id": "uart_parser.new_rx_data"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus/mutations",
+  "top_module": "uart2bus_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_bus/buggy_artifacts/consensus_merge_report"
+}

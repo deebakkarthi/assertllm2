@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0000: applied. CSW(fifo_empty<->fifo_full) -> Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_empty[2]), .fifo_full(fifo_full[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )  ==>  Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_full[2]), .fifo_full(fifo_empty[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 166: ((sd_adr_i == 2'd3) & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) | !fifo_full[4])",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0002: applied. CCW(0<->1) -> Concat @ line 172: { sd_adr_i, radr1 }  ==>  Concat @ line 172: { radr1, sd_adr_i }",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0003: applied. LOR(And->Or) -> And @ line 132: ((sd_adr_i == 2'd3) & sd_we_i & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) & sd_we_i | !fifo_full[4])",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0004: applied. LOR(Eq->NotEq) -> Eq @ line 73: (wb_adr_i == 2'd1)  ==>  NotEq @ line 0: (wb_adr_i != 2'd1)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 30: ((wb_adr_i == 2'd0) & wb_we_i)  ==>  Or @ line 0: ((wb_adr_i == 2'd0) | wb_we_i)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0006: applied. CSW(wptr<->rptr) -> Instance @ line 44: cmp1 ( .wptr(wptr1), .rptr(rptr1), .fifo_empty(fifo_empty[1]), .fifo_full(fifo_full[1]), .wclk(wb_clk), .rclk(sd_clk), .rst(rst) )  ==>  Instance @ line 44: cmp1 ( .wptr(rptr1), .rptr(wptr1), .fifo_empty(fifo_empty[1]), .fifo_full(fifo_full[1]), .wclk(wb_clk), .rclk(sd_clk), .rst(rst) )",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0007: applied. LOR(Eq->NotEq) -> Eq @ line 286: (wptr == rptr)  ==>  NotEq @ line 0: (wptr != rptr)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0008: applied. CSW(wptr<->rptr) -> Instance @ line 112: cmp3 ( .wptr(wptr3), .rptr(rptr3), .fifo_empty(fifo_empty[3]), .fifo_full(fifo_full[3]), .wclk(wb_clk), .rclk(sd_clk), .rst(rst) )  ==>  Instance @ line 112: cmp3 ( .wptr(rptr3), .rptr(wptr3), .fifo_empty(fifo_empty[3]), .fifo_full(fifo_full[3]), .wclk(wb_clk), .rclk(sd_clk), .rst(rst) )",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0009: applied. CSW(we_a<->we_b) -> Instance @ line 178: dpram ( .d_a(wb_dat_i), .q_a(wb_dat_o), .adr_a(dpram_a_a), .we_a(dpram_we_a), .clk_a(wb_clk), .q_b(sd_dat_o), .adr_b(dpram_a_b), .d_b(sd_...  ==>  Instance @ line 178: dpram ( .d_a(wb_dat_i), .q_a(wb_dat_o), .adr_a(dpram_a_a), .we_a(dpram_we_b), .clk_a(wb_clk), .q_b(sd_dat_o), .adr_b(dpram_a_b), .d_b(sd_...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0010: applied. CSW(q<->q_bin) -> Instance @ line 103: rptr3_cnt ( .q(rptr3), .q_bin(radr3), .cke((sd_adr_i == 2'd2) & sd_re_i & !fifo_empty[3]), .clk(sd_clk), .rst(rst) )  ==>  Instance @ line 103: rptr3_cnt ( .q(radr3), .q_bin(rptr3), .cke((sd_adr_i == 2'd2) & sd_re_i & !fifo_empty[3]), .clk(sd_clk), .rst(rst) )",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0011: applied. CSW(q<->q_bin) -> Instance @ line 137: rptr4_cnt ( .q(rptr4), .q_bin(radr4), .cke((wb_adr_i == 2'd3) & wb_re_i & !fifo_empty[4]), .clk(wb_clk), .rst(rst) )  ==>  Instance @ line 137: rptr4_cnt ( .q(radr4), .q_bin(rptr4), .cke((wb_adr_i == 2'd3) & wb_re_i & !fifo_empty[4]), .clk(wb_clk), .rst(rst) )",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0012: applied. CSW(aclr<->aset) -> Instance @ line 288: dff_sr_empty0 ( .aclr(rst), .aset(async_full), .clock(wclk), .data(async_full), .q(fifo_full2) )  ==>  Instance @ line 288: dff_sr_empty0 ( .aclr(async_full), .aset(rst), .clock(wclk), .data(async_full), .q(fifo_full2) )",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0013: applied. CSW(aclr<->q) -> Instance @ line 289: dff_sr_empty1 ( .aclr(rst), .aset(async_full), .clock(wclk), .data(fifo_full2), .q(fifo_full) )  ==>  Instance @ line 289: dff_sr_empty1 ( .aclr(fifo_full), .aset(async_full), .clock(wclk), .data(fifo_full2), .q(rst) )",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0014: applied. DMO -> Pointer @ line 155: fifo_empty[4]  ==>  Pointer @ line 155: fifo_empty[3] (new index=3)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0015: applied. CMC(true_only) -> Cond @ line 174: ((sd_adr_i == 2'd2)? { sd_adr_i, radr3 } : { sd_adr_i, wadr4 })  ==>  (cond removed)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0016: applied. CSW(q<->q_bin) -> Instance @ line 60: wptr2_cnt ( .q(wptr2), .q_bin(wadr2), .cke((sd_adr_i == 2'd1) & sd_we_i & !fifo_full[2]), .clk(sd_clk), .rst(rst) )  ==>  Instance @ line 60: wptr2_cnt ( .q(wadr2), .q_bin(wptr2), .cke((sd_adr_i == 2'd1) & sd_we_i & !fifo_full[2]), .clk(sd_clk), .rst(rst) )",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0017: applied. AVC(2'd1->2'd2) -> Assign @ line 168: assign dpram_a_a = (wb_adr_i == 2'd0)? { wb_adr_i, wadr1 } : (wb_adr_i == 2'd1)? { wb_adr_i, radr2 } : (wb_adr_i == 2'd2)? { wb_adr_i, wa...  ==>  Assign @ line 168: assign dpram_a_a = (wb_adr_i == 2'd0)? { wb_adr_i, wadr1 } : (wb_adr_i == 2'd2)? { wb_adr_i, radr2 } : (wb_adr_i == 2'd2)? { wb_adr_i, wa...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "sd_fifo.v"
+      ],
+      "log": "M_0018: applied. AVC(2'd2->2'd3) -> Assign @ line 162: assign dpram_we_a = ((wb_adr_i == 2'd0) & !fifo_full[1])? wb_we_i : ((wb_adr_i == 2'd2) & !fifo_full[3])? wb_we_i : 1'b0;  ==>  Assign @ line 162: assign dpram_we_a = ((wb_adr_i == 2'd0) & !fifo_full[1])? wb_we_i : ((wb_adr_i == 2'd3) & !fifo_full[3])? wb_we_i : 1'b0;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0019: applied. LOR(Land->Lor) -> Land @ line 285: ((wptr == rptr) && (direction == going_empty))  ==>  Lor @ line 0: ((wptr == rptr) || (direction == going_empty))",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

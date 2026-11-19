@@ -1,0 +1,224 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "vga_enh_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(ctrl_HSyncL<->ctrl_pc) -> Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_hsl), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thle...  ==>  Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_pc), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thlen...",
+      "target_line": 427
+    },
+    {
+      "changed_rtl_files": [
+        "vga_enh_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DIE -> Partselect @ line 421: wbs_dat_i[23:0]  ==>  Partselect @ line 421: wbs_dat_i[31:8]",
+      "target_line": 421
+    },
+    {
+      "changed_rtl_files": [
+        "vga_csm_pb.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 120: (acc1 & !ack1_o)  ==>  Or @ line 0: (acc1 | !ack1_o)",
+      "target_line": 120
+    },
+    {
+      "changed_rtl_files": [
+        "vga_csm_pb.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 133: ((sel0)? dat0_i : dat1_i)  ==>  (cond removed)",
+      "target_line": 133
+    },
+    {
+      "changed_rtl_files": [
+        "vga_pgen.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 453: (ddImDoneFifoQ & !dImDoneFifoQ)  ==>  Or @ line 0: (ddImDoneFifoQ | !dImDoneFifoQ)",
+      "target_line": 453
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "vga_csm_pb.v",
+      "target_line": 120,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 120: (acc1 & !ack1_o)  ==>  Or @ line 0: (acc1 | !ack1_o)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 115,
+        "target_line": 120
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "vga_csm_pb.v",
+      "target_line": 133,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 133: ((sel0)? dat0_i : dat1_i)  ==>  (cond removed)",
+      "applied": {
+        "mode": "cmc_cond_removed",
+        "applied": [
+          {
+            "line_index": 133,
+            "port": "clk",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 134,
+            "port": "rst",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 135,
+            "port": "ce",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 136,
+            "port": "we",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 137,
+            "port": "oe",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 138,
+            "port": "addr",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 139,
+            "port": "di",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 140,
+            "port": "dout",
+            "mode": "cmc_port_line"
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "vga_enh_top.v",
+      "target_line": 421,
+      "mutation_log": "applied. DIE -> Partselect @ line 421: wbs_dat_i[23:0]  ==>  Partselect @ line 421: wbs_dat_i[31:8]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 321,
+        "target_line": 421
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "vga_enh_top.v",
+      "target_line": 427,
+      "mutation_log": "applied. CSW(ctrl_HSyncL<->ctrl_pc) -> Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_hsl), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thle...  ==>  Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_pc), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thlen...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 330,
+        "line_b": 374,
+        "token_a": "ctrl_HSyncL",
+        "token_b": "ctrl_pc"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "vga_pgen.v",
+      "target_line": 453,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 453: (ddImDoneFifoQ & !dImDoneFifoQ)  ==>  Or @ line 0: (ddImDoneFifoQ | !dImDoneFifoQ)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 353,
+        "target_line": 453
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/generic_dpram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/generic_spram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/timescale.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_clkgen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_colproc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_csm_pb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_cur_cregs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_curproc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_enh_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_fifo_dc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_pgen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_tgen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_vtim.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_wb_master.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/merged_buggy_rtl/vga_wb_slave.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(ctrl_HSyncL<->ctrl_pc) -> Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_hsl), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thle...  ==>  Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_pc), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thlen...",
+      "operator": "CSW",
+      "target_module": "vga_enh_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/vga_enh_top.v",
+      "target_signal": "b_pad_o",
+      "target_signal_id": "vga_enh_top.b_pad_o"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DIE -> Partselect @ line 421: wbs_dat_i[23:0]  ==>  Partselect @ line 421: wbs_dat_i[31:8]",
+      "operator": "DIE",
+      "target_module": "vga_enh_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/vga_enh_top.v",
+      "target_signal": "wbs_dat_i",
+      "target_signal_id": "vga_enh_top.wbs_dat_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 120: (acc1 & !ack1_o)  ==>  Or @ line 0: (acc1 | !ack1_o)",
+      "operator": "LOR",
+      "target_module": "vga_csm_pb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/include/vga_csm_pb.v",
+      "target_signal": "ack1_o",
+      "target_signal_id": "vga_csm_pb.ack1_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 133: ((sel0)? dat0_i : dat1_i)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "vga_csm_pb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/include/vga_csm_pb.v",
+      "target_signal": "dat0_i",
+      "target_signal_id": "vga_csm_pb.dat0_i"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 453: (ddImDoneFifoQ & !dImDoneFifoQ)  ==>  Or @ line 0: (ddImDoneFifoQ | !dImDoneFifoQ)",
+      "operator": "LOR",
+      "target_module": "vga_pgen",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/include/vga_pgen.v",
+      "target_signal": "ImDoneFifoQ",
+      "target_signal_id": "vga_pgen.ImDoneFifoQ"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller/mutations",
+  "top_module": "vga_enh_top",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/vga_lcd_controller/buggy_artifacts/consensus_merge_report"
+}

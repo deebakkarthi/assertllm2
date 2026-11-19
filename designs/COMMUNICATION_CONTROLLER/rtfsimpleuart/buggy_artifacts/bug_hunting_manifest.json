@@ -1,0 +1,177 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "edge_det.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 56: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSimpleUart.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(ce<->i) -> Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(c[23]), .pe(baud16), .ne(), .ee() )  ==>  Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(c[23]), .i(1'b1), .pe(baud16), .ne(), .ee() )",
+      "target_line": 362
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSimpleUart.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 404: dcdx <= { dcdx[0], ~dcd_ni };  ==>  NonblockingSubstitution @ line 404: dcdx <= { dcdx[1], ~dcd_ni };",
+      "target_line": 404
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSimpleUart.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DMO -> Pointer @ line 388: dat_i[0]  ==>  Pointer @ line 388: dat_i[5] (new index=5)",
+      "target_line": 388
+    },
+    {
+      "changed_rtl_files": [
+        "rtfSimpleUart.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 268: (cyc_i && stb_i)  ==>  Lor @ line 0: (cyc_i || stb_i)",
+      "target_line": 268
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "edge_det.v",
+      "target_line": 56,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 56: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 55,
+        "target_line": 56
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "rtfSimpleUart.v",
+      "target_line": 268,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 268: (cyc_i && stb_i)  ==>  Lor @ line 0: (cyc_i || stb_i)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 267,
+        "target_line": 268
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "rtfSimpleUart.v",
+      "target_line": 362,
+      "mutation_log": "applied. CSW(ce<->i) -> Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(c[23]), .pe(baud16), .ne(), .ee() )  ==>  Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(c[23]), .i(1'b1), .pe(baud16), .ne(), .ee() )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 361,
+        "line_b": 361,
+        "token_a": "ce",
+        "token_b": "i"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "rtfSimpleUart.v",
+      "target_line": 388,
+      "mutation_log": "applied. DMO -> Pointer @ line 388: dat_i[0]  ==>  Pointer @ line 388: dat_i[5] (new index=5)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 378,
+        "target_line": 388
+      }
+    },
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "rtfSimpleUart.v",
+      "target_line": 404,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 404: dcdx <= { dcdx[0], ~dcd_ni };  ==>  NonblockingSubstitution @ line 404: dcdx <= { dcdx[1], ~dcd_ni };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 405,
+            "base_end": 407,
+            "matched_start": 405,
+            "matched_end": 407
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/merged_buggy_rtl/edge_det.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/merged_buggy_rtl/rtfSimpleUart.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/merged_buggy_rtl/rtfSimpleUartRx.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/merged_buggy_rtl/rtfSimpleUartTx.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 56: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "operator": "LOR",
+      "target_module": "edge_det",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/include/edge_det.v",
+      "target_signal": "i",
+      "target_signal_id": "edge_det.i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(ce<->i) -> Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(c[23]), .pe(baud16), .ne(), .ee() )  ==>  Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(c[23]), .i(1'b1), .pe(baud16), .ne(), .ee() )",
+      "operator": "CSW",
+      "target_module": "rtfSimpleUart",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/rtfSimpleUart.v",
+      "target_signal": "clk_i",
+      "target_signal_id": "rtfSimpleUart.clk_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 268: (cyc_i && stb_i)  ==>  Lor @ line 0: (cyc_i || stb_i)",
+      "operator": "LOR",
+      "target_module": "rtfSimpleUart",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/rtfSimpleUart.v",
+      "target_signal": "cyc_i",
+      "target_signal_id": "rtfSimpleUart.cyc_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DMO -> Pointer @ line 388: dat_i[0]  ==>  Pointer @ line 388: dat_i[5] (new index=5)",
+      "operator": "DMO",
+      "target_module": "rtfSimpleUart",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/rtfSimpleUart.v",
+      "target_signal": "dat_i",
+      "target_signal_id": "rtfSimpleUart.dat_i"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 404: dcdx <= { dcdx[0], ~dcd_ni };  ==>  NonblockingSubstitution @ line 404: dcdx <= { dcdx[1], ~dcd_ni };",
+      "operator": "AVC",
+      "target_module": "rtfSimpleUart",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/rtfSimpleUart.v",
+      "target_signal": "dcd_ni",
+      "target_signal_id": "rtfSimpleUart.dcd_ni"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/mutations",
+  "top_module": "rtfSimpleUart",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/rtfsimpleuart/buggy_artifacts/consensus_merge_report"
+}

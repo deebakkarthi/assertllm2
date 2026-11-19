@@ -1,0 +1,199 @@
+# point_add Design Specification
+
+## 1. Introduction
+`point_add` computes elliptic-curve point addition over GF(3^M) for points on the curve. The module accepts two affine input points plus explicit infinity indicators, classifies the required operation case, and produces a registered result point and completion flag.
+
+This specification covers the implemented `point_add` top-level module only.
+
+## 2. Top-Level Interface
+
+| Signal | Direction | Width | Description |
+| --- | --- | --- | --- |
+| `clk` | Input | 1 | Clock for all sequential logic in `point_add` and its instantiated arithmetic engines. |
+| `reset` | Input | 1 | Active-high synchronous reset. Clears top-level status/output registers and resets selected arithmetic submodules. |
+| `x1` | Input | ``[`WIDTH:0]`` | X-coordinate of input point `P1`. |
+| `y1` | Input | ``[`WIDTH:0]`` | Y-coordinate of input point `P1`. |
+| `zero1` | Input | 1 | Point-at-infinity indicator for `P1` (asserted means `P1` is infinity). |
+| `x2` | Input | ``[`WIDTH:0]`` | X-coordinate of input point `P2`. |
+| `y2` | Input | ``[`WIDTH:0]`` | Y-coordinate of input point `P2`. |
+| `zero2` | Input | 1 | Point-at-infinity indicator for `P2` (asserted means `P2` is infinity). |
+| `done` | Output | 1 | Registered completion indicator for the selected operation case. |
+| `x3` | Output | ``[`WIDTH:0]`` | Registered X-coordinate result for `P3 = P1 + P2`. Valid when `done` is asserted. |
+| `y3` | Output | ``[`WIDTH:0]`` | Registered Y-coordinate result for `P3 = P1 + P2`. Valid when `done` is asserted. |
+| `zero3` | Output | 1 | Registered point-at-infinity indicator for output point `P3`. |
+
+### 2.1 Interface and Sequencing Semantics
+
+- There is no explicit `start` input; operation selection and computation are driven by the sampled input values.
+- `done`, `x3`, `y3`, and `zero3` are sequentially driven (registered outputs).
+- On `reset=1`, `done` is cleared and output registers are initialized to zero.
+- Valid input data is presented when reset is asserted and held stable until completion.
+- With stable inputs, `done=1` indicates the selected path has completed and output registers correspond to that completed case.
+
+## 3. Functional Description
+
+### 3.1 Operation Objective
+
+For input points `P1(x1,y1)` and `P2(x2,y2)`, the module computes `P3 = P1 + P2` with explicit handling of:
+- point-at-infinity operands,
+- inverse-point pair (`P1 = -P2`),
+- equal-point case (`P1 = P2`, doubling),
+- general unequal/non-inverse addition.
+
+### 3.2 Case Classification
+
+The top-level computes/records the following conditions:
+- `use1`: at least one operand is infinity (`zero1 | zero2`).
+- `cond2`: `x1 == x2`.
+- `cond3`: `y1 == y2`.
+- `cond4`: `y1 == -y2` (using `f3m_neg` output `ny2`).
+- `cond1`: inverse-point case (`~use1 && cond2 && cond4`).
+- `cond5`: equal-point case (`~use1 && cond2 && cond3`).
+
+These are registered conditions; output selection and completion signaling use these registered qualifiers.
+
+### 3.3 Functional Paths
+
+1. Infinity handling path (`func9`):
+- Used when `use1` is asserted.
+- If exactly one input is infinity, the non-infinity operand is forwarded as the coordinate result.
+- If both inputs are infinity, `zero3` indicates infinity.
+
+2. Inverse-point path:
+- Identified by `cond1`.
+- Output is marked as point at infinity (`zero3=1`).
+
+3. Doubling path (`func10`):
+- Selected when `cond5` is asserted.
+- Computes doubled-point result for `P1 = P2`.
+
+4. General addition path (`func11`):
+- Selected when not in the cases above.
+- Computes standard affine addition for non-equal, non-inverse, non-infinity points.
+
+### 3.4 Output and Completion Behavior
+
+- `x3`/`y3` are selected from `func9`, `func10`, or `func11` result buses according to the registered case selection.
+- `zero3` is asserted for the infinity-result cases (`cond1` or both-infinity via `func9`).
+- `done` behavior:
+  - asserted directly for `use1` and `cond1` cases,
+  - otherwise follows `done10` (doubling) or `done11` (general addition).
+- `done` is synchronously reset to 0 by `reset`; outside reset, its value follows the selected case path for the currently sampled inputs.
+- When `zero3=1` (infinity result), `x3`/`y3` are not forced to a canonical infinity coordinate encoding by this module and should be interpreted together with `zero3`.
+
+## 4. Implementation Details
+
+### 4.1 Datapath Organization
+
+`point_add` instantiates three parallel candidate result paths:
+- `func9` -> (`x3a`, `y3a`, `zero3a`) for infinity/pass-through handling,
+- `func10` -> (`x3b`, `y3b`, `done10`) for doubling,
+- `func11` -> (`x3c`, `y3c`, `done11`) for general addition.
+
+A top-level result mux (implemented as sequential assignments) selects which candidate coordinates drive `x3` and `y3` each cycle.
+
+### 4.2 Control Structure
+
+- `f3m_neg` computes `ny2 = -y2` for inverse-point detection.
+- Condition registers (`use1`, `cond1..cond5`) are updated on `posedge clk` and reset synchronously.
+- `zero3` and `done` are generated by dedicated sequential logic from these registered conditions and path completion signals.
+
+### 4.3 Arithmetic Realization in `func10` (Doubling)
+
+`func10` implements the doubling formula through GF(3^M) primitives:
+- invert `y1` (`f3m_inv`),
+- square and cube of inverse term (`f3m_mult`, `f3m_cubic`),
+- additions and negation to form final coordinates (`f3m_add`, `f3m_neg`).
+
+Internal sequencing uses:
+- `func6` to convert a sub-operation completion level into a one-cycle start/reset pulse for the next stage,
+- 3-bit shift register `K` to gate final output latching and `done` assertion.
+
+### 4.4 Arithmetic Realization in `func11` (General Addition)
+
+`func11` computes intermediate values corresponding to slope-based affine addition:
+- differences `x2-x1` and `y2-y1` (`f3m_sub`),
+- inversion of `x2-x1` (`f3m_inv`),
+- multiplication chain for slope and slope squared (`f3m_mult`),
+- cubic and add/sub combinations for final coordinates (`f3m_cubic`, `f3m_add`, `f3m_sub`).
+
+Internal sequencing uses:
+- two `func6` instances to derive stage transition pulses,
+- 4-bit shift register `K` to control final output capture and `done` assertion.
+
+## 5. Submodules
+
+### 5.1 `f3m_neg`
+
+Role:
+- Computes additive inverse in GF(3^M), used at top-level to derive `-y2` for inverse-point detection.
+
+Interface:
+
+| Signal | Direction | Width | Description |
+| --- | --- | --- | --- |
+| `a` | Input | ``[`WIDTH:0]`` | Input field element. |
+| `c` | Output | ``[`WIDTH:0]`` | Negated field element (`c = -a`). |
+
+### 5.2 `func9`
+
+Role:
+- Handles point-at-infinity cases and pass-through result selection when either operand is infinity.
+
+Interface:
+
+| Signal | Direction | Width | Description |
+| --- | --- | --- | --- |
+| `x1`, `y1` | Input | ``[`WIDTH:0]`` | Coordinates of `P1`. |
+| `zero1` | Input | 1 | Infinity indicator for `P1`. |
+| `x2`, `y2` | Input | ``[`WIDTH:0]`` | Coordinates of `P2`. |
+| `zero2` | Input | 1 | Infinity indicator for `P2`. |
+| `x3`, `y3` | Output | ``[`WIDTH:0]`` | Pass-through coordinate result. |
+| `zero3` | Output | 1 | Output infinity indication for the `func9` path (`zero1 & zero2`). |
+
+### 5.3 `func10`
+
+Role:
+- Computes point doubling result used when `P1 = P2`.
+
+Interface:
+
+| Signal | Direction | Width | Description |
+| --- | --- | --- | --- |
+| `clk` | Input | 1 | Clock for internal sequential stages. |
+| `reset` | Input | 1 | Active-high synchronous reset for doubling engine. |
+| `x1`, `y1` | Input | ``[`WIDTH:0]`` | Input point coordinates. |
+| `done` | Output | 1 | Completion indication for doubling result. |
+| `x3`, `y3` | Output | ``[`WIDTH:0]`` | Doubled-point result coordinates. |
+
+### 5.4 `func11`
+
+Role:
+- Computes general point addition for non-infinity, non-equal, non-inverse input pairs.
+
+Interface:
+
+| Signal | Direction | Width | Description |
+| --- | --- | --- | --- |
+| `clk` | Input | 1 | Clock for internal sequential stages. |
+| `reset` | Input | 1 | Active-high synchronous reset for general-add engine. |
+| `x1`, `y1` | Input | ``[`WIDTH:0]`` | Coordinates of `P1`. |
+| `x2`, `y2` | Input | ``[`WIDTH:0]`` | Coordinates of `P2`. |
+| `done` | Output | 1 | Completion indication for general-add result. |
+| `x3`, `y3` | Output | ``[`WIDTH:0]`` | General-add result coordinates. |
+
+## 6. Clock and Reset
+
+| Signal | Type | Description |
+| --- | --- | --- |
+| `clk` | Clock | Rising-edge clock for all sequential logic in `point_add`. |
+| `reset` | Reset | Active-high synchronous reset. Clears top-level control/output registers and resets arithmetic engines (`func10`, `func11`) through their reset inputs. |
+
+No asynchronous reset behavior is implemented at this top level.
+
+## 7. Constraints and Integration Notes
+
+- `zero1` and `zero2` must correctly represent whether the associated input point is infinity.
+- The module relies on macro definitions in `inc.v` (not runtime-programmable widths).
+- Input data should remain stable through completion, per timing guidance, because there is no explicit transaction `start` handshake.
+- No compile-time conditional branches were identified in the selected top-level ECG source files for this module.

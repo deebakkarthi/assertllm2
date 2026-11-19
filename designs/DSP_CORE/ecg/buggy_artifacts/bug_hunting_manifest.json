@@ -1,0 +1,172 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "point_add.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 243: x3 <= 0;  ==>  NonblockingSubstitution @ line 243: x3 <= 1;",
+      "target_line": 243
+    },
+    {
+      "changed_rtl_files": [
+        "point_add.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 291: x3 <= 0;  ==>  NonblockingSubstitution @ line 291: x3 <= 2;",
+      "target_line": 291
+    },
+    {
+      "changed_rtl_files": [
+        "point_add.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 290: begin done <= 0; x3 <= 0; y3 <= 0; end  ==>  Block @ line 290: begin done <= 1; x3 <= 1; y3 <= 1; end",
+      "target_line": 290
+    },
+    {
+      "changed_rtl_files": [
+        "point_add.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 204: (y2[i] & zero1)  ==>  Or @ line 0: (y2[i] | zero1)",
+      "target_line": 204
+    },
+    {
+      "changed_rtl_files": [
+        "f3m.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 1] };  ==>  Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 0] };",
+      "target_line": 121
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "f3m.v",
+      "target_line": 121,
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 1] };  ==>  Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 0] };",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "point_add.v",
+      "target_line": 204,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 204: (y2[i] & zero1)  ==>  Or @ line 0: (y2[i] | zero1)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 263,
+        "target_line": 204
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "point_add.v",
+      "target_line": 243,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 243: x3 <= 0;  ==>  NonblockingSubstitution @ line 243: x3 <= 1;",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "point_add.v",
+      "target_line": 290,
+      "mutation_log": "applied. SMC -> Block @ line 290: begin done <= 0; x3 <= 0; y3 <= 0; end  ==>  Block @ line 290: begin done <= 1; x3 <= 1; y3 <= 1; end",
+      "applied": {
+        "mode": "mutant_block_splice",
+        "cur_span": [
+          502,
+          505
+        ],
+        "mutant_span": [
+          502,
+          505
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "point_add.v",
+      "target_line": 291,
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 291: x3 <= 0;  ==>  NonblockingSubstitution @ line 291: x3 <= 2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 106,
+        "target_line": 291
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/merged_buggy_rtl/f3.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/merged_buggy_rtl/f3m.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/merged_buggy_rtl/fun.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/merged_buggy_rtl/inc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/merged_buggy_rtl/point_add.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 1] };  ==>  Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 0] };",
+      "operator": "AVC",
+      "target_module": "f3m_neg",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ecg/include/f3m.v",
+      "target_signal": "a",
+      "target_signal_id": "f3m_neg.a"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 243: x3 <= 0;  ==>  NonblockingSubstitution @ line 243: x3 <= 1;",
+      "operator": "AVC",
+      "target_module": "func10",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ecg/point_add.v",
+      "target_signal": "x3",
+      "target_signal_id": "func10.x3"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 290: begin done <= 0; x3 <= 0; y3 <= 0; end  ==>  Block @ line 290: begin done <= 1; x3 <= 1; y3 <= 1; end",
+      "operator": "SMC",
+      "target_module": "func11",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ecg/point_add.v",
+      "target_signal": "x3",
+      "target_signal_id": "func11.x3"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 204: (y2[i] & zero1)  ==>  Or @ line 0: (y2[i] | zero1)",
+      "operator": "LOR",
+      "target_module": "func9",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ecg/point_add.v",
+      "target_signal": "y2",
+      "target_signal_id": "func9.y2"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 291: x3 <= 0;  ==>  NonblockingSubstitution @ line 291: x3 <= 2;",
+      "operator": "AVC",
+      "target_module": "func11",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ecg/point_add.v",
+      "target_signal": "x3",
+      "target_signal_id": "func11.x3"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/ecg/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/ecg/mutations",
+  "top_module": "point_add",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/ecg/buggy_artifacts/consensus_merge_report"
+}

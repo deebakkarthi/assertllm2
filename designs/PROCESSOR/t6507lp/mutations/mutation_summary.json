@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/t6507lp",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0000: applied. LOR(Minus->Plus) -> Minus @ line 821: (alu_y - alu_a)  ==>  Plus @ line 0: (alu_y + alu_a)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0001: applied. SMC -> Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b00; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...  ==>  Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b01; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0002: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 438: alu_status[D] <= 1'b0;  ==>  NonblockingSubstitution @ line 438: alu_status[D] <= 1'b1;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0003: applied. AVC(8'd1->8'd2) -> BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd1;  ==>  BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd2;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0004: applied. CCW(0<->1) -> Concat @ line 708: { data_in[4:0], address_plus_index[7:0] }  ==>  Concat @ line 708: { address_plus_index[7:0], data_in[4:0] }",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0005: applied. LOR(Eq->NotEq) -> Eq @ line 1366: (alu_status[Z] == 1'b0)  ==>  NotEq @ line 0: (alu_status[Z] != 1'b0)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 443: (alu_enable == 1'b1)  ==>  NotEq @ line 0: (alu_enable != 1'b1)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0007: applied. AVC(0->2) -> NonblockingSubstitution @ line 482: alu_result <= result[7:0];  ==>  NonblockingSubstitution @ line 482: alu_result <= result[7:2];",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0008: applied. AVC(0->1) -> BlockingSubstitution @ line 743: AL = op1[3:0] - op2[3:0] - (1'b1 - alu_status[C]);  ==>  BlockingSubstitution @ line 743: AL = op1[3:0] - op2[3:1] - (1'b1 - alu_status[C]);",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0009: applied. SMC -> Block @ line 987: begin next_state = FETCH_LOW; alu_opcode = ir; alu_enable = 1'b1; alu_a = temp_data; end  ==>  Block @ line 987: begin next_state = FETCH_LOW; alu_opcode = ir; alu_enable = 1'b0; alu_a = temp_data; end",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0010: applied. AVC(8'h00->8'h01) -> BlockingSubstitution @ line 971: alu_a = 8'h00;  ==>  BlockingSubstitution @ line 971: alu_a = 8'h01;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0011: applied. AVC(8'h00->8'h01) -> BlockingSubstitution @ line 970: alu_opcode = 8'h00;  ==>  BlockingSubstitution @ line 970: alu_opcode = 8'h01;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0012: applied. AVC(8'h00->8'h01) -> NonblockingSubstitution @ line 724: data_out <= 8'h00;  ==>  NonblockingSubstitution @ line 724: data_out <= 8'h01;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_fsm.v"
+      ],
+      "log": "M_0013: applied. LOR(Eq->NotEq) -> Eq @ line 571: (reset_n == 1'b0)  ==>  NotEq @ line 0: (reset_n != 1'b0)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0014: applied. LOR(Eq->NotEq) -> Eq @ line 429: (reset_n == 1'b0)  ==>  NotEq @ line 0: (reset_n != 1'b0)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0015: applied. LOR(Minus->Plus) -> Minus @ line 635: (alu_a - 8'd1)  ==>  Plus @ line 0: (alu_a + 8'd1)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0016: applied. CMC(true_only) -> Cond @ line 814: ((alu_x >= alu_a)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 431: alu_status[C] <= 1'b0;  ==>  NonblockingSubstitution @ line 431: alu_status[C] <= 1'b1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0018: applied. AVC(7->8) -> NonblockingSubstitution @ line 460: alu_x <= result[7:0];  ==>  NonblockingSubstitution @ line 460: alu_x <= result[8:0];",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/t6507lp_alu.v"
+      ],
+      "log": "M_0019: applied. CMC(true_only) -> Cond @ line 822: ((alu_y >= alu_a)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "fifo4.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 128: ((wp_p1 == rp) & we)  ==>  Or @ line 0: ((wp_p1 == rp) | we)",
+      "target_line": 128
+    },
+    {
+      "changed_rtl_files": [
+        "simple_spi_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 131: (adr_i == 2'b11)  ==>  NotEq @ line 0: (adr_i != 2'b11)",
+      "target_line": 131
+    },
+    {
+      "changed_rtl_files": [
+        "simple_spi_top.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(7->6) -> Assign @ line 309: assign mosi_o = treg[7];  ==>  Assign @ line 309: assign mosi_o = treg[6];",
+      "target_line": 309
+    },
+    {
+      "changed_rtl_files": [
+        "simple_spi_top.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(we<->full) -> Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wfwe), .dout(wfdout), .re(wfre), .full(wffull), .empty(wfempty) )  ==>  Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wffull), .dout(wfdout), .re(wfre), .full(wfwe), .empty(wfempty) )",
+      "target_line": 205
+    },
+    {
+      "changed_rtl_files": [
+        "simple_spi_top.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(2'b01<->2'b00) -> CaseStatement @ line 141: case(adr_i) 2'b00: dat_o <= #1 spcr; 2'b01: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase  ==>  CaseStatement @ line 141: case(adr_i) 2'b01: dat_o <= #1 spcr; 2'b00: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase",
+      "target_line": 141
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "fifo4.v",
+      "target_line": 128,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 128: ((wp_p1 == rp) & we)  ==>  Or @ line 0: ((wp_p1 == rp) | we)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 126,
+        "target_line": 128
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "simple_spi_top.v",
+      "target_line": 131,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 131: (adr_i == 2'b11)  ==>  NotEq @ line 0: (adr_i != 2'b11)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 129,
+        "target_line": 131
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "simple_spi_top.v",
+      "target_line": 141,
+      "mutation_log": "applied. CSE(2'b01<->2'b00) -> CaseStatement @ line 141: case(adr_i) 2'b00: dat_o <= #1 spcr; 2'b01: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase  ==>  CaseStatement @ line 141: case(adr_i) 2'b01: dat_o <= #1 spcr; 2'b00: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          139,
+          145
+        ],
+        "token_a": "2'b01",
+        "token_b": "2'b00",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "simple_spi_top.v",
+      "target_line": 205,
+      "mutation_log": "applied. CSW(we<->full) -> Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wfwe), .dout(wfdout), .re(wfre), .full(wffull), .empty(wfempty) )  ==>  Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wffull), .dout(wfdout), .re(wfre), .full(wfwe), .empty(wfempty) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 220,
+        "line_b": 223,
+        "token_a": "we",
+        "token_b": "full"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "simple_spi_top.v",
+      "target_line": 309,
+      "mutation_log": "applied. AVC(7->6) -> Assign @ line 309: assign mosi_o = treg[7];  ==>  Assign @ line 309: assign mosi_o = treg[6];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 307,
+        "target_line": 309
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts/merged_buggy_rtl/fifo4.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts/merged_buggy_rtl/simple_spi_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts/merged_buggy_rtl/timescale.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 128: ((wp_p1 == rp) & we)  ==>  Or @ line 0: ((wp_p1 == rp) | we)",
+      "operator": "LOR",
+      "target_module": "fifo4",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/spi_core/include/fifo4.v",
+      "target_signal": "we",
+      "target_signal_id": "fifo4.we"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 131: (adr_i == 2'b11)  ==>  NotEq @ line 0: (adr_i != 2'b11)",
+      "operator": "LOR",
+      "target_module": "simple_spi_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/spi_core/simple_spi_top.v",
+      "target_signal": "adr_i",
+      "target_signal_id": "simple_spi_top.adr_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(we<->full) -> Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wfwe), .dout(wfdout), .re(wfre), .full(wffull), .empty(wfempty) )  ==>  Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wffull), .dout(wfdout), .re(wfre), .full(wfwe), .empty(wfempty) )",
+      "operator": "CSW",
+      "target_module": "simple_spi_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/spi_core/simple_spi_top.v",
+      "target_signal": "clk_i",
+      "target_signal_id": "simple_spi_top.clk_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(2'b01<->2'b00) -> CaseStatement @ line 141: case(adr_i) 2'b00: dat_o <= #1 spcr; 2'b01: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase  ==>  CaseStatement @ line 141: case(adr_i) 2'b01: dat_o <= #1 spcr; 2'b00: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase",
+      "operator": "CSE",
+      "target_module": "simple_spi_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/spi_core/simple_spi_top.v",
+      "target_signal": "dat_o",
+      "target_signal_id": "simple_spi_top.dat_o"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(7->6) -> Assign @ line 309: assign mosi_o = treg[7];  ==>  Assign @ line 309: assign mosi_o = treg[6];",
+      "operator": "AVC",
+      "target_module": "simple_spi_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/spi_core/simple_spi_top.v",
+      "target_signal": "mosi_o",
+      "target_signal_id": "simple_spi_top.mosi_o"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/mutations",
+  "top_module": "simple_spi_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/spi_core/buggy_artifacts/consensus_merge_report"
+}

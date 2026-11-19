@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/fifos.v"
+      ],
+      "log": "M_0000: applied. DMI -> Partselect @ line 208: d_i[31:24]  ==>  Partselect @ line 208: d_i[30:23]",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fifos.v"
+      ],
+      "log": "M_0001: applied. DMI -> Partselect @ line 210: d_o[15:8]  ==>  Partselect @ line 210: d_o[14:7]",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fifos.v"
+      ],
+      "log": "M_0002: applied. DMO -> Pointer @ line 208: empty_int[0]  ==>  Pointer @ line 208: empty_int[1] (new index=1)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "sport_top.v"
+      ],
+      "log": "M_0003: applied. AVC(30->31) -> NonblockingSubstitution @ line 316: rxSec <= { rxSec[30:0], DRxSEC };  ==>  NonblockingSubstitution @ line 316: rxSec <= { rxSec[31:0], DRxSEC };",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0004: applied. LOR(And->Or) -> And @ line 250: (~|(6'h20 & wb_addr_i) & wb_stb_i & wb_cyc_i)  ==>  Or @ line 0: (~|(6'h20 & wb_addr_i) & wb_stb_i | wb_cyc_i)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0005: applied. CMC(swap) -> Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? wb_dat_rdbk : 32'hz)  ==>  Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? 32'hz : wb_dat_rdbk)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "sport_top.v"
+      ],
+      "log": "M_0006: applied. AVC(31->33) -> Assign @ line 401: assign DTxPRI = (msbFirst)? word_outM[31] : word_outL[31];  ==>  Assign @ line 401: assign DTxPRI = (msbFirst)? word_outM[29] : word_outL[31];",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "sport_top.v"
+      ],
+      "log": "M_0007: applied. AVC(16->17) -> Assign @ line 402: assign DTxSEC = (txsecEn_tx)? (msbFirst)? word_outM[16] : word_outL[16] : 1'b0;  ==>  Assign @ line 402: assign DTxSEC = (txsecEn_tx)? (msbFirst)? word_outM[16] : word_outL[17] : 1'b0;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0008: applied. AVC(5->4) -> Assign @ line 281: assign msbFirst = txreg[10 + 5];  ==>  Assign @ line 281: assign msbFirst = txreg[10 + 4];",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0009: applied. AVC(7->5) -> Assign @ line 279: assign rx_actHi = rxreg[10 + 7];  ==>  Assign @ line 279: assign rx_actHi = rxreg[10 + 5];",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0010: applied. AVC(5->7) -> Assign @ line 283: assign rx_int = rxreg[10 + 5];  ==>  Assign @ line 283: assign rx_int = rxreg[10 + 7];",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0011: applied. AVC(10->9) -> Assign @ line 282: assign rx_start = rxreg[10 + 6];  ==>  Assign @ line 282: assign rx_start = rxreg[9 + 6];",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0012: applied. AVC(8->7) -> Assign @ line 275: assign rxlateFS_earlyFSn = rxreg[10 + 8];  ==>  Assign @ line 275: assign rxlateFS_earlyFSn = rxreg[10 + 7];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0013: applied. AVC(0->2) -> Assign @ line 285: assign rxpacketCnt = rxreg[10-1:0];  ==>  Assign @ line 285: assign rxpacketCnt = rxreg[10-1:2];",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0014: applied. AVC(10->11) -> Assign @ line 284: assign rxsampleCnt = rxreg[10+4:10];  ==>  Assign @ line 284: assign rxsampleCnt = rxreg[11+4:10];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0015: applied. AVC(10->12) -> Assign @ line 274: assign rxsecEn = rxreg[10 + 9];  ==>  Assign @ line 274: assign rxsecEn = rxreg[12 + 9];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0016: applied. AVC(7->9) -> Assign @ line 278: assign tx_actHi = txreg[10 + 7];  ==>  Assign @ line 278: assign tx_actHi = txreg[10 + 9];",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0017: applied. AVC(10->12) -> Assign @ line 280: assign tx_start = txreg[10 + 6];  ==>  Assign @ line 280: assign tx_start = txreg[12 + 6];",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0018: applied. AVC(8->6) -> Assign @ line 277: assign txlateFS_earlyFSn = txreg[10 + 8];  ==>  Assign @ line 277: assign txlateFS_earlyFSn = txreg[10 + 6];",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_interface.v"
+      ],
+      "log": "M_0019: applied. AVC(0->2) -> Assign @ line 287: assign txpacketCnt = txreg[10-1:0];  ==>  Assign @ line 287: assign txpacketCnt = txreg[10-1:2];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

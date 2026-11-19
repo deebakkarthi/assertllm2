@@ -1,0 +1,233 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "a23_coprocessor.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(4'd6<->4'd5) -> CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...  ==>  CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...",
+      "target_line": 140
+    },
+    {
+      "changed_rtl_files": [
+        "a23_coprocessor.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. AVC(32'd0->32'd2) -> NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd0;  ==>  NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd2;",
+      "target_line": 149
+    },
+    {
+      "changed_rtl_files": [
+        "a23_coprocessor.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 132: (!i_fetch_stall && (i_copro_operation == 2'd2) && (i_copro_crn == 4'd1))  ==>  Lor @ line 0: (!i_fetch_stall && (i_copro_operation == 2'd2) || (i_copro_crn == 4'd1))",
+      "target_line": 132
+    },
+    {
+      "changed_rtl_files": [
+        "a23_coprocessor.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 93: assign o_cache_enable = cache_control[0];  ==>  Assign @ line 93: assign o_cache_enable = cache_control[2];",
+      "target_line": 93
+    },
+    {
+      "changed_rtl_files": [
+        "a23_fetch.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(i_select<->o_stall) -> Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(sel_cache), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable), ....  ==>  Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(cache_stall), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable),...",
+      "target_line": 273
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "a23_coprocessor.v",
+      "target_line": 93,
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 93: assign o_cache_enable = cache_control[0];  ==>  Assign @ line 93: assign o_cache_enable = cache_control[2];",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 62,
+            "base_end": 66,
+            "matched_start": 62,
+            "matched_end": 66
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "a23_coprocessor.v",
+      "target_line": 132,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 132: (!i_fetch_stall && (i_copro_operation == 2'd2) && (i_copro_crn == 4'd1))  ==>  Lor @ line 0: (!i_fetch_stall && (i_copro_operation == 2'd2) || (i_copro_crn == 4'd1))",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 86,
+            "base_end": 87,
+            "matched_start": 92,
+            "matched_end": 93
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "a23_coprocessor.v",
+      "target_line": 140,
+      "mutation_log": "applied. CSE(4'd6<->4'd5) -> CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...  ==>  CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 89,
+            "base_end": 194,
+            "matched_start": 95,
+            "matched_end": 200
+          },
+          {
+            "base_start": 88,
+            "base_end": 88,
+            "matched_start": 98,
+            "matched_end": 98
+          },
+          {
+            "base_start": 83,
+            "base_end": 85,
+            "matched_start": 89,
+            "matched_end": 91
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "a23_coprocessor.v",
+      "target_line": 149,
+      "mutation_log": "applied. AVC(32'd0->32'd2) -> NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd0;  ==>  NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 112,
+        "target_line": 149
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "a23_fetch.v",
+      "target_line": 273,
+      "mutation_log": "applied. CSW(i_select<->o_stall) -> Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(sel_cache), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable), ....  ==>  Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(cache_stall), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable),...",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_alu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_barrel_shift.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_barrel_shift_fpga.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_cache.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_coprocessor.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_decode.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_decompile.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_execute.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_fetch.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_multiply.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_ram_register_bank.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_register_bank.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/a23_wishbone.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/afifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/boot_mem128.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/boot_mem32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/clocks_resets.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/ddr3_afifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/ethmac_wb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/generic_iobuf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/generic_sram_byte_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/generic_sram_line_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/interrupt_controller.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/main_mem.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/system.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/test_module.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/timer_module.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/uart.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/wb_ddr3_bridge.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/wb_xs6_ddr3_bridge.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/wishbone_arbiter.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_addsub_n.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_1024x128_byte_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_2048x32_byte_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_256x128_byte_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_256x21_line_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_256x32_byte_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_4096x32_byte_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/merged_buggy_rtl/xs6_sram_512x128_byte_en.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(4'd6<->4'd5) -> CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...  ==>  CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...",
+      "operator": "CSE",
+      "target_module": "a23_coprocessor",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/amber/include/a23_coprocessor.v",
+      "target_signal": "i_copro_crn",
+      "target_signal_id": "a23_coprocessor.i_copro_crn"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 132: (!i_fetch_stall && (i_copro_operation == 2'd2) && (i_copro_crn == 4'd1))  ==>  Lor @ line 0: (!i_fetch_stall && (i_copro_operation == 2'd2) || (i_copro_crn == 4'd1))",
+      "operator": "LOR",
+      "target_module": "a23_coprocessor",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/amber/include/a23_coprocessor.v",
+      "target_signal": "i_copro_operation",
+      "target_signal_id": "a23_coprocessor.i_copro_operation"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 93: assign o_cache_enable = cache_control[0];  ==>  Assign @ line 93: assign o_cache_enable = cache_control[2];",
+      "operator": "AVC",
+      "target_module": "a23_coprocessor",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/amber/include/a23_coprocessor.v",
+      "target_signal": "o_cache_enable",
+      "target_signal_id": "a23_coprocessor.o_cache_enable"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(i_select<->o_stall) -> Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(sel_cache), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable), ....  ==>  Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(cache_stall), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable),...",
+      "operator": "CSW",
+      "target_module": "a23_fetch",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/amber/include/a23_fetch.v",
+      "target_signal": "i_cache_flush",
+      "target_signal_id": "a23_fetch.i_cache_flush"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. AVC(32'd0->32'd2) -> NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd0;  ==>  NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd2;",
+      "operator": "AVC",
+      "target_module": "a23_coprocessor",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/amber/include/a23_coprocessor.v",
+      "target_signal": "o_copro_read_data",
+      "target_signal_id": "a23_coprocessor.o_copro_read_data"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/amber/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/amber/mutations",
+  "top_module": "a23_core",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/amber/buggy_artifacts/consensus_merge_report"
+}

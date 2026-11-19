@@ -1,0 +1,206 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "sd_bd.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 242: last_a_cmp <= 0;  ==>  NonblockingSubstitution @ line 242: last_a_cmp <= 2;",
+      "target_line": 242
+    },
+    {
+      "changed_rtl_files": [
+        "sd_bd.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 250: free_bd <= free_bd + 1;  ==>  NonblockingSubstitution @ line 250: free_bd <= free_bd + 2;",
+      "target_line": 250
+    },
+    {
+      "changed_rtl_files": [
+        "sd_bd.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 209: begin new_bw <= 0; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...  ==>  Block @ line 209: begin new_bw <= 1; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...",
+      "target_line": 209
+    },
+    {
+      "changed_rtl_files": [
+        "sd_cmd_master.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(0->2) -> BlockingSubstitution @ line 292: STATUS_REG = 0;  ==>  BlockingSubstitution @ line 292: STATUS_REG = 2;",
+      "target_line": 292
+    },
+    {
+      "changed_rtl_files": [
+        "sd_cmd_master.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 372: (ack_in_int == 1)  ==>  NotEq @ line 0: (ack_in_int != 1)",
+      "target_line": 372
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "sd_bd.v",
+      "target_line": 209,
+      "mutation_log": "applied. SMC -> Block @ line 209: begin new_bw <= 0; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...  ==>  Block @ line 209: begin new_bw <= 1; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 95,
+            "base_end": 196,
+            "matched_start": 95,
+            "matched_end": 196
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "sd_bd.v",
+      "target_line": 242,
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 242: last_a_cmp <= 0;  ==>  NonblockingSubstitution @ line 242: last_a_cmp <= 2;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 70,
+            "base_end": 75,
+            "matched_start": 70,
+            "matched_end": 75
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "sd_bd.v",
+      "target_line": 250,
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 250: free_bd <= free_bd + 1;  ==>  NonblockingSubstitution @ line 250: free_bd <= free_bd + 2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 78,
+        "target_line": 250
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sd_cmd_master.v",
+      "target_line": 292,
+      "mutation_log": "applied. AVC(0->2) -> BlockingSubstitution @ line 292: STATUS_REG = 0;  ==>  BlockingSubstitution @ line 292: STATUS_REG = 2;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 70,
+            "base_end": 75,
+            "matched_start": 70,
+            "matched_end": 75
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sd_cmd_master.v",
+      "target_line": 372,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 372: (ack_in_int == 1)  ==>  NotEq @ line 0: (ack_in_int != 1)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 375,
+        "target_line": 372
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_bd.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_clock_divider.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_cmd_master.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_cmd_serial_host.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_controller_wb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_crc_16.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_crc_7.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_data_master.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_data_serial_host.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_fifo_rx_filler.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_fifo_tx_filler.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_rx_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sd_tx_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/sdc_controller.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/merged_buggy_rtl/timescale.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 242: last_a_cmp <= 0;  ==>  NonblockingSubstitution @ line 242: last_a_cmp <= 2;",
+      "operator": "AVC",
+      "target_module": "sd_bd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/include/sd_bd.v",
+      "target_signal": "a_cmp",
+      "target_signal_id": "sd_bd.a_cmp"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 250: free_bd <= free_bd + 1;  ==>  NonblockingSubstitution @ line 250: free_bd <= free_bd + 2;",
+      "operator": "AVC",
+      "target_module": "sd_bd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/include/sd_bd.v",
+      "target_signal": "free_bd",
+      "target_signal_id": "sd_bd.free_bd"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 209: begin new_bw <= 0; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...  ==>  Block @ line 209: begin new_bw <= 1; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...",
+      "operator": "SMC",
+      "target_module": "sd_bd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/include/sd_bd.v",
+      "target_signal": "rst",
+      "target_signal_id": "sd_bd.rst"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(0->2) -> BlockingSubstitution @ line 292: STATUS_REG = 0;  ==>  BlockingSubstitution @ line 292: STATUS_REG = 2;",
+      "operator": "AVC",
+      "target_module": "sd_cmd_master",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/include/sd_cmd_master.v",
+      "target_signal": "STATUS_REG",
+      "target_signal_id": "sd_cmd_master.STATUS_REG"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 372: (ack_in_int == 1)  ==>  NotEq @ line 0: (ack_in_int != 1)",
+      "operator": "LOR",
+      "target_module": "sd_cmd_master",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/include/sd_cmd_master.v",
+      "target_signal": "ack_in",
+      "target_signal_id": "sd_cmd_master.ack_in"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/mutations",
+  "top_module": "sdc_controller",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0002",
+        "rtl_name": "sd_bd.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sd_mmc_controller/buggy_artifacts/consensus_merge_report"
+}

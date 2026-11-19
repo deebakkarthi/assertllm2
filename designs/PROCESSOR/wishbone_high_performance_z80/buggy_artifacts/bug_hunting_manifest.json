@@ -1,0 +1,174 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "z80_core_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wb_dat_o<->alu8_out) -> Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(wb_dat...  ==>  Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(er), ....",
+      "target_line": 177
+    },
+    {
+      "changed_rtl_files": [
+        "z80_core_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 227: (~wb_adr_o[15] & (wb_tga_o == 2'b00))  ==>  Or @ line 0: (~wb_adr_o[15] | (wb_tga_o == 2'b00))",
+      "target_line": 227
+    },
+    {
+      "changed_rtl_files": [
+        "z80_inst_exec.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DMO -> Pointer @ line 1736: add16[11]  ==>  Pointer @ line 1736: add16[13] (new index=13)",
+      "target_line": 1736
+    },
+    {
+      "changed_rtl_files": [
+        "z80_inst_exec.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 1744: alu8_out[5]  ==>  Pointer @ line 1744: alu8_out[7] (new index=7)",
+      "target_line": 1744
+    },
+    {
+      "changed_rtl_files": [
+        "z80_inst_exec.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DMI -> Partselect @ line 1403: adr_alu[15:8]  ==>  Partselect @ line 1403: adr_alu[14:7]",
+      "target_line": 1403
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "z80_core_top.v",
+      "target_line": 177,
+      "mutation_log": "applied. CSW(wb_dat_o<->alu8_out) -> Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(wb_dat...  ==>  Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(er), ....",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 177,
+        "line_b": 188,
+        "token_a": "wb_dat_o",
+        "token_b": "alu8_out"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "z80_core_top.v",
+      "target_line": 227,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 227: (~wb_adr_o[15] & (wb_tga_o == 2'b00))  ==>  Or @ line 0: (~wb_adr_o[15] | (wb_tga_o == 2'b00))",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 226,
+        "target_line": 227
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "z80_inst_exec.v",
+      "target_line": 1403,
+      "mutation_log": "applied. DMI -> Partselect @ line 1403: adr_alu[15:8]  ==>  Partselect @ line 1403: adr_alu[14:7]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 773,
+        "target_line": 1403
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "z80_inst_exec.v",
+      "target_line": 1736,
+      "mutation_log": "applied. DMO -> Pointer @ line 1736: add16[11]  ==>  Pointer @ line 1736: add16[13] (new index=13)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 1236,
+        "target_line": 1736
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "z80_inst_exec.v",
+      "target_line": 1744,
+      "mutation_log": "applied. DMO -> Pointer @ line 1744: alu8_out[5]  ==>  Pointer @ line 1744: alu8_out[7] (new index=7)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 331,
+        "target_line": 1744
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/opcodes.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/z80_bist_logic.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/z80_core_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/z80_inst_exec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/z80_memstate2.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/z80_sram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/merged_buggy_rtl/z80_testbed.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wb_dat_o<->alu8_out) -> Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(wb_dat...  ==>  Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(er), ....",
+      "operator": "CSW",
+      "target_module": "z80_core_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/z80_core_top.v",
+      "target_signal": "int_req_i",
+      "target_signal_id": "z80_core_top.int_req_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 227: (~wb_adr_o[15] & (wb_tga_o == 2'b00))  ==>  Or @ line 0: (~wb_adr_o[15] | (wb_tga_o == 2'b00))",
+      "operator": "LOR",
+      "target_module": "z80_core_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/z80_core_top.v",
+      "target_signal": "wb_adr_o",
+      "target_signal_id": "z80_core_top.wb_adr_o"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DMO -> Pointer @ line 1736: add16[11]  ==>  Pointer @ line 1736: add16[13] (new index=13)",
+      "operator": "DMO",
+      "target_module": "z80_inst_exec",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/include/z80_inst_exec.v",
+      "target_signal": "add16",
+      "target_signal_id": "z80_inst_exec.add16"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DMI -> Partselect @ line 1403: adr_alu[15:8]  ==>  Partselect @ line 1403: adr_alu[14:7]",
+      "operator": "DMI",
+      "target_module": "z80_inst_exec",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/include/z80_inst_exec.v",
+      "target_signal": "adr_alu",
+      "target_signal_id": "z80_inst_exec.adr_alu"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 1744: alu8_out[5]  ==>  Pointer @ line 1744: alu8_out[7] (new index=7)",
+      "operator": "DMO",
+      "target_module": "z80_inst_exec",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/include/z80_inst_exec.v",
+      "target_signal": "alu8_out",
+      "target_signal_id": "z80_inst_exec.alu8_out"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80/mutations",
+  "top_module": "z80_core_top",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/wishbone_high_performance_z80/buggy_artifacts/consensus_merge_report"
+}

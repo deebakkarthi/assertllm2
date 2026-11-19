@@ -1,0 +1,12 @@
+figure	caption	odt_asset	output_file
+Fig01	Synchronous system	Pictures/100000000000031C0000011F7F0A8DFD.png	fig01_synchronous_system.png
+Fig02	Original ATARI block diagram	Pictures/10000000000003D100000203730E8F21.png	fig02_original_atari_block_diagram.png
+Fig03	Proposed block diagram	Pictures/10000000000003CD00000203BBE8DCD3.png	fig03_proposed_block_diagram.png
+Fig04	Chip size estimative	Pictures/1000000000000298000002659C3C2AC0.png	fig04_chip_size_estimative.png
+Fig05	ROM block diagram	Pictures/1000000000000246000001A8075DEF00.png	fig05_rom_block_diagram.png
+Fig06	Bus controller block diagram	Pictures/1000000000000260000001028FF40901.png	fig06_bus_controller_block_diagram.png
+Fig07	Keyboard controller block diagram	Pictures/1000000000000126000000B24B49142E.png	fig07_keyboard_controller_block_diagram.png
+Fig08	RIOT block diagram	Pictures/100000000000018000000102C6754BBC.png	fig08_riot_block_diagram.png
+Fig09	CPU block diagram	Pictures/10000000000000E4000000DC79F33776.png	fig09_cpu_block_diagram.png
+Fig10	Video block diagram	Pictures/10000000000001F400000143143CEA2F.png	fig10_video_block_diagram.png
+Fig11	TIA pins	(no embedded image in ODT)	(n/a)

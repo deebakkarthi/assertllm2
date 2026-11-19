@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/i2c_controller_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0000: applied. SMC -> Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b0; ld <= #1 1'b0; cmd_ack <= #1 1'b0; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...  ==>  Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b1; ld <= #1 1'b1; cmd_ack <= #1 1'b1; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0001: applied. CSW(ena<->sda_oen) -> Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(ena), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_busy)...  ==>  Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(sda_oen), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_b...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0002: applied. LOR(Or->And) -> Or @ line 271: (rst | i2c_al)  ==>  And @ line 0: (rst & i2c_al)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0003: applied. CSE(3'b010<->3'b001) -> CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b001: prer[15:8] <= #1 wb_dat_i; 3'b010: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...  ==>  CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b010: prer[15:8] <= #1 wb_dat_i; 3'b001: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0004: applied. LOR(Or->And) -> Or @ line 226: (read | write | stop)  ==>  And @ line 0: ((read | write) & stop)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0005: applied. CSW(start<->ack_in) -> Instance @ line 293: byte_controller ( .clk(wb_clk_i), .rst(wb_rst_i), .nReset(rst_i), .ena(core_en), .clk_cnt(prer), .start(sta), .stop(sto), .read(rd), .wri...  ==>  Instance @ line 293: byte_controller ( .clk(wb_clk_i), .rst(wb_rst_i), .nReset(rst_i), .ena(core_en), .clk_cnt(prer), .start(sda_pad_o), .stop(sto), .read(rd)...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0006: applied. LOR(And->Or) -> And @ line 218: (wb_cyc_i & wb_stb_i & ~wb_ack_o)  ==>  Or @ line 0: (wb_cyc_i & wb_stb_i | ~wb_ack_o)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0007: applied. LOR(And->Or) -> And @ line 214: (wb_we_i & wb_ack_o)  ==>  Or @ line 0: (wb_we_i | wb_ack_o)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0008: applied. SMC -> Block @ line 272: begin core_cmd <= #1 4'b0000; core_txd <= #1 1'b0; shift <= #1 1'b0; ld <= #1 1'b0; cmd_ack <= #1 1'b0; c_state <= #1 ST_IDLE; ack_out <=...  ==>  Block @ line 272: begin core_cmd <= #1 4'b0010; core_txd <= #1 1'b1; shift <= #1 1'b1; ld <= #1 1'b1; cmd_ack <= #1 1'b1; c_state <= #1 ST_IDLE; ack_out <=...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0009: applied. AVC(0->2) -> NonblockingSubstitution @ line 231: wb_dat_o <= #1 0;  ==>  NonblockingSubstitution @ line 231: wb_dat_o <= #1 2;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0010: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 345: wb_inta_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 345: wb_inta_o <= #1 1'b1;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 380: cmd_ack <= #1 1'b1;  ==>  NonblockingSubstitution @ line 380: cmd_ack <= #1 1'b0;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0012: applied. CSE(3'b110<->3'b111) -> CaseStatement @ line 223: case(wb_adr_i) 3'b000: wb_dat_o <= #1 prer[7:0]; 3'b001: wb_dat_o <= #1 prer[15:8]; 3'b010: wb_dat_o <= #1 ctr; 3'b011: wb_dat_o <= #1 rx...  ==>  CaseStatement @ line 223: case(wb_adr_i) 3'b000: wb_dat_o <= #1 prer[7:0]; 3'b001: wb_dat_o <= #1 prer[15:8]; 3'b010: wb_dat_o <= #1 ctr; 3'b011: wb_dat_o <= #1 rx...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0013: applied. LOR(Eq->NotEq) -> Eq @ line 267: (wb_adr_i == 3'b100)  ==>  NotEq @ line 0: (wb_adr_i != 3'b100)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 277: cmd_ack <= #1 1'b0;  ==>  NonblockingSubstitution @ line 277: cmd_ack <= #1 1'b1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0015: applied. AVC(0->1) -> NonblockingSubstitution @ line 224: wb_dat_o <= #1 prer[7:0];  ==>  NonblockingSubstitution @ line 224: wb_dat_o <= #1 prer[7:1];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0016: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 269: ack_out <= #1 1'b0;  ==>  NonblockingSubstitution @ line 269: ack_out <= #1 1'b1;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 287: cmd_ack <= #1 1'b0;  ==>  NonblockingSubstitution @ line 287: cmd_ack <= #1 1'b1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c_master_top.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 347: wb_inta_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 347: wb_inta_o <= #1 1'b1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/i2c_master_byte_ctrl.v"
+      ],
+      "log": "M_0019: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 279: ack_out <= #1 1'b0;  ==>  NonblockingSubstitution @ line 279: ack_out <= #1 1'b1;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

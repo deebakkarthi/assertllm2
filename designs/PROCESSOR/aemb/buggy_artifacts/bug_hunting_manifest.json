@@ -1,0 +1,196 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "aeMB_edk32.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 99: (dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i)  ==>  And @ line 0: ((dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i) & !iwb_ack_i)",
+      "target_line": 99
+    },
+    {
+      "changed_rtl_files": [
+        "aeMB_edk32.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 210: dwb_sel_o[3:0]  ==>  Partselect @ line 210: dwb_sel_o[0:0]",
+      "target_line": 210
+    },
+    {
+      "changed_rtl_files": [
+        "aeMB_edk32.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(fsl_adr_o<->rRB) -> Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(fsl_adr_o[6:2]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESUL...  ==>  Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(rRB[4:0]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESULT[31:0...",
+      "target_line": 206
+    },
+    {
+      "changed_rtl_files": [
+        "aeMB_edk32.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(rREGA<->rRESULT) -> Instance @ line 180: regf ( .rREGA(rREGA[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC(r...  ==>  Instance @ line 180: regf ( .rREGA(rRESULT[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC...",
+      "target_line": 180
+    },
+    {
+      "changed_rtl_files": [
+        "aeMB_edk32.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 98: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) & !rSTALL)  ==>  Or @ line 0: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) | !rSTALL)",
+      "target_line": 98
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "aeMB_edk32.v",
+      "target_line": 98,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 98: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) & !rSTALL)  ==>  Or @ line 0: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) | !rSTALL)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 80,
+        "target_line": 98
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "aeMB_edk32.v",
+      "target_line": 99,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 99: (dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i)  ==>  And @ line 0: ((dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i) & !iwb_ack_i)",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "aeMB_edk32.v",
+      "target_line": 180,
+      "mutation_log": "applied. CSW(rREGA<->rRESULT) -> Instance @ line 180: regf ( .rREGA(rREGA[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC(r...  ==>  Instance @ line 180: regf ( .rREGA(rRESULT[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 169,
+        "line_b": 181,
+        "token_a": "rREGA",
+        "token_b": "rRESULT"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "aeMB_edk32.v",
+      "target_line": 206,
+      "mutation_log": "applied. CSW(fsl_adr_o<->rRB) -> Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(fsl_adr_o[6:2]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESUL...  ==>  Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(rRB[4:0]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESULT[31:0...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 203,
+        "line_b": 214,
+        "token_a": "fsl_adr_o",
+        "token_b": "rRB"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "aeMB_edk32.v",
+      "target_line": 210,
+      "mutation_log": "applied. DIE -> Partselect @ line 210: dwb_sel_o[3:0]  ==>  Partselect @ line 210: dwb_sel_o[0:0]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 202,
+        "target_line": 210
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_brcc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_bsft.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_dparam.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_dwbif.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_edk62.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_edk63.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_exec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_gprf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_iche.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_intu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_iwbif.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_memif.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_mult.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_pipe.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_regs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_sim.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_sparam.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_spsram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_tpsram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB2_xslif.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_bpcu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_edk32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_ibuf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_regf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_sim.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/merged_buggy_rtl/aeMB_xecu.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 99: (dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i)  ==>  And @ line 0: ((dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i) & !iwb_ack_i)",
+      "operator": "LOR",
+      "target_module": "aeMB_edk32",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/aemb/include/aeMB_edk32.v",
+      "target_signal": "dwb_ack_i",
+      "target_signal_id": "aeMB_edk32.dwb_ack_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(fsl_adr_o<->rRB) -> Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(fsl_adr_o[6:2]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESUL...  ==>  Instance @ line 206: xecu ( .dwb_adr_o(dwb_adr_o[DW-1:2]), .dwb_sel_o(dwb_sel_o[3:0]), .fsl_adr_o(rRB[4:0]), .fsl_tag_o(fsl_tag_o[1:0]), .rRESULT(rRESULT[31:0...",
+      "operator": "CSW",
+      "target_module": "aeMB_edk32",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/aemb/include/aeMB_edk32.v",
+      "target_signal": "dwb_adr_o",
+      "target_signal_id": "aeMB_edk32.dwb_adr_o"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 210: dwb_sel_o[3:0]  ==>  Partselect @ line 210: dwb_sel_o[0:0]",
+      "operator": "DIE",
+      "target_module": "aeMB_edk32",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/aemb/include/aeMB_edk32.v",
+      "target_signal": "dwb_sel_o",
+      "target_signal_id": "aeMB_edk32.dwb_sel_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(rREGA<->rRESULT) -> Instance @ line 180: regf ( .rREGA(rREGA[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC(r...  ==>  Instance @ line 180: regf ( .rREGA(rRESULT[31:0]), .rREGB(rREGB[31:0]), .rDWBDI(rDWBDI[31:0]), .dwb_dat_o(dwb_dat_o[31:0]), .fsl_dat_o(fsl_dat_o[31:0]), .rOPC...",
+      "operator": "CSW",
+      "target_module": "aeMB_edk32",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/aemb/include/aeMB_edk32.v",
+      "target_signal": "dwb_dat_i",
+      "target_signal_id": "aeMB_edk32.dwb_dat_i"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 98: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) & !rSTALL)  ==>  Or @ line 0: (!(dwb_stb_o ^ dwb_ack_i | fsl_stb_o ^ fsl_ack_i | !iwb_ack_i) | !rSTALL)",
+      "operator": "LOR",
+      "target_module": "aeMB_edk32",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/aemb/include/aeMB_edk32.v",
+      "target_signal": "dwb_stb_o",
+      "target_signal_id": "aeMB_edk32.dwb_stb_o"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/aemb/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/aemb/mutations",
+  "top_module": "aeMB_core",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/aemb/buggy_artifacts/consensus_merge_report"
+}

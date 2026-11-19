@@ -1,0 +1,211 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "t6507lp_alu.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 821: (alu_y - alu_a)  ==>  Plus @ line 0: (alu_y + alu_a)",
+      "target_line": 821
+    },
+    {
+      "changed_rtl_files": [
+        "t6507lp_alu.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(8'd1->8'd2) -> BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd1;  ==>  BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd2;",
+      "target_line": 628
+    },
+    {
+      "changed_rtl_files": [
+        "t6507lp_alu.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b00; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...  ==>  Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b01; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...",
+      "target_line": 548
+    },
+    {
+      "changed_rtl_files": [
+        "t6507lp_alu.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 438: alu_status[D] <= 1'b0;  ==>  NonblockingSubstitution @ line 438: alu_status[D] <= 1'b1;",
+      "target_line": 438
+    },
+    {
+      "changed_rtl_files": [
+        "t6507lp_fsm.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 708: { data_in[4:0], address_plus_index[7:0] }  ==>  Concat @ line 708: { address_plus_index[7:0], data_in[4:0] }",
+      "target_line": 708
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "t6507lp_alu.v",
+      "target_line": 438,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 438: alu_status[D] <= 1'b0;  ==>  NonblockingSubstitution @ line 438: alu_status[D] <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 86,
+        "target_line": 438
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "t6507lp_alu.v",
+      "target_line": 548,
+      "mutation_log": "applied. SMC -> Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b00; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...  ==>  Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b01; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 210,
+            "base_end": 483,
+            "matched_start": 210,
+            "matched_end": 483
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "t6507lp_alu.v",
+      "target_line": 628,
+      "mutation_log": "applied. AVC(8'd1->8'd2) -> BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd1;  ==>  BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd2;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 64,
+            "base_end": 74,
+            "matched_start": 64,
+            "matched_end": 74
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "t6507lp_alu.v",
+      "target_line": 821,
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 821: (alu_y - alu_a)  ==>  Plus @ line 0: (alu_y + alu_a)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 265,
+        "target_line": 821
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "t6507lp_fsm.v",
+      "target_line": 708,
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 708: { data_in[4:0], address_plus_index[7:0] }  ==>  Concat @ line 708: { address_plus_index[7:0], data_in[4:0] }",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 114,
+            "base_end": 115,
+            "matched_start": 114,
+            "matched_end": 115
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/controller_test.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/stubs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t2600.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t2600_bus.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t2600_bus_tb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t2600_kb_tb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_alu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_alu_tb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_alu_wrapper.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_fsm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_fsm_tb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_io.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6507lp_package.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/t6532.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/test_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/timescale.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/vga_controller.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/video.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/video_converter.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/merged_buggy_rtl/video_converter_tb.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 821: (alu_y - alu_a)  ==>  Plus @ line 0: (alu_y + alu_a)",
+      "operator": "LOR",
+      "target_module": "t6507lp_alu",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/t6507lp/include/t6507lp_alu.v",
+      "target_signal": "alu_a",
+      "target_signal_id": "t6507lp_alu.alu_a"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b00; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...  ==>  Block @ line 548: begin op1 = A; op2 = alu_a; result = { 2'd0, A[7:0] }; result[9:8] = 2'b01; STATUS[N] = alu_status[N]; STATUS[C] = alu_status[C]; STATUS[...",
+      "operator": "SMC",
+      "target_module": "t6507lp_alu",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/t6507lp/include/t6507lp_alu.v",
+      "target_signal": "alu_enable",
+      "target_signal_id": "t6507lp_alu.alu_enable"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 438: alu_status[D] <= 1'b0;  ==>  NonblockingSubstitution @ line 438: alu_status[D] <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "t6507lp_alu",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/t6507lp/include/t6507lp_alu.v",
+      "target_signal": "alu_status",
+      "target_signal_id": "t6507lp_alu.alu_status"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(8'd1->8'd2) -> BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd1;  ==>  BlockingSubstitution @ line 628: result[7:0] = alu_y + 8'd2;",
+      "operator": "AVC",
+      "target_module": "t6507lp_alu",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/t6507lp/include/t6507lp_alu.v",
+      "target_signal": "alu_y",
+      "target_signal_id": "t6507lp_alu.alu_y"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 708: { data_in[4:0], address_plus_index[7:0] }  ==>  Concat @ line 708: { address_plus_index[7:0], data_in[4:0] }",
+      "operator": "CCW",
+      "target_module": "t6507lp_fsm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/t6507lp/include/t6507lp_fsm.v",
+      "target_signal": "address",
+      "target_signal_id": "t6507lp_fsm.address"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/t6507lp/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/t6507lp/mutations",
+  "top_module": "t6507lp",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0001",
+        "rtl_name": "t6507lp_alu.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/t6507lp/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/hpdmc",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_busif.v"
+      ],
+      "log": "M_0000: applied. AVC(3->5) -> Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:3];  ==>  Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:5];",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_busif.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 41: (fml_stb & mgmt_stb_en)  ==>  Or @ line 0: (fml_stb | mgmt_stb_en)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0002: applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b01: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b10: csr_do <= { ti...  ==>  CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b10: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b01: csr_do <= { ti...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0003: applied. SMC -> Block @ line 99: begin sdram_cs_n <= 1'b1; sdram_we_n <= 1'b1; sdram_cas_n <= 1'b1; sdram_ras_n <= 1'b1; idelay_rst <= 1'b0; idelay_ce <= 1'b0; idelay_inc...  ==>  Block @ line 99: begin sdram_cs_n <= 1'b0; sdram_we_n <= 1'b0; sdram_cas_n <= 1'b0; sdram_ras_n <= 1'b0; idelay_rst <= 1'b1; idelay_ce <= 1'b1; idelay_inc...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0004: applied. AVC(2'd0->2'd2) -> NonblockingSubstitution @ line 91: sdram_ba <= 2'd0;  ==>  NonblockingSubstitution @ line 91: sdram_ba <= 2'd2;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0005: applied. CCW(1<->2) -> Concat @ line 150: { tim_wr, tim_rfc, tim_refi, tim_cas, tim_rcd, tim_rp }  ==>  Concat @ line 150: { tim_wr, tim_refi, tim_rfc, tim_cas, tim_rcd, tim_rp }",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ddrio.v"
+      ],
+      "log": "M_0006: applied. CSW(CE<->S) -> Instance @ line 115: oddr_dqs_t ( .Q(sdram_dqs_t), .C0(dqs_clk), .C1(dqs_clk_n), .CE(1'b1), .D0({ 4{ ~direction_r } }), .D1({ 4{ ~direction_r } }), .R(1'b0), ...  ==>  Instance @ line 115: oddr_dqs_t ( .Q(sdram_dqs_t), .C0(dqs_clk), .C1(dqs_clk_n), .CE(1'b0), .D0({ 4{ ~direction_r } }), .D1({ 4{ ~direction_r } }), .R(1'b0), ...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_mgmt.v"
+      ],
+      "log": "M_0007: applied. DMO -> Pointer @ line 99: bank_address_onehot[2]  ==>  Pointer @ line 99: bank_address_onehot[3] (new index=3)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_busif.v"
+      ],
+      "log": "M_0008: applied. AVC(1'b1->1'b0) -> BlockingSubstitution @ line 54: mgmt_stb_en = 1'b1;  ==>  BlockingSubstitution @ line 54: mgmt_stb_en = 1'b0;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0009: applied. AVC(4'h0->4'h1) -> NonblockingSubstitution @ line 149: csr_do <= { sdram_ba, sdram_adr, 4'h0 };  ==>  NonblockingSubstitution @ line 149: csr_do <= { sdram_ba, sdram_adr, 4'h1 };",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0010: applied. AVC(16->18) -> NonblockingSubstitution @ line 126: sdram_adr <= csr_di[16:4];  ==>  NonblockingSubstitution @ line 126: sdram_adr <= csr_di[18:4];",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0011: applied. AVC(17->18) -> NonblockingSubstitution @ line 127: sdram_ba <= csr_di[18:17];  ==>  NonblockingSubstitution @ line 127: sdram_ba <= csr_di[18:18];",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0012: applied. SMC -> Block @ line 83: begin csr_do <= 32'd0; bypass <= 1'b1; sdram_rst <= 1'b1; sdram_cke <= 1'b0; sdram_adr <= 13'd0; sdram_ba <= 2'd0; tim_rp <= 3'd2; tim_rc...  ==>  Block @ line 83: begin csr_do <= 32'd2; bypass <= 1'b0; sdram_rst <= 1'b0; sdram_cke <= 1'b1; sdram_adr <= 13'd1; sdram_ba <= 2'd2; tim_rp <= 3'd0; tim_rc...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ctlif.v"
+      ],
+      "log": "M_0013: applied. AVC(0->1) -> NonblockingSubstitution @ line 130: tim_rp <= csr_di[2:0];  ==>  NonblockingSubstitution @ line 130: tim_rp <= csr_di[2:1];",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_datactl.v"
+      ],
+      "log": "M_0014: applied. LOR(And->Or) -> And @ line 211: (read & concerned_bank[3])  ==>  Or @ line 0: (read | concerned_bank[3])",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ddrio.v"
+      ],
+      "log": "M_0015: applied. CSW(CE<->R) -> Instance @ line 54: oddr_dq_t ( .Q(sdram_dq_t), .C0(sys_clk), .C1(sys_clk_n), .CE(1'b1), .D0({ 32{ ~direction_r } }), .D1({ 32{ ~direction_r } }), .R(1'b0), ...  ==>  Instance @ line 54: oddr_dq_t ( .Q(sdram_dq_t), .C0(sys_clk), .C1(sys_clk_n), .CE(1'b0), .D0({ 32{ ~direction_r } }), .D1({ 32{ ~direction_r } }), .R(1'b1), ...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_datactl.v"
+      ],
+      "log": "M_0016: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 107: ack_read0 <= 1'b0;  ==>  NonblockingSubstitution @ line 107: ack_read0 <= 1'b1;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_datactl.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 76: write_safe_counter <= { 1'b1, tim_cas, ~tim_cas };  ==>  NonblockingSubstitution @ line 76: write_safe_counter <= { 1'b0, tim_cas, ~tim_cas };",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_datactl.v"
+      ],
+      "log": "M_0018: applied. AVC(3'd0->3'd2) -> NonblockingSubstitution @ line 146: counter_writedirection <= 3'd0;  ==>  NonblockingSubstitution @ line 146: counter_writedirection <= 3'd2;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hpdmc_ddrio.v"
+      ],
+      "log": "M_0019: applied. CSW(CE<->S) -> Instance @ line 126: oddr_dqs ( .Q(sdram_dqs_out), .C0(dqs_clk), .C1(dqs_clk_n), .CE(1'b1), .D0(4'hf), .D1(4'h0), .R(1'b0), .S(1'b0) )  ==>  Instance @ line 126: oddr_dqs ( .Q(sdram_dqs_out), .C0(dqs_clk), .C1(dqs_clk_n), .CE(1'b0), .D0(4'hf), .D1(4'h0), .R(1'b0), .S(1'b1) )",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

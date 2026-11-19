@@ -1,0 +1,192 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "wb_conmax_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wb_we_i<->s3_ack_i) -> Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0_...  ==>  Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0s...",
+      "target_line": 1880
+    },
+    {
+      "changed_rtl_files": [
+        "wb_conmax_master_if.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSE(4'd12<->4'd9) -> CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...  ==>  CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...",
+      "target_line": 671
+    },
+    {
+      "changed_rtl_files": [
+        "wb_conmax_master_if.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b1;",
+      "target_line": 607
+    },
+    {
+      "changed_rtl_files": [
+        "wb_conmax_master_if.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 559: ((wb_cyc_i & !wb_stb_i)? s14_cyc_o : (slv_sel == 4'd14)? wb_cyc_i : 1'b0)  ==>  (cond removed)",
+      "target_line": 559
+    },
+    {
+      "changed_rtl_files": [
+        "wb_conmax_slave_if.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(3'd7<->3'd0) -> CaseStatement @ line 453: case(mast_sel) 3'd0: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...  ==>  CaseStatement @ line 453: case(mast_sel) 3'd7: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...",
+      "target_line": 453
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "wb_conmax_master_if.v",
+      "target_line": 559,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 559: ((wb_cyc_i & !wb_stb_i)? s14_cyc_o : (slv_sel == 4'd14)? wb_cyc_i : 1'b0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 64,
+            "base_end": 67,
+            "matched_start": 64,
+            "matched_end": 67
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "wb_conmax_master_if.v",
+      "target_line": 607,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 589,
+        "target_line": 607
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "wb_conmax_master_if.v",
+      "target_line": 671,
+      "mutation_log": "applied. CSE(4'd12<->4'd9) -> CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...  ==>  CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          653,
+          672
+        ],
+        "token_a": "4'd12",
+        "token_b": "4'd9",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "wb_conmax_slave_if.v",
+      "target_line": 453,
+      "mutation_log": "applied. CSE(3'd7<->3'd0) -> CaseStatement @ line 453: case(mast_sel) 3'd0: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...  ==>  CaseStatement @ line 453: case(mast_sel) 3'd7: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          405,
+          416
+        ],
+        "token_a": "3'd7",
+        "token_b": "3'd0",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "wb_conmax_top.v",
+      "target_line": 1880,
+      "mutation_log": "applied. CSW(wb_we_i<->s3_ack_i) -> Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0_...  ==>  Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0s...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 1825,
+        "line_b": 1868,
+        "token_a": "wb_we_i",
+        "token_b": "s3_ack_i"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_arb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_master_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_msel.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_pri_dec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_pri_enc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_rf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_slave_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/merged_buggy_rtl/wb_conmax_top.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wb_we_i<->s3_ack_i) -> Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0_...  ==>  Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0s...",
+      "operator": "CSW",
+      "target_module": "wb_conmax_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/wb_conmax_top.v",
+      "target_signal": "s0_ack_i",
+      "target_signal_id": "wb_conmax_top.s0_ack_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSE(4'd12<->4'd9) -> CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...  ==>  CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...",
+      "operator": "CSE",
+      "target_module": "wb_conmax_master_if",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/include/wb_conmax_master_if.v",
+      "target_signal": "s0_err_i",
+      "target_signal_id": "wb_conmax_master_if.s0_err_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b1;",
+      "operator": "AVC",
+      "target_module": "wb_conmax_master_if",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/include/wb_conmax_master_if.v",
+      "target_signal": "s11_cyc_o",
+      "target_signal_id": "wb_conmax_master_if.s11_cyc_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 559: ((wb_cyc_i & !wb_stb_i)? s14_cyc_o : (slv_sel == 4'd14)? wb_cyc_i : 1'b0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "wb_conmax_master_if",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/include/wb_conmax_master_if.v",
+      "target_signal": "s14_cyc_o",
+      "target_signal_id": "wb_conmax_master_if.s14_cyc_o"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(3'd7<->3'd0) -> CaseStatement @ line 453: case(mast_sel) 3'd0: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...  ==>  CaseStatement @ line 453: case(mast_sel) 3'd7: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...",
+      "operator": "CSE",
+      "target_module": "wb_conmax_slave_if",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/include/wb_conmax_slave_if.v",
+      "target_signal": "m0_cyc_i",
+      "target_signal_id": "wb_conmax_slave_if.m0_cyc_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/mutations",
+  "top_module": "wb_conmax_top",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core/buggy_artifacts/consensus_merge_report"
+}

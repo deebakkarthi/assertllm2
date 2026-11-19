@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/Collaterals.v"
+      ],
+      "log": "M_0000: applied. AVC(32'b0->32'b00000000000000000000000000000001) -> NonblockingSubstitution @ line 423: Q <= 32'b0;  ==>  NonblockingSubstitution @ line 423: Q <= 32'b00000000000000000000000000000001;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_BusArbitrer.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 415: (iRequest[i] & wCurrentMasterMask[i])  ==>  Or @ line 0: (iRequest[i] | wCurrentMasterMask[i])",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_FixedPointDivision.v"
+      ],
+      "log": "M_0002: applied. CSW(iInputReady<->OutputReady) -> Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(wInputRea...  ==>  Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(DivReady)...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_FixedPointDivision.v"
+      ],
+      "log": "M_0003: applied. CMC(false_only) -> Cond @ line 478: ((wDivisor[SIGN] == 1)? ~wDivisor + 1'b1 : wDivisor)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0004: applied. CMC(swap) -> Cond @ line 866: ((iOperation == 16'b0_010_110)? iInputReady : 0)  ==>  Cond @ line 866: ((iOperation == 16'b0_010_110)? 0 : iInputReady)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0005: applied. CSE(16'b0_000101<->16'b0_010_110) -> CaseStatement @ line 1073: case(iOperation) 16'b0_000001: wAddSubA_Bx = (iChannel_Bx[31] == 1'b1)? { 32'hFFFFFFFF, iChannel_Bx } : { 32'b0, iChannel_Bx }; 16'b0_000...  ==>  CaseStatement @ line 1073: case(iOperation) 16'b0_000001: wAddSubA_Bx = (iChannel_Bx[31] == 1'b1)? { 32'hFFFFFFFF, iChannel_Bx } : { 32'b0, iChannel_Bx }; 16'b0_000...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Collaterals.v"
+      ],
+      "log": "M_0006: applied. CMC(true_only) -> Cond @ line 478: ((~En)? 0 : shift)  ==>  (cond removed)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Collaterals.v"
+      ],
+      "log": "M_0007: applied. LOR(Minus->Plus) -> Minus @ line 463: (OUTPUT_WIDTH - 1)  ==>  Plus @ line 0: (OUTPUT_WIDTH + 1)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_FixedPointDivision.v"
+      ],
+      "log": "M_0008: applied. CMC(false_only) -> Cond @ line 475: ((wDividend[SIGN] == 1)? ~wDividend + 1'b1 : wDividend)  ==>  (cond removed)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_FixedPointDivision.v"
+      ],
+      "log": "M_0009: applied. LOR(Plus->Minus) -> Plus @ line 479: (~wDivisor + 1'b1)  ==>  Minus @ line 0: (~wDivisor - 1'b1)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_FixedPointDivision.v"
+      ],
+      "log": "M_0010: applied. CSW(Enable<->Q) -> Instance @ line 458: FFD3 ( .Clock(Clock), .Reset(Reset), .Enable(1'b1), .D(iInputReady), .Q(wInputReady) )  ==>  Instance @ line 458: FFD3 ( .Clock(Clock), .Reset(Reset), .Enable(wInputReady), .D(iInputReady), .Q(wInputReady) )",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0011: applied. CSE(16'b0_011_111<->16'b0_000101) -> CaseStatement @ line 661: case(iOperation) 16'b0_010_110: wMultiplicationA_Ax = iChannel_Ay; 16'b0_000101: wMultiplicationA_Ax = iChannel_Ax; 16'b0_011_111: wMulti...  ==>  CaseStatement @ line 661: case(iOperation) 16'b0_010_110: wMultiplicationA_Ax = iChannel_Ay; 16'b0_011_111: wMultiplicationA_Ax = iChannel_Ax; 16'b0_000101: wMulti...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0012: applied. CSE(16'b0_010_111<->16'b0_010_110) -> CaseStatement @ line 739: case(iOperation) 16'b0_000100, 16'b0_101_000: wMultiplicationB_By = iChannel_By; 16'b0_000101: wMultiplicationB_By = iChannel_Ay; 16'b0_0...  ==>  CaseStatement @ line 739: case(iOperation) 16'b0_000100, 16'b0_101_000: wMultiplicationB_By = iChannel_By; 16'b0_000101: wMultiplicationB_By = iChannel_Ay; 16'b0_0...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0013: applied. CSE(16'b0_010_110<->16'b0_000101) -> CaseStatement @ line 794: case(iOperation) 16'b0_000100, 16'b0_101_000: wMultiplicationC_Bz = iChannel_Bz; 16'b0_000101: wMultiplicationC_Bz = iChannel_Az; 16'b0_0...  ==>  CaseStatement @ line 794: case(iOperation) 16'b0_000100, 16'b0_101_000: wMultiplicationC_Bz = iChannel_Bz; 16'b0_010_110: wMultiplicationC_Bz = iChannel_Az; 16'b0_...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0014: applied. AVC(32'b0->32'b00000000000000000000000000000001) -> BlockingSubstitution @ line 833: wMultiplicationD_Aw = 32'b0;  ==>  BlockingSubstitution @ line 833: wMultiplicationD_Aw = 32'b00000000000000000000000000000001;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Theia_Core.v"
+      ],
+      "log": "M_0015: applied. CSW(iFlipMemory<->iDataWriteEnable_IO) -> Instance @ line 621: MEM ( .Clock(Clock), .Reset(Reset), .iFlipMemory(w2MEM_FlipMemory), .iDataReadAddress1_EXE(wEXE_2__MEM_DataReadAddress0), .iDataReadAddre...  ==>  Instance @ line 621: MEM ( .Clock(Clock), .Reset(Reset), .iFlipMemory(wIO2_MEM__DataWriteEnable), .iDataReadAddress1_EXE(wEXE_2__MEM_DataReadAddress0), .iData...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0016: applied. AVC(32'b0->32'b00000000000000000000000000000001) -> BlockingSubstitution @ line 874: wMultiplicationE_Ak = 32'b0;  ==>  BlockingSubstitution @ line 874: wMultiplicationE_Ak = 32'b00000000000000000000000000000001;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Theia_Core.v"
+      ],
+      "log": "M_0017: applied. CSW(iStore<->iWriteBack_Set) -> Instance @ line 725: IO ( .Clock(Clock), .Reset(Reset), .iEnable(1'b0), .iBusCyc_Type(w2IO_MasterCycleType), .iStore(1'b1), .iAdr_DataWriteBack(w2IO__DataWrit...  ==>  Instance @ line 725: IO ( .Clock(Clock), .Reset(Reset), .iEnable(1'b0), .iBusCyc_Type(w2IO_MasterCycleType), .iStore(w2IO_WriteBack_Set), .iAdr_DataWriteBack(...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_VectorALU.v"
+      ],
+      "log": "M_0018: applied. AVC(32'b0->32'b00000000000000000000000000000001) -> BlockingSubstitution @ line 799: wMultiplicationC_Bz = 32'b0;  ==>  BlockingSubstitution @ line 799: wMultiplicationC_Bz = 32'b00000000000000000000000000000001;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Module_WishBoneMaster.v"
+      ],
+      "log": "M_0019: applied. LOR(And->Or) -> And @ line 483: (wDelayWE & ACK_I)  ==>  Or @ line 0: (wDelayWE | ACK_I)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

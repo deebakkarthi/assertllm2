@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/spi_core.v"
+      ],
+      "log": "M_0000: applied. CSW(reg_wr<->hware_op_done) -> Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(reg_wr), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_be), .re...  ==>  Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(hware_op_done), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_b...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_core.v"
+      ],
+      "log": "M_0001: applied. AVC(2'b10->2'b01) -> Assign @ line 186: assign par_error = error_ind == 2'b10;  ==>  Assign @ line 186: assign par_error = error_ind == 2'b01;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0002: applied. DIE -> Partselect @ line 307: reg_rdata[3:0]  ==>  Partselect @ line 307: reg_rdata[31:28]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 262: reg_req <= 1'b0;  ==>  NonblockingSubstitution @ line 262: reg_req <= 1'b1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0004: applied. AVC(0->2) -> NonblockingSubstitution @ line 208: reg_wdata <= 0;  ==>  NonblockingSubstitution @ line 208: reg_wdata <= 2;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0005: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 279: reg_wr <= 1'b0;  ==>  NonblockingSubstitution @ line 279: reg_wr <= 1'b1;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 162: (reset_n == 1'b0)  ==>  NotEq @ line 0: (reset_n != 1'b0)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0007: applied. CSE(4'h2<->4'h9) -> CaseStatement @ line 168: case(State) 4'h0: begin TxMsgBuf <= \"Command Format:\\n\"; TxMsgSize <= 16; tx_data_avail <= 0; State <= 4'hA; NextState <= 4'h1; end 4'h1:...  ==>  CaseStatement @ line 168: case(State) 4'h0: begin TxMsgBuf <= \"Command Format:\\n\"; TxMsgSize <= 16; tx_data_avail <= 0; State <= 4'hA; NextState <= 4'h1; end 4'h1:...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/spi_core.v"
+      ],
+      "log": "M_0008: applied. CSW(byte_in<->byte_out) -> Instance @ line 113: u_spi_if ( .clk(clk), .reset_n(reset_n), .sck_pe(sck_pe), .sck_int(sck_int), .cs_int_n(cs_int_n), .byte_in(byte_in), .load_byte(load_byte...  ==>  Instance @ line 113: u_spi_if ( .clk(clk), .reset_n(reset_n), .sck_pe(sck_pe), .sck_int(sck_int), .cs_int_n(cs_int_n), .byte_in(byte_out), .load_byte(load_byt...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0009: applied. LOR(Eq->NotEq) -> Eq @ line 275: (rx_data == 8'h20)  ==>  NotEq @ line 0: (rx_data != 8'h20)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/spi_core.v"
+      ],
+      "log": "M_0010: applied. CSW(cfg_op_type<->cfg_transfer_size) -> Instance @ line 137: u_spi_ctrl ( .clk(clk), .reset_n(reset_n), .cfg_op_req(cfg_op_req), .cfg_op_type(cfg_op_type), .cfg_transfer_size(cfg_transfer_size), .cf...  ==>  Instance @ line 137: u_spi_ctrl ( .clk(clk), .reset_n(reset_n), .cfg_op_req(cfg_op_req), .cfg_op_type(cfg_transfer_size), .cfg_transfer_size(cfg_op_type), .cf...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "top.v"
+      ],
+      "log": "M_0011: applied. CSW(reg_wr<->reg_ack) -> Instance @ line 142: u_spi ( .clk(baud_clk_16x), .reset_n(line_reset_n), .reg_cs(reg_req), .reg_wr(reg_wr), .reg_addr(reg_addr[5:2]), .reg_wdata(reg_wdata), ....  ==>  Instance @ line 142: u_spi ( .clk(baud_clk_16x), .reset_n(line_reset_n), .reg_cs(reg_req), .reg_wr(so), .reg_addr(reg_addr[5:2]), .reg_wdata(reg_wdata), .reg_...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "top.v"
+      ],
+      "log": "M_0012: applied. CSW(cfg_stop_bit<->rx_ready) -> Instance @ line 166: u_core ( .line_reset_n(line_reset_n), .line_clk(line_clk), .cfg_tx_enable(cfg_tx_enable), .cfg_rx_enable(cfg_rx_enable), .cfg_stop_bit(cf...  ==>  Instance @ line 166: u_core ( .line_reset_n(line_reset_n), .line_clk(line_clk), .cfg_tx_enable(cfg_tx_enable), .cfg_rx_enable(cfg_rx_enable), .cfg_stop_bit(rx...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "top.v"
+      ],
+      "log": "M_0013: applied. CSW(tx_data_avail<->tx_rd) -> Instance @ line 202: u_msg ( .reset_n(line_reset_n), .sys_clk(baud_clk_16x), .tx_data_avail(tx_data_avail), .tx_rd(tx_rd), .tx_data(tx_data), .rx_ready(rx_rea...  ==>  Instance @ line 202: u_msg ( .reset_n(line_reset_n), .sys_clk(baud_clk_16x), .tx_data_avail(tx_rd), .tx_rd(tx_data_avail), .tx_data(tx_data), .rx_ready(rx_rea...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_core.v"
+      ],
+      "log": "M_0014: applied. CSW(cfg_stop_bit<->fifo_wr) -> Instance @ line 165: u_rxfsm ( .reset_n(line_reset_n), .baud_clk_16x(baud_clk_16x), .cfg_rx_enable(cfg_rx_enable), .cfg_stop_bit(cfg_stop_bit), .cfg_pri_mod(c...  ==>  Instance @ line 165: u_rxfsm ( .reset_n(line_reset_n), .baud_clk_16x(baud_clk_16x), .cfg_rx_enable(cfg_rx_enable), .cfg_stop_bit(rx_wr), .cfg_pri_mod(cfg_pri_...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_core.v"
+      ],
+      "log": "M_0015: applied. CSW(cfg_tx_enable<->fifo_rd) -> Instance @ line 147: u_txfsm ( .reset_n(line_reset_n), .baud_clk_16x(baud_clk_16x), .cfg_tx_enable(cfg_tx_enable), .cfg_stop_bit(cfg_stop_bit), .cfg_pri_mod(c...  ==>  Instance @ line 147: u_txfsm ( .reset_n(line_reset_n), .baud_clk_16x(baud_clk_16x), .cfg_tx_enable(tx_rd), .cfg_stop_bit(cfg_stop_bit), .cfg_pri_mod(cfg_pri_m...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0016: applied. AVC(0->2) -> NonblockingSubstitution @ line 207: reg_addr <= 0;  ==>  NonblockingSubstitution @ line 207: reg_addr <= 2;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0017: applied. AVC(19->17) -> NonblockingSubstitution @ line 303: TxMsgBuf[13*8-1:12*8] <= hex2char(reg_rdata[19:16]);  ==>  NonblockingSubstitution @ line 303: TxMsgBuf[13*8-1:12*8] <= hex2char(reg_rdata[17:16]);",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0018: applied. SMC -> Block @ line 290: begin reg_req <= 1'b0; TxMsgBuf <= \"Response: \"; TxMsgSize <= 10; tx_data_avail <= 0; State <= 4'hA; NextState <= 4'h9; end  ==>  Block @ line 290: begin reg_req <= 1'b1; TxMsgBuf <= \"Response: \"; TxMsgSize <= 11; tx_data_avail <= 1; State <= 4'h8; NextState <= 4'h8; end",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_msg_handler.v"
+      ],
+      "log": "M_0019: applied. LOR(Sll->Srl) -> Sll @ line 256: (reg_wdata << 4)  ==>  Srl @ line 0: (reg_wdata >> 4)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

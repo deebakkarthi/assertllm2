@@ -1,0 +1,169 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "pairing.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 39: reg_in[197:1]  ==>  Partselect @ line 39: reg_in[196:0]",
+      "target_line": 39
+    },
+    {
+      "changed_rtl_files": [
+        "pairing.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 3)",
+      "target_line": 43
+    },
+    {
+      "changed_rtl_files": [
+        "tiny.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 56: ram_b_addr[5:0]  ==>  Partselect @ line 56: ram_b_addr[3:0]",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "tiny.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 63: ram_b_data_in[197:194]  ==>  Partselect @ line 63: ram_b_data_in[3:0]",
+      "target_line": 63
+    },
+    {
+      "changed_rtl_files": [
+        "tiny.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DIE -> Partselect @ line 61: muxer0_out[193:0]  ==>  Partselect @ line 61: muxer0_out[197:4]",
+      "target_line": 61
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "pairing.v",
+      "target_line": 39,
+      "mutation_log": "applied. DMI -> Partselect @ line 39: reg_in[197:1]  ==>  Partselect @ line 39: reg_in[196:0]",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "pairing.v",
+      "target_line": 43,
+      "mutation_log": "applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 103) (new shift=103)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 49,
+        "target_line": 43
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "tiny.v",
+      "target_line": 56,
+      "mutation_log": "applied. DIE -> Partselect @ line 56: ram_b_addr[5:0]  ==>  Partselect @ line 56: ram_b_addr[0:0]",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "tiny.v",
+      "target_line": 61,
+      "mutation_log": "applied. DIE -> Partselect @ line 61: muxer0_out[193:0]  ==>  Partselect @ line 61: muxer0_out[197:4]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 126,
+        "target_line": 61
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "tiny.v",
+      "target_line": 63,
+      "mutation_log": "applied. DIE -> Partselect @ line 63: ram_b_data_in[197:194]  ==>  Partselect @ line 63: ram_b_data_in[3:0]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 131,
+        "target_line": 63
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/const.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/cubic.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/fsm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/pairing.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/pe.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/ram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/rom.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/merged_buggy_rtl/tiny.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 39: reg_in[197:1]  ==>  Partselect @ line 39: reg_in[196:0]",
+      "operator": "DMI",
+      "target_module": "pairing",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_pairing/pairing.v",
+      "target_signal": "i",
+      "target_signal_id": "pairing.i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 103) (new shift=103)",
+      "operator": "DMS",
+      "target_module": "pairing",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_pairing/pairing.v",
+      "target_signal": "o",
+      "target_signal_id": "pairing.o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 56: ram_b_addr[5:0]  ==>  Partselect @ line 56: ram_b_addr[0:0]",
+      "operator": "DIE",
+      "target_module": "tiny",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_pairing/include/tiny.v",
+      "target_signal": "addr",
+      "target_signal_id": "tiny.addr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 63: ram_b_data_in[197:194]  ==>  Partselect @ line 63: ram_b_data_in[3:0]",
+      "operator": "DIE",
+      "target_module": "tiny",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_pairing/include/tiny.v",
+      "target_signal": "data",
+      "target_signal_id": "tiny.data"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DIE -> Partselect @ line 61: muxer0_out[193:0]  ==>  Partselect @ line 61: muxer0_out[197:4]",
+      "operator": "DIE",
+      "target_module": "tiny",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_pairing/include/tiny.v",
+      "target_signal": "out",
+      "target_signal_id": "tiny.out"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/tiny_pairing/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/tiny_pairing/mutations",
+  "top_module": "pairing",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_pairing/buggy_artifacts/consensus_merge_report"
+}

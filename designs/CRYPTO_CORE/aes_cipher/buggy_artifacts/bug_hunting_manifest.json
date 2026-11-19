@@ -1,0 +1,178 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "aes_key_expand_128.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 18: ((kld)? key[031:000] : w[0] ^ w[3] ^ w[2] ^ w[1] ^ subword ^ rcon)  ==>  Cond @ line 18: ((kld)? w[0] ^ w[3] ^ w[2] ^ w[1] ^ subword ^ rcon : key[031:000])",
+      "target_line": 18
+    },
+    {
+      "changed_rtl_files": [
+        "aes_key_expand_128.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1->3) -> NonblockingSubstitution @ line 16: w[1] <= (kld)? key[095:064] : w[0] ^ w[1] ^ subword ^ rcon;  ==>  NonblockingSubstitution @ line 16: w[1] <= (kld)? key[095:064] : w[0] ^ w[3] ^ subword ^ rcon;",
+      "target_line": 16
+    },
+    {
+      "changed_rtl_files": [
+        "aes_key_expand_128.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 15: ((kld)? key[127:096] : w[0] ^ subword ^ rcon)  ==>  (cond removed)",
+      "target_line": 15
+    },
+    {
+      "changed_rtl_files": [
+        "aes_sbox.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(8'haa->8'ha9) -> BlockingSubstitution @ line 107: b = 8'haa;  ==>  BlockingSubstitution @ line 107: b = 8'ha9;",
+      "target_line": 107
+    },
+    {
+      "changed_rtl_files": [
+        "aes_sbox.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(8'h48<->8'hd3) -> CaseStatement @ line 8: case(a) 8'h00: b = 8'h63; 8'h01: b = 8'h7c; 8'h02: b = 8'h77; 8'h03: b = 8'h7b; 8'h04: b = 8'hf2; 8'h05: b = 8'h6b; 8'h06: b = 8'h6f; 8'h...  ==>  CaseStatement @ line 8: case(a) 8'h00: b = 8'h63; 8'h01: b = 8'h7c; 8'h02: b = 8'h77; 8'h03: b = 8'h7b; 8'h04: b = 8'hf2; 8'h05: b = 8'h6b; 8'h06: b = 8'h6f; 8'h...",
+      "target_line": 8
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "aes_key_expand_128.v",
+      "target_line": 15,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 15: ((kld)? key[127:096] : w[0] ^ subword ^ rcon)  ==>  (cond removed)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 26,
+        "target_line": 15
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "aes_key_expand_128.v",
+      "target_line": 16,
+      "mutation_log": "applied. AVC(1->3) -> NonblockingSubstitution @ line 16: w[1] <= (kld)? key[095:064] : w[0] ^ w[1] ^ subword ^ rcon;  ==>  NonblockingSubstitution @ line 16: w[1] <= (kld)? key[095:064] : w[0] ^ w[3] ^ subword ^ rcon;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 29,
+        "target_line": 16
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "aes_key_expand_128.v",
+      "target_line": 18,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 18: ((kld)? key[031:000] : w[0] ^ w[3] ^ w[2] ^ w[1] ^ subword ^ rcon)  ==>  Cond @ line 18: ((kld)? w[0] ^ w[3] ^ w[2] ^ w[1] ^ subword ^ rcon : key[031:000])",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "aes_sbox.v",
+      "target_line": 8,
+      "mutation_log": "applied. CSE(8'h48<->8'hd3) -> CaseStatement @ line 8: case(a) 8'h00: b = 8'h63; 8'h01: b = 8'h7c; 8'h02: b = 8'h77; 8'h03: b = 8'h7b; 8'h04: b = 8'hf2; 8'h05: b = 8'h6b; 8'h06: b = 8'h6f; 8'h...  ==>  CaseStatement @ line 8: case(a) 8'h00: b = 8'h63; 8'h01: b = 8'h7c; 8'h02: b = 8'h77; 8'h03: b = 8'h7b; 8'h04: b = 8'hf2; 8'h05: b = 8'h6b; 8'h06: b = 8'h6f; 8'h...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          7,
+          265
+        ],
+        "token_a": "8'h48",
+        "token_b": "8'hd3",
+        "changed_lines": 4
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "aes_sbox.v",
+      "target_line": 107,
+      "mutation_log": "applied. AVC(8'haa->8'ha9) -> BlockingSubstitution @ line 107: b = 8'haa;  ==>  BlockingSubstitution @ line 107: b = 8'ha9;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 266,
+            "base_end": 267,
+            "matched_start": 266,
+            "matched_end": 267
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts/merged_buggy_rtl/aes_cipher_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts/merged_buggy_rtl/aes_key_expand_128.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts/merged_buggy_rtl/aes_rcon.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts/merged_buggy_rtl/aes_sbox.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 18: ((kld)? key[031:000] : w[0] ^ w[3] ^ w[2] ^ w[1] ^ subword ^ rcon)  ==>  Cond @ line 18: ((kld)? w[0] ^ w[3] ^ w[2] ^ w[1] ^ subword ^ rcon : key[031:000])",
+      "operator": "CMC",
+      "target_module": "aes_key_expand_128",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/aes_cipher/include/aes_key_expand_128.v",
+      "target_signal": "key",
+      "target_signal_id": "aes_key_expand_128.key"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 15: ((kld)? key[127:096] : w[0] ^ subword ^ rcon)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "aes_key_expand_128",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/aes_cipher/include/aes_key_expand_128.v",
+      "target_signal": "kld",
+      "target_signal_id": "aes_key_expand_128.kld"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1->3) -> NonblockingSubstitution @ line 16: w[1] <= (kld)? key[095:064] : w[0] ^ w[1] ^ subword ^ rcon;  ==>  NonblockingSubstitution @ line 16: w[1] <= (kld)? key[095:064] : w[0] ^ w[3] ^ subword ^ rcon;",
+      "operator": "AVC",
+      "target_module": "aes_key_expand_128",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/aes_cipher/include/aes_key_expand_128.v",
+      "target_signal": "subword",
+      "target_signal_id": "aes_key_expand_128.subword"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(8'haa->8'ha9) -> BlockingSubstitution @ line 107: b = 8'haa;  ==>  BlockingSubstitution @ line 107: b = 8'ha9;",
+      "operator": "AVC",
+      "target_module": "aes_sbox",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/aes_cipher/include/aes_sbox.v",
+      "target_signal": "a",
+      "target_signal_id": "aes_sbox.a"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(8'h48<->8'hd3) -> CaseStatement @ line 8: case(a) 8'h00: b = 8'h63; 8'h01: b = 8'h7c; 8'h02: b = 8'h77; 8'h03: b = 8'h7b; 8'h04: b = 8'hf2; 8'h05: b = 8'h6b; 8'h06: b = 8'h6f; 8'h...  ==>  CaseStatement @ line 8: case(a) 8'h00: b = 8'h63; 8'h01: b = 8'h7c; 8'h02: b = 8'h77; 8'h03: b = 8'h7b; 8'h04: b = 8'hf2; 8'h05: b = 8'h6b; 8'h06: b = 8'h6f; 8'h...",
+      "operator": "CSE",
+      "target_module": "aes_sbox",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/aes_cipher/include/aes_sbox.v",
+      "target_signal": "b",
+      "target_signal_id": "aes_sbox.b"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/aes_cipher/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/aes_cipher/mutations",
+  "top_module": "aes_cipher_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/aes_cipher/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sata_phy",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0000: applied. CSW(data_i<->sel_i) -> Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .sel_i(rx_data_mux_sel), .data_o(gt_rx_charisk) )  ==>  Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i(rx_data_mux_sel), .sel_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .data_o(gt_rx_charisk) )",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0001: applied. LOR(Or->And) -> Or @ line 304: (gt_rx_disp_err_i[1] | gt_rx_8b10b_err_i[1])  ==>  And @ line 0: (gt_rx_disp_err_i[1] & gt_rx_8b10b_err_i[1])",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0002: applied. AVC(7'd0->7'd1) -> Assign @ line 111: assign phy_status_o = { 7'd0, link_up };  ==>  Assign @ line 111: assign phy_status_o = { 7'd1, link_up };",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sata_phy_dev_ctrl_x6series.v"
+      ],
+      "log": "M_0003: applied. SMC -> Block @ line 381: begin gt_tx_charisk_o <= 0; end  ==>  Block @ line 381: begin gt_tx_charisk_o <= 1; end",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0004: applied. CSW(data_o<->sel_i) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd0, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )  ==>  AVC(6'd0->6'd1) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd1, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0005: applied. LOR(Eq->NotEq) -> Eq @ line 349: (rst_n == 0)  ==>  NotEq @ line 0: (rst_n != 0)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mux.v"
+      ],
+      "log": "M_0006: applied. AVC(1->2) -> Assign @ line 48: assign data_o = (USE_OP_REG == 1)? data_r : data_c;  ==>  Assign @ line 48: assign data_o = (USE_OP_REG == 2)? data_r : data_c;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sata_phy_dev_ctrl_x6series.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 367: begin gt_tx_data_o <= 0; end  ==>  Block @ line 367: begin gt_tx_data_o <= 2; end",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0008: applied. LOR(Eq->NotEq) -> Eq @ line 315: (rst_n == 0)  ==>  NotEq @ line 0: (rst_n != 0)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/axis_fifo_36W_16D.v"
+      ],
+      "log": "M_0009: applied. CSW(M_ACLK<->S_ARESETN) -> Instance @ line 67: inst ( .M_ACLK(m_aclk), .S_ACLK(s_aclk), .S_ARESETN(s_aresetn), .S_AXIS_TVALID(s_axis_tvalid), .S_AXIS_TREADY(s_axis_tready), .S_AXIS_TDA...  ==>  Instance @ line 67: inst ( .M_ACLK(s_aresetn), .S_ACLK(s_aclk), .S_ARESETN(m_aclk), .S_AXIS_TVALID(s_axis_tvalid), .S_AXIS_TREADY(s_axis_tready), .S_AXIS_TDA...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sata_phy_dev_ctrl_x6series.v"
+      ],
+      "log": "M_0010: applied. AVC(1->3) -> NonblockingSubstitution @ line 305: gt_tx_com_type_o <= 1;  ==>  NonblockingSubstitution @ line 305: gt_tx_com_type_o <= 3;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0011: applied. CSW(data_o<->sel_i) -> Instance @ line 194: U_rx_err_mux ( .clk(clk_phy), .data_i({ gt_rx_err_sr[4:1], gt_rx_err_sr[3:0] }), .sel_i(rx_data_mux_sel), .data_o(gt_rx_err) )  ==>  AVC(6'd0->6'd1) -> Instance @ line 195: U_txdata_mux ( .clk(clk_phy), .data_i({ lnk_tx_tdata[31:16], lnk_tx_tdata[15:0], gt_tx_data[31:16], gt_tx_data[15:0] }), .sel_i({ 6'd1, link_up, tx_data_mux_sel }), .data_o(gt_tx_data_o) )",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mux.v"
+      ],
+      "log": "M_0012: applied. AVC(1->0) -> BlockingSubstitution @ line 66: ip_array[i] = data_i[(i+1)*DATA_BITS-1:i*DATA_BITS];  ==>  BlockingSubstitution @ line 66: ip_array[i] = data_i[(i+1)*DATA_BITS-2:i*DATA_BITS];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sata_phy_dev_ctrl_x6series.v"
+      ],
+      "log": "M_0013: applied. LOR(Eq->NotEq) -> Eq @ line 474: (rst_n == 0)  ==>  NotEq @ line 0: (rst_n != 0)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/axis_fifo_40W_16D.v"
+      ],
+      "log": "M_0014: applied. CSW(S_ARESETN<->S_AXIS_TVALID) -> Instance @ line 67: inst ( .M_ACLK(m_aclk), .S_ACLK(s_aclk), .S_ARESETN(s_aresetn), .S_AXIS_TVALID(s_axis_tvalid), .S_AXIS_TREADY(s_axis_tready), .S_AXIS_TDA...  ==>  Instance @ line 67: inst ( .M_ACLK(m_aclk), .S_ACLK(s_aclk), .S_ARESETN(s_axis_tvalid), .S_AXIS_TVALID(s_aresetn), .S_AXIS_TREADY(s_axis_tready), .S_AXIS_TDA...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sata_phy_dev_ctrl_x6series.v"
+      ],
+      "log": "M_0015: applied. CSW(d<->q) -> Instance @ line 104: U_tx_com_strt_pedge ( .clk(clk_phy), .rst_n(rst_n), .d(tx_com_strt), .q(tx_com_strt_pedge) )  ==>  Instance @ line 104: U_tx_com_strt_pedge ( .clk(clk_phy), .rst_n(rst_n), .d(tx_com_strt_pedge), .q(tx_com_strt) )",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0016: applied. DMO -> Pointer @ line 304: gt_rx_8b10b_err_i[1]  ==>  Pointer @ line 304: gt_rx_8b10b_err_i[0] (new index=0)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0017: applied. LOR(Or->And) -> Or @ line 303: (gt_rx_disp_err_i[0] | gt_rx_8b10b_err_i[0])  ==>  And @ line 0: (gt_rx_disp_err_i[0] & gt_rx_8b10b_err_i[0])",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "log": "M_0018: applied. AVC(0->1) -> NonblockingSubstitution @ line 303: gt_rx_err_sr[4] <= gt_rx_disp_err_i[0] | gt_rx_8b10b_err_i[0];  ==>  NonblockingSubstitution @ line 303: gt_rx_err_sr[4] <= gt_rx_disp_err_i[1] | gt_rx_8b10b_err_i[0];",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sata_phy_dev_ctrl_x6series.v"
+      ],
+      "log": "M_0019: applied. AVC(2->3) -> Assign @ line 129: assign comreset_detect = gt_rx_status_i[2];  ==>  Assign @ line 129: assign comreset_detect = gt_rx_status_i[3];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

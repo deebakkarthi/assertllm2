@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/ima_adpcm_decoder",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0000: applied. DMO -> Pointer @ line 117: inPCM[0]  ==>  Pointer @ line 117: inPCM[2] (new index=2)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0001: applied. AVC(3'b0->3'b001) -> NonblockingSubstitution @ line 91: predictorSamp <= { inPredictSamp, 3'b0 };  ==>  NonblockingSubstitution @ line 91: predictorSamp <= { inPredictSamp, 3'b001 };",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0002: applied. AVC(0->2) -> NonblockingSubstitution @ line 147: outSamp <= preOutSamp[15:0];  ==>  NonblockingSubstitution @ line 147: outSamp <= preOutSamp[15:2];",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 135: outValid <= 1'b0;  ==>  NonblockingSubstitution @ line 135: outValid <= 1'b1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0004: applied. CMC(swap) -> Cond @ line 120: ((inPCM[3])? { predictorSamp[18], predictorSamp } - { 1'b0, dequantSamp } : { predictorSamp[18], predictorSamp } + { 1'b0, dequantSamp })  ==>  Cond @ line 120: ((inPCM[3])? { predictorSamp[18], predictorSamp } + { 1'b0, dequantSamp } : { predictorSamp[18], predictorSamp } - { 1'b0, dequantSamp })",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0005: applied. SMC -> Block @ line 89: begin predictorSamp <= { inPredictSamp, 3'b0 }; predValid <= 1'b0; end  ==>  Block @ line 89: begin predictorSamp <= { inPredictSamp, 3'b0 }; predValid <= 1'b1; end",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0006: applied. AVC(15'b0->15'b000000000000001) -> NonblockingSubstitution @ line 145: outSamp <= { 1'b1, 15'b0 };  ==>  NonblockingSubstitution @ line 145: outSamp <= { 1'b1, 15'b000000000000001 };",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0007: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 153: outValid <= 1'b0;  ==>  NonblockingSubstitution @ line 153: outValid <= 1'b1;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0008: applied. DIE -> Partselect @ line 159: inPCM[2:0]  ==>  Partselect @ line 159: inPCM[3:1]",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0009: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 142: outSamp <= { 1'b0, { 15{ 1'b1 } } };  ==>  NonblockingSubstitution @ line 142: outSamp <= { 1'b1, { 15{ 1'b1 } } };",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0010: applied. LOR(Plus->Minus) -> Plus @ line 115: (((inPCM[2])? { 1'b0, stepSize, 3'b0 } : 19'b0) + ((inPCM[1])? { 2'b0, stepSize, 2'b0 } : 19'b0))  ==>  Minus @ line 0: (((inPCM[2])? { 1'b0, stepSize, 3'b0 } : 19'b0) - ((inPCM[1])? { 2'b0, stepSize, 2'b0 } : 19'b0))",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 150: outValid <= 1'b1;  ==>  NonblockingSubstitution @ line 150: outValid <= 1'b0;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0012: applied. SMC -> Block @ line 133: begin outSamp <= 16'b0; outValid <= 1'b0; end  ==>  Block @ line 133: begin outSamp <= 16'b0000000000000010; outValid <= 1'b1; end",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0013: applied. AVC(3->1) -> Assign @ line 120: assign prePredSamp = (inPCM[3])? { predictorSamp[18], predictorSamp } - { 1'b0, dequantSamp } : { predictorSamp[18], predictorSamp } + { ...  ==>  Assign @ line 120: assign prePredSamp = (inPCM[1])? { predictorSamp[18], predictorSamp } - { 1'b0, dequantSamp } : { predictorSamp[18], predictorSamp } + { ...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0014: applied. CMC(swap) -> Cond @ line 115: ((inPCM[2])? { 1'b0, stepSize, 3'b0 } : 19'b0)  ==>  Cond @ line 115: ((inPCM[2])? 19'b0 : { 1'b0, stepSize, 3'b0 })",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0015: applied. AVC(16'b0->16'b0000000000000001) -> NonblockingSubstitution @ line 134: outSamp <= 16'b0;  ==>  NonblockingSubstitution @ line 134: outSamp <= 16'b0000000000000001;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0016: applied. CSE(3'd0<->3'd2) -> CaseStatement @ line 159: case(inPCM[2:0]) 3'd0: stepDelta <= 5'd31; 3'd1: stepDelta <= 5'd31; 3'd2: stepDelta <= 5'd31; 3'd3: stepDelta <= 5'd31; 3'd4: stepDelta ...  ==>  CaseStatement @ line 159: case(inPCM[2:0]) 3'd2: stepDelta <= 5'd31; 3'd1: stepDelta <= 5'd31; 3'd0: stepDelta <= 5'd31; 3'd3: stepDelta <= 5'd31; 3'd4: stepDelta ...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0017: applied. CMC(false_only) -> Cond @ line 116: ((inPCM[1])? { 2'b0, stepSize, 2'b0 } : 19'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0018: applied. DMO -> Pointer @ line 120: inPCM[3]  ==>  Pointer @ line 120: inPCM[2] (new index=2)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_dec.v"
+      ],
+      "log": "M_0019: applied. CMC(true_only) -> Cond @ line 117: ((inPCM[0])? { 3'b0, stepSize, 1'b0 } : 19'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

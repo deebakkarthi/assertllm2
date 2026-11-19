@@ -1,0 +1,196 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "rtfTextController.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CSW(we<->rclk) -> Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(1'b0), .wrst(1'b0), .rclk(vclk), .radr({ txtOut, ...  ==>  Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(vclk), .wrst(1'b0), .rclk(1'b0), .radr({ txtOut, ...",
+      "target_line": 226
+    },
+    {
+      "changed_rtl_files": [
+        "HVCounter.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 111: (12'h000 - cnt_offs)  ==>  Plus @ line 0: (12'h000 + cnt_offs)",
+      "target_line": 111
+    },
+    {
+      "changed_rtl_files": [
+        "ParallelToSerial.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 55: q <= { q[WID-1:1], qin };  ==>  NonblockingSubstitution @ line 55: q <= { q[WID-1:2], qin };",
+      "target_line": 55
+    },
+    {
+      "changed_rtl_files": [
+        "VT151.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(4'b0000<->4'b0001) -> CaseStatement @ line 28: case({ e_n, s }) 4'b0000: z <= i0; 4'b0001: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...  ==>  CaseStatement @ line 28: case({ e_n, s }) 4'b0001: z <= i0; 4'b0000: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...",
+      "target_line": 28
+    },
+    {
+      "changed_rtl_files": [
+        "VT163.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Plus->Minus) -> Plus @ line 30: (q + { { WID - 1{ 1'b0 } }, 1'b1 })  ==>  Minus @ line 0: (q - { { WID - 1{ 1'b0 } }, 1'b1 })",
+      "target_line": 30
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "HVCounter.v",
+      "target_line": 111,
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 111: (12'h000 - cnt_offs)  ==>  Plus @ line 0: (12'h000 + cnt_offs)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 116,
+            "base_end": 126,
+            "matched_start": 116,
+            "matched_end": 126
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "ParallelToSerial.v",
+      "target_line": 55,
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 55: q <= { q[WID-1:1], qin };  ==>  NonblockingSubstitution @ line 55: q <= { q[WID-1:2], qin };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 21,
+            "base_end": 27,
+            "matched_start": 21,
+            "matched_end": 27
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "VT151.v",
+      "target_line": 28,
+      "mutation_log": "applied. CSE(4'b0000<->4'b0001) -> CaseStatement @ line 28: case({ e_n, s }) 4'b0000: z <= i0; 4'b0001: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...  ==>  CaseStatement @ line 28: case({ e_n, s }) 4'b0001: z <= i0; 4'b0000: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "VT163.v",
+      "target_line": 30,
+      "mutation_log": "applied. LOR(Plus->Minus) -> Plus @ line 30: (q + { { WID - 1{ 1'b0 } }, 1'b1 })  ==>  Minus @ line 0: (q - { { WID - 1{ 1'b0 } }, 1'b1 })",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 22,
+            "base_end": 31,
+            "matched_start": 22,
+            "matched_end": 31
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "rtfTextController.v",
+      "target_line": 226,
+      "mutation_log": "applied. CSW(we<->rclk) -> Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(1'b0), .wrst(1'b0), .rclk(vclk), .radr({ txtOut, ...  ==>  Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(vclk), .wrst(1'b0), .rclk(1'b0), .radr({ txtOut, ...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 232,
+        "line_b": 235,
+        "token_a": "we",
+        "token_b": "rclk"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/HVCounter.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/ParallelToSerial.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/VT151.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/VT163.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/WXGASyncGen1366x768_60Hz.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/WXGASyncGen1680x1050_60Hz.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/change_det.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/counter.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/edge_det.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/rtfColorROM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/rtfTextController.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/rtfTextController3.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/merged_buggy_rtl/syncRam4kx9_1rw1r.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 111: (12'h000 - cnt_offs)  ==>  Plus @ line 0: (12'h000 + cnt_offs)",
+      "operator": "LOR",
+      "target_module": "HVCounter",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/include/HVCounter.v",
+      "target_signal": "cnt_offs",
+      "target_signal_id": "HVCounter.cnt_offs"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 55: q <= { q[WID-1:1], qin };  ==>  NonblockingSubstitution @ line 55: q <= { q[WID-1:2], qin };",
+      "operator": "AVC",
+      "target_module": "ParallelToSerial",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/include/ParallelToSerial.v",
+      "target_signal": "qin",
+      "target_signal_id": "ParallelToSerial.qin"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(4'b0000<->4'b0001) -> CaseStatement @ line 28: case({ e_n, s }) 4'b0000: z <= i0; 4'b0001: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...  ==>  CaseStatement @ line 28: case({ e_n, s }) 4'b0001: z <= i0; 4'b0000: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...",
+      "operator": "CSE",
+      "target_module": "VT151",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/include/VT151.v",
+      "target_signal": "i0",
+      "target_signal_id": "VT151.i0"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Plus->Minus) -> Plus @ line 30: (q + { { WID - 1{ 1'b0 } }, 1'b1 })  ==>  Minus @ line 0: (q - { { WID - 1{ 1'b0 } }, 1'b1 })",
+      "operator": "LOR",
+      "target_module": "VT163",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/include/VT163.v",
+      "target_signal": "q",
+      "target_signal_id": "VT163.q"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CSW(we<->rclk) -> Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(1'b0), .wrst(1'b0), .rclk(vclk), .radr({ txtOut, ...  ==>  Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(vclk), .wrst(1'b0), .rclk(1'b0), .radr({ txtOut, ...",
+      "operator": "CSW",
+      "target_module": "rtfTextController",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/rtfTextController.v",
+      "target_signal": "adr_i",
+      "target_signal_id": "rtfTextController.adr_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller/mutations",
+  "top_module": "rtfTextController",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/rtftextcontroller/buggy_artifacts/consensus_merge_report"
+}

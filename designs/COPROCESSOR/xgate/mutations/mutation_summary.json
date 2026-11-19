@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COPROCESSOR/xgate",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "xgate_top.v"
+      ],
+      "log": "M_0000: applied. CSW(write_mem_strb_l<->xge) -> Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(write_mem_strb_l), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem...  ==>  Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(zero_flag), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem_data),...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "xgate_top.v"
+      ],
+      "log": "M_0001: applied. DMI -> Partselect @ line 234: xgif_status[15:1];  ==>  Partselect @ line 234: xgif_status[14:1];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "xgate_top.v"
+      ],
+      "log": "M_0002: applied. CSW(xgsweif_c<->write_xgmctl) -> Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(xgsweif_c), ....  ==>  Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(write_xgmctl)...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_irq_encode.v"
+      ],
+      "log": "M_0003: applied. LOR(And->Or) -> And @ line 56: (~chan_bypass & chan_req_i)  ==>  Or @ line 0: (~chan_bypass | chan_req_i)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0004: applied. CMC(swap) -> Cond @ line 143: ((write_bus[10])? write_bus[2] : brk_irq_ena)  ==>  Cond @ line 143: ((write_bus[10])? brk_irq_ena : write_bus[2])",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0005: applied. AVC(1->0) -> Assign @ line 287: assign chan_bypass = irq_bypass[MAX_CHANNEL:1];  ==>  Assign @ line 287: assign chan_bypass = irq_bypass[MAX_CHANNEL:2];",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0006: applied. AVC(15->16) -> NonblockingSubstitution @ line 210: clear_xgif_1 <= |write_xgif_1 && (MAX_CHANNEL > 15);  ==>  NonblockingSubstitution @ line 210: clear_xgif_1 <= |write_xgif_1 && (MAX_CHANNEL > 16);",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 191: begin clear_xgif_7 <= 1'b0; clear_xgif_6 <= 1'b0; clear_xgif_5 <= 1'b0; clear_xgif_4 <= 1'b0; clear_xgif_3 <= 1'b0; clear_xgif_2 <= 1'b0;...  ==>  Block @ line 191: begin clear_xgif_7 <= 1'b1; clear_xgif_6 <= 1'b1; clear_xgif_5 <= 1'b1; clear_xgif_4 <= 1'b1; clear_xgif_3 <= 1'b1; clear_xgif_2 <= 1'b1;...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0008: applied. CMC(false_only) -> Cond @ line 248: ((write_irw_en_3[0])? write_bus[k] : irq_bypass[j])  ==>  (cond removed)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0009: applied. DMO -> Pointer @ line 254: write_irw_en_4[1]  ==>  Pointer @ line 254: write_irw_en_4[0] (new index=0)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_wbm_bus.v"
+      ],
+      "log": "M_0010: applied. LOR(Lor->Land) -> Lor @ line 94: (write_mem_strb_h || write_mem_strb_l)  ==>  Land @ line 0: (write_mem_strb_h && write_mem_strb_l)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_wbs_bus.v"
+      ],
+      "log": "M_0011: applied. AVC(16->17) -> BlockingSubstitution @ line 249: read_mux_irq = irq_bypass[31:16];  ==>  BlockingSubstitution @ line 249: read_mux_irq = irq_bypass[31:17];",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_wbs_bus.v"
+      ],
+      "log": "M_0012: applied. CSE(7'b100_1011<->7'b101_0111) -> CaseStatement @ line 151: case({ wbs_racc, address }) 7'b100_0000: read_mux_risc = read_risc_regs[15:0]; 7'b100_0001: read_mux_risc = read_risc_regs[31:16]; 7'b100...  ==>  CaseStatement @ line 151: case({ wbs_racc, address }) 7'b100_0000: read_mux_risc = read_risc_regs[15:0]; 7'b100_0001: read_mux_risc = read_risc_regs[31:16]; 7'b100...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_irq_encode.v"
+      ],
+      "log": "M_0013: applied. SMC -> Block @ line 60: begin int_req = 0; for(i=MAX_CHANNEL; i>=1; i=i-1) if(chan_ena_gate[i] == 1'b1) int_req = i; end  ==>  Block @ line 60: begin int_req = 1; for(i=MAX_CHANNEL; i>=1; i=i-1) if(chan_ena_gate[i] == 1'b1) int_req = i; end",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0014: applied. CMC(true_only) -> Cond @ line 240: ((write_irw_en_1[0])? write_bus[k] : irq_bypass[j])  ==>  (cond removed)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0015: applied. AVC(1->0) -> BlockingSubstitution @ line 246: irq_bypass_d[j] = (write_irw_en_2[1])? write_bus[k] : irq_bypass[j];  ==>  BlockingSubstitution @ line 246: irq_bypass_d[j] = (write_irw_en_2[0])? write_bus[k] : irq_bypass[j];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0016: applied. CMC(false_only) -> Cond @ line 250: ((write_irw_en_3[1])? write_bus[k] : irq_bypass[j])  ==>  (cond removed)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0017: applied. AVC(0->1) -> BlockingSubstitution @ line 252: irq_bypass_d[j] = (write_irw_en_4[0])? write_bus[k] : irq_bypass[j];  ==>  BlockingSubstitution @ line 252: irq_bypass_d[j] = (write_irw_en_4[1])? write_bus[k] : irq_bypass[j];",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0018: applied. AVC(1->0) -> BlockingSubstitution @ line 258: irq_bypass_d[j] = (write_irw_en_5[1])? write_bus[k] : irq_bypass[j];  ==>  BlockingSubstitution @ line 258: irq_bypass_d[j] = (write_irw_en_5[0])? write_bus[k] : irq_bypass[j];",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/xgate_regs.v"
+      ],
+      "log": "M_0019: applied. CMC(false_only) -> Cond @ line 262: ((write_irw_en_6[1])? write_bus[k] : irq_bypass[j])  ==>  (cond removed)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

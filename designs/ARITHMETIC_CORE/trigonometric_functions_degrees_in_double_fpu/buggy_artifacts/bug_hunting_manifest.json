@@ -1,0 +1,185 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "cosecant.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(64'h4008928aa26c4c08->64'h4008928aa26c4c07) -> NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c08;  ==>  NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c07;",
+      "target_line": 95
+    },
+    {
+      "changed_rtl_files": [
+        "cosecant.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSE(32'd26<->32'd54) -> CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...  ==>  CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...",
+      "target_line": 72
+    },
+    {
+      "changed_rtl_files": [
+        "cosine.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(64'h3fe5698496e20bd8->64'h3fe5698496e20bd6) -> NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd8;  ==>  NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd6;",
+      "target_line": 122
+    },
+    {
+      "changed_rtl_files": [
+        "cosine.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 59: ((quad == 2'b01) || (quad == 2'b10))  ==>  Land @ line 0: ((quad == 2'b01) && (quad == 2'b10))",
+      "target_line": 59
+    },
+    {
+      "changed_rtl_files": [
+        "sine.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 121: data[62:0]  ==>  Partselect @ line 121: data[63:1]",
+      "target_line": 121
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "cosecant.v",
+      "target_line": 72,
+      "mutation_log": "applied. CSE(32'd26<->32'd54) -> CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...  ==>  CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 39,
+            "base_end": 52,
+            "matched_start": 39,
+            "matched_end": 52
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "cosecant.v",
+      "target_line": 95,
+      "mutation_log": "applied. AVC(64'h4008928aa26c4c08->64'h4008928aa26c4c07) -> NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c08;  ==>  NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c07;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 65,
+        "target_line": 95
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "cosine.v",
+      "target_line": 59,
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 59: ((quad == 2'b01) || (quad == 2'b10))  ==>  Land @ line 0: ((quad == 2'b01) && (quad == 2'b10))",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 57,
+            "base_end": 171,
+            "matched_start": 57,
+            "matched_end": 171
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "cosine.v",
+      "target_line": 122,
+      "mutation_log": "applied. AVC(64'h3fe5698496e20bd8->64'h3fe5698496e20bd6) -> NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd8;  ==>  NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd6;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 112,
+        "target_line": 122
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sine.v",
+      "target_line": 121,
+      "mutation_log": "applied. DIE -> Partselect @ line 121: data[62:0]  ==>  Partselect @ line 121: data[63:1]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 95,
+        "target_line": 121
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/cosecant.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/cosine.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/cotangent.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/divider.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/secant.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/sine.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/tangent.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/merged_buggy_rtl/top.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(64'h4008928aa26c4c08->64'h4008928aa26c4c07) -> NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c08;  ==>  NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c07;",
+      "operator": "AVC",
+      "target_module": "cosecant_lut",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/trigonometric functions degrees in double fpu/include/cosecant.v",
+      "target_signal": "data",
+      "target_signal_id": "cosecant_lut.data"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSE(32'd26<->32'd54) -> CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...  ==>  CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...",
+      "operator": "CSE",
+      "target_module": "cosecant_lut",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/trigonometric functions degrees in double fpu/include/cosecant.v",
+      "target_signal": "degrees",
+      "target_signal_id": "cosecant_lut.degrees"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(64'h3fe5698496e20bd8->64'h3fe5698496e20bd6) -> NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd8;  ==>  NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd6;",
+      "operator": "AVC",
+      "target_module": "cosine_lut",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/trigonometric functions degrees in double fpu/include/cosine.v",
+      "target_signal": "data",
+      "target_signal_id": "cosine_lut.data"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 59: ((quad == 2'b01) || (quad == 2'b10))  ==>  Land @ line 0: ((quad == 2'b01) && (quad == 2'b10))",
+      "operator": "LOR",
+      "target_module": "cosine_lut",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/trigonometric functions degrees in double fpu/include/cosine.v",
+      "target_signal": "quad",
+      "target_signal_id": "cosine_lut.quad"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 121: data[62:0]  ==>  Partselect @ line 121: data[63:1]",
+      "operator": "DIE",
+      "target_module": "sine_lut",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/trigonometric functions degrees in double fpu/include/sine.v",
+      "target_signal": "data",
+      "target_signal_id": "sine_lut.data"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/mutations",
+  "top_module": "top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/trigonometric_functions_degrees_in_double_fpu/buggy_artifacts/consensus_merge_report"
+}

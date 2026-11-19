@@ -1,0 +1,193 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "SSP_UART.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 876: (Rst | ClrTHR)  ==>  And @ line 0: (Rst & ClrTHR)",
+      "target_line": 876
+    },
+    {
+      "changed_rtl_files": [
+        "DPSFnmCE.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 1];  ==>  Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 0];",
+      "target_line": 198
+    },
+    {
+      "changed_rtl_files": [
+        "DPSFnmCE.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 173: nEF <= #1 0;  ==>  NonblockingSubstitution @ line 173: nEF <= #1 2;",
+      "target_line": 173
+    },
+    {
+      "changed_rtl_files": [
+        "DPSFnmCE.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 118: (WE & ~FF)  ==>  Or @ line 0: (WE | ~FF)",
+      "target_line": 118
+    },
+    {
+      "changed_rtl_files": [
+        "UART_RTO.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 184: ((TC_CCnt)? CCntVal : CCnt - 1)  ==>  (cond removed)",
+      "target_line": 184
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "DPSFnmCE.v",
+      "target_line": 118,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 118: (WE & ~FF)  ==>  Or @ line 0: (WE | ~FF)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 117,
+        "target_line": 118
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "DPSFnmCE.v",
+      "target_line": 173,
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 173: nEF <= #1 0;  ==>  NonblockingSubstitution @ line 173: nEF <= #1 2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 172,
+        "target_line": 173
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "DPSFnmCE.v",
+      "target_line": 198,
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 1];  ==>  Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 0];",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 137,
+            "base_end": 144,
+            "matched_start": 137,
+            "matched_end": 144
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "SSP_UART.v",
+      "target_line": 876,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 876: (Rst | ClrTHR)  ==>  And @ line 0: (Rst & ClrTHR)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 875,
+        "target_line": 876
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "UART_RTO.v",
+      "target_line": 184,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 184: ((TC_CCnt)? CCntVal : CCnt - 1)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 153,
+            "base_end": 160,
+            "matched_start": 153,
+            "matched_end": 160
+          },
+          {
+            "base_start": 39,
+            "base_end": 101,
+            "matched_start": 39,
+            "matched_end": 101
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/DPSFnmCE.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/SSP_UART.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/UART_BRG.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/UART_INT.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/UART_RTO.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/UART_RXSM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/UART_TXSM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/fedet.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/re1ce.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/merged_buggy_rtl/redet.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 1];  ==>  Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 0];",
+      "operator": "AVC",
+      "target_module": "DPSFnmCE",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/include/DPSFnmCE.v",
+      "target_signal": "Cnt",
+      "target_signal_id": "DPSFnmCE.Cnt"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 173: nEF <= #1 0;  ==>  NonblockingSubstitution @ line 173: nEF <= #1 2;",
+      "operator": "AVC",
+      "target_module": "DPSFnmCE",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/include/DPSFnmCE.v",
+      "target_signal": "EF",
+      "target_signal_id": "DPSFnmCE.EF"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 118: (WE & ~FF)  ==>  Or @ line 0: (WE | ~FF)",
+      "operator": "LOR",
+      "target_module": "DPSFnmCE",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/include/DPSFnmCE.v",
+      "target_signal": "FF",
+      "target_signal_id": "DPSFnmCE.FF"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 184: ((TC_CCnt)? CCntVal : CCnt - 1)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "UART_RTO",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/include/UART_RTO.v",
+      "target_signal": "CCntVal",
+      "target_signal_id": "UART_RTO.CCntVal"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 876: (Rst | ClrTHR)  ==>  And @ line 0: (Rst & ClrTHR)",
+      "operator": "LOR",
+      "target_module": "SSP_UART",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/SSP_UART.v",
+      "target_signal": "Rst",
+      "target_signal_id": "SSP_UART.Rst"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart/mutations",
+  "top_module": "SSP_UART",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ssp_uart/buggy_artifacts/consensus_merge_report"
+}

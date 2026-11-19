@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/reed_solomon_decoder_204188",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/BM_lamda.v"
+      ],
+      "log": "M_0000: applied. AVC(2->0) -> Assign @ line 79: assign L1 = L[2];  ==>  Assign @ line 79: assign L1 = L[4];",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/BM_lamda.v"
+      ],
+      "log": "M_0001: applied. SMC -> Block @ line 130: begin L[1] <= 1; L[2] <= 0; L[3] <= 0; L[4] <= 0; L[5] <= 0; L[6] <= 0; L[7] <= 0; L[8] <= 0; L[9] <= 0; Lt[1] <= 1; Lt[2] <= 0; Lt[3] <=...  ==>  Block @ line 130: begin L[1] <= 0; L[2] <= 1; L[3] <= 1; L[4] <= 1; L[5] <= 2; L[6] <= 1; L[7] <= 1; L[8] <= 1; L[9] <= 2; Lt[1] <= 0; Lt[2] <= 1; Lt[3] <=...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/GF_mult_add_syndromes.v"
+      ],
+      "log": "M_0002: applied. AVC(0->1) -> NonblockingSubstitution @ line 77: address_GF_dec <= 0;  ==>  NonblockingSubstitution @ line 77: address_GF_dec <= 1;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/GF_mult_add_syndromes.v"
+      ],
+      "log": "M_0003: applied. CSW(clk<->re) -> Instance @ line 56: rom_instant ( .clk(clk), .re(CE || CE1), .address_read(address_GF_dec), .data_out(out_GF_dec) )  ==>  Instance @ line 56: rom_instant ( .clk(clk), .re(clk), .address_read(address_GF_dec), .data_out(out_GF_dec) )",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Omega_Phy.v"
+      ],
+      "log": "M_0004: applied. CSE(4<->5) -> CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...  ==>  CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/input_syndromes.v"
+      ],
+      "log": "M_0005: applied. CMC(false_only) -> Cond @ line 53: ((RE)? out_byte_0 : out_byte_1)  ==>  (cond removed)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/lamda_roots.v"
+      ],
+      "log": "M_0006: applied. SMC -> Block @ line 277: begin yes <= 0; case(root_cnt) 1: begin r1 <= V - 8'd4; end 2: begin r2 <= V - 8'd4; end 3: begin r3 <= V - 8'd4; end 4: begin r4 <= V - ...  ==>  Block @ line 277: begin yes <= 2; case(root_cnt) 1: begin r1 <= V - 8'd4; end 2: begin r2 <= V - 8'd4; end 3: begin r3 <= V - 8'd4; end 4: begin r4 <= V - ...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/out_stage.v"
+      ],
+      "log": "M_0007: applied. AVC(0->1) -> NonblockingSubstitution @ line 117: RdAdd <= 0;  ==>  NonblockingSubstitution @ line 117: RdAdd <= 1;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_dec.v"
+      ],
+      "log": "M_0008: applied. LOR(Land->Lor) -> Land @ line 38: (CEO_0 && Valid_out)  ==>  Lor @ line 0: (CEO_0 || Valid_out)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/error_correction.v"
+      ],
+      "log": "M_0009: applied. CSE(1<->0) -> CaseStatement @ line 234: case(cnt) 0: begin add_pow1 <= rd[1]; add_pow2 <= rd[2]; add_pow3 <= rd[3]; add_pow4 <= rd[4]; end 1: begin add_pow1 <= rd[5]; add_pow2 <...  ==>  CaseStatement @ line 234: case(cnt) 1: begin add_pow1 <= rd[1]; add_pow2 <= rd[2]; add_pow3 <= rd[3]; add_pow4 <= rd[4]; end 0: begin add_pow1 <= rd[5]; add_pow2 <...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/input_syndromes.v"
+      ],
+      "log": "M_0010: applied. CSW(address_write<->data_in) -> Instance @ line 70: mem_in_1 ( .clk(clk), .we(!WE), .re(!RE), .address_read(R_Add), .address_write(W_Add), .data_in(input_byte0), .data_out(out_byte_1) )  ==>  Instance @ line 70: mem_in_1 ( .clk(clk), .we(!WE), .re(!RE), .address_read(R_Add), .address_write(input_byte0), .data_in(W_Add), .data_out(out_byte_1) )",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "RS_dec.v"
+      ],
+      "log": "M_0011: applied. CSW(In_byte<->Out_byte) -> Instance @ line 419: out_stage_unit ( .clk(clk), .reset(reset), .DONE(DONE || DONE_ext), .RE(RE_out_stage), .RdAdd(RdAdd_out_stage), .In_byte(In_byte_out_stage), .Out_byte(Out_byte), .CEO(CEO_0), .Valid_out(Valid_out), .out_done(out_done) )  ==>  AVC(0->1) -> NonblockingSubstitution @ line 639: initial_value <= 0;  ==>  NonblockingSubstitution @ line 639: initial_value <= 1;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/transport_in2out.v"
+      ],
+      "log": "M_0012: applied. SMC -> Block @ line 81: begin Wr_done <= 0; if(S_Ready) begin state <= 1; RE <= ~RE; WE <= ~WE; RdAdd <= 204; WrAdd <= 255; cnt <= 0; end end  ==>  Block @ line 81: begin Wr_done <= 2; if(S_Ready) begin state <= 1; RE <= ~RE; WE <= ~WE; RdAdd <= 204; WrAdd <= 255; cnt <= 0; end end",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Omega_Phy.v"
+      ],
+      "log": "M_0013: applied. AVC(11->13) -> NonblockingSubstitution @ line 727: add_pow1 <= O[11];  ==>  NonblockingSubstitution @ line 727: add_pow1 <= O[13];",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Omega_Phy.v"
+      ],
+      "log": "M_0014: applied. AVC(4->6) -> NonblockingSubstitution @ line 242: add_pow1 <= L[4];  ==>  NonblockingSubstitution @ line 242: add_pow1 <= L[6];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/error_correction.v"
+      ],
+      "log": "M_0015: applied. AVC(0->1) -> NonblockingSubstitution @ line 182: add_pow1 <= 0;  ==>  NonblockingSubstitution @ line 182: add_pow1 <= 1;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/input_syndromes.v"
+      ],
+      "log": "M_0016: applied. SMC -> Block @ line 450: begin cnt8 <= 7; S_Ready <= 0; s0 <= 0; s1 <= 0; s2 <= 0; s3 <= 0; s4 <= 0; s5 <= 0; s6 <= 0; s7 <= 0; s8 <= 0; s9 <= 0; s10 <= 0; s11 <=...  ==>  Block @ line 450: begin cnt8 <= 9; S_Ready <= 1; s0 <= 1; s1 <= 2; s2 <= 2; s3 <= 1; s4 <= 2; s5 <= 2; s6 <= 1; s7 <= 2; s8 <= 1; s9 <= 1; s10 <= 2; s11 <=...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/lamda_roots.v"
+      ],
+      "log": "M_0017: applied. AVC(0->1) -> NonblockingSubstitution @ line 128: add_GF_ascending <= 0;  ==>  NonblockingSubstitution @ line 128: add_GF_ascending <= 1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/lamda_roots.v"
+      ],
+      "log": "M_0018: applied. CSE(7<->4) -> CaseStatement @ line 146: case(cnt9) 7: begin add_GF_ascending <= L2; end 6: begin add_GF_ascending <= L3; L1 <= power; end 5: begin add_GF_ascending <= L4; L2 <= ...  ==>  CaseStatement @ line 146: case(cnt9) 4: begin add_GF_ascending <= L2; end 6: begin add_GF_ascending <= L3; L1 <= power; end 5: begin add_GF_ascending <= L4; L2 <= ...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/input_syndromes.v"
+      ],
+      "log": "M_0019: applied. CSW(address_write<->data_in) -> Instance @ line 57: mem_in_0 ( .clk(clk), .we(WE), .re(RE), .address_read(R_Add), .address_write(W_Add), .data_in(input_byte0), .data_out(out_byte_0) )  ==>  Instance @ line 57: mem_in_0 ( .clk(clk), .we(WE), .re(RE), .address_read(R_Add), .address_write(input_byte0), .data_in(W_Add), .data_out(out_byte_0) )",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

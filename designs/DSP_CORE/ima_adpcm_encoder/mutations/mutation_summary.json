@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/ima_adpcm_encoder",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0000: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 212: inReady <= 1'b1;  ==>  NonblockingSubstitution @ line 212: inReady <= 1'b0;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0001: applied. LOR(Minus->Plus) -> Minus @ line 105: ({ inSamp[15], inSamp, 3'b0 } - { predictorSamp[18], predictorSamp })  ==>  Plus @ line 0: ({ inSamp[15], inSamp, 3'b0 } + { predictorSamp[18], predictorSamp })",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0002: applied. CSE(3'd4<->3'd5) -> CaseStatement @ line 96: case(pcmSq) 3'd0: if(inValid) begin sampDiff <= { inSamp[15], inSamp, 3'b0 } - { predictorSamp[18], predictorSamp }; inReady <= 1'b0; pcm...  ==>  CaseStatement @ line 96: case(pcmSq) 3'd0: if(inValid) begin sampDiff <= { inSamp[15], inSamp, 3'b0 } - { predictorSamp[18], predictorSamp }; inReady <= 1'b0; pcm...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 250: outValid <= 1'b0;  ==>  NonblockingSubstitution @ line 250: outValid <= 1'b1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0004: applied. AVC(2->1) -> Assign @ line 224: assign outPredictSamp = predictorSamp[18:3] + predictorSamp[2];  ==>  Assign @ line 224: assign outPredictSamp = predictorSamp[18:3] + predictorSamp[1];",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0005: applied. AVC(3'b0->3'b001) -> NonblockingSubstitution @ line 105: sampDiff <= { inSamp[15], inSamp, 3'b0 } - { predictorSamp[18], predictorSamp };  ==>  NonblockingSubstitution @ line 105: sampDiff <= { inSamp[15], inSamp, 3'b001 } - { predictorSamp[18], predictorSamp };",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0006: applied. AVC(4'b0->4'b0001) -> NonblockingSubstitution @ line 241: outPCM <= 4'b0;  ==>  NonblockingSubstitution @ line 241: outPCM <= 4'b0001;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 240: begin outPCM <= 4'b0; outValid <= 1'b0; end  ==>  Block @ line 240: begin outPCM <= 4'b0001; outValid <= 1'b1; end",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0008: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 247: outValid <= 1'b1;  ==>  NonblockingSubstitution @ line 247: outValid <= 1'b0;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0009: applied. SMC -> Block @ line 245: begin outPCM <= prePCM; outValid <= 1'b1; end  ==>  Block @ line 245: begin outPCM <= prePCM; outValid <= 1'b0; end",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0010: applied. DMO -> Pointer @ line 105: inSamp[15]  ==>  Pointer @ line 105: inSamp[4] (new index=4)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 242: outValid <= 1'b0;  ==>  NonblockingSubstitution @ line 242: outValid <= 1'b1;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0012: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 92: inReady <= 1'b0;  ==>  NonblockingSubstitution @ line 92: inReady <= 1'b1;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0013: applied. SMC -> Block @ line 86: begin pcmSq <= 3'b0; sampDiff <= 20'b0; predictorSamp <= 19'b0; dequantSamp <= 19'b0; prePCM <= 4'b0; inReady <= 1'b0; end  ==>  Block @ line 86: begin pcmSq <= 3'b001; sampDiff <= 20'b00000000000000000001; predictorSamp <= 19'b0000000000000000001; dequantSamp <= 19'b000000000000000...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 108: inReady <= 1'b0;  ==>  NonblockingSubstitution @ line 108: inReady <= 1'b1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0015: applied. CCW(0<->1) -> Concat @ line 105: { inSamp[15], inSamp, 3'b0 }  ==>  Concat @ line 105: { inSamp, inSamp[15], 3'b0 }",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0016: applied. SMC -> Block @ line 102: begin sampDiff <= { inSamp[15], inSamp, 3'b0 } - { predictorSamp[18], predictorSamp }; inReady <= 1'b0; pcmSq <= 3'd1; end  ==>  Block @ line 102: begin sampDiff <= { inSamp[15], inSamp, 3'b0 } - { predictorSamp[18], predictorSamp }; inReady <= 1'b1; pcmSq <= 3'd2; end",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 115: inReady <= 1'b1;  ==>  NonblockingSubstitution @ line 115: inReady <= 1'b0;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0018: applied. DIE -> Partselect @ line 256: prePCM[2:0]  ==>  Partselect @ line 256: prePCM[3:1]",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "ima_adpcm_enc.v"
+      ],
+      "log": "M_0019: applied. AVC(2'b0->2'b01) -> NonblockingSubstitution @ line 147: sampDiff[19:3] <= sampDiff[19:3] - { 2'b0, stepSize };  ==>  NonblockingSubstitution @ line 147: sampDiff[19:3] <= sampDiff[19:3] - { 2'b01, stepSize };",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

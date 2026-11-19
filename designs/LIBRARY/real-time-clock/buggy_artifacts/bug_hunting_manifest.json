@@ -1,0 +1,190 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/real-time-clock/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "rtcclock.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(2->1) -> Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b011);  ==>  Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[1:0] == 3'b011);",
+      "target_line": 68
+    },
+    {
+      "changed_rtl_files": [
+        "rtcclock.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CSE(3'b010<->3'b111) -> CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b010: o_data <= stopwatch; ...  ==>  CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b111: o_data <= stopwatch; ...",
+      "target_line": 484
+    },
+    {
+      "changed_rtl_files": [
+        "rtcclock.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DMI -> Partselect @ line 143: i_wb_data[31:22]  ==>  Partselect @ line 143: i_wb_data[30:21]",
+      "target_line": 143
+    },
+    {
+      "changed_rtl_files": [
+        "rtcclock.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 65: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "target_line": 65
+    },
+    {
+      "changed_rtl_files": [
+        "hexmap.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(4'hf<->4'h9) -> CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...  ==>  CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...",
+      "target_line": 64
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "hexmap.v",
+      "target_line": 64,
+      "mutation_log": "applied. CSE(4'hf<->4'h9) -> CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...  ==>  CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          63,
+          81
+        ],
+        "token_a": "4'hf",
+        "token_b": "4'h9",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "rtcclock.v",
+      "target_line": 65,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 65: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 75,
+            "base_end": 85,
+            "matched_start": 75,
+            "matched_end": 85
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "rtcclock.v",
+      "target_line": 68,
+      "mutation_log": "applied. AVC(2->1) -> Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b011);  ==>  Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[1:0] == 3'b011);",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 90,
+        "target_line": 68
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "rtcclock.v",
+      "target_line": 143,
+      "mutation_log": "applied. DMI -> Partselect @ line 143: i_wb_data[31:22]  ==>  Partselect @ line 143: i_wb_data[30:21]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 151,
+        "target_line": 143
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "rtcclock.v",
+      "target_line": 484,
+      "mutation_log": "applied. CSE(3'b010<->3'b111) -> CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b010: o_data <= stopwatch; ...  ==>  CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b111: o_data <= stopwatch; ...",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 60,
+            "base_end": 69
+          },
+          {
+            "base_start": 75,
+            "base_end": 85
+          },
+          {
+            "base_start": 482,
+            "base_end": 493
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/real-time-clock/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/real-time-clock/buggy_artifacts/merged_buggy_rtl/hexmap.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/real-time-clock/buggy_artifacts/merged_buggy_rtl/rtcclock.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(4'hf<->4'h9) -> CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...  ==>  CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...",
+      "operator": "CSE",
+      "target_module": "hexmap",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/real-time-clock/include/hexmap.v",
+      "target_signal": "i_hex",
+      "target_signal_id": "hexmap.i_hex"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(2->1) -> Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b011);  ==>  Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[1:0] == 3'b011);",
+      "operator": "AVC",
+      "target_module": "rtcclock",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/real-time-clock/rtcclock.v",
+      "target_signal": "i_wb_addr",
+      "target_signal_id": "rtcclock.i_wb_addr"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DMI -> Partselect @ line 143: i_wb_data[31:22]  ==>  Partselect @ line 143: i_wb_data[30:21]",
+      "operator": "DMI",
+      "target_module": "rtcclock",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/real-time-clock/rtcclock.v",
+      "target_signal": "i_wb_data",
+      "target_signal_id": "rtcclock.i_wb_data"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 65: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "operator": "LOR",
+      "target_module": "rtcclock",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/real-time-clock/rtcclock.v",
+      "target_signal": "i_wb_stb",
+      "target_signal_id": "rtcclock.i_wb_stb"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CSE(3'b010<->3'b111) -> CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b010: o_data <= stopwatch; ...  ==>  CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b111: o_data <= stopwatch; ...",
+      "operator": "CSE",
+      "target_module": "rtcclock",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/real-time-clock/rtcclock.v",
+      "target_signal": "o_data",
+      "target_signal_id": "rtcclock.o_data"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/LIBRARY/real-time-clock/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/LIBRARY/real-time-clock/mutations",
+  "top_module": "rtcclock",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/LIBRARY/real-time-clock/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/bufram64c1.v"
+      ],
+      "log": "M_0000: applied. CSW(ADDRW<->ADDRR) -> Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrw), .ADDRR(addrr), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )  ==>  Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrr), .ADDRR(addrw), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cnorm.v"
+      ],
+      "log": "M_0001: applied. AVC(2->1) -> NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]);  ==>  NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 1] != DI[nb + 1]);",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cnorm.v"
+      ],
+      "log": "M_0002: applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 166: case(SHIFT) 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...  ==>  CaseStatement @ line 166: case(SHIFT) 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cnorm.v"
+      ],
+      "log": "M_0003: applied. LOR(Sll->Srl) -> Sll @ line 149: (DI << SHIFT)  ==>  Srl @ line 0: (DI >> SHIFT)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cnorm.v"
+      ],
+      "log": "M_0004: applied. AVC(2->4) -> NonblockingSubstitution @ line 168: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb]);  ==>  NonblockingSubstitution @ line 168: OVF <= (DR[nb + 0] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb]);",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cnorm.v"
+      ],
+      "log": "M_0005: applied. LOR(Lor->Land) -> Lor @ line 170: ((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb]) || (DR[nb + 2] != DR[nb + 1]))  ==>  Land @ line 0: (((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb])) && (DR[nb + 2] != DR[nb +...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "USFFT64_2B.v"
+      ],
+      "log": "M_0006: applied. CSW(START<->RDY) -> Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy3), .DR(dr3), .DI(di3), .RDY(rdy4), .DOR(dr4), .DOI(di4) )  ==>  Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy4), .DR(dr3), .DI(di3), .RDY(rdy3), .DOR(dr4), .DOI(di4) )",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fft8.v"
+      ],
+      "log": "M_0007: applied. AVC(2->0) -> Assign @ line 414: assign DOR = s6r[nb+2:0];  ==>  Assign @ line 414: assign DOR = s6r[nb+0:0];",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "USFFT64_2B.v"
+      ],
+      "log": "M_0008: applied. CSW(ED<->START) -> Instance @ line 209: Ubuf3 ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy7), .DR(dr7), .DI(di7), .RDY(rdy8), .DOR(dr8), .DOI(di8) )  ==>  Instance @ line 209: Ubuf3 ( .CLK(CLK), .RST(RST), .ED(rdy7), .START(ED), .DR(dr7), .DI(di7), .RDY(rdy8), .DOR(dr8), .DOI(di8) )",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rotator64_v.v"
+      ],
+      "log": "M_0009: applied. AVC(1->3) -> Assign @ line 193: assign DOI = dwi[nb+2:1];  ==>  Assign @ line 193: assign DOI = dwi[nb+2:3];",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "USFFT64_2B.v"
+      ],
+      "log": "M_0010: applied. CSW(START<->RDY) -> Instance @ line 176: U_NORM1 ( .CLK(CLK), .ED(ED), .START(rdy2), .DR(dr2), .DI(di2), .SHIFT(shiftl), .OVF(OVF1), .RDY(rdy3), .DOR(dr3), .DOI(di3) )  ==>  Instance @ line 176: U_NORM1 ( .CLK(CLK), .ED(ED), .START(rdy3), .DR(dr2), .DI(di2), .SHIFT(shiftl), .OVF(OVF1), .RDY(rdy2), .DOR(dr3), .DOI(di3) )",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "USFFT64_2B.v"
+      ],
+      "log": "M_0011: applied. CSW(START<->RDY) -> Instance @ line 194: U_FFT2 ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy5), .DIR(dr5), .DII(di5), .RDY(rdy6), .DOR(dr6), .DOI(di6) )  ==>  Instance @ line 194: U_FFT2 ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy6), .DIR(dr5), .DII(di5), .RDY(rdy5), .DOR(dr6), .DOI(di6) )",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "USFFT64_2B.v"
+      ],
+      "log": "M_0012: applied. CSW(ED<->OVF) -> Instance @ line 200: U_NORM2 ( .CLK(CLK), .ED(ED), .START(rdy6), .DR(dr6), .DI(di6), .SHIFT(shifth), .OVF(OVF2), .RDY(rdy7), .DOR(dr7), .DOI(di7) )  ==>  Instance @ line 200: U_NORM2 ( .CLK(CLK), .ED(OVF2), .START(rdy6), .DR(dr6), .DI(di6), .SHIFT(shifth), .OVF(ED), .RDY(rdy7), .DOR(dr7), .DOI(di7) )",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "USFFT64_2B.v"
+      ],
+      "log": "M_0013: applied. CSW(ED<->START) -> Instance @ line 171: U_FFT1 ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy1), .DIR(dr1), .DII(di1), .RDY(rdy2), .DOR(dr2), .DOI(di2) )  ==>  Instance @ line 171: U_FFT1 ( .CLK(CLK), .RST(RST), .ED(rdy1), .START(ED), .DIR(dr1), .DII(di1), .RDY(rdy2), .DOR(dr2), .DOI(di2) )",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/bufram64c1.v"
+      ],
+      "log": "M_0014: applied. SMC -> Block @ line 161: begin RDY <= 1'b0; addr <= addr + 1; if(ct2 != 65) ct2 <= ct2 + 1; if(ct2 == 64) RDY <= 1'b1; end  ==>  Block @ line 161: begin RDY <= 1'b1; addr <= addr + 1; if(ct2 != 65) ct2 <= ct2 + 1; if(ct2 == 64) RDY <= 1'b1; end",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/bufram64c1.v"
+      ],
+      "log": "M_0015: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 156: RDY <= 1'b0;  ==>  NonblockingSubstitution @ line 156: RDY <= 1'b1;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cnorm.v"
+      ],
+      "log": "M_0016: applied. LOR(Sll->Srl) -> Sll @ line 148: (DR << SHIFT)  ==>  Srl @ line 0: (DR >> SHIFT)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fft8.v"
+      ],
+      "log": "M_0017: applied. SMC -> Block @ line 197: begin ct <= 0; ctd <= 0; RDY <= 0; end  ==>  Block @ line 197: begin ct <= 2; ctd <= 1; RDY <= 1; end",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rotator64_v.v"
+      ],
+      "log": "M_0018: applied. LOR(Land->Lor) -> Land @ line 149: (START && ED)  ==>  Lor @ line 0: (START || ED)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fft8.v"
+      ],
+      "log": "M_0019: applied. LOR(Land->Lor) -> Land @ line 302: (((ct == 2) || (ct == 3) || (ct == 4)) && ED)  ==>  Lor @ line 0: ((ct == 2) || (ct == 3) || (ct == 4) || ED)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

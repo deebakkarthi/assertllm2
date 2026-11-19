@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/viterbi_tx_rx",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0000: applied. CSW(wr<->addr) -> Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(wr_mem_A), .addr(addr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )  ==>  Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(addr_mem_A), .addr(wr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0001: applied. LOR(Eq->NotEq) -> Eq @ line 181: (enable == 1'b0)  ==>  NotEq @ line 0: (enable != 1'b0)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0002: applied. LOR(Eq->NotEq) -> Eq @ line 69: (d_in == 1'b0)  ==>  NotEq @ line 0: (d_in != 1'b0)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0003: applied. CMC(true_only) -> Cond @ line 22: ((enable_i == 1'b1)? d_out_reg : 2'b00)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0004: applied. LOR(Eq->NotEq) -> Eq @ line 22: (enable_i == 1'b1)  ==>  NotEq @ line 0: (enable_i != 1'b1)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0005: applied. CSW(wr<->addr) -> Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(wr_mem_D), .addr(addr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )  ==>  Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(addr_mem_D), .addr(wr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0006: applied. CSW(enable<->selection) -> Instance @ line 451: tbu_0 ( .clk(clk), .rst_n(rst_n), .enable(enable_tbu_0), .selection(selection_tbu_0), .d_in_0(d_in_0_tbu_0), .d_in_1(d_in_1_tbu_0), .d_o(...  ==>  Instance @ line 451: tbu_0 ( .clk(clk), .rst_n(rst_n), .enable(selection_tbu_0), .selection(enable_tbu_0), .d_in_0(d_in_0_tbu_0), .d_in_1(d_in_1_tbu_0), .d_o(d_...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0007: applied. LOR(Eq->NotEq) -> Eq @ line 141: (rst_n == 1'b0)  ==>  NotEq @ line 0: (rst_n != 1'b0)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "viterbi_tx_rx.v"
+      ],
+      "log": "M_0008: applied. CSW(clk<->enable) -> Instance @ line 56: decoder1 ( .clk(clk), .rst_n(rst_n), .enable(enable_decoder_in), .d_in(encoder_o_reg), .d_out(decoder_o) )  ==>  Instance @ line 56: decoder1 ( .clk(clk), .rst_n(rst_n), .enable(clk), .d_in(encoder_o_reg), .d_out(decoder_o) )",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "viterbi_tx_rx.v"
+      ],
+      "log": "M_0009: applied. CSW(enable_i<->d_in) -> Instance @ line 46: encoder1 ( .clk(clk), .rst_n(rst_n), .enable_i(enable_encoder_i), .d_in(encoder_i), .valid_o(valid_encoder_o), .d_out(encoder_o) )  ==>  Instance @ line 46: encoder1 ( .clk(clk), .rst_n(rst_n), .enable_i(encoder_i), .d_in(enable_encoder_i), .valid_o(valid_encoder_o), .d_out(encoder_o) )",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0010: applied. SMC -> Block @ line 436: begin d_in_0_tbu_0 <= d_o_mem_B; d_in_1_tbu_0 <= d_o_mem_A; d_in_0_tbu_1 <= d_o_mem_C; d_in_1_tbu_1 <= d_o_mem_B; selection_tbu_0 <= 1'b1...  ==>  Block @ line 436: begin d_in_0_tbu_0 <= d_o_mem_B; d_in_1_tbu_0 <= d_o_mem_A; d_in_0_tbu_1 <= d_o_mem_C; d_in_1_tbu_1 <= d_o_mem_B; selection_tbu_0 <= 1'b0...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0011: applied. LOR(Eq->NotEq) -> Eq @ line 517: (enable == 1'b0)  ==>  NotEq @ line 0: (enable != 1'b0)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0012: applied. CSE(3'b010<->3'b111) -> CaseStatement @ line 27: case(cstate) 3'b000: begin if(d_in == 1'b0) begin nstate = 3'b000; d_out_reg = 2'b00; end else begin nstate = 3'b100; d_out_reg = 2'b11; ...  ==>  CaseStatement @ line 27: case(cstate) 3'b000: begin if(d_in == 1'b0) begin nstate = 3'b000; d_out_reg = 2'b00; end else begin nstate = 3'b100; d_out_reg = 2'b11; ...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0013: applied. CSE(2'b01<->2'b11) -> CaseStatement @ line 400: case(mem_bank_buf_buf) 2'b00: begin d_in_0_tbu_0 <= d_o_mem_D; d_in_1_tbu_0 <= d_o_mem_C; d_in_0_tbu_1 <= d_o_mem_C; d_in_1_tbu_1 <= d_o_...  ==>  CaseStatement @ line 400: case(mem_bank_buf_buf) 2'b00: begin d_in_0_tbu_0 <= d_o_mem_D; d_in_1_tbu_0 <= d_o_mem_C; d_in_0_tbu_1 <= d_o_mem_C; d_in_1_tbu_1 <= d_o_...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0014: applied. CSW(wr<->d_i) -> Instance @ line 490: disp_mem_1 ( .clk(clk), .wr(wr_disp_mem_1), .addr(addr_disp_mem_1), .d_i(d_in_disp_mem_1), .d_o(d_o_disp_mem_1) )  ==>  Instance @ line 490: disp_mem_1 ( .clk(clk), .wr(d_in_disp_mem_1), .addr(addr_disp_mem_1), .d_i(wr_disp_mem_1), .d_o(d_o_disp_mem_1) )",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0015: applied. CSW(wr<->addr) -> Instance @ line 338: trelis_mem_B ( .clk(clk), .wr(wr_mem_B), .addr(addr_mem_B), .d_i(d_in_mem_B), .d_o(d_o_mem_B) )  ==>  Instance @ line 338: trelis_mem_B ( .clk(clk), .wr(addr_mem_B), .addr(wr_mem_B), .d_i(d_in_mem_B), .d_o(d_o_mem_B) )",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0016: applied. AVC(2'b00->2'b01) -> Assign @ line 22: assign d_out = (enable_i == 1'b1)? d_out_reg : 2'b00;  ==>  Assign @ line 22: assign d_out = (enable_i == 1'b1)? d_out_reg : 2'b01;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/encoder.v"
+      ],
+      "log": "M_0017: applied. LOR(Eq->NotEq) -> Eq @ line 43: (d_in == 1'b0)  ==>  NotEq @ line 0: (d_in != 1'b0)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0018: applied. CSW(enable<->wr_en) -> Instance @ line 463: tbu_1 ( .clk(clk), .rst_n(rst_n), .enable(enable_tbu_1), .selection(selection_tbu_1), .d_in_0(d_in_0_tbu_1), .d_in_1(d_in_1_tbu_1), .d_o(d_o_tbu_1), .wr_en(wr_disp_mem_1) )  ==>  CSW(d_in_0<->d_in_1) -> Instance @ line 463: tbu_1 ( .clk(clk), .rst_n(rst_n), .enable(enable_tbu_1), .selection(selection_tbu_1), .d_in_0(d_in_1_tbu_1), .d_in_1(d_in_0_tbu_1), .d_o(d_o_tbu_1), .wr_en(wr_disp_mem_1) )",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/decoder.v"
+      ],
+      "log": "M_0019: applied. CSW(wr<->d_i) -> Instance @ line 481: disp_mem_0 ( .clk(clk), .wr(wr_disp_mem_0), .addr(addr_disp_mem_0), .d_i(d_in_disp_mem_0), .d_o(d_o_disp_mem_0) )  ==>  Instance @ line 481: disp_mem_0 ( .clk(clk), .wr(d_in_disp_mem_0), .addr(addr_disp_mem_0), .d_i(wr_disp_mem_0), .d_o(d_o_disp_mem_0) )",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

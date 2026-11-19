@@ -1,0 +1,227 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "pci_ram_16x40d.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMO -> Pointer @ line 56: data_out[0]  ==>  Pointer @ line 56: data_out[36] (new index=36)",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "pci_ram_16x40d.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DMO -> Pointer @ line 81: waddr[1]  ==>  Pointer @ line 81: waddr[2] (new index=2)",
+      "target_line": 81
+    },
+    {
+      "changed_rtl_files": [
+        "pci_ram_16x40d.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 51: (addr_width - 1)  ==>  Plus @ line 0: (addr_width + 1)",
+      "target_line": 51
+    },
+    {
+      "changed_rtl_files": [
+        "pci_wbs_wbb3_2_wbb2.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 157: end_cycle[0]  ==>  Pointer @ line 157: end_cycle[2] (new index=2)",
+      "target_line": 157
+    },
+    {
+      "changed_rtl_files": [
+        "pci_wbs_wbb3_2_wbb2.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 143: wbs_cab_o <= 1'b0;  ==>  NonblockingSubstitution @ line 143: wbs_cab_o <= 1'b1;",
+      "target_line": 143
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "pci_ram_16x40d.v",
+      "target_line": 51,
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 51: (addr_width - 1)  ==>  Plus @ line 0: (addr_width + 1)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 16,
+            "base_end": 17,
+            "matched_start": 16,
+            "matched_end": 17
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "pci_ram_16x40d.v",
+      "target_line": 56,
+      "mutation_log": "applied. DMO -> Pointer @ line 56: data_out[0]  ==>  Pointer @ line 56: data_out[36] (new index=36)",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "pci_ram_16x40d.v",
+      "target_line": 81,
+      "mutation_log": "applied. DMO -> Pointer @ line 81: waddr[1]  ==>  Pointer @ line 81: waddr[2] (new index=2)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 64,
+        "target_line": 81
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "pci_wbs_wbb3_2_wbb2.v",
+      "target_line": 143,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 143: wbs_cab_o <= 1'b0;  ==>  NonblockingSubstitution @ line 143: wbs_cab_o <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 206,
+        "target_line": 143
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "pci_wbs_wbb3_2_wbb2.v",
+      "target_line": 157,
+      "mutation_log": "applied. DMO -> Pointer @ line 157: end_cycle[0]  ==>  Pointer @ line 157: end_cycle[2] (new index=2)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 156,
+        "target_line": 157
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/bus_commands.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_async_reset_flop.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_bridge32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_cbe_en_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_conf_cyc_addr_dec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_conf_space.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_constants.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_cur_out_reg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_delayed_sync.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_delayed_write_reg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_frame_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_frame_en_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_frame_load_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_in_reg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_io_mux.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_io_mux_ad_en_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_io_mux_ad_load_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_irdy_out_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_mas_ad_en_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_mas_ad_load_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_mas_ch_state_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_master32_sm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_master32_sm_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_out_reg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_par_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_parity_check.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_pci_decoder.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_pci_tpram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_pcir_fifo_control.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_pciw_fifo_control.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_pciw_pcir_fifos.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_perr_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_perr_en_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_ram_16x40d.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_rst_int.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_serr_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_serr_en_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_spoci_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_sync_module.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_synchronizer_flop.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target32_clk_en.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target32_devs_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target32_interface.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target32_sm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target32_stop_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target32_trdy_crit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_target_unit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_user_constants.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wb_addr_mux.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wb_decoder.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wb_master.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wb_slave.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wb_slave_unit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wb_tpram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wbr_fifo_control.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wbs_wbb3_2_wbb2.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wbw_fifo_control.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/merged_buggy_rtl/pci_wbw_wbr_fifos.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMO -> Pointer @ line 56: data_out[0]  ==>  Pointer @ line 56: data_out[36] (new index=36)",
+      "operator": "DMO",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/include/pci_ram_16x40d.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.pci_ram_16x40d"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 157: end_cycle[0]  ==>  Pointer @ line 157: end_cycle[2] (new index=2)",
+      "operator": "DMO",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/include/pci_wbs_wbb3_2_wbb2.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.pci_wbs_wbb3_2_wbb2"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 51: (addr_width - 1)  ==>  Plus @ line 0: (addr_width + 1)",
+      "operator": "LOR",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/include/pci_ram_16x40d.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.pci_ram_16x40d"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 143: wbs_cab_o <= 1'b0;  ==>  NonblockingSubstitution @ line 143: wbs_cab_o <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/include/pci_wbs_wbb3_2_wbb2.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.pci_wbs_wbb3_2_wbb2"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DMO -> Pointer @ line 81: waddr[1]  ==>  Pointer @ line 81: waddr[2] (new index=2)",
+      "operator": "DMO",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/include/pci_ram_16x40d.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.pci_ram_16x40d"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/SYSTEM_CONTROLLER/pci_bridge/mutations",
+  "top_module": "pci_bridge32",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_CONTROLLER/pci_bridge/buggy_artifacts/consensus_merge_report"
+}

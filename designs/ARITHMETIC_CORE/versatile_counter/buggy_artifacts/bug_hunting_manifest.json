@@ -1,0 +1,172 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "vcnt.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 83: ((clear)? 4'd0 : qi - 4'd1)  ==>  Cond @ line 83: ((clear)? qi - 4'd1 : 4'd0)",
+      "target_line": 83
+    },
+    {
+      "changed_rtl_files": [
+        "vcnt.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 120: (q_next == level2_value)  ==>  NotEq @ line 0: (q_next != level2_value)",
+      "target_line": 120
+    },
+    {
+      "changed_rtl_files": [
+        "vcnt.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMS -> Srl @ line 102: (q_next >> 1)  ==>  Srl @ line 102: (q_next >> 7) (new shift=7)",
+      "target_line": 102
+    },
+    {
+      "changed_rtl_files": [
+        "vcnt.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 90: ((rew)? q_next_rew : q_next_fw)  ==>  (cond removed)",
+      "target_line": 90
+    },
+    {
+      "changed_rtl_files": [
+        "vcnt.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(4'd0->4'd1) -> Assign @ line 82: assign q_next_fw = (clear)? 4'd0 : qi - 4'd1;  ==>  Assign @ line 82: assign q_next_fw = (clear)? 4'd1 : qi - 4'd1;",
+      "target_line": 82
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "vcnt.v",
+      "target_line": 82,
+      "mutation_log": "applied. AVC(4'd0->4'd1) -> Assign @ line 82: assign q_next_fw = (clear)? 4'd0 : qi - 4'd1;  ==>  Assign @ line 82: assign q_next_fw = (clear)? 4'd1 : qi - 4'd1;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 25,
+            "base_end": 26,
+            "matched_start": 25,
+            "matched_end": 26
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "vcnt.v",
+      "target_line": 83,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 83: ((clear)? 4'd0 : qi - 4'd1)  ==>  Cond @ line 83: ((clear)? qi - 4'd1 : 4'd0)",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "vcnt.v",
+      "target_line": 90,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 90: ((rew)? q_next_rew : q_next_fw)  ==>  (cond removed)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 27,
+        "target_line": 90
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "vcnt.v",
+      "target_line": 102,
+      "mutation_log": "applied. DMS -> Srl @ line 102: (q_next >> 1)  ==>  Srl @ line 102: (q_next >> 7) (new shift=7)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 34,
+        "target_line": 102
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "vcnt.v",
+      "target_line": 120,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 120: (q_next == level2_value)  ==>  NotEq @ line 0: (q_next != level2_value)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 47,
+        "target_line": 120
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts/merged_buggy_rtl/lfsr_polynom.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts/merged_buggy_rtl/vcnt.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts/merged_buggy_rtl/versatile_counter_defines.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 83: ((clear)? 4'd0 : qi - 4'd1)  ==>  Cond @ line 83: ((clear)? qi - 4'd1 : 4'd0)",
+      "operator": "CMC",
+      "target_module": "vcnt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/vcnt.v",
+      "target_signal": "clear",
+      "target_signal_id": "vcnt.clear"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMS -> Srl @ line 102: (q_next >> 1)  ==>  Srl @ line 102: (q_next >> 7) (new shift=7)",
+      "operator": "DMS",
+      "target_module": "vcnt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/vcnt.v",
+      "target_signal": "q",
+      "target_signal_id": "vcnt.q"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 90: ((rew)? q_next_rew : q_next_fw)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "vcnt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/vcnt.v",
+      "target_signal": "rew",
+      "target_signal_id": "vcnt.rew"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(4'd0->4'd1) -> Assign @ line 82: assign q_next_fw = (clear)? 4'd0 : qi - 4'd1;  ==>  Assign @ line 82: assign q_next_fw = (clear)? 4'd1 : qi - 4'd1;",
+      "operator": "AVC",
+      "target_module": "vcnt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/vcnt.v",
+      "target_signal": "clear",
+      "target_signal_id": "vcnt.clear"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 120: (q_next == level2_value)  ==>  NotEq @ line 0: (q_next != level2_value)",
+      "operator": "LOR",
+      "target_module": "vcnt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/vcnt.v",
+      "target_signal": "q",
+      "target_signal_id": "vcnt.q"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/versatile_counter/mutations",
+  "top_module": "vcnt",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/versatile_counter/buggy_artifacts/consensus_merge_report"
+}

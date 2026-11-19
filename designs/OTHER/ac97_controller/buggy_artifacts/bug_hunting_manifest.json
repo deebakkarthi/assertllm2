@@ -1,0 +1,183 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "ac97_cra.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(16'h0->16'h2) -> NonblockingSubstitution @ line 298: crac_din <= #1 16'h0;  ==>  NonblockingSubstitution @ line 298: crac_din <= #1 16'h2;",
+      "target_line": 298
+    },
+    {
+      "changed_rtl_files": [
+        "ac97_cra.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 316: (crac_we_r & !crac_out[31])  ==>  Or @ line 0: (crac_we_r | !crac_out[31])",
+      "target_line": 316
+    },
+    {
+      "changed_rtl_files": [
+        "ac97_cra.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 293: out_slt2[3:0]  ==>  Partselect @ line 293: out_slt2[19:16]",
+      "target_line": 293
+    },
+    {
+      "changed_rtl_files": [
+        "ac97_cra.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 289: out_slt1[11:0]  ==>  Partselect @ line 289: out_slt1[19:8]",
+      "target_line": 289
+    },
+    {
+      "changed_rtl_files": [
+        "ac97_dma_if.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(dma_req<->dma_ack) -> Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_req[0]), .dma_ack(dma_ack[0]) )  ==>  Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_ack[0]), .dma_ack(dma_req[0]) )",
+      "target_line": 279
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "ac97_cra.v",
+      "target_line": 289,
+      "mutation_log": "applied. DIE -> Partselect @ line 289: out_slt1[11:0]  ==>  Partselect @ line 289: out_slt1[19:8]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 120,
+        "target_line": 289
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "ac97_cra.v",
+      "target_line": 293,
+      "mutation_log": "applied. DIE -> Partselect @ line 293: out_slt2[3:0]  ==>  Partselect @ line 293: out_slt2[19:16]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 124,
+        "target_line": 293
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "ac97_cra.v",
+      "target_line": 298,
+      "mutation_log": "applied. AVC(16'h0->16'h2) -> NonblockingSubstitution @ line 298: crac_din <= #1 16'h0;  ==>  NonblockingSubstitution @ line 298: crac_din <= #1 16'h2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 129,
+        "target_line": 298
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "ac97_cra.v",
+      "target_line": 316,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 316: (crac_we_r & !crac_out[31])  ==>  Or @ line 0: (crac_we_r | !crac_out[31])",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 147,
+        "target_line": 316
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "ac97_dma_if.v",
+      "target_line": 279,
+      "mutation_log": "applied. CSW(dma_req<->dma_ack) -> Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_req[0]), .dma_ack(dma_ack[0]) )  ==>  Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_ack[0]), .dma_ack(dma_req[0]) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 115,
+        "line_b": 116,
+        "token_a": "dma_req",
+        "token_b": "dma_ack"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_cra.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_dma_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_dma_req.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_fifo_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_in_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_int.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_out_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_prc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_rf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_rst.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_sin.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_soc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_sout.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/merged_buggy_rtl/ac97_wb_if.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(16'h0->16'h2) -> NonblockingSubstitution @ line 298: crac_din <= #1 16'h0;  ==>  NonblockingSubstitution @ line 298: crac_din <= #1 16'h2;",
+      "operator": "AVC",
+      "target_module": "ac97_cra",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/ac97_controller/include/ac97_cra.v",
+      "target_signal": "crac_din",
+      "target_signal_id": "ac97_cra.crac_din"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 316: (crac_we_r & !crac_out[31])  ==>  Or @ line 0: (crac_we_r | !crac_out[31])",
+      "operator": "LOR",
+      "target_module": "ac97_cra",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/ac97_controller/include/ac97_cra.v",
+      "target_signal": "crac_we",
+      "target_signal_id": "ac97_cra.crac_we"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 289: out_slt1[11:0]  ==>  Partselect @ line 289: out_slt1[19:8]",
+      "operator": "DIE",
+      "target_module": "ac97_cra",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/ac97_controller/include/ac97_cra.v",
+      "target_signal": "out_slt1",
+      "target_signal_id": "ac97_cra.out_slt1"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 293: out_slt2[3:0]  ==>  Partselect @ line 293: out_slt2[19:16]",
+      "operator": "DIE",
+      "target_module": "ac97_cra",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/ac97_controller/include/ac97_cra.v",
+      "target_signal": "out_slt2",
+      "target_signal_id": "ac97_cra.out_slt2"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(dma_req<->dma_ack) -> Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_req[0]), .dma_ack(dma_ack[0]) )  ==>  Instance @ line 279: u0 ( .clk(clk), .rst(rst), .cfg(oc0_cfg), .status(o3_status), .full_empty(o3_empty), .dma_req(dma_ack[0]), .dma_ack(dma_req[0]) )",
+      "operator": "CSW",
+      "target_module": "ac97_dma_if",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/ac97_controller/include/ac97_dma_if.v",
+      "target_signal": "clk",
+      "target_signal_id": "ac97_dma_if.clk"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/ac97_controller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/ac97_controller/mutations",
+  "top_module": "ac97_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/ac97_controller/buggy_artifacts/consensus_merge_report"
+}

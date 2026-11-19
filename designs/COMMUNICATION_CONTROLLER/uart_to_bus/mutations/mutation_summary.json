@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_bus",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "uart2bus_top.v"
+      ],
+      "log": "M_0000: applied. CSW(rx_data<->tx_data) -> Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(rx_data), .new_rx_data(new_rx_data), .tx_data(tx_data)...  ==>  Instance @ line 55: uart1 ( .clock(clock), .reset(reset), .ser_in(ser_in), .ser_out(ser_out), .rx_data(tx_data), .new_rx_data(new_rx_data), .tx_data(rx_data)...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0001: applied. LOR(Land->Lor) -> Land @ line 452: (int_gnt && read_req)  ==>  Lor @ line 0: (int_gnt || read_req)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0002: applied. SMC -> Block @ line 408: begin write_req <= 1'b0; int_write <= 1'b0; int_wr_data <= 0; end  ==>  Block @ line 408: begin write_req <= 1'b1; int_write <= 1'b1; int_wr_data <= 2; end",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0003: applied. LOR(Land->Lor) -> Land @ line 478: (bin_write_op && int_write)  ==>  Lor @ line 0: (bin_write_op || int_write)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0004: applied. LOR(Land->Lor) -> Land @ line 309: ((main_sm == 4'b1000) && new_rx_data && (rx_data[5:4] == 2'b01))  ==>  Lor @ line 0: ((main_sm == 4'b1000) && new_rx_data || (rx_data[5:4] == 2'b01))",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0005: applied. SMC -> Block @ line 511: begin tx_sm <= 3'b000; tx_data <= 8'h0; new_tx_data <= 1'b0; end  ==>  Block @ line 511: begin tx_sm <= 3'b010; tx_data <= 8'h1; new_tx_data <= 1'b1; end",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0006: applied. DMO -> Pointer @ line 337: rx_data[0]  ==>  Pointer @ line 337: rx_data[3] (new index=3)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0007: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 610: s_tx_busy <= 1'b0;  ==>  NonblockingSubstitution @ line 610: s_tx_busy <= 1'b1;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "uart2bus_top.v"
+      ],
+      "log": "M_0008: applied. CSW(new_rx_data<->int_gnt) -> Instance @ line 70: uart_parser1 ( .clock(clock), .reset(reset), .rx_data(rx_data), .new_rx_data(new_rx_data), .tx_data(tx_data), .new_tx_data(new_tx_data), ...  ==>  Instance @ line 70: uart_parser1 ( .clock(clock), .reset(reset), .rx_data(rx_data), .new_rx_data(int_gnt), .tx_data(tx_data), .new_tx_data(new_tx_data), .tx_...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_top.v"
+      ],
+      "log": "M_0009: applied. CSW(ce_16<->new_rx_data) -> Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .ser_in(ser_in), .rx_data(rx_data), .new_rx_data(new_rx_data) )  ==>  Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(new_rx_data), .ser_in(ser_in), .rx_data(rx_data), .new_rx_data(ce_16) )",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_top.v"
+      ],
+      "log": "M_0010: applied. CSW(new_tx_data<->ser_out) -> Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(ser_out), .tx_busy(tx_bus...  ==>  Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(ser_out), .ser_out(new_tx_data), .tx_busy(tx_bus...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0011: applied. CSE(3'b100<->3'b000) -> CaseStatement @ line 517: case(tx_sm) 3'b000: if(read_done_s) if(bin_read_op) begin tx_data <= read_data_s; new_tx_data <= 1'b1; end else begin tx_sm <= 3'b001; tx...  ==>  CaseStatement @ line 517: case(tx_sm) 3'b100: if(read_done_s) if(bin_read_op) begin tx_data <= read_data_s; new_tx_data <= 1'b1; end else begin tx_sm <= 3'b001; tx...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0012: applied. AVC(1->0) -> NonblockingSubstitution @ line 475: int_address <= addr_param[AW-1:0];  ==>  NonblockingSubstitution @ line 475: int_address <= addr_param[AW-2:0];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0013: applied. SMC -> Block @ line 540: begin tx_data <= 8'h5a; new_tx_data <= 1'b1; end  ==>  Block @ line 540: begin tx_data <= 8'h59; new_tx_data <= 1'b0; end",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0014: applied. LOR(Plus->Minus) -> Plus @ line 480: (int_address + 1)  ==>  Minus @ line 0: (int_address - 1)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0015: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 459: int_read <= 1'b0;  ==>  NonblockingSubstitution @ line 459: int_read <= 1'b1;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0016: applied. AVC(0->1) -> NonblockingSubstitution @ line 411: int_wr_data <= 0;  ==>  NonblockingSubstitution @ line 411: int_wr_data <= 1;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0017: applied. DIE -> Partselect @ line 539: rx_data[5:4]  ==>  Partselect @ line 539: rx_data[3:2]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 587: new_tx_data <= 1'b0;  ==>  NonblockingSubstitution @ line 587: new_tx_data <= 1'b1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/uart_parser.v"
+      ],
+      "log": "M_0019: applied. SMC -> Block @ line 453: begin int_read <= 1'b1; read_req <= 1'b0; end  ==>  Block @ line 453: begin int_read <= 1'b0; read_req <= 1'b1; end",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

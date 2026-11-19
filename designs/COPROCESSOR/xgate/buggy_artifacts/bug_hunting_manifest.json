@@ -1,0 +1,188 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "xgate_irq_encode.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 56: (~chan_bypass & chan_req_i)  ==>  Or @ line 0: (~chan_bypass | chan_req_i)",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "xgate_regs.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 143: ((write_bus[10])? write_bus[2] : brk_irq_ena)  ==>  Cond @ line 143: ((write_bus[10])? brk_irq_ena : write_bus[2])",
+      "target_line": 143
+    },
+    {
+      "changed_rtl_files": [
+        "xgate_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(write_mem_strb_l<->xge) -> Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(write_mem_strb_l), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem...  ==>  Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(zero_flag), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem_data),...",
+      "target_line": 309
+    },
+    {
+      "changed_rtl_files": [
+        "xgate_top.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(xgsweif_c<->write_xgmctl) -> Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(xgsweif_c), ....  ==>  Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(write_xgmctl)...",
+      "target_line": 254
+    },
+    {
+      "changed_rtl_files": [
+        "xgate_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 234: xgif_status[15:1];  ==>  Partselect @ line 234: xgif_status[14:1];",
+      "target_line": 234
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "xgate_irq_encode.v",
+      "target_line": 56,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 56: (~chan_bypass & chan_req_i)  ==>  Or @ line 0: (~chan_bypass | chan_req_i)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 55,
+        "target_line": 56
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "xgate_regs.v",
+      "target_line": 143,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 143: ((write_bus[10])? write_bus[2] : brk_irq_ena)  ==>  Cond @ line 143: ((write_bus[10])? brk_irq_ena : write_bus[2])",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 99,
+            "base_end": 105,
+            "matched_start": 99,
+            "matched_end": 105
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "xgate_top.v",
+      "target_line": 234,
+      "mutation_log": "applied. DMI -> Partselect @ line 234: xgif_status[15:1];  ==>  Partselect @ line 234: xgif_status[14:1];",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 46,
+            "base_end": 77,
+            "matched_start": 46,
+            "matched_end": 77
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "xgate_top.v",
+      "target_line": 254,
+      "mutation_log": "applied. CSW(xgsweif_c<->write_xgmctl) -> Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(xgsweif_c), ....  ==>  Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(write_xgmctl)...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 277,
+        "line_b": 299,
+        "token_a": "xgsweif_c",
+        "token_b": "write_xgmctl"
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "xgate_top.v",
+      "target_line": 309,
+      "mutation_log": "applied. CSW(write_mem_strb_l<->xge) -> Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(write_mem_strb_l), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem...  ==>  Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(zero_flag), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem_data),...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 326,
+        "line_b": 356,
+        "token_a": "write_mem_strb_l",
+        "token_b": "xge"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_irq_encode.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_jtag.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_regs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_risc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_wbm_bus.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/merged_buggy_rtl/xgate_wbs_bus.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(write_mem_strb_l<->xge) -> Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(write_mem_strb_l), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem...  ==>  Instance @ line 309: risc ( .xgate_address(xgate_address), .write_mem_strb_l(zero_flag), .write_mem_strb_h(write_mem_strb_h), .write_mem_data(write_mem_data),...",
+      "operator": "CSW",
+      "target_module": "xgate_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COPROCESSOR/xgate/xgate_top.v",
+      "target_signal": "debug_mode_i",
+      "target_signal_id": "xgate_top.debug_mode_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 234: xgif_status[15:1];  ==>  Partselect @ line 234: xgif_status[14:1];",
+      "operator": "DMI",
+      "target_module": "xgate_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COPROCESSOR/xgate/xgate_top.v",
+      "target_signal": "xgif",
+      "target_signal_id": "xgate_top.xgif"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(xgsweif_c<->write_xgmctl) -> Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(xgsweif_c), ....  ==>  Instance @ line 254: regs ( .xge(xge), .xgfrz(xgfrz), .xgdbg_set(xgdbg_set), .xgdbg_clear(xgdbg_clear), .xgfact(xgfact), .xgss(xgss), .xgsweif_c(write_xgmctl)...",
+      "operator": "CSW",
+      "target_module": "xgate_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COPROCESSOR/xgate/xgate_top.v",
+      "target_signal": "xgswt",
+      "target_signal_id": "xgate_top.xgswt"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 56: (~chan_bypass & chan_req_i)  ==>  Or @ line 0: (~chan_bypass | chan_req_i)",
+      "operator": "LOR",
+      "target_module": "xgate_irq_encode",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COPROCESSOR/xgate/include/xgate_irq_encode.v",
+      "target_signal": "chan_bypass",
+      "target_signal_id": "xgate_irq_encode.chan_bypass"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 143: ((write_bus[10])? write_bus[2] : brk_irq_ena)  ==>  Cond @ line 143: ((write_bus[10])? brk_irq_ena : write_bus[2])",
+      "operator": "CMC",
+      "target_module": "xgate_regs",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COPROCESSOR/xgate/include/xgate_regs.v",
+      "target_signal": "brk_irq_ena",
+      "target_signal_id": "xgate_regs.brk_irq_ena"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/mutations",
+  "top_module": "xgate_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COPROCESSOR/xgate/buggy_artifacts/consensus_merge_report"
+}

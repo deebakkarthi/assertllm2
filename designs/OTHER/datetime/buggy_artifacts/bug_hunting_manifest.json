@@ -1,0 +1,168 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/datetime/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "Datetime.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(ce<->i) -> Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(tods), .pe(tod_edge), .ne(), .ee() )  ==>  Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(tods), .i(1'b1), .pe(tod_edge), .ne(), .ee() )",
+      "target_line": 209
+    },
+    {
+      "changed_rtl_files": [
+        "Datetime.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(64'd0->64'd1) -> NonblockingSubstitution @ line 344: dat_o <= 64'd0;  ==>  NonblockingSubstitution @ line 344: dat_o <= 64'd1;",
+      "target_line": 344
+    },
+    {
+      "changed_rtl_files": [
+        "Datetime.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 314: sel_i[6]  ==>  Pointer @ line 314: sel_i[1] (new index=1)",
+      "target_line": 314
+    },
+    {
+      "changed_rtl_files": [
+        "edge_det.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 46: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "target_line": 46
+    },
+    {
+      "changed_rtl_files": [
+        "sync2s.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 16: assign o = s[1];  ==>  Assign @ line 16: assign o = s[0];",
+      "target_line": 16
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "Datetime.v",
+      "target_line": 209,
+      "mutation_log": "applied. CSW(ce<->i) -> Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(tods), .pe(tod_edge), .ne(), .ee() )  ==>  Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(tods), .i(1'b1), .pe(tod_edge), .ne(), .ee() )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 208,
+        "line_b": 208,
+        "token_a": "ce",
+        "token_b": "i"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "Datetime.v",
+      "target_line": 314,
+      "mutation_log": "applied. DMO -> Pointer @ line 314: sel_i[6]  ==>  Pointer @ line 314: sel_i[1] (new index=1)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 302,
+        "target_line": 314
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "Datetime.v",
+      "target_line": 344,
+      "mutation_log": "applied. AVC(64'd0->64'd1) -> NonblockingSubstitution @ line 344: dat_o <= 64'd0;  ==>  NonblockingSubstitution @ line 344: dat_o <= 64'd1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 343,
+        "target_line": 344
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "edge_det.v",
+      "target_line": 46,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 46: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 45,
+        "target_line": 46
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "sync2s.v",
+      "target_line": 16,
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 16: assign o = s[1];  ==>  Assign @ line 16: assign o = s[0];",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/datetime/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/datetime/buggy_artifacts/merged_buggy_rtl/Datetime.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/datetime/buggy_artifacts/merged_buggy_rtl/edge_det.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/datetime/buggy_artifacts/merged_buggy_rtl/sync2s.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 46: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "operator": "LOR",
+      "target_module": "edge_det",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/datetime/include/edge_det.v",
+      "target_signal": "i",
+      "target_signal_id": "edge_det.i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1->0) -> Assign @ line 16: assign o = s[1];  ==>  Assign @ line 16: assign o = s[0];",
+      "operator": "AVC",
+      "target_module": "sync2s",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/datetime/include/sync2s.v",
+      "target_signal": "o",
+      "target_signal_id": "sync2s.o"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(ce<->i) -> Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(tods), .pe(tod_edge), .ne(), .ee() )  ==>  Instance @ line 209: ed_tod ( .rst(rst_i), .clk(clk_i), .ce(tods), .i(1'b1), .pe(tod_edge), .ne(), .ee() )",
+      "operator": "CSW",
+      "target_module": "Datetime",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/datetime/Datetime.v",
+      "target_signal": "clk_i",
+      "target_signal_id": "Datetime.clk_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(64'd0->64'd1) -> NonblockingSubstitution @ line 344: dat_o <= 64'd0;  ==>  NonblockingSubstitution @ line 344: dat_o <= 64'd1;",
+      "operator": "AVC",
+      "target_module": "Datetime",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/datetime/Datetime.v",
+      "target_signal": "dat_o",
+      "target_signal_id": "Datetime.dat_o"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 314: sel_i[6]  ==>  Pointer @ line 314: sel_i[1] (new index=1)",
+      "operator": "DMO",
+      "target_module": "Datetime",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/datetime/Datetime.v",
+      "target_signal": "sel_i",
+      "target_signal_id": "Datetime.sel_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/datetime/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/datetime/mutations",
+  "top_module": "Datetime",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/datetime/buggy_artifacts/consensus_merge_report"
+}

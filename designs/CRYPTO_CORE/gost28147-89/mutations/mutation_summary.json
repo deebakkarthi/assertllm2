@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0000: applied. AVC(1->0) -> NonblockingSubstitution @ line 142: busy <= 1;  ==>  NonblockingSubstitution @ line 142: busy <= 0;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0001: applied. DMI -> Partselect @ line 140: in[63:32]  ==>  Partselect @ line 140: in[62:31]",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0002: applied. CSE(11<->20) -> CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...  ==>  CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0003: applied. LOR(Land->Lor) -> Land @ line 151: (!reset && !load_data)  ==>  Lor @ line 0: (!reset || !load_data)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "gost89_cfb.v"
+      ],
+      "log": "M_0004: applied. AVC(1->2) -> NonblockingSubstitution @ line 31: busy <= 1;  ==>  NonblockingSubstitution @ line 31: busy <= 2;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "gost89_cfb.v"
+      ],
+      "log": "M_0005: applied. SMC -> Block @ line 24: begin gamma <= in; busy <= 0; end  ==>  Block @ line 24: begin gamma <= in; busy <= 2; end",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "gost89_cfb.v"
+      ],
+      "log": "M_0006: applied. SMC -> Block @ line 34: begin if(mode) gamma <= in_value; else gamma <= out_ecb ^ in_value; out <= out_ecb ^ in_value; busy <= 0; end  ==>  Block @ line 34: begin if(mode) gamma <= in_value; else gamma <= out_ecb ^ in_value; out <= out_ecb ^ in_value; busy <= 1; end",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "gost89_cfb.v"
+      ],
+      "log": "M_0007: applied. LOR(Land->Lor) -> Land @ line 34: (!reset && !load_data && !busy_ecb)  ==>  Lor @ line 0: (!reset && !load_data || !busy_ecb)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "gost89_cfb.v"
+      ],
+      "log": "M_0008: applied. LOR(Land->Lor) -> Land @ line 24: (reset && !load_data)  ==>  Lor @ line 0: (reset || !load_data)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0009: applied. AVC(255->257) -> NonblockingSubstitution @ line 199: round_key <= key[255:224];  ==>  NonblockingSubstitution @ line 199: round_key <= key[253:224];",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0010: applied. DIE -> Partselect @ line 160: out[31:0]  ==>  Partselect @ line 160: out[63:32]",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 146: begin busy <= 0; round_num <= 32; end  ==>  Block @ line 146: begin busy <= 1; round_num <= 30; end",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0012: applied. LOR(Land->Lor) -> Land @ line 146: (reset && !load_data)  ==>  Lor @ line 0: (reset || !load_data)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0013: applied. AVC(31->33) -> NonblockingSubstitution @ line 141: n2 <= in[31:0];  ==>  NonblockingSubstitution @ line 141: n2 <= in[33:0];",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0014: applied. AVC(159->157) -> NonblockingSubstitution @ line 187: round_key <= key[159:128];  ==>  NonblockingSubstitution @ line 187: round_key <= key[157:128];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0015: applied. DIE -> Partselect @ line 159: out[63:32]  ==>  Partselect @ line 159: out[31:0]",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0016: applied. AVC(0->2) -> NonblockingSubstitution @ line 161: busy <= 0;  ==>  NonblockingSubstitution @ line 161: busy <= 2;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "gost89_cfb.v"
+      ],
+      "log": "M_0017: applied. LOR(And->Or) -> And @ line 29: (!reset & load_data)  ==>  Or @ line 0: (!reset | load_data)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0018: applied. AVC(128->126) -> NonblockingSubstitution @ line 196: round_key <= key[159:128];  ==>  NonblockingSubstitution @ line 196: round_key <= key[159:126];",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gost89_ecb.v"
+      ],
+      "log": "M_0019: applied. DIE -> Partselect @ line 140: in[63:32]  ==>  Partselect @ line 140: in[31:0]",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

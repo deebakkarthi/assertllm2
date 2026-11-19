@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0000: applied. CSE(8'h02<->8'h08) -> CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h02: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...  ==>  CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h08: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0001: applied. SMC -> Block @ line 131: begin rdy1 <= 1'b1; rdy2 <= 1'b1; end  ==>  Block @ line 131: begin rdy1 <= 1'b0; rdy2 <= 1'b0; end",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0002: applied. LOR(And->Or) -> And @ line 159: (cs & ~rw)  ==>  Or @ line 0: (cs | ~rw)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0003: applied. LOR(Land->Lor) -> Land @ line 128: (vda && (ad[23:8] == pIOAddress[23:8]))  ==>  Lor @ line 0: (vda || (ad[23:8] == pIOAddress[23:8]))",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0004: applied. CSE(8'h1B<->8'h09) -> CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...  ==>  CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0005: applied. CMC(false_only) -> Cond @ line 139: ((cs)? (rw)? rdy2 : 1'b1 : pRdyStyle)  ==>  (cond removed)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0006: applied. SMC -> Block @ line 154: begin cyccnt <= cyccnt + 1; cmd <= 8'h00; if(cs & ~rw) case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h02: FAC1[23:16] ...  ==>  Block @ line 154: begin cyccnt <= cyccnt + 1; cmd <= 8'h01; if(cs & ~rw) case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h02: FAC1[23:16] ...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 237: begin push_state(IDLE); next_state(FADD); busy <= 1'b1; addOrSub <= 1'b0; end  ==>  Block @ line 237: begin push_state(IDLE); next_state(FADD); busy <= 1'b0; addOrSub <= 1'b1; end",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0008: applied. LOR(And->Or) -> And @ line 137: (cs & rdy1)  ==>  Or @ line 0: (cs | rdy1)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0009: applied. AVC(1'b1->1'b0) -> Assign @ line 139: assign rdy = (cs)? (rw)? rdy2 : 1'b1 : pRdyStyle;  ==>  Assign @ line 139: assign rdy = (cs)? (rw)? rdy2 : 1'b0 : pRdyStyle;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0010: applied. DIE -> Partselect @ line 160: ad[7:0]  ==>  Partselect @ line 160: ad[23:16]",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0011: applied. AVC(23->21) -> Assign @ line 128: assign cs = vda && (ad[23:8] == pIOAddress[23:8]);  ==>  Assign @ line 128: assign cs = vda && (ad[21:8] == pIOAddress[23:8]);",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0012: applied. SMC -> Block @ line 227: begin if(cyccnt > 0) $display(\"Cycle Count=%d\", cyccnt); cyccnt <= 12'h0; busy <= 1'b0; isFixedPoint <= FALSE; case(cmd) FADD: begin __pv...  ==>  Block @ line 227: begin if(cyccnt > 0) $display(\"Cycle Count=%d\", cyccnt); cyccnt <= 12'h2; busy <= 1'b1; isFixedPoint <= FALSE; case(cmd) FADD: begin __pv...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0013: applied. LOR(And->Or) -> And @ line 136: (cs & ~rdy1)  ==>  Or @ line 0: (cs | ~rdy1)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 249: addOrSub <= 1'b0;  ==>  NonblockingSubstitution @ line 249: addOrSub <= 1'b1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0015: applied. CMC(true_only) -> Cond @ line 106: ((addOrSub)? FAC2_man - FAC1_man : FAC2_man + FAC1_man)  ==>  (cond removed)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0016: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 133: rdy2 <= 1'b1;  ==>  NonblockingSubstitution @ line 133: rdy2 <= 1'b0;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0017: applied. DMI -> Partselect @ line 128: ad[23:8]  ==>  Partselect @ line 128: ad[22:7]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 132: rdy1 <= 1'b1;  ==>  NonblockingSubstitution @ line 132: rdy1 <= 1'b0;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "FT816Float.v"
+      ],
+      "log": "M_0019: applied. LOR(And->Or) -> And @ line 140: (cs & rw)  ==>  Or @ line 0: (cs | rw)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

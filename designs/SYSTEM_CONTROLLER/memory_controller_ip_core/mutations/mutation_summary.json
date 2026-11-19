@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_CONTROLLER/memory_controller_ip_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0000: applied. AVC(11->9) -> NonblockingSubstitution @ line 475: bank_adr <= #1 wb_addr_i[12:11];  ==>  NonblockingSubstitution @ line 475: bank_adr <= #1 wb_addr_i[12:9];",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0001: applied. CSW(clk<->inc_in) -> Instance @ line 386: u0 ( .clk(clk), .inc_in(acs_addr), .inc_out(acs_addr_pl1) )  ==>  Instance @ line 386: u0 ( .clk(acs_addr), .inc_in(clk), .inc_out(acs_addr_pl1) )",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0002: applied. LOR(Or->And) -> Or @ line 394: (cs_le | wb_we_i)  ==>  And @ line 0: (cs_le & wb_we_i)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0003: applied. CMC(true_only) -> Cond @ line 408: ((lmr_sel & !cas_)? tms[12:0] : (row_sel)? row_adr : { 2'h0, cmd_a10, col_adr })  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0004: applied. AVC(11->12) -> NonblockingSubstitution @ line 418: col_adr <= #1 wb_addr_i[11:2];  ==>  NonblockingSubstitution @ line 418: col_adr <= #1 wb_addr_i[12:2];",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_dp.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 459: (!wb_we_i & mem_ack & pen & ((^rd_fifo_out[31:24] ^ rd_fifo_out[35]) & byte_en[3] | (^rd_fifo_out[23:16] ^ rd_fifo_out[34]) & byte_en[2] ...  ==>  Or @ line 0: (!wb_we_i & mem_ack & pen | ((^rd_fifo_out[31:24] ^ rd_fifo_out[35]) & byte_en[3] | (^rd_fifo_out[23:16] ^ rd_fifo_out[34]) & byte_en[2] ...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_dp.v"
+      ],
+      "log": "M_0006: applied. AVC(11->12) -> Assign @ line 387: assign pen = csc[11];  ==>  Assign @ line 387: assign pen = csc[12];",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_dp.v"
+      ],
+      "log": "M_0007: applied. CSW(din<->dout) -> Instance @ line 403: u0 ( .clk(clk), .rst(rst), .clr(rd_fifo_clr), .din(mc_data_del), .we(dv), .dout(rd_fifo_out), .re(re) )  ==>  Instance @ line 403: u0 ( .clk(clk), .rst(rst), .clr(rd_fifo_clr), .din(rd_fifo_out), .we(dv), .dout(mc_data_del), .re(re) )",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_dp.v"
+      ],
+      "log": "M_0008: applied. AVC(08->10) -> NonblockingSubstitution @ line 451: mc_dp_o <= #1 { ^wb_data_i[31:24], ^wb_data_i[23:16], ^wb_data_i[15:08], ^wb_data_i[07:00] };  ==>  NonblockingSubstitution @ line 451: mc_dp_o <= #1 { ^wb_data_i[31:24], ^wb_data_i[23:16], ^wb_data_i[15:10], ^wb_data_i[07:00] };",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_mem_if.v"
+      ],
+      "log": "M_0009: applied. LOR(And->Or) -> And @ line 528: (cs_en & ((rfr_ack | susp_sel)? cs_need_rfr[2] : (lmr_sel)? spec_req_cs[2] : cs[2]))  ==>  Or @ line 0: (cs_en | ((rfr_ack | susp_sel)? cs_need_rfr[2] : (lmr_sel)? spec_req_cs[2] : cs[2]))",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_mem_if.v"
+      ],
+      "log": "M_0010: applied. LOR(And->Or) -> And @ line 546: (cs_en & ((rfr_ack | susp_sel)? cs_need_rfr[4] : (lmr_sel)? spec_req_cs[4] : cs[4]))  ==>  Or @ line 0: (cs_en | ((rfr_ack | susp_sel)? cs_need_rfr[4] : (lmr_sel)? spec_req_cs[4] : cs[4]))",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_mem_if.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 535: mc_cs_[3] <= #1 1'b1;  ==>  NonblockingSubstitution @ line 535: mc_cs_[3] <= #1 1'b0;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_mem_if.v"
+      ],
+      "log": "M_0012: applied. CCW(0<->1) -> Concat @ line 449: { mc_dp_i, mc_data_i }  ==>  Concat @ line 449: { mc_data_i, mc_dp_i }",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_refresh.v"
+      ],
+      "log": "M_0013: applied. CSE(3'h6<->3'h2) -> CaseStatement @ line 415: case(ref_int) 3'h0: rfr_clr <= #1 rfr_cnt[0] & rfr_early; 3'h1: rfr_clr <= #1 &rfr_cnt[1:0] & rfr_early; 3'h2: rfr_clr <= #1 &rfr_cnt[2:0...  ==>  CaseStatement @ line 415: case(ref_int) 3'h0: rfr_clr <= #1 rfr_cnt[0] & rfr_early; 3'h1: rfr_clr <= #1 &rfr_cnt[1:0] & rfr_early; 3'h6: rfr_clr <= #1 &rfr_cnt[2:0...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_rf.v"
+      ],
+      "log": "M_0014: applied. DMO -> Pointer @ line 670: cs_need_rfr[1]  ==>  Pointer @ line 670: cs_need_rfr[3] (new index=3)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_timing.v"
+      ],
+      "log": "M_0015: applied. SMC -> Block @ line 1612: begin row_sel = 1'b1; if(wb_write_go | wb_we_i & wb_stb_i) wr_set = 1'b1; if(kro) bank_set = 1'b1; if(tmr_done) begin if(wb_write_go) beg...  ==>  Block @ line 1612: begin row_sel = 1'b0; if(wb_write_go | wb_we_i & wb_stb_i) wr_set = 1'b1; if(kro) bank_set = 1'b1; if(tmr_done) begin if(wb_write_go) beg...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "mc_top.v"
+      ],
+      "log": "M_0016: applied. DMI -> Partselect @ line 508: wb_addr_i[31:29]  ==>  Partselect @ line 508: wb_addr_i[30:28]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0017: applied. AVC(2'h0->2'h2) -> Assign @ line 408: assign sdram_adr[12:0] = (lmr_sel & !cas_)? tms[12:0] : (row_sel)? row_adr : { 2'h0, cmd_a10, col_adr };  ==>  Assign @ line 408: assign sdram_adr[12:0] = (lmr_sel & !cas_)? tms[12:0] : (row_sel)? row_adr : { 2'h2, cmd_a10, col_adr };",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_adr_sel.v"
+      ],
+      "log": "M_0018: applied. CMC(true_only) -> Cond @ line 409: ((row_sel)? row_adr : { 2'h0, cmd_a10, col_adr })  ==>  (cond removed)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mc_mem_if.v"
+      ],
+      "log": "M_0019: applied. CMC(false_only) -> Cond @ line 565: ((rfr_ack | susp_sel)? cs_need_rfr[6] : (lmr_sel)? spec_req_cs[6] : cs[6])  ==>  (cond removed)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

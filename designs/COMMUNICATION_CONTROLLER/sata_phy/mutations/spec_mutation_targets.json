@@ -1,0 +1,1344 @@
+{
+  "config": {
+    "include_top_with_submodules": true,
+    "no_submodule_fallback": "top_only",
+    "target_source": "rtl_hierarchy"
+  },
+  "diagnostics": {
+    "ambiguous_spec_signals": [
+      "clk",
+      "clk_phy",
+      "gt_rst_done_i",
+      "gt_rx_data_i",
+      "gt_rx_elec_idle_i",
+      "gt_rx_status_i",
+      "gt_tx_charisk_o",
+      "gt_tx_com_strt_o",
+      "gt_tx_com_type_o",
+      "gt_tx_data_o",
+      "gt_tx_elec_idle_o",
+      "link_up_o",
+      "m_aclk",
+      "m_axis_tdata",
+      "m_axis_tready",
+      "m_axis_tuser",
+      "m_axis_tvalid",
+      "rst_n",
+      "s_aclk",
+      "s_aresetn",
+      "s_axis_tdata",
+      "s_axis_tready",
+      "s_axis_tuser",
+      "s_axis_tvalid"
+    ],
+    "direct_instance_types_under_top": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D",
+      "mux",
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series"
+    ],
+    "module_signal_counts": {
+      "axis_fifo_36W_16D": 11,
+      "axis_fifo_40W_16D": 11,
+      "mux": 4,
+      "sata_phy_dev_ctrl_x6series": 11,
+      "sata_phy_host_ctrl_x6series": 12,
+      "sata_phy_top_x6series": 24
+    },
+    "unmatched_module_mentions": []
+  },
+  "explicit_submodules": [
+    "axis_fifo_36W_16D",
+    "axis_fifo_40W_16D",
+    "mux",
+    "sata_phy_dev_ctrl_x6series",
+    "sata_phy_host_ctrl_x6series"
+  ],
+  "fallback_applied": "rtl_hierarchy",
+  "has_explicit_submodules": true,
+  "module_targets": [
+    {
+      "module": "sata_phy_top_x6series",
+      "signal_ids": [
+        "sata_phy_top_x6series.clk",
+        "sata_phy_top_x6series.clk_phy",
+        "sata_phy_top_x6series.rst_n",
+        "sata_phy_top_x6series.lnk_tx_tdata_i",
+        "sata_phy_top_x6series.lnk_tx_tvalid_i",
+        "sata_phy_top_x6series.lnk_tx_tready_o",
+        "sata_phy_top_x6series.lnk_tx_tuser_i",
+        "sata_phy_top_x6series.lnk_rx_tdata_o",
+        "sata_phy_top_x6series.lnk_rx_tvalid_o",
+        "sata_phy_top_x6series.lnk_rx_tready_i",
+        "sata_phy_top_x6series.lnk_rx_tuser_o",
+        "sata_phy_top_x6series.phy_status_o",
+        "sata_phy_top_x6series.gt_rst_done_i",
+        "sata_phy_top_x6series.gt_rx_data_i",
+        "sata_phy_top_x6series.gt_rx_charisk_i",
+        "sata_phy_top_x6series.gt_rx_disp_err_i",
+        "sata_phy_top_x6series.gt_rx_8b10b_err_i",
+        "sata_phy_top_x6series.gt_rx_elec_idle_i",
+        "sata_phy_top_x6series.gt_rx_status_i",
+        "sata_phy_top_x6series.gt_tx_data_o",
+        "sata_phy_top_x6series.gt_tx_charisk_o",
+        "sata_phy_top_x6series.gt_tx_elec_idle_o",
+        "sata_phy_top_x6series.gt_tx_com_strt_o",
+        "sata_phy_top_x6series.gt_tx_com_type_o"
+      ],
+      "signals": [
+        "clk",
+        "clk_phy",
+        "rst_n",
+        "lnk_tx_tdata_i",
+        "lnk_tx_tvalid_i",
+        "lnk_tx_tready_o",
+        "lnk_tx_tuser_i",
+        "lnk_rx_tdata_o",
+        "lnk_rx_tvalid_o",
+        "lnk_rx_tready_i",
+        "lnk_rx_tuser_o",
+        "phy_status_o",
+        "gt_rst_done_i",
+        "gt_rx_data_i",
+        "gt_rx_charisk_i",
+        "gt_rx_disp_err_i",
+        "gt_rx_8b10b_err_i",
+        "gt_rx_elec_idle_i",
+        "gt_rx_status_i",
+        "gt_tx_data_o",
+        "gt_tx_charisk_o",
+        "gt_tx_elec_idle_o",
+        "gt_tx_com_strt_o",
+        "gt_tx_com_type_o"
+      ],
+      "source": "rtl_top_ports"
+    },
+    {
+      "module": "axis_fifo_36W_16D",
+      "signal_ids": [
+        "axis_fifo_36W_16D.m_aclk",
+        "axis_fifo_36W_16D.s_aclk",
+        "axis_fifo_36W_16D.s_aresetn",
+        "axis_fifo_36W_16D.s_axis_tvalid",
+        "axis_fifo_36W_16D.s_axis_tready",
+        "axis_fifo_36W_16D.s_axis_tdata",
+        "axis_fifo_36W_16D.s_axis_tuser",
+        "axis_fifo_36W_16D.m_axis_tvalid",
+        "axis_fifo_36W_16D.m_axis_tready",
+        "axis_fifo_36W_16D.m_axis_tdata",
+        "axis_fifo_36W_16D.m_axis_tuser"
+      ],
+      "signals": [
+        "m_aclk",
+        "s_aclk",
+        "s_aresetn",
+        "s_axis_tvalid",
+        "s_axis_tready",
+        "s_axis_tdata",
+        "s_axis_tuser",
+        "m_axis_tvalid",
+        "m_axis_tready",
+        "m_axis_tdata",
+        "m_axis_tuser"
+      ],
+      "source": "rtl_direct_submodule_ports"
+    },
+    {
+      "module": "axis_fifo_40W_16D",
+      "signal_ids": [
+        "axis_fifo_40W_16D.m_aclk",
+        "axis_fifo_40W_16D.s_aclk",
+        "axis_fifo_40W_16D.s_aresetn",
+        "axis_fifo_40W_16D.s_axis_tvalid",
+        "axis_fifo_40W_16D.s_axis_tready",
+        "axis_fifo_40W_16D.s_axis_tdata",
+        "axis_fifo_40W_16D.s_axis_tuser",
+        "axis_fifo_40W_16D.m_axis_tvalid",
+        "axis_fifo_40W_16D.m_axis_tready",
+        "axis_fifo_40W_16D.m_axis_tdata",
+        "axis_fifo_40W_16D.m_axis_tuser"
+      ],
+      "signals": [
+        "m_aclk",
+        "s_aclk",
+        "s_aresetn",
+        "s_axis_tvalid",
+        "s_axis_tready",
+        "s_axis_tdata",
+        "s_axis_tuser",
+        "m_axis_tvalid",
+        "m_axis_tready",
+        "m_axis_tdata",
+        "m_axis_tuser"
+      ],
+      "source": "rtl_direct_submodule_ports"
+    },
+    {
+      "module": "mux",
+      "signal_ids": [
+        "mux.clk",
+        "mux.data_i",
+        "mux.sel_i",
+        "mux.data_o"
+      ],
+      "signals": [
+        "clk",
+        "data_i",
+        "sel_i",
+        "data_o"
+      ],
+      "source": "rtl_direct_submodule_ports"
+    },
+    {
+      "module": "sata_phy_dev_ctrl_x6series",
+      "signal_ids": [
+        "sata_phy_dev_ctrl_x6series.clk_phy",
+        "sata_phy_dev_ctrl_x6series.rst_n",
+        "sata_phy_dev_ctrl_x6series.link_up_o",
+        "sata_phy_dev_ctrl_x6series.gt_rst_done_i",
+        "sata_phy_dev_ctrl_x6series.gt_tx_data_o",
+        "sata_phy_dev_ctrl_x6series.gt_tx_charisk_o",
+        "sata_phy_dev_ctrl_x6series.gt_tx_com_strt_o",
+        "sata_phy_dev_ctrl_x6series.gt_tx_com_type_o",
+        "sata_phy_dev_ctrl_x6series.gt_tx_elec_idle_o",
+        "sata_phy_dev_ctrl_x6series.gt_rx_data_i",
+        "sata_phy_dev_ctrl_x6series.gt_rx_status_i"
+      ],
+      "signals": [
+        "clk_phy",
+        "rst_n",
+        "link_up_o",
+        "gt_rst_done_i",
+        "gt_tx_data_o",
+        "gt_tx_charisk_o",
+        "gt_tx_com_strt_o",
+        "gt_tx_com_type_o",
+        "gt_tx_elec_idle_o",
+        "gt_rx_data_i",
+        "gt_rx_status_i"
+      ],
+      "source": "rtl_direct_submodule_ports"
+    },
+    {
+      "module": "sata_phy_host_ctrl_x6series",
+      "signal_ids": [
+        "sata_phy_host_ctrl_x6series.clk_phy",
+        "sata_phy_host_ctrl_x6series.rst_n",
+        "sata_phy_host_ctrl_x6series.link_up_o",
+        "sata_phy_host_ctrl_x6series.gt_rst_done_i",
+        "sata_phy_host_ctrl_x6series.gt_tx_data_o",
+        "sata_phy_host_ctrl_x6series.gt_tx_charisk_o",
+        "sata_phy_host_ctrl_x6series.gt_tx_com_strt_o",
+        "sata_phy_host_ctrl_x6series.gt_tx_com_type_o",
+        "sata_phy_host_ctrl_x6series.gt_tx_elec_idle_o",
+        "sata_phy_host_ctrl_x6series.gt_rx_data_i",
+        "sata_phy_host_ctrl_x6series.gt_rx_status_i",
+        "sata_phy_host_ctrl_x6series.gt_rx_elec_idle_i"
+      ],
+      "signals": [
+        "clk_phy",
+        "rst_n",
+        "link_up_o",
+        "gt_rst_done_i",
+        "gt_tx_data_o",
+        "gt_tx_charisk_o",
+        "gt_tx_com_strt_o",
+        "gt_tx_com_type_o",
+        "gt_tx_elec_idle_o",
+        "gt_rx_data_i",
+        "gt_rx_status_i",
+        "gt_rx_elec_idle_i"
+      ],
+      "source": "rtl_direct_submodule_ports"
+    }
+  ],
+  "selected_submodules": [
+    "axis_fifo_36W_16D",
+    "axis_fifo_40W_16D",
+    "mux",
+    "sata_phy_dev_ctrl_x6series",
+    "sata_phy_host_ctrl_x6series"
+  ],
+  "spec_signal_to_modules": {
+    "clk": [
+      "mux",
+      "sata_phy_top_x6series"
+    ],
+    "clk_phy": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "data_i": [
+      "mux"
+    ],
+    "data_o": [
+      "mux"
+    ],
+    "gt_rst_done_i": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_rx_8b10b_err_i": [
+      "sata_phy_top_x6series"
+    ],
+    "gt_rx_charisk_i": [
+      "sata_phy_top_x6series"
+    ],
+    "gt_rx_data_i": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_rx_disp_err_i": [
+      "sata_phy_top_x6series"
+    ],
+    "gt_rx_elec_idle_i": [
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_rx_status_i": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_tx_charisk_o": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_tx_com_strt_o": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_tx_com_type_o": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_tx_data_o": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "gt_tx_elec_idle_o": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "link_up_o": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series"
+    ],
+    "lnk_rx_tdata_o": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_rx_tready_i": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_rx_tuser_o": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_rx_tvalid_o": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_tx_tdata_i": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_tx_tready_o": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_tx_tuser_i": [
+      "sata_phy_top_x6series"
+    ],
+    "lnk_tx_tvalid_i": [
+      "sata_phy_top_x6series"
+    ],
+    "m_aclk": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "m_axis_tdata": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "m_axis_tready": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "m_axis_tuser": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "m_axis_tvalid": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "phy_status_o": [
+      "sata_phy_top_x6series"
+    ],
+    "rst_n": [
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series"
+    ],
+    "s_aclk": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "s_aresetn": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "s_axis_tdata": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "s_axis_tready": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "s_axis_tuser": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "s_axis_tvalid": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D"
+    ],
+    "sel_i": [
+      "mux"
+    ]
+  },
+  "structural_summary": {
+    "module_count": 10,
+    "modules": [
+      "axis_fifo_36W_16D",
+      "axis_fifo_40W_16D",
+      "det_pos_edge",
+      "glbl",
+      "mux",
+      "sata_phy_dev_ctrl_x6series",
+      "sata_phy_host_ctrl_x6series",
+      "sata_phy_top_x6series",
+      "sata_s6_sata1_gtp",
+      "sata_s6_sata1_gtp_tile"
+    ],
+    "signal_count": 335,
+    "signal_to_modules": {
+      "CLK00_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "CLK01_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GATERXELECIDLE0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GATERXELECIDLE1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GSR": [
+        "glbl"
+      ],
+      "GSR_int": [
+        "glbl"
+      ],
+      "GTPCLKOUT0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GTPCLKOUT1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GTPRESET0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GTPRESET1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "GTS": [
+        "glbl"
+      ],
+      "GTS_int": [
+        "glbl"
+      ],
+      "GWE": [
+        "glbl"
+      ],
+      "IGNORESIGDET0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "IGNORESIGDET1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "JTAG_CAPTURE_GLBL": [
+        "glbl"
+      ],
+      "JTAG_RESET_GLBL": [
+        "glbl"
+      ],
+      "JTAG_RUNTEST_GLBL": [
+        "glbl"
+      ],
+      "JTAG_SEL1_GLBL": [
+        "glbl"
+      ],
+      "JTAG_SEL2_GLBL": [
+        "glbl"
+      ],
+      "JTAG_SEL3_GLBL": [
+        "glbl"
+      ],
+      "JTAG_SEL4_GLBL": [
+        "glbl"
+      ],
+      "JTAG_SHIFT_GLBL": [
+        "glbl"
+      ],
+      "JTAG_TCK_GLBL": [
+        "glbl"
+      ],
+      "JTAG_TDI_GLBL": [
+        "glbl"
+      ],
+      "JTAG_TDO_GLBL": [
+        "glbl"
+      ],
+      "JTAG_TMS_GLBL": [
+        "glbl"
+      ],
+      "JTAG_TRST_GLBL": [
+        "glbl"
+      ],
+      "JTAG_UPDATE_GLBL": [
+        "glbl"
+      ],
+      "JTAG_USER_TDO1_GLBL": [
+        "glbl"
+      ],
+      "JTAG_USER_TDO2_GLBL": [
+        "glbl"
+      ],
+      "JTAG_USER_TDO3_GLBL": [
+        "glbl"
+      ],
+      "JTAG_USER_TDO4_GLBL": [
+        "glbl"
+      ],
+      "LOOPBACK0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "LOOPBACK1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "PLLLKDET0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "PLLLKDET1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "PRLD": [
+        "glbl"
+      ],
+      "PRLD_int": [
+        "glbl"
+      ],
+      "RESETDONE0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RESETDONE1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXBYTEISALIGNED0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXBYTEISALIGNED1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXCHARISCOMMA0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXCHARISCOMMA1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXCHARISK0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXCHARISK1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXCLKCORCNT0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXCLKCORCNT1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXDATA0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXDATA1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXDISPERR0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXDISPERR1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXELECIDLE0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXELECIDLE1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXENMCOMMAALIGN0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXENMCOMMAALIGN1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXENPCOMMAALIGN0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXENPCOMMAALIGN1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXEQMIX0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXEQMIX1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXN0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXN1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXNOTINTABLE0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXNOTINTABLE1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXP0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXP1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXRECCLK0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXRECCLK1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXRESET0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXRESET1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXSTATUS0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXSTATUS1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXUSRCLK0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXUSRCLK1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXUSRCLK20_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "RXUSRCLK21_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TILE0_CLK00_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_CLK01_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_GATERXELECIDLE0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_GATERXELECIDLE1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_GTPCLKOUT0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_GTPCLKOUT1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_GTPRESET0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_GTPRESET1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_IGNORESIGDET0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_IGNORESIGDET1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_LOOPBACK0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_LOOPBACK1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_PLLLKDET0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RESETDONE0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RESETDONE1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXBYTEISALIGNED0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXBYTEISALIGNED1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXCHARISCOMMA0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXCHARISCOMMA1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXCHARISK0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXCHARISK1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXCLKCORCNT0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXCLKCORCNT1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXDATA0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXDATA1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXDISPERR0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXDISPERR1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXELECIDLE0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXELECIDLE1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXENMCOMMAALIGN0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXENMCOMMAALIGN1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXENPCOMMAALIGN0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXENPCOMMAALIGN1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXEQMIX0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXEQMIX1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXN0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXN1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXNOTINTABLE0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXNOTINTABLE1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXP0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXP1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXRECCLK0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXRECCLK1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXRESET0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXRESET1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXSTATUS0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXSTATUS1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXUSRCLK0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXUSRCLK1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXUSRCLK20_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_RXUSRCLK21_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXCHARISK0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXCHARISK1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXCOMSTART0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXCOMSTART1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXCOMTYPE0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXCOMTYPE1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXDATA0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXDATA1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXDIFFCTRL0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXDIFFCTRL1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXELECIDLE0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXELECIDLE1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXN0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXN1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXOUTCLK0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXOUTCLK1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXP0_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXP1_OUT": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXPREEMPHASIS0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXPREEMPHASIS1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXRESET0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXRESET1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXUSRCLK0_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXUSRCLK1_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXUSRCLK20_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TILE0_TXUSRCLK21_IN": [
+        "sata_s6_sata1_gtp"
+      ],
+      "TXCHARISK0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXCHARISK1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXCOMSTART0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXCOMSTART1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXCOMTYPE0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXCOMTYPE1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXDATA0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXDATA1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXDIFFCTRL0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXDIFFCTRL1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXELECIDLE0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXELECIDLE1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXN0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXN1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXOUTCLK0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXOUTCLK1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXP0_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXP1_OUT": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXPREEMPHASIS0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXPREEMPHASIS1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXRESET0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXRESET1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXUSRCLK0_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXUSRCLK1_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXUSRCLK20_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "TXUSRCLK21_IN": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "align_detect": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "align_timeout": [
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "align_timeout_cnt": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "clk": [
+        "mux",
+        "sata_phy_top_x6series"
+      ],
+      "clk_phy": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "cominit_detect": [
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "comreset_detect": [
+        "sata_phy_dev_ctrl_x6series"
+      ],
+      "comwake_detect": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "count00": [
+        "sata_s6_sata1_gtp"
+      ],
+      "d_p1": [
+        "det_pos_edge"
+      ],
+      "data_c": [
+        "mux"
+      ],
+      "data_i": [
+        "mux"
+      ],
+      "data_o": [
+        "mux"
+      ],
+      "data_r": [
+        "mux"
+      ],
+      "gt_rst_done_i": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_8b10b_err_i": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_charisk": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_charisk_i": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_charisk_r": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_data": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_data_i": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_data_r": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_data_sr": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_disp_err_i": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_elec_idle_i": [
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_err": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_err_r": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_err_sr": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_k_sr": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_status_i": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_rx_valid": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_charisk": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_charisk_o": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_com_strt_o": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_com_type_o": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_data": [
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_data_o": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "gt_tx_elec_idle_o": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "link_up": [
+        "sata_phy_top_x6series"
+      ],
+      "link_up_o": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "lnk_rx_tdata": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tdata_o": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tready": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tready_i": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tuser": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tuser_o": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tvalid": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_rx_tvalid_o": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tdata": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tdata_i": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tready": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tready_o": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tuser": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tuser_i": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tvalid": [
+        "sata_phy_top_x6series"
+      ],
+      "lnk_tx_tvalid_i": [
+        "sata_phy_top_x6series"
+      ],
+      "m_aclk": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "m_axis_tdata": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "m_axis_tready": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "m_axis_tuser": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "m_axis_tvalid": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "non_align_cnt": [
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "phy_ctrl_strt": [
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "phy_status_o": [
+        "sata_phy_top_x6series"
+      ],
+      "retry_cnt": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "rst_n": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series",
+        "sata_phy_top_x6series"
+      ],
+      "rx_data_mux_sel": [
+        "sata_phy_top_x6series"
+      ],
+      "rxchariscomma0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxchariscomma1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxcharisk0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxcharisk1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxdata0_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxdata1_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxdisperr0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxdisperr1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxnotintable0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxnotintable1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxrundisp0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "rxrundisp1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "s_aclk": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "s_aresetn": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "s_axis_tdata": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "s_axis_tready": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "s_axis_tuser": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "s_axis_tvalid": [
+        "axis_fifo_36W_16D",
+        "axis_fifo_40W_16D"
+      ],
+      "sel_i": [
+        "mux"
+      ],
+      "start00": [
+        "sata_s6_sata1_gtp"
+      ],
+      "state_ascii": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "state_cs": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "state_ns": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "tied_to_ground_i": [
+        "sata_s6_sata1_gtp",
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "tied_to_ground_vec_i": [
+        "sata_s6_sata1_gtp",
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "tied_to_vcc_i": [
+        "sata_s6_sata1_gtp",
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "tied_to_vcc_vec_i": [
+        "sata_s6_sata1_gtp",
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "tile0_plllkdet0_i": [
+        "sata_s6_sata1_gtp"
+      ],
+      "tile0_plllkdet0_i2": [
+        "sata_s6_sata1_gtp"
+      ],
+      "tile0_plllkdet1_i": [
+        "sata_s6_sata1_gtp"
+      ],
+      "tx_com_done": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "tx_com_strt": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "tx_com_strt_pedge": [
+        "sata_phy_dev_ctrl_x6series",
+        "sata_phy_host_ctrl_x6series"
+      ],
+      "tx_data_mux_sel": [
+        "sata_phy_top_x6series"
+      ],
+      "txdata0_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "txdata1_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "txkerr0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "txkerr1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "txrundisp0_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ],
+      "txrundisp1_float_i": [
+        "sata_s6_sata1_gtp_tile"
+      ]
+    }
+  },
+  "top_module": "sata_phy_top_x6series"
+}

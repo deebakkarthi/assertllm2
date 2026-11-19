@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/10_100_1000 mbps tri-mode ethernet mac",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/Clk_ctrl.v"
+      ],
+      "log": "M_0000: applied. CSW(IN_0<->SW) -> Instance @ line 118: U_2_CLK_SWITCH ( .IN_0(Tx_clk_div2), .IN_1(Clk_125M), .SW(Speed[2]), .OUT(MAC_tx_clk_div) )  ==>  Instance @ line 118: U_2_CLK_SWITCH ( .IN_0(Speed[2]), .IN_1(Clk_125M), .SW(Tx_clk_div2), .OUT(MAC_tx_clk_div) )",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Phy_int.v"
+      ],
+      "log": "M_0001: applied. AVC(0->1) -> NonblockingSubstitution @ line 180: Col_dl1 <= 0;  ==>  NonblockingSubstitution @ line 180: Col_dl1 <= 1;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Phy_int.v"
+      ],
+      "log": "M_0002: applied. SMC -> Block @ line 173: begin Rx_er_dl1 <= 0; Rx_dv_dl1 <= 0; Rx_dv_dl2 <= 0; Rxd_dl1 <= 0; Rxd_dl2 <= 0; Crs_dl1 <= 0; Col_dl1 <= 0; end  ==>  Block @ line 173: begin Rx_er_dl1 <= 1; Rx_dv_dl1 <= 1; Rx_dv_dl2 <= 1; Rxd_dl1 <= 1; Rxd_dl2 <= 1; Crs_dl1 <= 1; Col_dl1 <= 1; end",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Phy_int.v"
+      ],
+      "log": "M_0003: applied. LOR(Land->Lor) -> Land @ line 219: (Speed[2] && Rx_dv_dl2)  ==>  Lor @ line 0: (Speed[2] || Rx_dv_dl2)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg_int.v"
+      ],
+      "log": "M_0004: applied. DIE -> Partselect @ line 105: CA[7:1]  ==>  Partselect @ line 105: CA[6:0]",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg_int.v"
+      ],
+      "log": "M_0005: applied. AVC(16->14) -> NonblockingSubstitution @ line 138: CD_out <= CPU_rd_dout[31:16];  ==>  NonblockingSubstitution @ line 138: CD_out <= CPU_rd_dout[31:14];",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg_int.v"
+      ],
+      "log": "M_0006: applied. CSE(7'd28<->7'd20) -> CaseStatement @ line 105: case(CA[7:1]) 7'd00: CD_out <= Tx_Hwmark; 7'd01: CD_out <= Tx_Lwmark; 7'd02: CD_out <= pause_frame_send_en; 7'd03: CD_out <= pause_quanta...  ==>  CaseStatement @ line 105: case(CA[7:1]) 7'd00: CD_out <= Tx_Hwmark; 7'd01: CD_out <= Tx_Lwmark; 7'd02: CD_out <= pause_frame_send_en; 7'd03: CD_out <= pause_quanta...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Clk_ctrl.v"
+      ],
+      "log": "M_0007: applied. CSW(IN_0<->SW) -> Instance @ line 103: U_0_CLK_SWITCH ( .IN_0(Rx_clk_div2), .IN_1(Rx_clk), .SW(Speed[2]), .OUT(MAC_rx_clk_div) )  ==>  Instance @ line 103: U_0_CLK_SWITCH ( .IN_0(Speed[2]), .IN_1(Rx_clk), .SW(Rx_clk_div2), .OUT(MAC_rx_clk_div) )",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Phy_int.v"
+      ],
+      "log": "M_0008: applied. AVC(0->2) -> NonblockingSubstitution @ line 128: MTxEn_dl1 <= 0;  ==>  NonblockingSubstitution @ line 128: MTxEn_dl1 <= 2;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg_int.v"
+      ],
+      "log": "M_0009: applied. AVC(0->1) -> NonblockingSubstitution @ line 103: CD_out <= 0;  ==>  NonblockingSubstitution @ line 103: CD_out <= 1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg_int.v"
+      ],
+      "log": "M_0010: applied. LOR(Land->Lor) -> Land @ line 104: (!CSB && WRB)  ==>  Lor @ line 0: (!CSB || WRB)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0011: applied. LOR(Or->And) -> Or @ line 385: (WCtrlData | WCtrlDataStart | RStat | RStatStart | SyncStatMdcEn | EndBusy)  ==>  And @ line 0: ((WCtrlData | WCtrlDataStart | RStat | RStatStart | SyncStatMdcEn) & EndBusy)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0012: applied. CSW(MdcEn<->Mdc) -> Instance @ line 464: clkgen ( .Clk(Clk), .Reset(Reset), .Divider(Divider[7:0]), .MdcEn(MdcEn), .MdcEn_n(MdcEn_n), .Mdc(Mdc) )  ==>  Instance @ line 464: clkgen ( .Clk(Clk), .Reset(Reset), .Divider(Divider[7:0]), .MdcEn(Mdc), .MdcEn_n(MdcEn_n), .Mdc(MdcEn) )",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0013: applied. SMC -> Block @ line 319: begin Nvalid <= #Tp 1'b0; end  ==>  Block @ line 319: begin Nvalid <= #Tp 1'b1; end",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 290: RStatStart <= #Tp 1'b0;  ==>  NonblockingSubstitution @ line 290: RStatStart <= #Tp 1'b1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0015: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 262: ScanStat_q2 <= #Tp 1'b0;  ==>  NonblockingSubstitution @ line 262: ScanStat_q2 <= #Tp 1'b1;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0016: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 296: WCtrlDataStart <= #Tp 1'b0;  ==>  NonblockingSubstitution @ line 296: WCtrlDataStart <= #Tp 1'b1;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/Clk_ctrl.v"
+      ],
+      "log": "M_0017: applied. CSW(IN_1<->SW) -> Instance @ line 110: U_1_CLK_SWITCH ( .IN_0(Tx_clk), .IN_1(Clk_125M), .SW(Speed[2]), .OUT(MAC_tx_clk) )  ==>  Instance @ line 110: U_1_CLK_SWITCH ( .IN_0(Tx_clk), .IN_1(Speed[2]), .SW(Clk_125M), .OUT(MAC_tx_clk) )",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/afifo.v"
+      ],
+      "log": "M_0018: applied. AVC(1->2) -> NonblockingSubstitution @ line 261: empty <= 1;  ==>  NonblockingSubstitution @ line 261: empty <= 2;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/afifo.v"
+      ],
+      "log": "M_0019: applied. LOR(Land->Lor) -> Land @ line 131: (wr_en && !full)  ==>  Lor @ line 0: (wr_en || !full)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

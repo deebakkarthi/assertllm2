@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0000: applied. CSW(data_i<->evict_addr_i) -> Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(req_data), .data_o(data_r), .fill_i(fill), .evict_i(evict), ....  ==>  Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(line_address), .data_o(data_r), .fill_i(fill), .evict_i(evict...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0001: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b0;  ==>  NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b1;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0002: applied. AVC(13->12) -> Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[13:0];  ==>  Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[12:0];",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0003: applied. LOR(Or->And) -> Or @ line 569: (flush_i | req_flush)  ==>  And @ line 0: (flush_i & req_flush)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0004: applied. SMC -> Block @ line 649: begin cache_wr <= 4'b0; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data_i;...  ==>  Block @ line 649: begin cache_wr <= 4'b0001; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0005: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 1831: dmem_we_o <= 1'b0;  ==>  NonblockingSubstitution @ line 1831: dmem_we_o <= 1'b1;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 880: (opcode_i[31:24] == 8'h21)  ==>  NotEq @ line 0: (opcode_i[31:24] != 8'h21)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0007: applied. DIE -> Partselect @ line 1650: opcode_pc_i[1:0]  ==>  Partselect @ line 1650: opcode_pc_i[31:30]",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_fetch.v"
+      ],
+      "log": "M_0008: applied. AVC(16->18) -> Assign @ line 384: assign ra_o = opcode_o[20:16];  ==>  Assign @ line 384: assign ra_o = opcode_o[20:18];",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_icache.v"
+      ],
+      "log": "M_0009: applied. AVC(1->3) -> Assign @ line 327: assign tag_address_w = (state_q != STATE_CHECK)? miss_pc_q[CACHE_LINE_ADDR_WIDTH+CACHE_LINE_SIZE_WIDTH-1:CACHE_LINE_SIZE_WIDTH] : pc_i[CA...  ==>  Assign @ line 327: assign tag_address_w = (state_q != STATE_CHECK)? miss_pc_q[CACHE_LINE_ADDR_WIDTH+CACHE_LINE_SIZE_WIDTH-3:CACHE_LINE_SIZE_WIDTH] : pc_i[CA...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_regfile_alt.v"
+      ],
+      "log": "M_0010: applied. CMC(true_only) -> Cond @ line 359: ((ra_i != addr_q)? ra_w : data_q)  ==>  (cond removed)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_regfile_sim.v"
+      ],
+      "log": "M_0011: applied. CSE(5'b00011<->5'b01011) -> CaseStatement @ line 467: case(rb_i) 5'b00000: reg_rb_o = 32'h00000000; 5'b00001: reg_rb_o = reg_r1_sp; 5'b00010: reg_rb_o = reg_r2_fp; 5'b00011: reg_rb_o = reg_r3...  ==>  CaseStatement @ line 467: case(rb_i) 5'b00000: reg_rb_o = 32'h00000000; 5'b00001: reg_rb_o = reg_r1_sp; 5'b00010: reg_rb_o = reg_r2_fp; 5'b01011: reg_rb_o = reg_r3...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0012: applied. LOR(Eq->NotEq) -> Eq @ line 643: (rst_i == 1'b1)  ==>  NotEq @ line 0: (rst_i != 1'b1)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0013: applied. LOR(And->Or) -> And @ line 214: (stb_i & we_i & ~cacheable)  ==>  Or @ line 0: (stb_i & we_i | ~cacheable)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_dcache.v"
+      ],
+      "log": "M_0014: applied. LOR(And->Or) -> And @ line 208: (stb_i & ~we_i)  ==>  Or @ line 0: (stb_i | ~we_i)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0015: applied. SMC -> Block @ line 1627: begin if(break_i) break_q <= 1'b1; pc_fetch_q <= 1'b0; exc_last_q <= 1'b0; break_o <= 1'b0; sr_q <= next_sr_r; epc_q <= next_epc_r; esr_q...  ==>  Block @ line 1627: begin if(break_i) break_q <= 1'b1; pc_fetch_q <= 1'b1; exc_last_q <= 1'b1; break_o <= 1'b1; sr_q <= next_sr_r; epc_q <= next_epc_r; esr_q...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0016: applied. SMC -> Block @ line 1924: begin dmem_addr_o <= mem_addr_r; dmem_data_out_o <= reg_rb_r; dmem_sel_o <= 4'b1111; dmem_we_o <= 1'b1; dmem_stb_o <= 1'b1; dmem_cyc_o <=...  ==>  Block @ line 1924: begin dmem_addr_o <= mem_addr_r; dmem_data_out_o <= reg_rb_r; dmem_sel_o <= 4'b0000; dmem_we_o <= 1'b0; dmem_stb_o <= 1'b0; dmem_cyc_o <=...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0017: applied. SMC -> Block @ line 1384: begin branch_r = 1'b0; branch_link_r = 1'b0; branch_except_r = 1'b0; branch_target_r = opcode_pc_i + { target_int26_r[29:0], 2'b00 }; cas...  ==>  Block @ line 1384: begin branch_r = 1'b1; branch_link_r = 1'b1; branch_except_r = 1'b1; branch_target_r = opcode_pc_i + { target_int26_r[29:0], 2'b00 }; cas...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0018: applied. SMC -> Block @ line 889: begin execute_inst_r = 1'b1; stall_inst_r = 1'b0; if(~opcode_valid_i | pc_fetch_q) execute_inst_r = 1'b0; else if(resolve_failed_w | load...  ==>  Block @ line 889: begin execute_inst_r = 1'b0; stall_inst_r = 1'b1; if(~opcode_valid_i | pc_fetch_q) execute_inst_r = 1'b0; else if(resolve_failed_w | load...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/altor32_exec.v"
+      ],
+      "log": "M_0019: applied. CSW(rd_ex_i<->rd_load_i) -> Instance @ line 722: u_dfu ( .ra_i(reg_ra_i), .rb_i(reg_rb_i), .ra_regval_i(reg_ra_value_i), .rb_regval_i(reg_rb_value_i), .rd_ex_i(ex_rd_q), .rd_wb_i(wb_rd_i), .rd_load_i(load_rd_q), .mult_ex_i(1'b0), .stall_o(resolve_failed_w)...  ==>  Instance @ line 722: u_dfu ( .ra_i(reg_ra_i), .rb_i(reg_rb_i), .ra_regval_i(reg_ra_value_i), .rb_regval_i(reg_rb_value_i), .rd_ex_i(load_rd_q), .rd_wb_i(wb_rd_i), .rd_load_i(ex_rd_q), .mult_ex_i(1'b0), .stall_o(resolve_failed_w)...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/micro_rom.v"
+      ],
+      "log": "M_0000: applied. CSE(9'h0d0<->9'h00b) -> CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...  ==>  CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0001: applied. AVC(1'b1->1'b0) -> Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b1 : 1'b0;  ==>  Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b0 : 1'b0;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0002: applied. CMC(true_only) -> Cond @ line 327: (((uc_flags1 == 3'b010) || inta_reg)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0003: applied. LOR(Land->Lor) -> Land @ line 469: (intr && inte_reg && !int_pending)  ==>  Lor @ line 0: (intr && inte_reg || !int_pending)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0004: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b1, data_in };  ==>  NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b0, data_in };",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0005: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 421: halt_reg <= 1'b1;  ==>  NonblockingSubstitution @ line 421: halt_reg <= 1'b0;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0006: applied. LOR(Land->Lor) -> Land @ line 553: (inta_reg && use_aux_cy && (rbank_wr_addr[3:1] == 3'b100))  ==>  Lor @ line 0: (inta_reg && use_aux_cy || (rbank_wr_addr[3:1] == 3'b100))",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0007: applied. AVC(2->1) -> NonblockingSubstitution @ line 795: condition <= flag_reg[2];  ==>  NonblockingSubstitution @ line 795: condition <= flag_reg[1];",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0008: applied. LOR(Land->Lor) -> Land @ line 319: ((uc_flags2 == 3'b100) && !do_reset)  ==>  Lor @ line 0: ((uc_flags2 == 3'b100) || !do_reset)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0009: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 448: inte_reg <= 1'b0;  ==>  NonblockingSubstitution @ line 448: inte_reg <= 1'b1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0010: applied. CCW(5<->8) -> Concat @ line 410: { do_cy_op_d, do_cpc_d, clr_t2, clr_t1, set_aux, use_aux, rbank_rd_addr, ucode[14:4], alu_op }  ==>  Concat @ line 410: { do_cy_op_d, do_cpc_d, clr_t2, clr_t1, set_aux, alu_op, rbank_rd_addr, ucode[14:4], use_aux }",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0011: applied. CMC(true_only) -> Cond @ line 537: ((mux_in)? rbank_data : data_in)  ==>  (cond removed)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0012: applied. CMC(true_only) -> Cond @ line 325: ((uc_halt_flag && !inta_reg)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0013: applied. LOR(And->Or) -> And @ line 342: (uc_tjsr & condition_reg)  ==>  Or @ line 0: (uc_tjsr | condition_reg)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0014: applied. CSE(2'b00<->2'b10) -> CaseStatement @ line 544: case(rb_addr_sel) 2'b00: rbank_rd_addr <= ra_field; 2'b01: rbank_rd_addr <= { 1'b0, s_field }; 2'b10: rbank_rd_addr <= { 1'b0, d_field };...  ==>  CaseStatement @ line 544: case(rb_addr_sel) 2'b10: rbank_rd_addr <= ra_field; 2'b01: rbank_rd_addr <= { 1'b0, s_field }; 2'b00: rbank_rd_addr <= { 1'b0, d_field };...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0015: applied. LOR(Land->Lor) -> Land @ line 320: ((uc_flags1 == 3'b001) && !do_reset)  ==>  Lor @ line 0: ((uc_flags1 == 3'b001) || !do_reset)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0016: applied. DIE -> Partselect @ line 553: rbank_wr_addr[3:1]  ==>  Partselect @ line 553: rbank_wr_addr[2:0]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0017: applied. AVC(4->3) -> NonblockingSubstitution @ line 410: ucode_field2 <= { do_cy_op_d, do_cpc_d, clr_t2, clr_t1, set_aux, use_aux, rbank_rd_addr, ucode[14:4], alu_op };  ==>  NonblockingSubstitution @ line 410: ucode_field2 <= { do_cy_op_d, do_cpc_d, clr_t2, clr_t1, set_aux, use_aux, rbank_rd_addr, ucode[14:3], alu_op };",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b1->1'b0) -> Assign @ line 325: assign uc_halt = (uc_halt_flag && !inta_reg)? 1'b1 : 1'b0;  ==>  Assign @ line 325: assign uc_halt = (uc_halt_flag && !inta_reg)? 1'b0 : 1'b0;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "light8080.v"
+      ],
+      "log": "M_0019: applied. LOR(Lor->Land) -> Lor @ line 321: ((uc_flags2 == 3'b001) || uc_tjsr && !condition_reg)  ==>  Land @ line 0: ((uc_flags2 == 3'b001) && (uc_tjsr && !condition_reg))",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

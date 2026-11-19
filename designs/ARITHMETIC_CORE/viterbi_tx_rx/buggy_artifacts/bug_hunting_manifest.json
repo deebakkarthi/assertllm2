@@ -1,0 +1,192 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "decoder.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wr<->addr) -> Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(wr_mem_A), .addr(addr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )  ==>  Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(addr_mem_A), .addr(wr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )",
+      "target_line": 329
+    },
+    {
+      "changed_rtl_files": [
+        "decoder.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CSW(wr<->addr) -> Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(wr_mem_D), .addr(addr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )  ==>  Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(addr_mem_D), .addr(wr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )",
+      "target_line": 356
+    },
+    {
+      "changed_rtl_files": [
+        "decoder.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 181: (enable == 1'b0)  ==>  NotEq @ line 0: (enable != 1'b0)",
+      "target_line": 181
+    },
+    {
+      "changed_rtl_files": [
+        "encoder.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 69: (d_in == 1'b0)  ==>  NotEq @ line 0: (d_in != 1'b0)",
+      "target_line": 69
+    },
+    {
+      "changed_rtl_files": [
+        "encoder.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 22: ((enable_i == 1'b1)? d_out_reg : 2'b00)  ==>  (cond removed)",
+      "target_line": 22
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "decoder.v",
+      "target_line": 181,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 181: (enable == 1'b0)  ==>  NotEq @ line 0: (enable != 1'b0)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 312,
+        "target_line": 181
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "decoder.v",
+      "target_line": 329,
+      "mutation_log": "applied. CSW(wr<->addr) -> Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(wr_mem_A), .addr(addr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )  ==>  Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(addr_mem_A), .addr(wr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "decoder.v",
+      "target_line": 356,
+      "mutation_log": "applied. CSW(wr<->addr) -> Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(wr_mem_D), .addr(addr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )  ==>  Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(addr_mem_D), .addr(wr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 462,
+        "line_b": 463,
+        "token_a": "wr",
+        "token_b": "addr"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "encoder.v",
+      "target_line": 22,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 22: ((enable_i == 1'b1)? d_out_reg : 2'b00)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 24,
+            "base_end": 134,
+            "matched_start": 24,
+            "matched_end": 134
+          },
+          {
+            "base_start": 21,
+            "base_end": 23,
+            "matched_start": 21,
+            "matched_end": 23
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "encoder.v",
+      "target_line": 69,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 69: (d_in == 1'b0)  ==>  NotEq @ line 0: (d_in != 1'b0)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 45,
+        "target_line": 69
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/ACS.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc000.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc001.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc010.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc011.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc100.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc101.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc110.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/bmc111.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/decoder.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/encoder.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/mem_1x1024.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/mem_8x1024.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/tbu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/merged_buggy_rtl/viterbi_tx_rx.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(wr<->addr) -> Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(wr_mem_A), .addr(addr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )  ==>  Instance @ line 329: trelis_mem_A ( .clk(clk), .wr(addr_mem_A), .addr(wr_mem_A), .d_i(d_in_mem_A), .d_o(d_o_mem_A) )",
+      "operator": "CSW",
+      "target_module": "decoder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/viterbi_tx_rx/include/decoder.v",
+      "target_signal": "clk",
+      "target_signal_id": "decoder.clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 181: (enable == 1'b0)  ==>  NotEq @ line 0: (enable != 1'b0)",
+      "operator": "LOR",
+      "target_module": "decoder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/viterbi_tx_rx/include/decoder.v",
+      "target_signal": "enable",
+      "target_signal_id": "decoder.enable"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 69: (d_in == 1'b0)  ==>  NotEq @ line 0: (d_in != 1'b0)",
+      "operator": "LOR",
+      "target_module": "encoder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/viterbi_tx_rx/include/encoder.v",
+      "target_signal": "d_in",
+      "target_signal_id": "encoder.d_in"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 22: ((enable_i == 1'b1)? d_out_reg : 2'b00)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "encoder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/viterbi_tx_rx/include/encoder.v",
+      "target_signal": "d_out",
+      "target_signal_id": "encoder.d_out"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CSW(wr<->addr) -> Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(wr_mem_D), .addr(addr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )  ==>  Instance @ line 356: trelis_mem_D ( .clk(clk), .wr(addr_mem_D), .addr(wr_mem_D), .d_i(d_in_mem_D), .d_o(d_o_mem_D) )",
+      "operator": "CSW",
+      "target_module": "decoder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/viterbi_tx_rx/include/decoder.v",
+      "target_signal": "clk",
+      "target_signal_id": "decoder.clk"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/mutations",
+  "top_module": "viterbi_tx_rx",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/viterbi_tx_rx/buggy_artifacts/consensus_merge_report"
+}

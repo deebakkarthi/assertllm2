@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/pairing",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0000: applied. SMC -> Block @ line 124: begin done <= 1; out <= v8; end  ==>  Block @ line 124: begin done <= 3; out <= v8; end",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fun.v"
+      ],
+      "log": "M_0001: applied. AVC(0->1) -> Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 0;  ==>  Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 1;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0002: applied. AVC(1->0) -> NonblockingSubstitution @ line 133: f3m_reset <= 1;  ==>  NonblockingSubstitution @ line 133: f3m_reset <= 0;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0003: applied. SMC -> Block @ line 109: begin a <= xp; b <= yp; t <= 1; y <= v2; d <= 1; end  ==>  Block @ line 109: begin a <= xp; b <= yp; t <= 0; y <= v2; d <= 0; end",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/fun.v"
+      ],
+      "log": "M_0004: applied. SMC -> Block @ line 60: begin reg1 <= 0; reg2 <= 0; end  ==>  Block @ line 60: begin reg1 <= 1; reg2 <= 1; end",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0005: applied. SMC -> Block @ line 174: begin done <= 1; out <= out2; end  ==>  Block @ line 174: begin done <= 3; out <= out2; end",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0006: applied. AVC(6->7) -> Assign @ line 193: assign { b1, b0 } = { { v8[6*97-1:2], v10 }, { v7[6*97-1:2], v9 } };  ==>  Assign @ line 193: assign { b1, b0 } = { { v8[6*97-1:2], v10 }, { v7[5*97-1:2], v9 } };",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 230: begin done <= 1; c <= { c5, c4, c3, c2, c1, c0 }; end  ==>  Block @ line 230: begin done <= 0; c <= { c5, c4, c3, c2, c1, c0 }; end",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0008: applied. AVC(1->0) -> NonblockingSubstitution @ line 134: f3m_reset <= 1;  ==>  NonblockingSubstitution @ line 134: f3m_reset <= 0;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0009: applied. AVC(1->0) -> NonblockingSubstitution @ line 160: delay1 <= 1;  ==>  NonblockingSubstitution @ line 160: delay1 <= 0;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0010: applied. AVC(0->2) -> NonblockingSubstitution @ line 135: f3m_reset <= 0;  ==>  NonblockingSubstitution @ line 135: f3m_reset <= 2;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 159: begin rst1 <= 1; delay1 <= 1; end  ==>  Block @ line 159: begin rst1 <= 0; delay1 <= 3; end",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0012: applied. CCW(2<->3) -> LConcat @ line 194: { c5, c3, c1, c4, c2, c0 }  ==>  LConcat @ line 194: { c5, c3, c4, c1, c2, c0 }",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0013: applied. CCW(0<->5) -> Concat @ line 231: { c5, c4, c3, c2, c1, c0 }  ==>  Concat @ line 231: { c0, c4, c3, c2, c1, c5 }",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0014: applied. CCW(0<->1) -> LConcat @ line 192: { a1, a0 }  ==>  LConcat @ line 192: { a0, a1 }",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0015: applied. LOR(Or->And) -> Or @ line 103: (change | i[0])  ==>  And @ line 0: (change & i[0])",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0016: applied. DMO -> Pointer @ line 229: K[0]  ==>  Pointer @ line 229: K[1] (new index=1)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0017: applied. AVC(1->0) -> NonblockingSubstitution @ line 170: K <= K >> 1;  ==>  NonblockingSubstitution @ line 170: K <= K >> 0;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f36m.v"
+      ],
+      "log": "M_0018: applied. LOR(Or->And) -> Or @ line 224: (K[3] & rst2 | K[2] & rst3 | K[1] & done3 | K[0])  ==>  And @ line 0: ((K[3] & rst2 | K[2] & rst3 | K[1] & done3) & K[0])",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "tate_pairing.v"
+      ],
+      "log": "M_0019: applied. LOR(Or->And) -> Or @ line 169: (K[2] & rst2 | K[1] & done2)  ==>  And @ line 0: (K[2] & rst2 & (K[1] & done2))",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "BCDMath.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DIE -> Partselect @ line 12: a[3:0]  ==>  Partselect @ line 12: a[7:4]",
+      "target_line": 12
+    },
+    {
+      "changed_rtl_files": [
+        "BCDMath.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 30: b[7:4]  ==>  Partselect @ line 30: b[3:0]",
+      "target_line": 30
+    },
+    {
+      "changed_rtl_files": [
+        "BCDMath.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 29: a[3:0]  ==>  Partselect @ line 29: a[7:4]",
+      "target_line": 29
+    },
+    {
+      "changed_rtl_files": [
+        "BCDMath.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 13: b[7:4]  ==>  Partselect @ line 13: b[6:3]",
+      "target_line": 13
+    },
+    {
+      "changed_rtl_files": [
+        "KLC32.v"
+      ],
+      "mutant_id": "M_0007",
+      "mutation_log": "applied. AVC(24'd0->24'd1) -> NonblockingSubstitution @ line 1458: res <= { 24'd0, dat_i[31:24] };  ==>  NonblockingSubstitution @ line 1458: res <= { 24'd1, dat_i[31:24] };",
+      "target_line": 1458
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "BCDMath.v",
+      "target_line": 12,
+      "mutation_log": "applied. DIE -> Partselect @ line 12: a[3:0]  ==>  Partselect @ line 12: a[7:4]",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "BCDMath.v",
+      "target_line": 13,
+      "mutation_log": "applied. DMI -> Partselect @ line 13: b[7:4]  ==>  Partselect @ line 13: b[6:3]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 18,
+        "target_line": 13
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "BCDMath.v",
+      "target_line": 29,
+      "mutation_log": "applied. DIE -> Partselect @ line 29: a[3:0]  ==>  Partselect @ line 29: a[7:4]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 57,
+        "target_line": 29
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "BCDMath.v",
+      "target_line": 30,
+      "mutation_log": "applied. DIE -> Partselect @ line 30: b[7:4]  ==>  Partselect @ line 30: b[3:0]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 58,
+        "target_line": 30
+      }
+    },
+    {
+      "mutant_id": "M_0007",
+      "target_rtl_file": "KLC32.v",
+      "target_line": 1458,
+      "mutation_log": "applied. AVC(24'd0->24'd1) -> NonblockingSubstitution @ line 1458: res <= { 24'd0, dat_i[31:24] };  ==>  NonblockingSubstitution @ line 1458: res <= { 24'd1, dat_i[31:24] };",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/merged_buggy_rtl/BCDMath.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/merged_buggy_rtl/BUFGCE.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/merged_buggy_rtl/KLC32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/merged_buggy_rtl/carry.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/merged_buggy_rtl/overflow.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DIE -> Partselect @ line 12: a[3:0]  ==>  Partselect @ line 12: a[7:4]",
+      "operator": "DIE",
+      "target_module": "BCDAdd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/klc32/include/BCDMath.v",
+      "target_signal": "a",
+      "target_signal_id": "BCDAdd.a"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 13: b[7:4]  ==>  Partselect @ line 13: b[6:3]",
+      "operator": "DMI",
+      "target_module": "BCDAdd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/klc32/include/BCDMath.v",
+      "target_signal": "b",
+      "target_signal_id": "BCDAdd.b"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DIE -> Partselect @ line 29: a[3:0]  ==>  Partselect @ line 29: a[7:4]",
+      "operator": "DIE",
+      "target_module": "BCDSub",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/klc32/include/BCDMath.v",
+      "target_signal": "a",
+      "target_signal_id": "BCDSub.a"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 30: b[7:4]  ==>  Partselect @ line 30: b[3:0]",
+      "operator": "DIE",
+      "target_module": "BCDSub",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/klc32/include/BCDMath.v",
+      "target_signal": "b",
+      "target_signal_id": "BCDSub.b"
+    },
+    {
+      "mutant_id": "M_0007",
+      "mutation_log": "applied. AVC(24'd0->24'd1) -> NonblockingSubstitution @ line 1458: res <= { 24'd0, dat_i[31:24] };  ==>  NonblockingSubstitution @ line 1458: res <= { 24'd1, dat_i[31:24] };",
+      "operator": "AVC",
+      "target_module": "KLC32",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/klc32/KLC32.v",
+      "target_signal": "dat_i",
+      "target_signal_id": "KLC32.dat_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/mutations",
+  "top_module": "KLC32",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/klc32/buggy_artifacts/consensus_merge_report"
+}

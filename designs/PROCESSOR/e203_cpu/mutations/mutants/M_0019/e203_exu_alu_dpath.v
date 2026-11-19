@@ -1,0 +1,198 @@
+
+
+module e203_exu_alu_dpath
+(
+  input alu_req_alu,
+  input alu_req_alu_add,
+  input alu_req_alu_sub,
+  input alu_req_alu_xor,
+  input alu_req_alu_sll,
+  input alu_req_alu_srl,
+  input alu_req_alu_sra,
+  input alu_req_alu_or,
+  input alu_req_alu_and,
+  input alu_req_alu_slt,
+  input alu_req_alu_sltu,
+  input alu_req_alu_lui,
+  input [32-1:0] alu_req_alu_op1,
+  input [32-1:0] alu_req_alu_op2,
+  output [32-1:0] alu_req_alu_res,
+  input bjp_req_alu,
+  input [32-1:0] bjp_req_alu_op1,
+  input [32-1:0] bjp_req_alu_op2,
+  input bjp_req_alu_cmp_eq,
+  input bjp_req_alu_cmp_ne,
+  input bjp_req_alu_cmp_lt,
+  input bjp_req_alu_cmp_gt,
+  input bjp_req_alu_cmp_ltu,
+  input bjp_req_alu_cmp_gtu,
+  input bjp_req_alu_add,
+  output bjp_req_alu_cmp_res,
+  output [32-1:0] bjp_req_alu_add_res,
+  input agu_req_alu,
+  input [32-1:0] agu_req_alu_op1,
+  input [32-1:0] agu_req_alu_op2,
+  input agu_req_alu_swap,
+  input agu_req_alu_add,
+  input agu_req_alu_and,
+  input agu_req_alu_or,
+  input agu_req_alu_xor,
+  input agu_req_alu_max,
+  input agu_req_alu_min,
+  input agu_req_alu_maxu,
+  input agu_req_alu_minu,
+  output [32+1:0] agu_req_alu_res,
+  input agu_sbf_0_ena,
+  input [32-1:0] agu_sbf_0_nxt,
+  output [32-1:0] agu_sbf_0_r,
+  input agu_sbf_1_ena,
+  input [32-1:0] agu_sbf_1_nxt,
+  output [32-1:0] agu_sbf_1_r,
+  input muldiv_req_alu,
+  input [35-1:0] muldiv_req_alu_op1,
+  input [35-1:0] muldiv_req_alu_op2,
+  input muldiv_req_alu_add,
+  input muldiv_req_alu_sub,
+  output [35-1:0] muldiv_req_alu_res,
+  input muldiv_sbf_0_ena,
+  input [33-1:0] muldiv_sbf_0_nxt,
+  output [33-1:0] muldiv_sbf_0_r,
+  input muldiv_sbf_1_ena,
+  input [33-1:0] muldiv_sbf_1_nxt,
+  output [33-1:0] muldiv_sbf_1_r,
+  input clk,
+  input rst_n
+);
+
+  wire [32-1:0] mux_op1;
+  wire [32-1:0] mux_op2;
+  wire [32-1:0] misc_op1;assign misc_op1 = mux_op1[32-1:0];
+  wire [32-1:0] misc_op2;assign misc_op2 = mux_op2[32-1:0];
+  wire [32-1:0] shifter_op1;assign shifter_op1 = alu_req_alu_op1[32-1:0];
+  wire [32-1:0] shifter_op2;assign shifter_op2 = alu_req_alu_op2[32-1:0];
+  wire op_max;
+  wire op_min;
+  wire op_maxu;
+  wire op_minu;
+  wire op_add;
+  wire op_sub;
+  wire op_addsub;assign op_addsub = op_add | op_sub;
+  wire op_or;
+  wire op_xor;
+  wire op_and;
+  wire op_sll;
+  wire op_srl;
+  wire op_sra;
+  wire op_slt;
+  wire op_sltu;
+  wire op_mvop2;
+  wire op_cmp_eq;
+  wire op_cmp_ne;
+  wire op_cmp_lt;
+  wire op_cmp_gt;
+  wire op_cmp_ltu;
+  wire op_cmp_gtu;
+  wire cmp_res;
+  wire sbf_0_ena;
+  wire [33-1:0] sbf_0_nxt;
+  wire [33-1:0] sbf_0_r;
+  wire sbf_1_ena;
+  wire [33-1:0] sbf_1_nxt;
+  wire [33-1:0] sbf_1_r;
+  wire [32-1:0] shifter_in1;
+  wire [5-1:0] shifter_in2;
+  wire [32-1:0] shifter_res;
+  wire op_shift;assign op_shift = op_sra | op_sll | op_srl;
+  assign shifter_in1 = { 32{ op_shift } } & ((op_sra | op_srl)? { shifter_op1[00], shifter_op1[01], shifter_op1[02], shifter_op1[03], shifter_op1[04], shifter_op1[05], shifter_op1[06], shifter_op1[07], shifter_op1[08], shifter_op1[09], shifter_op1[10], shifter_op1[11], shifter_op1[12], shifter_op1[13], shifter_op1[14], shifter_op1[15], shifter_op1[16], shifter_op1[17], shifter_op1[18], shifter_op1[19], shifter_op1[20], shifter_op1[21], shifter_op1[22], shifter_op1[23], shifter_op1[24], shifter_op1[25], shifter_op1[26], shifter_op1[27], shifter_op1[28], shifter_op1[29], shifter_op1[30], shifter_op1[31] } : shifter_op1);
+  assign shifter_in2 = { 5{ op_shift } } & shifter_op2[4:0];
+  assign shifter_res = shifter_in1 << shifter_in2;
+  wire [32-1:0] sll_res;assign sll_res = shifter_res;
+  wire [32-1:0] srl_res;assign srl_res = { shifter_res[00], shifter_res[01], shifter_res[02], shifter_res[03], shifter_res[04], shifter_res[05], shifter_res[06], shifter_res[07], shifter_res[08], shifter_res[09], shifter_res[10], shifter_res[11], shifter_res[12], shifter_res[13], shifter_res[14], shifter_res[15], shifter_res[16], shifter_res[17], shifter_res[18], shifter_res[19], shifter_res[20], shifter_res[21], shifter_res[22], shifter_res[23], shifter_res[24], shifter_res[25], shifter_res[26], shifter_res[27], shifter_res[28], shifter_res[29], shifter_res[30], shifter_res[31] };
+  wire [32-1:0] eff_mask;assign eff_mask = ~32'b0 >> shifter_in2;
+  wire [32-1:0] sra_res;assign sra_res = srl_res & eff_mask | { 32{ shifter_op1[31] } } & ~eff_mask;
+  wire op_unsigned;assign op_unsigned = op_sltu | op_cmp_ltu | op_cmp_gtu | op_maxu | op_minu;
+  wire [35-1:0] misc_adder_op1;assign misc_adder_op1 = { { 35 - 32{ ~op_unsigned & misc_op1[32 - 1] } }, misc_op1 };
+  wire [35-1:0] misc_adder_op2;assign misc_adder_op2 = { { 35 - 32{ ~op_unsigned & misc_op2[32 - 1] } }, misc_op2 };
+  wire [35-1:0] adder_op1;assign adder_op1 = (muldiv_req_alu)? muldiv_req_alu_op1 : misc_adder_op1;
+  wire [35-1:0] adder_op2;assign adder_op2 = (muldiv_req_alu)? muldiv_req_alu_op2 : misc_adder_op2;
+  wire adder_cin;
+  wire [35-1:0] adder_in1;
+  wire [35-1:0] adder_in2;
+  wire [35-1:0] adder_res;
+  wire adder_add;
+  wire adder_sub;
+  assign adder_add = (muldiv_req_alu)? muldiv_req_alu_add : op_add;
+  assign adder_sub = (muldiv_req_alu)? muldiv_req_alu_sub : op_sub | (op_cmp_lt | op_cmp_gt | op_cmp_ltu | op_cmp_gtu | op_max | op_maxu | op_min | op_minu | op_slt | op_sltu);
+  wire adder_addsub;assign adder_addsub = adder_add | adder_sub;
+  assign adder_in1 = { 35{ adder_addsub } } & adder_op1;
+  assign adder_in2 = { 35{ adder_addsub } } & ((adder_sub)? ~adder_op2 : adder_op2);
+  assign adder_cin = adder_addsub & adder_sub;
+  assign adder_res = adder_in1 + adder_in2 + adder_cin;
+  wire [32-1:0] xorer_in1;
+  wire [32-1:0] xorer_in2;
+  wire xorer_op;assign xorer_op = op_xor | (op_cmp_eq | op_cmp_ne);
+  assign xorer_in1 = { 32{ xorer_op } } & misc_op1;
+  assign xorer_in2 = { 32{ xorer_op } } & misc_op2;
+  wire [32-1:0] xorer_res;assign xorer_res = xorer_in1 ^ xorer_in2;
+  wire [32-1:0] orer_res;assign orer_res = misc_op1 | misc_op2;
+  wire [32-1:0] ander_res;assign ander_res = misc_op1 & misc_op2;
+  wire neq;assign neq = |xorer_res;
+  wire cmp_res_ne;assign cmp_res_ne = op_cmp_ne & neq;
+  wire cmp_res_eq;assign cmp_res_eq = op_cmp_eq & ~neq;
+  wire cmp_res_lt;assign cmp_res_lt = op_cmp_lt & adder_res[32];
+  wire cmp_res_ltu;assign cmp_res_ltu = op_cmp_ltu & adder_res[32];
+  wire op1_gt_op2;assign op1_gt_op2 = ~adder_res[32];
+  wire cmp_res_gt;assign cmp_res_gt = op_cmp_gt & op1_gt_op2;
+  wire cmp_res_gtu;assign cmp_res_gtu = op_cmp_gtu & op1_gt_op2;
+  assign cmp_res = cmp_res_eq | cmp_res_ne | cmp_res_lt | cmp_res_gt | cmp_res_ltu | cmp_res_gtu;
+  wire [32-1:0] mvop2_res;assign mvop2_res = misc_op2;
+  wire op_slttu;assign op_slttu = op_slt | op_sltu;
+  wire slttu_cmp_lt;assign slttu_cmp_lt = op_slttu & adder_res[32];
+  wire [32-1:0] slttu_res;assign slttu_res = (slttu_cmp_lt)? 32'b1 : 32'b0;
+  wire maxmin_sel_op1;assign maxmin_sel_op1 = (op_max | op_maxu) & op1_gt_op2 | (op_min | op_minu) & ~op1_gt_op2;
+  wire [32-1:0] maxmin_res;assign maxmin_res = (maxmin_sel_op1)? misc_op1 : misc_op2;
+  wire [32-1:0] alu_dpath_res;assign alu_dpath_res = { 32{ op_or } } & orer_res | { 32{ op_and } } & ander_res | { 32{ op_xor } } & xorer_res | { 32{ op_addsub } } & adder_res[32-1:0] | { 32{ op_srl } } & srl_res | { 32{ op_sll } } & sll_res | { 32{ op_sra } } & sra_res | { 32{ op_mvop2 } } & mvop2_res | { 32{ op_slttu } } & slttu_res | { 32{ op_max | op_maxu | op_min | op_minu } } & maxmin_res;
+
+  sirv_gnrl_dffl
+  #(
+    33
+  )
+  sbf_0_dffl
+  (
+    sbf_0_ena,
+    sbf_0_nxt,
+    sbf_0_r,
+    clk
+  );
+
+
+  sirv_gnrl_dffl
+  #(
+    33
+  )
+  sbf_1_dffl
+  (
+    sbf_1_ena,
+    sbf_1_nxt,
+    sbf_1_r,
+    clk
+  );
+
+  localparam DPATH_MUX_WIDTH = 32 * 2 + 21;
+  assign { mux_op1, mux_op2, op_max, op_min, op_maxu, op_minu, op_add, op_sub, op_or, op_xor, op_and, op_sll, op_srl, op_sra, op_slt, op_sltu, op_mvop2, op_cmp_eq, op_cmp_ne, op_cmp_lt, op_cmp_gt, op_cmp_ltu, op_cmp_gtu } = { DPATH_MUX_WIDTH{ alu_req_alu } } & { alu_req_alu_op1, alu_req_alu_op2, 1'b0, 1'b0, 1'b0, 1'b0, alu_req_alu_add, alu_req_alu_sub, alu_req_alu_or, alu_req_alu_xor, alu_req_alu_and, alu_req_alu_sll, alu_req_alu_srl, alu_req_alu_sra, alu_req_alu_slt, alu_req_alu_sltu, alu_req_alu_lui, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 } | { DPATH_MUX_WIDTH{ bjp_req_alu } } & { bjp_req_alu_op1, bjp_req_alu_op2, 1'b0, 1'b0, 1'b0, 1'b0, bjp_req_alu_add, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, bjp_req_alu_cmp_eq, bjp_req_alu_cmp_ne, bjp_req_alu_cmp_lt, bjp_req_alu_cmp_gt, bjp_req_alu_cmp_ltu, bjp_req_alu_cmp_gtu } | { DPATH_MUX_WIDTH{ agu_req_alu } } & { agu_req_alu_op1, agu_req_alu_op2, agu_req_alu_max, agu_req_alu_min, agu_req_alu_maxu, agu_req_alu_minu, agu_req_alu_add, 1'b0, agu_req_alu_or, agu_req_alu_xor, agu_req_alu_and, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, agu_req_alu_swap, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0 };
+  assign alu_req_alu_res = alu_dpath_res[32-1:0];
+  assign agu_req_alu_res = alu_dpath_res[32-1:0];
+  assign bjp_req_alu_add_res = alu_dpath_res[32-1:0];
+  assign bjp_req_alu_cmp_res = cmp_res;
+  assign muldiv_req_alu_res = adder_res;
+  assign sbf_0_ena = (muldiv_req_alu)? muldiv_sbf_0_ena : agu_sbf_0_ena;
+  assign sbf_1_ena = (muldiv_req_alu)? muldiv_sbf_1_ena : agu_sbf_1_ena;
+  assign sbf_0_nxt = (muldiv_req_alu)? muldiv_sbf_0_nxt : { 1'b0, agu_sbf_0_nxt };
+  assign sbf_1_nxt = (muldiv_req_alu)? muldiv_sbf_1_nxt : { 1'b0, agu_sbf_1_nxt };
+  assign agu_sbf_0_r = sbf_0_r[32-1:0];
+  assign agu_sbf_1_r = sbf_1_r[32-1:0];
+  assign muldiv_sbf_0_r = sbf_0_r;
+  assign muldiv_sbf_1_r = sbf_1_r;
+
+endmodule
+

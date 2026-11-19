@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0000: applied. DMI -> Partselect @ line 49: data_i[79:19]  ==>  Partselect @ line 49: data_i[78:18]",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0001: applied. CSW(data_o<->data_i) -> Instance @ line 45: key_update_sbox ( .data_o(s2[79:76]), .data_i(s1[79:76]) )  ==>  Instance @ line 45: key_update_sbox ( .data_o(s1[79:76]), .data_i(s2[79:76]) )",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0002: applied. AVC(63->61) -> NonblockingSubstitution @ line 84: state <= data_i[63:0];  ==>  NonblockingSubstitution @ line 84: state <= data_i[61:0];",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0003: applied. CSW(data_o<->data_i) -> Instance @ line 55: present_cipher_sp ( .data_o(sub_per_output), .data_i(sub_per_input) )  ==>  Instance @ line 55: present_cipher_sp ( .data_o(sub_per_input), .data_i(sub_per_output) )",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0004: applied. AVC(15->17) -> Assign @ line 51: assign s3 = { s2[79:20], s2[19:15] ^ round_counter, s2[14:0] };  ==>  Assign @ line 51: assign s3 = { s2[79:20], s2[19:17] ^ round_counter, s2[14:0] };",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0005: applied. AVC(5'b00001->5'b00010) -> NonblockingSubstitution @ line 46: round_counter <= 5'b00001;  ==>  NonblockingSubstitution @ line 46: round_counter <= 5'b00010;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0006: applied. DIE -> Partselect @ line 49: data_i[79:19]  ==>  Partselect @ line 49: data_i[60:0]",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 83: begin state <= data_i[63:0]; round_counter <= 5'b00001; end  ==>  Block @ line 83: begin state <= data_i[63:0]; round_counter <= 5'b00011; end",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0008: applied. DIE -> Partselect @ line 84: data_i[63:0]  ==>  Partselect @ line 84: data_i[79:16]",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0009: applied. AVC(18->19) -> Assign @ line 49: assign s1 = { data_i[18:0], data_i[79:19] };  ==>  Assign @ line 49: assign s1 = { data_i[19:0], data_i[79:19] };",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0010: applied. CCW(0<->2) -> Concat @ line 51: { s2[79:20], s2[19:15] ^ round_counter, s2[14:0] }  ==>  Concat @ line 51: { s2[14:0], s2[19:15] ^ round_counter, s2[79:20] }",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0011: applied. CCW(0<->1) -> Concat @ line 49: { data_i[18:0], data_i[79:19] }  ==>  Concat @ line 49: { data_i[79:19], data_i[18:0] }",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0012: applied. AVC(0->2) -> Assign @ line 50: assign s2[75:0] = s1[75:0];  ==>  Assign @ line 50: assign s2[75:0] = s1[75:2];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0013: applied. DMI -> Partselect @ line 51: s2[19:15]  ==>  Partselect @ line 51: s2[18:14]",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0014: applied. AVC(79->80) -> Assign @ line 65: assign round_key = key[79:16];  ==>  Assign @ line 65: assign round_key = key[78:16];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0015: applied. AVC(5'b00001->5'b00000) -> NonblockingSubstitution @ line 85: round_counter <= 5'b00001;  ==>  NonblockingSubstitution @ line 85: round_counter <= 5'b00000;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0016: applied. DIE -> Partselect @ line 65: key[79:16]  ==>  Partselect @ line 65: key[63:0]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 89: round_counter <= round_counter + 1'b1;  ==>  NonblockingSubstitution @ line 89: round_counter <= round_counter + 1'b0;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_update.v"
+      ],
+      "log": "M_0018: applied. DIE -> Partselect @ line 45: s2[79:76]  ==>  Partselect @ line 45: s2[3:0]",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "present_encryptor_top.v"
+      ],
+      "log": "M_0019: applied. LOR(Plus->Minus) -> Plus @ line 89: (round_counter + 1'b1)  ==>  Minus @ line 0: (round_counter - 1'b1)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

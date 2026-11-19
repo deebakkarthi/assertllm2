@@ -1,0 +1,294 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "i2cSlave.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(writeEn<->clearStartStopDet) -> Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(writeEn), .regA...  ==>  Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(clearStartStopD...",
+      "target_line": 256
+    },
+    {
+      "changed_rtl_files": [
+        "i2cSlave.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(dataOut<->myReg6) -> Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(dataFromRegIF), .myReg0(myReg0), .myRe...  ==>  Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(myReg6), .myReg0(myReg0), .myReg1(myRe...",
+      "target_line": 240
+    },
+    {
+      "changed_rtl_files": [
+        "i2cSlave.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(48->49) -> NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 48{ 1'b1 } };  ==>  NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 49{ 1'b1 } };",
+      "target_line": 208
+    },
+    {
+      "changed_rtl_files": [
+        "i2cSlave.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 164: ((sdaOut == 1'b0)? 1'b0 : 1'bz)  ==>  (cond removed)",
+      "target_line": 164
+    },
+    {
+      "changed_rtl_files": [
+        "i2cSlaveTop.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(8'h12->8'h13) -> Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h12), .myReg5(8'h34)...  ==>  Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h13), .myReg5(8'h34)...",
+      "target_line": 129
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "i2cSlave.v",
+      "target_line": 164,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 164: ((sdaOut == 1'b0)? 1'b0 : 1'bz)  ==>  (cond removed)",
+      "applied": {
+        "mode": "cmc_cond_removed",
+        "applied": [
+          {
+            "line_index": 173,
+            "port": "clk",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 174,
+            "port": "addr",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 175,
+            "port": "dataIn",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 176,
+            "port": "writeEn",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 177,
+            "port": "dataOut",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 178,
+            "port": "myReg0",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 179,
+            "port": "myReg1",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 180,
+            "port": "myReg2",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 181,
+            "port": "myReg3",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 182,
+            "port": "myReg4",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 183,
+            "port": "myReg5",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 184,
+            "port": "myReg6",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 185,
+            "port": "myReg7",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 190,
+            "port": "rst",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 194,
+            "port": "regAddr",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 195,
+            "port": "scl",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 196,
+            "port": "sdaIn",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 197,
+            "port": "sdaOut",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 198,
+            "port": "startStopDetState",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 199,
+            "port": "clearStartStopDet",
+            "mode": "cmc_port_line"
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "i2cSlave.v",
+      "target_line": 208,
+      "mutation_log": "applied. AVC(48->49) -> NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 48{ 1'b1 } };  ==>  NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 49{ 1'b1 } };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 76,
+            "base_end": 116,
+            "matched_start": 76,
+            "matched_end": 116
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "i2cSlave.v",
+      "target_line": 240,
+      "mutation_log": "applied. CSW(dataOut<->myReg6) -> Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(dataFromRegIF), .myReg0(myReg0), .myRe...  ==>  Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(myReg6), .myReg0(myReg0), .myReg1(myRe...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 145,
+        "line_b": 152,
+        "token_a": "dataOut",
+        "token_b": "myReg6"
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "i2cSlave.v",
+      "target_line": 256,
+      "mutation_log": "applied. CSW(writeEn<->clearStartStopDet) -> Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(writeEn), .regA...  ==>  Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(clearStartStopD...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 161,
+        "line_b": 167,
+        "token_a": "writeEn",
+        "token_b": "clearStartStopDet"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "i2cSlaveTop.v",
+      "target_line": 129,
+      "mutation_log": "applied. AVC(8'h12->8'h13) -> Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h12), .myReg5(8'h34)...  ==>  Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h13), .myReg5(8'h34)...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 80,
+            "base_end": 82,
+            "matched_start": 80,
+            "matched_end": 82
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl/i2cSlave.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl/i2cSlaveTop.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl/i2cSlave_define.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl/registerInterface.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl/serialInterface.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/merged_buggy_rtl/timescale.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(writeEn<->clearStartStopDet) -> Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(writeEn), .regA...  ==>  Instance @ line 256: u_serialInterface ( .clk(clk), .rst(rstSyncToClk | startEdgeDet), .dataIn(dataFromRegIF), .dataOut(dataToRegIF), .writeEn(clearStartStopD...",
+      "operator": "CSW",
+      "target_module": "i2cSlave",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/i2c slave/include/i2cSlave.v",
+      "target_signal": "clk",
+      "target_signal_id": "i2cSlave.clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(48->49) -> NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 48{ 1'b1 } };  ==>  NonblockingSubstitution @ line 208: sclDelayed <= { 10 * 48 / 49{ 1'b1 } };",
+      "operator": "AVC",
+      "target_module": "i2cSlave",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/i2c slave/include/i2cSlave.v",
+      "target_signal": "scl",
+      "target_signal_id": "i2cSlave.scl"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 164: ((sdaOut == 1'b0)? 1'b0 : 1'bz)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "i2cSlave",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/i2c slave/include/i2cSlave.v",
+      "target_signal": "sda",
+      "target_signal_id": "i2cSlave.sda"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(dataOut<->myReg6) -> Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(dataFromRegIF), .myReg0(myReg0), .myRe...  ==>  Instance @ line 240: u_registerInterface ( .clk(clk), .addr(regAddr), .dataIn(dataToRegIF), .writeEn(writeEn), .dataOut(myReg6), .myReg0(myReg0), .myReg1(myRe...",
+      "operator": "CSW",
+      "target_module": "i2cSlave",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/i2c slave/include/i2cSlave.v",
+      "target_signal": "clk",
+      "target_signal_id": "i2cSlave.clk"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(8'h12->8'h13) -> Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h12), .myReg5(8'h34)...  ==>  Instance @ line 129: u_i2cSlave ( .clk(clk), .rst(rst), .sda(sda), .scl(scl), .myReg0(myReg0), .myReg1(), .myReg2(), .myReg3(), .myReg4(8'h13), .myReg5(8'h34)...",
+      "operator": "CSW",
+      "target_module": "i2cSlaveTop",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/i2c slave/i2cSlaveTop.v",
+      "target_signal": "clk",
+      "target_signal_id": "i2cSlaveTop.clk"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/mutations",
+  "top_module": "i2cSlaveTop",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0004",
+        "rtl_name": "i2cSlaveTop.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_slave/buggy_artifacts/consensus_merge_report"
+}

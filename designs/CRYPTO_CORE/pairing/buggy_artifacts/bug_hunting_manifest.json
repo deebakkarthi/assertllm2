@@ -1,0 +1,189 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "tate_pairing.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SMC -> Block @ line 124: begin done <= 1; out <= v8; end  ==>  Block @ line 124: begin done <= 3; out <= v8; end",
+      "target_line": 124
+    },
+    {
+      "changed_rtl_files": [
+        "tate_pairing.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1->0) -> NonblockingSubstitution @ line 133: f3m_reset <= 1;  ==>  NonblockingSubstitution @ line 133: f3m_reset <= 0;",
+      "target_line": 133
+    },
+    {
+      "changed_rtl_files": [
+        "tate_pairing.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 109: begin a <= xp; b <= yp; t <= 1; y <= v2; d <= 1; end  ==>  Block @ line 109: begin a <= xp; b <= yp; t <= 0; y <= v2; d <= 0; end",
+      "target_line": 109
+    },
+    {
+      "changed_rtl_files": [
+        "fun.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 0;  ==>  Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 1;",
+      "target_line": 67
+    },
+    {
+      "changed_rtl_files": [
+        "fun.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. SMC -> Block @ line 60: begin reg1 <= 0; reg2 <= 0; end  ==>  Block @ line 60: begin reg1 <= 1; reg2 <= 1; end",
+      "target_line": 60
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "fun.v",
+      "target_line": 60,
+      "mutation_log": "applied. SMC -> Block @ line 60: begin reg1 <= 0; reg2 <= 0; end  ==>  Block @ line 60: begin reg1 <= 1; reg2 <= 1; end",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 16,
+            "base_end": 19,
+            "matched_start": 16,
+            "matched_end": 19
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "fun.v",
+      "target_line": 67,
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 0;  ==>  Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 1;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 20,
+            "base_end": 22,
+            "matched_start": 24,
+            "matched_end": 26
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "tate_pairing.v",
+      "target_line": 109,
+      "mutation_log": "applied. SMC -> Block @ line 109: begin a <= xp; b <= yp; t <= 1; y <= v2; d <= 1; end  ==>  Block @ line 109: begin a <= xp; b <= yp; t <= 0; y <= v2; d <= 0; end",
+      "applied": {
+        "mode": "mutant_block_splice",
+        "cur_span": [
+          154,
+          159
+        ],
+        "mutant_span": [
+          154,
+          159
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "tate_pairing.v",
+      "target_line": 124,
+      "mutation_log": "applied. SMC -> Block @ line 124: begin done <= 1; out <= v8; end  ==>  Block @ line 124: begin done <= 3; out <= v8; end",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "tate_pairing.v",
+      "target_line": 133,
+      "mutation_log": "applied. AVC(1->0) -> NonblockingSubstitution @ line 133: f3m_reset <= 1;  ==>  NonblockingSubstitution @ line 133: f3m_reset <= 0;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 186,
+        "target_line": 133
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/f3.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/f32m.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/f33m.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/f36m.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/f3m.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/fun.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/inc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/merged_buggy_rtl/tate_pairing.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SMC -> Block @ line 124: begin done <= 1; out <= v8; end  ==>  Block @ line 124: begin done <= 3; out <= v8; end",
+      "operator": "SMC",
+      "target_module": "duursma_lee_algo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/pairing/tate_pairing.v",
+      "target_signal": "out",
+      "target_signal_id": "duursma_lee_algo.out"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 0;  ==>  Assign @ line 67: assign out = ({ reg2, reg1 } == 2'b01)? 1 : 1;",
+      "operator": "AVC",
+      "target_module": "func6",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/pairing/include/fun.v",
+      "target_signal": "out",
+      "target_signal_id": "func6.out"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1->0) -> NonblockingSubstitution @ line 133: f3m_reset <= 1;  ==>  NonblockingSubstitution @ line 133: f3m_reset <= 0;",
+      "operator": "AVC",
+      "target_module": "duursma_lee_algo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/pairing/tate_pairing.v",
+      "target_signal": "reset",
+      "target_signal_id": "duursma_lee_algo.reset"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 109: begin a <= xp; b <= yp; t <= 1; y <= v2; d <= 1; end  ==>  Block @ line 109: begin a <= xp; b <= yp; t <= 0; y <= v2; d <= 0; end",
+      "operator": "SMC",
+      "target_module": "duursma_lee_algo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/pairing/tate_pairing.v",
+      "target_signal": "yp",
+      "target_signal_id": "duursma_lee_algo.yp"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. SMC -> Block @ line 60: begin reg1 <= 0; reg2 <= 0; end  ==>  Block @ line 60: begin reg1 <= 1; reg2 <= 1; end",
+      "operator": "SMC",
+      "target_module": "func6",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/pairing/include/fun.v",
+      "target_signal": "in",
+      "target_signal_id": "func6.in"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/pairing/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/pairing/mutations",
+  "top_module": "tate_pairing",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/pairing/buggy_artifacts/consensus_merge_report"
+}

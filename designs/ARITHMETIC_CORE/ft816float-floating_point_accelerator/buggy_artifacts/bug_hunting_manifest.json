@@ -1,0 +1,182 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "FT816Float.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(8'h02<->8'h08) -> CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h02: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...  ==>  CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h08: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...",
+      "target_line": 160
+    },
+    {
+      "changed_rtl_files": [
+        "FT816Float.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(8'h1B<->8'h09) -> CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...  ==>  CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...",
+      "target_line": 188
+    },
+    {
+      "changed_rtl_files": [
+        "FT816Float.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 159: (cs & ~rw)  ==>  Or @ line 0: (cs | ~rw)",
+      "target_line": 159
+    },
+    {
+      "changed_rtl_files": [
+        "FT816Float.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 131: begin rdy1 <= 1'b1; rdy2 <= 1'b1; end  ==>  Block @ line 131: begin rdy1 <= 1'b0; rdy2 <= 1'b0; end",
+      "target_line": 131
+    },
+    {
+      "changed_rtl_files": [
+        "FT816Float.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 128: (vda && (ad[23:8] == pIOAddress[23:8]))  ==>  Lor @ line 0: (vda || (ad[23:8] == pIOAddress[23:8]))",
+      "target_line": 128
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "FT816Float.v",
+      "target_line": 128,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 128: (vda && (ad[23:8] == pIOAddress[23:8]))  ==>  Lor @ line 0: (vda || (ad[23:8] == pIOAddress[23:8]))",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 101,
+        "target_line": 128
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "FT816Float.v",
+      "target_line": 131,
+      "mutation_log": "applied. SMC -> Block @ line 131: begin rdy1 <= 1'b1; rdy2 <= 1'b1; end  ==>  Block @ line 131: begin rdy1 <= 1'b0; rdy2 <= 1'b0; end",
+      "applied": {
+        "mode": "mutant_block_splice",
+        "cur_span": [
+          105,
+          107
+        ],
+        "mutant_span": [
+          105,
+          107
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "FT816Float.v",
+      "target_line": 159,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 159: (cs & ~rw)  ==>  Or @ line 0: (cs | ~rw)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 123,
+        "target_line": 159
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "FT816Float.v",
+      "target_line": 160,
+      "mutation_log": "applied. CSE(8'h02<->8'h08) -> CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h02: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...  ==>  CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h08: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "FT816Float.v",
+      "target_line": 188,
+      "mutation_log": "applied. CSE(8'h1B<->8'h09) -> CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...  ==>  CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 175,
+            "base_end": 176,
+            "matched_start": 175,
+            "matched_end": 176
+          },
+          {
+            "base_start": 160,
+            "base_end": 161,
+            "matched_start": 160,
+            "matched_end": 161
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/buggy_artifacts/merged_buggy_rtl/FT816Float.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(8'h02<->8'h08) -> CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h02: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...  ==>  CaseStatement @ line 160: case(ad[7:0]) 8'h00: FAC1[7:0] <= db; 8'h01: FAC1[15:8] <= db; 8'h08: FAC1[23:16] <= db; 8'h03: FAC1[31:24] <= db; 8'h04: FAC1[39:32] <= ...",
+      "operator": "CSE",
+      "target_module": "FT816Float",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/FT816Float.v",
+      "target_signal": "ad",
+      "target_signal_id": "FT816Float.ad"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 131: begin rdy1 <= 1'b1; rdy2 <= 1'b1; end  ==>  Block @ line 131: begin rdy1 <= 1'b0; rdy2 <= 1'b0; end",
+      "operator": "SMC",
+      "target_module": "FT816Float",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/FT816Float.v",
+      "target_signal": "rdy",
+      "target_signal_id": "FT816Float.rdy"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 159: (cs & ~rw)  ==>  Or @ line 0: (cs | ~rw)",
+      "operator": "LOR",
+      "target_module": "FT816Float",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/FT816Float.v",
+      "target_signal": "rw",
+      "target_signal_id": "FT816Float.rw"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 128: (vda && (ad[23:8] == pIOAddress[23:8]))  ==>  Lor @ line 0: (vda || (ad[23:8] == pIOAddress[23:8]))",
+      "operator": "LOR",
+      "target_module": "FT816Float",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/FT816Float.v",
+      "target_signal": "vda",
+      "target_signal_id": "FT816Float.vda"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(8'h1B<->8'h09) -> CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...  ==>  CaseStatement @ line 188: case(ad[7:0]) 8'h00: dbo <= FAC1[7:0]; 8'h01: dbo <= FAC1[15:8]; 8'h02: dbo <= FAC1[23:16]; 8'h03: dbo <= FAC1[31:24]; 8'h04: dbo <= FAC1...",
+      "operator": "CSE",
+      "target_module": "FT816Float",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/FT816Float.v",
+      "target_signal": "ad",
+      "target_signal_id": "FT816Float.ad"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/mutations",
+  "top_module": "FT816Float",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,196 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "bistable_domain_cross.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->3) -> Assign @ line 73: assign out = sync_clk_b[1];  ==>  Assign @ line 73: assign out = sync_clk_b[0];",
+      "target_line": 73
+    },
+    {
+      "changed_rtl_files": [
+        "bistable_domain_cross.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 64: begin sync_clk_b[0] <= 0; sync_clk_b[1] <= 0; end  ==>  Block @ line 64: begin sync_clk_b[0] <= 2; sync_clk_b[1] <= 1; end",
+      "target_line": 64
+    },
+    {
+      "changed_rtl_files": [
+        "edge_detect.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 62: (((sig_reg[0] == 1'b0) && (sig_reg[1] == 1'b1))? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "target_line": 62
+    },
+    {
+      "changed_rtl_files": [
+        "monostable_domain_cross.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DMO -> Pointer @ line 76: sync_clk_b[2]  ==>  Pointer @ line 76: sync_clk_b[1] (new index=1)",
+      "target_line": 76
+    },
+    {
+      "changed_rtl_files": [
+        "sd_clock_divider.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 68: (ClockDiv == DIVIDER)  ==>  NotEq @ line 0: (ClockDiv != DIVIDER)",
+      "target_line": 68
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "bistable_domain_cross.v",
+      "target_line": 64,
+      "mutation_log": "applied. SMC -> Block @ line 64: begin sync_clk_b[0] <= 0; sync_clk_b[1] <= 0; end  ==>  Block @ line 64: begin sync_clk_b[0] <= 2; sync_clk_b[1] <= 1; end",
+      "applied": {
+        "mode": "directed_block",
+        "line_span": [
+          54,
+          66
+        ],
+        "target_line": 64
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "bistable_domain_cross.v",
+      "target_line": 73,
+      "mutation_log": "applied. AVC(1->3) -> Assign @ line 73: assign out = sync_clk_b[1];  ==>  Assign @ line 73: assign out = sync_clk_b[0];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 62,
+        "target_line": 73
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "edge_detect.v",
+      "target_line": 62,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 62: (((sig_reg[0] == 1'b0) && (sig_reg[1] == 1'b1))? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 60,
+            "base_end": 62,
+            "matched_start": 60,
+            "matched_end": 62
+          },
+          {
+            "base_start": 54,
+            "base_end": 59,
+            "matched_start": 54,
+            "matched_end": 59
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "monostable_domain_cross.v",
+      "target_line": 76,
+      "mutation_log": "applied. DMO -> Pointer @ line 76: sync_clk_b[2]  ==>  Pointer @ line 76: sync_clk_b[1] (new index=1)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 75,
+        "target_line": 76
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sd_clock_divider.v",
+      "target_line": 68,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 68: (ClockDiv == DIVIDER)  ==>  NotEq @ line 0: (ClockDiv != DIVIDER)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 67,
+        "target_line": 68
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/bistable_domain_cross.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/edge_detect.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/generic_dpram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/generic_fifo_dc_gray.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/monostable_domain_cross.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_clock_divider.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_cmd_master.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_cmd_serial_host.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_controller_wb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_crc_16.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_crc_7.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_data_master.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_data_serial_host.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_data_xfer_trig.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sd_fifo_filler.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/merged_buggy_rtl/sdc_controller.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->3) -> Assign @ line 73: assign out = sync_clk_b[1];  ==>  Assign @ line 73: assign out = sync_clk_b[0];",
+      "operator": "AVC",
+      "target_module": "bistable_domain_cross",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/include/bistable_domain_cross.v",
+      "target_signal": "clk_b",
+      "target_signal_id": "bistable_domain_cross.clk_b"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 64: begin sync_clk_b[0] <= 0; sync_clk_b[1] <= 0; end  ==>  Block @ line 64: begin sync_clk_b[0] <= 2; sync_clk_b[1] <= 1; end",
+      "operator": "SMC",
+      "target_module": "bistable_domain_cross",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/include/bistable_domain_cross.v",
+      "target_signal": "in",
+      "target_signal_id": "bistable_domain_cross.in"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 62: (((sig_reg[0] == 1'b0) && (sig_reg[1] == 1'b1))? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "edge_detect",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/include/edge_detect.v",
+      "target_signal": "sig",
+      "target_signal_id": "edge_detect.sig"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. DMO -> Pointer @ line 76: sync_clk_b[2]  ==>  Pointer @ line 76: sync_clk_b[1] (new index=1)",
+      "operator": "DMO",
+      "target_module": "monostable_domain_cross",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/include/monostable_domain_cross.v",
+      "target_signal": "clk_b",
+      "target_signal_id": "monostable_domain_cross.clk_b"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 68: (ClockDiv == DIVIDER)  ==>  NotEq @ line 0: (ClockDiv != DIVIDER)",
+      "operator": "LOR",
+      "target_module": "sd_clock_divider",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/include/sd_clock_divider.v",
+      "target_signal": "DIVIDER",
+      "target_signal_id": "sd_clock_divider.DIVIDER"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/mutations",
+  "top_module": "sdc_controller",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/wishbone_sd_card_controller/buggy_artifacts/consensus_merge_report"
+}

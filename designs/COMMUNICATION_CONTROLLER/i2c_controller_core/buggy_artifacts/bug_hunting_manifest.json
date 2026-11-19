@@ -1,0 +1,188 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "i2c_master_byte_ctrl.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SMC -> Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b0; ld <= #1 1'b0; cmd_ack <= #1 1'b0; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...  ==>  Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b1; ld <= #1 1'b1; cmd_ack <= #1 1'b1; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...",
+      "target_line": 282
+    },
+    {
+      "changed_rtl_files": [
+        "i2c_master_byte_ctrl.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 271: (rst | i2c_al)  ==>  And @ line 0: (rst & i2c_al)",
+      "target_line": 271
+    },
+    {
+      "changed_rtl_files": [
+        "i2c_master_byte_ctrl.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 226: (read | write | stop)  ==>  And @ line 0: ((read | write) & stop)",
+      "target_line": 226
+    },
+    {
+      "changed_rtl_files": [
+        "i2c_master_byte_ctrl.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(ena<->sda_oen) -> Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(ena), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_busy)...  ==>  Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(sda_oen), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_b...",
+      "target_line": 205
+    },
+    {
+      "changed_rtl_files": [
+        "i2c_master_top.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(3'b010<->3'b001) -> CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b001: prer[15:8] <= #1 wb_dat_i; 3'b010: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...  ==>  CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b010: prer[15:8] <= #1 wb_dat_i; 3'b001: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...",
+      "target_line": 251
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "i2c_master_byte_ctrl.v",
+      "target_line": 205,
+      "mutation_log": "applied. CSW(ena<->sda_oen) -> Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(ena), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_busy)...  ==>  Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(sda_oen), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_b...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 149,
+        "line_b": 162,
+        "token_a": "ena",
+        "token_b": "sda_oen"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "i2c_master_byte_ctrl.v",
+      "target_line": 226,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 226: (read | write | stop)  ==>  And @ line 0: ((read | write) & stop)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 166,
+        "target_line": 226
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "i2c_master_byte_ctrl.v",
+      "target_line": 271,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 271: (rst | i2c_al)  ==>  And @ line 0: (rst & i2c_al)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 211,
+        "target_line": 271
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "i2c_master_byte_ctrl.v",
+      "target_line": 282,
+      "mutation_log": "applied. SMC -> Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b0; ld <= #1 1'b0; cmd_ack <= #1 1'b0; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...  ==>  Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b1; ld <= #1 1'b1; cmd_ack <= #1 1'b1; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 193,
+            "base_end": 344
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "i2c_master_top.v",
+      "target_line": 251,
+      "mutation_log": "applied. CSE(3'b010<->3'b001) -> CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b001: prer[15:8] <= #1 wb_dat_i; 3'b010: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...  ==>  CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b010: prer[15:8] <= #1 wb_dat_i; 3'b001: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          191,
+          198
+        ],
+        "token_a": "3'b010",
+        "token_b": "3'b001",
+        "changed_lines": 2
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/merged_buggy_rtl/i2c_master_bit_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/merged_buggy_rtl/i2c_master_byte_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/merged_buggy_rtl/i2c_master_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/merged_buggy_rtl/i2c_master_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/merged_buggy_rtl/timescale.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SMC -> Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b0; ld <= #1 1'b0; cmd_ack <= #1 1'b0; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...  ==>  Block @ line 282: begin core_txd <= #1 sr[7]; shift <= #1 1'b1; ld <= #1 1'b1; cmd_ack <= #1 1'b1; case(c_state) ST_IDLE: if(go) begin if(start) begin c_st...",
+      "operator": "SMC",
+      "target_module": "i2c_master_byte_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/i2c_controller_core/include/i2c_master_byte_ctrl.v",
+      "target_signal": "ack_in",
+      "target_signal_id": "i2c_master_byte_ctrl.ack_in"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(ena<->sda_oen) -> Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(ena), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_busy)...  ==>  Instance @ line 205: bit_controller ( .clk(clk), .rst(rst), .nReset(nReset), .ena(sda_oen), .clk_cnt(clk_cnt), .cmd(core_cmd), .cmd_ack(core_ack), .busy(i2c_b...",
+      "operator": "CSW",
+      "target_module": "i2c_master_byte_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/i2c_controller_core/include/i2c_master_byte_ctrl.v",
+      "target_signal": "clk",
+      "target_signal_id": "i2c_master_byte_ctrl.clk"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 271: (rst | i2c_al)  ==>  And @ line 0: (rst & i2c_al)",
+      "operator": "LOR",
+      "target_module": "i2c_master_byte_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/i2c_controller_core/include/i2c_master_byte_ctrl.v",
+      "target_signal": "i2c_al",
+      "target_signal_id": "i2c_master_byte_ctrl.i2c_al"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(3'b010<->3'b001) -> CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b001: prer[15:8] <= #1 wb_dat_i; 3'b010: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...  ==>  CaseStatement @ line 251: case(wb_adr_i) 3'b000: prer[7:0] <= #1 wb_dat_i; 3'b010: prer[15:8] <= #1 wb_dat_i; 3'b001: ctr <= #1 wb_dat_i; 3'b011: txr <= #1 wb_dat_...",
+      "operator": "CSE",
+      "target_module": "i2c_master_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/i2c_controller_core/i2c_master_top.v",
+      "target_signal": "wb_dat_i",
+      "target_signal_id": "i2c_master_top.wb_dat_i"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 226: (read | write | stop)  ==>  And @ line 0: ((read | write) & stop)",
+      "operator": "LOR",
+      "target_module": "i2c_master_byte_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/i2c_controller_core/include/i2c_master_byte_ctrl.v",
+      "target_signal": "read",
+      "target_signal_id": "i2c_master_byte_ctrl.read"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/mutations",
+  "top_module": "i2c_master_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0000",
+        "rtl_name": "i2c_master_byte_ctrl.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/i2c_controller_core/buggy_artifacts/consensus_merge_report"
+}

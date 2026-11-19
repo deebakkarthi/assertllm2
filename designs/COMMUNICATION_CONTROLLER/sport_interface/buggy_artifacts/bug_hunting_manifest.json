@@ -1,0 +1,188 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "sport_top.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(30->31) -> NonblockingSubstitution @ line 316: rxSec <= { rxSec[30:0], DRxSEC };  ==>  NonblockingSubstitution @ line 316: rxSec <= { rxSec[31:0], DRxSEC };",
+      "target_line": 316
+    },
+    {
+      "changed_rtl_files": [
+        "fifos.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 208: d_i[31:24]  ==>  Partselect @ line 208: d_i[30:23]",
+      "target_line": 208
+    },
+    {
+      "changed_rtl_files": [
+        "fifos.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 210: d_o[15:8]  ==>  Partselect @ line 210: d_o[14:7]",
+      "target_line": 210
+    },
+    {
+      "changed_rtl_files": [
+        "wb_interface.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 250: (~|(6'h20 & wb_addr_i) & wb_stb_i & wb_cyc_i)  ==>  Or @ line 0: (~|(6'h20 & wb_addr_i) & wb_stb_i | wb_cyc_i)",
+      "target_line": 250
+    },
+    {
+      "changed_rtl_files": [
+        "wb_interface.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? wb_dat_rdbk : 32'hz)  ==>  Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? 32'hz : wb_dat_rdbk)",
+      "target_line": 304
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "fifos.v",
+      "target_line": 208,
+      "mutation_log": "applied. DMI -> Partselect @ line 208: d_i[31:24]  ==>  Partselect @ line 208: d_i[30:23]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 102,
+        "target_line": 208
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "fifos.v",
+      "target_line": 210,
+      "mutation_log": "applied. DMI -> Partselect @ line 210: d_o[15:8]  ==>  Partselect @ line 210: d_o[14:7]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 104,
+        "target_line": 210
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sport_top.v",
+      "target_line": 316,
+      "mutation_log": "applied. AVC(30->31) -> NonblockingSubstitution @ line 316: rxSec <= { rxSec[30:0], DRxSEC };  ==>  NonblockingSubstitution @ line 316: rxSec <= { rxSec[31:0], DRxSEC };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 216,
+            "base_end": 220,
+            "matched_start": 216,
+            "matched_end": 220
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "wb_interface.v",
+      "target_line": 250,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 250: (~|(6'h20 & wb_addr_i) & wb_stb_i & wb_cyc_i)  ==>  Or @ line 0: (~|(6'h20 & wb_addr_i) & wb_stb_i | wb_cyc_i)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 156,
+            "base_end": 162,
+            "matched_start": 156,
+            "matched_end": 162
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "wb_interface.v",
+      "target_line": 304,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? wb_dat_rdbk : 32'hz)  ==>  Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? 32'hz : wb_dat_rdbk)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 205,
+            "base_end": 208,
+            "matched_start": 203,
+            "matched_end": 206
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/merged_buggy_rtl/fifos.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/merged_buggy_rtl/sport_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/merged_buggy_rtl/sport_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/merged_buggy_rtl/timescale.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/merged_buggy_rtl/wb_interface.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 208: d_i[31:24]  ==>  Partselect @ line 208: d_i[30:23]",
+      "operator": "DMI",
+      "target_module": "fifo_sport",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/include/fifos.v",
+      "target_signal": "d_i",
+      "target_signal_id": "fifo_sport.d_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 210: d_o[15:8]  ==>  Partselect @ line 210: d_o[14:7]",
+      "operator": "DMI",
+      "target_module": "fifo_sport",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/include/fifos.v",
+      "target_signal": "d_o",
+      "target_signal_id": "fifo_sport.d_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(30->31) -> NonblockingSubstitution @ line 316: rxSec <= { rxSec[30:0], DRxSEC };  ==>  NonblockingSubstitution @ line 316: rxSec <= { rxSec[31:0], DRxSEC };",
+      "operator": "AVC",
+      "target_module": "sport_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/sport_top.v",
+      "target_signal": "DRxSEC",
+      "target_signal_id": "sport_top.DRxSEC"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 250: (~|(6'h20 & wb_addr_i) & wb_stb_i & wb_cyc_i)  ==>  Or @ line 0: (~|(6'h20 & wb_addr_i) & wb_stb_i | wb_cyc_i)",
+      "operator": "LOR",
+      "target_module": "wb_interface_sport",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/include/wb_interface.v",
+      "target_signal": "wb_addr_i",
+      "target_signal_id": "wb_interface_sport.wb_addr_i"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? wb_dat_rdbk : 32'hz)  ==>  Cond @ line 304: ((wb_stb_i & wb_cyc_i & ~wb_we_i)? 32'hz : wb_dat_rdbk)",
+      "operator": "CMC",
+      "target_module": "wb_interface_sport",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/include/wb_interface.v",
+      "target_signal": "wb_cyc_i",
+      "target_signal_id": "wb_interface_sport.wb_cyc_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sport_interface/mutations",
+  "top_module": "sport_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sport_interface/buggy_artifacts/consensus_merge_report"
+}

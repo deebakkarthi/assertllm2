@@ -1,0 +1,182 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "bublesort.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(swap_i<->done_o) -> Instance @ line 69: interrupt_module ( .clk(clk), .rst(rst), .run_i(w_runback), .swap_i(w_swapback), .done_o(w_done), .interrupt_o(w_interrupt) )  ==>  Instance @ line 69: interrupt_module ( .clk(clk), .rst(rst), .run_i(w_runback), .swap_i(w_done), .done_o(w_swapback), .interrupt_o(w_interrupt) )",
+      "target_line": 69
+    },
+    {
+      "changed_rtl_files": [
+        "bublesort.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(load<->value_i) -> Instance @ line 81: stage ( .clk(clk), .load(load_i[i]), .data_i(writedata_i[(i+1)*N_BITS-1:(i+0)*N_BITS]), .data_o(readdata_o[(i+1)*N_BITS-1:(i+0)*N_BITS]),...  ==>  Instance @ line 81: stage ( .clk(clk), .load(w_value_down[i + 1]), .data_i(writedata_i[(i+1)*N_BITS-1:(i+0)*N_BITS]), .data_o(readdata_o[(i+1)*N_BITS-1:(i+0)...",
+      "target_line": 81
+    },
+    {
+      "changed_rtl_files": [
+        "intgenerator.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 63: (rst || r_pulses[P_WIDTH])  ==>  Land @ line 0: (rst && r_pulses[P_WIDTH])",
+      "target_line": 63
+    },
+    {
+      "changed_rtl_files": [
+        "intgenerator.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 83: (~run_i & r_run_delay)  ==>  Or @ line 0: (~run_i | r_run_delay)",
+      "target_line": 83
+    },
+    {
+      "changed_rtl_files": [
+        "stageen.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(bit2_i<->swap_o) -> Instance @ line 65: split_module ( .clk(clk), .bit1_i(bit_i), .bit2_i(r_data[N_BITS - 1]), .largebit_o(w_large_bit), .smallbit_o(w_small_bit), .swap_i(swap_i...  ==>  Instance @ line 65: split_module ( .clk(clk), .bit1_i(bit_i), .bit2_i(w_swap_o), .largebit_o(w_large_bit), .smallbit_o(w_small_bit), .swap_i(swap_i), .swap_o...",
+      "target_line": 65
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "bublesort.v",
+      "target_line": 69,
+      "mutation_log": "applied. CSW(swap_i<->done_o) -> Instance @ line 69: interrupt_module ( .clk(clk), .rst(rst), .run_i(w_runback), .swap_i(w_swapback), .done_o(w_done), .interrupt_o(w_interrupt) )  ==>  Instance @ line 69: interrupt_module ( .clk(clk), .rst(rst), .run_i(w_runback), .swap_i(w_done), .done_o(w_swapback), .interrupt_o(w_interrupt) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 73,
+        "line_b": 74,
+        "token_a": "swap_i",
+        "token_b": "done_o"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "bublesort.v",
+      "target_line": 81,
+      "mutation_log": "applied. CSW(load<->value_i) -> Instance @ line 81: stage ( .clk(clk), .load(load_i[i]), .data_i(writedata_i[(i+1)*N_BITS-1:(i+0)*N_BITS]), .data_o(readdata_o[(i+1)*N_BITS-1:(i+0)*N_BITS]),...  ==>  Instance @ line 81: stage ( .clk(clk), .load(w_value_down[i + 1]), .data_i(writedata_i[(i+1)*N_BITS-1:(i+0)*N_BITS]), .data_o(readdata_o[(i+1)*N_BITS-1:(i+0)...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 83,
+        "line_b": 93,
+        "token_a": "load",
+        "token_b": "value_i"
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "intgenerator.v",
+      "target_line": 63,
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 63: (rst || r_pulses[P_WIDTH])  ==>  Land @ line 0: (rst && r_pulses[P_WIDTH])",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 84,
+            "base_end": 87,
+            "matched_start": 84,
+            "matched_end": 87
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "intgenerator.v",
+      "target_line": 83,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 83: (~run_i & r_run_delay)  ==>  Or @ line 0: (~run_i | r_run_delay)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 137,
+        "target_line": 83
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "stageen.v",
+      "target_line": 65,
+      "mutation_log": "applied. CSW(bit2_i<->swap_o) -> Instance @ line 65: split_module ( .clk(clk), .bit1_i(bit_i), .bit2_i(r_data[N_BITS - 1]), .largebit_o(w_large_bit), .smallbit_o(w_small_bit), .swap_i(swap_i...  ==>  Instance @ line 65: split_module ( .clk(clk), .bit1_i(bit_i), .bit2_i(w_swap_o), .largebit_o(w_large_bit), .smallbit_o(w_small_bit), .swap_i(swap_i), .swap_o...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 67,
+        "line_b": 71,
+        "token_a": "bit2_i",
+        "token_b": "swap_o"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/merged_buggy_rtl/bitsplit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/merged_buggy_rtl/bublesort.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/merged_buggy_rtl/intgenerator.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/merged_buggy_rtl/rungenerator.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/merged_buggy_rtl/stageen.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 63: (rst || r_pulses[P_WIDTH])  ==>  Land @ line 0: (rst && r_pulses[P_WIDTH])",
+      "operator": "LOR",
+      "target_module": "intgenerator",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/bubblesortmodule/include/intgenerator.v",
+      "target_signal": "rst",
+      "target_signal_id": "intgenerator.rst"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(bit2_i<->swap_o) -> Instance @ line 65: split_module ( .clk(clk), .bit1_i(bit_i), .bit2_i(r_data[N_BITS - 1]), .largebit_o(w_large_bit), .smallbit_o(w_small_bit), .swap_i(swap_i...  ==>  Instance @ line 65: split_module ( .clk(clk), .bit1_i(bit_i), .bit2_i(w_swap_o), .largebit_o(w_large_bit), .smallbit_o(w_small_bit), .swap_i(swap_i), .swap_o...",
+      "operator": "CSW",
+      "target_module": "stageen",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/bubblesortmodule/include/stageen.v",
+      "target_signal": "bit_i",
+      "target_signal_id": "stageen.bit_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 83: (~run_i & r_run_delay)  ==>  Or @ line 0: (~run_i | r_run_delay)",
+      "operator": "LOR",
+      "target_module": "intgenerator",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/bubblesortmodule/include/intgenerator.v",
+      "target_signal": "run_i",
+      "target_signal_id": "intgenerator.run_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(swap_i<->done_o) -> Instance @ line 69: interrupt_module ( .clk(clk), .rst(rst), .run_i(w_runback), .swap_i(w_swapback), .done_o(w_done), .interrupt_o(w_interrupt) )  ==>  Instance @ line 69: interrupt_module ( .clk(clk), .rst(rst), .run_i(w_runback), .swap_i(w_done), .done_o(w_swapback), .interrupt_o(w_interrupt) )",
+      "operator": "CSW",
+      "target_module": "bublesort",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/bubblesortmodule/bublesort.v",
+      "target_signal": "clk",
+      "target_signal_id": "bublesort.clk"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(load<->value_i) -> Instance @ line 81: stage ( .clk(clk), .load(load_i[i]), .data_i(writedata_i[(i+1)*N_BITS-1:(i+0)*N_BITS]), .data_o(readdata_o[(i+1)*N_BITS-1:(i+0)*N_BITS]),...  ==>  Instance @ line 81: stage ( .clk(clk), .load(w_value_down[i + 1]), .data_i(writedata_i[(i+1)*N_BITS-1:(i+0)*N_BITS]), .data_o(readdata_o[(i+1)*N_BITS-1:(i+0)...",
+      "operator": "CSW",
+      "target_module": "bublesort",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/bubblesortmodule/bublesort.v",
+      "target_signal": "readdata_o",
+      "target_signal_id": "bublesort.readdata_o"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/bubblesortmodule/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/bubblesortmodule/mutations",
+  "top_module": "bublesort",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/bubblesortmodule/buggy_artifacts/consensus_merge_report"
+}

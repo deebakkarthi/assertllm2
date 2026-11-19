@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/fpga-based median filter",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/dff_3_pipe.v"
+      ],
+      "log": "M_0000: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b1 } };",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0001: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b1 } };",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0002: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b1;  ==>  NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b0;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 60: waddr <= waddr + 1'b1;  ==>  NonblockingSubstitution @ line 60: waddr <= waddr + 1'b0;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0004: applied. AVC(10'd0->10'd1) -> NonblockingSubstitution @ line 67: window_column_counter <= 10'd0;  ==>  NonblockingSubstitution @ line 67: window_column_counter <= 10'd1;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0005: applied. AVC(2'b00->2'b10) -> BlockingSubstitution @ line 101: window_line_counter = 2'b00;  ==>  BlockingSubstitution @ line 101: window_line_counter = 2'b10;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/dff_3_pipe.v"
+      ],
+      "log": "M_0006: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 53: q1 <= { DATA_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 53: q1 <= { DATA_WIDTH{ 1'b1 } };",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/dff_3_pipe.v"
+      ],
+      "log": "M_0007: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 54: q2 <= { DATA_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 54: q2 <= { DATA_WIDTH{ 1'b1 } };",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "median.v"
+      ],
+      "log": "M_0008: applied. AVC(1->0) -> Assign @ line 88: assign x0_y1 = word0[PIXEL_DATA_WIDTH*3-1:PIXEL_DATA_WIDTH*2];  ==>  Assign @ line 88: assign x0_y1 = word0[PIXEL_DATA_WIDTH*3-0:PIXEL_DATA_WIDTH*2];",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "median.v"
+      ],
+      "log": "M_0009: applied. AVC(4->2) -> Assign @ line 93: assign xm1_y0 = word1[PIXEL_DATA_WIDTH*4-1:PIXEL_DATA_WIDTH*3];  ==>  Assign @ line 93: assign xm1_y0 = word1[PIXEL_DATA_WIDTH*2-1:PIXEL_DATA_WIDTH*1];",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "median.v"
+      ],
+      "log": "M_0010: applied. AVC(1->0) -> Assign @ line 90: assign x0_ym1 = word2[PIXEL_DATA_WIDTH*3-1:PIXEL_DATA_WIDTH*2];  ==>  Assign @ line 90: assign x0_ym1 = word2[PIXEL_DATA_WIDTH*3-0:PIXEL_DATA_WIDTH*2];",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0011: applied. LOR(Plus->Minus) -> Plus @ line 76: (raddr_a + 1'b1)  ==>  Minus @ line 0: (raddr_a - 1'b1)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0012: applied. LOR(Minus->Plus) -> Minus @ line 85: (raddr_b - window_column_counter)  ==>  Plus @ line 0: (raddr_b + window_column_counter)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0013: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 100: raddr_c <= raddr_c + 1'b1;  ==>  NonblockingSubstitution @ line 100: raddr_c <= raddr_c + 1'b0;",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0014: applied. CSE(2'b00<->2'b10) -> CaseStatement @ line 81: case(window_line_counter) 2'b00: begin raddr_a <= raddr_a + 1'b1; raddr_b <= raddr_b - window_column_counter; raddr_c <= raddr_c - window...  ==>  CaseStatement @ line 81: case(window_line_counter) 2'b10: begin raddr_a <= raddr_a + 1'b1; raddr_b <= raddr_b - window_column_counter; raddr_c <= raddr_c - window...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0015: applied. LOR(Plus->Minus) -> Plus @ line 60: (waddr + 1'b1)  ==>  Minus @ line 0: (waddr - 1'b1)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "median.v"
+      ],
+      "log": "M_0016: applied. AVC(1->4) -> Assign @ line 89: assign x0_y0 = word1[PIXEL_DATA_WIDTH*3-1:PIXEL_DATA_WIDTH*2];  ==>  Assign @ line 89: assign x0_y0 = word1[PIXEL_DATA_WIDTH*3-4:PIXEL_DATA_WIDTH*2];",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 70: raddr_b <= { LUT_ADDR_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 70: raddr_b <= { LUT_ADDR_WIDTH{ 1'b1 } };",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0018: applied. LOR(Minus->Plus) -> Minus @ line 92: (raddr_a - window_column_counter)  ==>  Plus @ line 0: (raddr_a + window_column_counter)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/state_machine.v"
+      ],
+      "log": "M_0019: applied. LOR(Plus->Minus) -> Plus @ line 94: (window_line_counter + 1'b1)  ==>  Minus @ line 0: (window_line_counter - 1'b1)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

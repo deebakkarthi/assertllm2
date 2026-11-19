@@ -1,0 +1,190 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "spi_core.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(reg_wr<->hware_op_done) -> Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(reg_wr), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_be), .re...  ==>  Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(hware_op_done), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_b...",
+      "target_line": 167
+    },
+    {
+      "changed_rtl_files": [
+        "uart_core.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(2'b10->2'b01) -> Assign @ line 186: assign par_error = error_ind == 2'b10;  ==>  Assign @ line 186: assign par_error = error_ind == 2'b01;",
+      "target_line": 186
+    },
+    {
+      "changed_rtl_files": [
+        "uart_msg_handler.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 307: reg_rdata[3:0]  ==>  Partselect @ line 307: reg_rdata[31:28]",
+      "target_line": 307
+    },
+    {
+      "changed_rtl_files": [
+        "uart_msg_handler.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 262: reg_req <= 1'b0;  ==>  NonblockingSubstitution @ line 262: reg_req <= 1'b1;",
+      "target_line": 262
+    },
+    {
+      "changed_rtl_files": [
+        "uart_msg_handler.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 208: reg_wdata <= 0;  ==>  NonblockingSubstitution @ line 208: reg_wdata <= 2;",
+      "target_line": 208
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "spi_core.v",
+      "target_line": 167,
+      "mutation_log": "applied. CSW(reg_wr<->hware_op_done) -> Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(reg_wr), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_be), .re...  ==>  Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(hware_op_done), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_b...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 173,
+        "line_b": 193,
+        "token_a": "reg_wr",
+        "token_b": "hware_op_done"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "uart_core.v",
+      "target_line": 186,
+      "mutation_log": "applied. AVC(2'b10->2'b01) -> Assign @ line 186: assign par_error = error_ind == 2'b10;  ==>  Assign @ line 186: assign par_error = error_ind == 2'b01;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 116,
+            "base_end": 188,
+            "matched_start": 116,
+            "matched_end": 188
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "uart_msg_handler.v",
+      "target_line": 208,
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 208: reg_wdata <= 0;  ==>  NonblockingSubstitution @ line 208: reg_wdata <= 2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 207,
+        "target_line": 208
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "uart_msg_handler.v",
+      "target_line": 262,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 262: reg_req <= 1'b0;  ==>  NonblockingSubstitution @ line 262: reg_req <= 1'b1;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 59,
+            "base_end": 68,
+            "matched_start": 59,
+            "matched_end": 68
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "uart_msg_handler.v",
+      "target_line": 307,
+      "mutation_log": "applied. DIE -> Partselect @ line 307: reg_rdata[3:0]  ==>  Partselect @ line 307: reg_rdata[31:28]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 179,
+        "target_line": 307
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/clk_ctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/registers.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/spi_cfg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/spi_core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/spi_ctl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/spi_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/uart_core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/uart_msg_handler.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/uart_rxfsm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/merged_buggy_rtl/uart_txfsm.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(reg_wr<->hware_op_done) -> Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(reg_wr), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_be), .re...  ==>  Instance @ line 167: u_cfg ( .mclk(clk), .reset_n(reset_n), .reg_cs(reg_cs), .reg_wr(hware_op_done), .reg_addr(reg_addr), .reg_wdata(reg_wdata), .reg_be(reg_b...",
+      "operator": "CSW",
+      "target_module": "spi_core",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/include/spi_core.v",
+      "target_signal": "clk",
+      "target_signal_id": "spi_core.clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(2'b10->2'b01) -> Assign @ line 186: assign par_error = error_ind == 2'b10;  ==>  Assign @ line 186: assign par_error = error_ind == 2'b01;",
+      "operator": "AVC",
+      "target_module": "uart_core",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/include/uart_core.v",
+      "target_signal": "par_error",
+      "target_signal_id": "uart_core.par_error"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 307: reg_rdata[3:0]  ==>  Partselect @ line 307: reg_rdata[31:28]",
+      "operator": "DIE",
+      "target_module": "uart_msg_handler",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/include/uart_msg_handler.v",
+      "target_signal": "reg_rdata",
+      "target_signal_id": "uart_msg_handler.reg_rdata"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 262: reg_req <= 1'b0;  ==>  NonblockingSubstitution @ line 262: reg_req <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "uart_msg_handler",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/include/uart_msg_handler.v",
+      "target_signal": "reg_req",
+      "target_signal_id": "uart_msg_handler.reg_req"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->2) -> NonblockingSubstitution @ line 208: reg_wdata <= 0;  ==>  NonblockingSubstitution @ line 208: reg_wdata <= 2;",
+      "operator": "AVC",
+      "target_module": "uart_msg_handler",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/include/uart_msg_handler.v",
+      "target_signal": "reg_wdata",
+      "target_signal_id": "uart_msg_handler.reg_wdata"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/uart_to_spi/mutations",
+  "top_module": "top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart_to_spi/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,189 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "sata_phy_dev_ctrl_x6series.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 381: begin gt_tx_charisk_o <= 0; end  ==>  Block @ line 381: begin gt_tx_charisk_o <= 1; end",
+      "target_line": 381
+    },
+    {
+      "changed_rtl_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(data_i<->sel_i) -> Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .sel_i(rx_data_mux_sel), .data_o(gt_rx_charisk) )  ==>  Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i(rx_data_mux_sel), .sel_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .data_o(gt_rx_charisk) )",
+      "target_line": 179
+    },
+    {
+      "changed_rtl_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 304: (gt_rx_disp_err_i[1] | gt_rx_8b10b_err_i[1])  ==>  And @ line 0: (gt_rx_disp_err_i[1] & gt_rx_8b10b_err_i[1])",
+      "target_line": 304
+    },
+    {
+      "changed_rtl_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(data_o<->sel_i) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd0, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )  ==>  AVC(6'd0->6'd1) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd1, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )",
+      "target_line": 224
+    },
+    {
+      "changed_rtl_files": [
+        "sata_phy_top_x6series.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(7'd0->7'd1) -> Assign @ line 111: assign phy_status_o = { 7'd0, link_up };  ==>  Assign @ line 111: assign phy_status_o = { 7'd1, link_up };",
+      "target_line": 111
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sata_phy_dev_ctrl_x6series.v",
+      "target_line": 381,
+      "mutation_log": "applied. SMC -> Block @ line 381: begin gt_tx_charisk_o <= 0; end  ==>  Block @ line 381: begin gt_tx_charisk_o <= 1; end",
+      "applied": {
+        "mode": "directed_block",
+        "line_span": [
+          360,
+          364
+        ],
+        "target_line": 381
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "sata_phy_top_x6series.v",
+      "target_line": 111,
+      "mutation_log": "applied. AVC(7'd0->7'd1) -> Assign @ line 111: assign phy_status_o = { 7'd0, link_up };  ==>  Assign @ line 111: assign phy_status_o = { 7'd1, link_up };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 59,
+            "base_end": 62,
+            "matched_start": 59,
+            "matched_end": 62
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "sata_phy_top_x6series.v",
+      "target_line": 179,
+      "mutation_log": "applied. CSW(data_i<->sel_i) -> Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .sel_i(rx_data_mux_sel), .data_o(gt_rx_charisk) )  ==>  Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i(rx_data_mux_sel), .sel_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .data_o(gt_rx_charisk) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 191,
+        "line_b": 192,
+        "token_a": "data_i",
+        "token_b": "sel_i"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sata_phy_top_x6series.v",
+      "target_line": 224,
+      "mutation_log": "applied. CSW(data_o<->sel_i) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd0, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )  ==>  AVC(6'd0->6'd1) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd1, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 238,
+        "line_b": 237,
+        "token_a": "data_o",
+        "token_b": "sel_i"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "sata_phy_top_x6series.v",
+      "target_line": 304,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 304: (gt_rx_disp_err_i[1] | gt_rx_8b10b_err_i[1])  ==>  And @ line 0: (gt_rx_disp_err_i[1] & gt_rx_8b10b_err_i[1])",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 310,
+        "target_line": 304
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/axis_fifo_36W_16D.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/axis_fifo_40W_16D.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/det_pos_edge.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/glbl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/mux.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/sata_constants.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/sata_phy_dev_ctrl_x6series.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/sata_phy_host_ctrl_x6series.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/sata_phy_top_x6series.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/sata_s6_sata1_gtp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/merged_buggy_rtl/sata_s6_sata1_gtp_tile.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(data_i<->sel_i) -> Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .sel_i(rx_data_mux_sel), .data_o(gt_rx_charisk) )  ==>  Instance @ line 179: U_rx_charisk_mux ( .clk(clk_phy), .data_i(rx_data_mux_sel), .sel_i({ gt_rx_k_sr[4:1], gt_rx_k_sr[3:0] }), .data_o(gt_rx_charisk) )",
+      "operator": "CSW",
+      "target_module": "sata_phy_top_x6series",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sata_phy/sata_phy_top_x6series.v",
+      "target_signal": "clk",
+      "target_signal_id": "sata_phy_top_x6series.clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 304: (gt_rx_disp_err_i[1] | gt_rx_8b10b_err_i[1])  ==>  And @ line 0: (gt_rx_disp_err_i[1] & gt_rx_8b10b_err_i[1])",
+      "operator": "LOR",
+      "target_module": "sata_phy_top_x6series",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sata_phy/sata_phy_top_x6series.v",
+      "target_signal": "gt_rx_disp_err_i",
+      "target_signal_id": "sata_phy_top_x6series.gt_rx_disp_err_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(7'd0->7'd1) -> Assign @ line 111: assign phy_status_o = { 7'd0, link_up };  ==>  Assign @ line 111: assign phy_status_o = { 7'd1, link_up };",
+      "operator": "AVC",
+      "target_module": "sata_phy_top_x6series",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sata_phy/sata_phy_top_x6series.v",
+      "target_signal": "phy_status_o",
+      "target_signal_id": "sata_phy_top_x6series.phy_status_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 381: begin gt_tx_charisk_o <= 0; end  ==>  Block @ line 381: begin gt_tx_charisk_o <= 1; end",
+      "operator": "SMC",
+      "target_module": "sata_phy_dev_ctrl_x6series",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sata_phy/include/sata_phy_dev_ctrl_x6series.v",
+      "target_signal": "gt_tx_charisk_o",
+      "target_signal_id": "sata_phy_dev_ctrl_x6series.gt_tx_charisk_o"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(data_o<->sel_i) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd0, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )  ==>  AVC(6'd0->6'd1) -> Instance @ line 224: U_txcharisk_mux ( .clk(clk_phy), .data_i({ lnk_tx_tuser[3:2], lnk_tx_tuser[1:0], gt_tx_charisk[3:2], gt_tx_charisk[1:0] }), .sel_i({ 6'd1, link_up, tx_data_mux_sel }), .data_o(gt_tx_charisk_o) )",
+      "operator": "CSW",
+      "target_module": "sata_phy_top_x6series",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sata_phy/sata_phy_top_x6series.v",
+      "target_signal": "clk",
+      "target_signal_id": "sata_phy_top_x6series.clk"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/mutations",
+  "top_module": "sata_phy_top_x6series",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/sata_phy/buggy_artifacts/consensus_merge_report"
+}

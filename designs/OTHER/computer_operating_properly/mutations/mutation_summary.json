@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/computer_operating_properly",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0000: applied. CSW(cop_event<->cop_ena) -> Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_event), .por...  ==>  Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_ena), .por_r...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0001: applied. CSW(debug_ena<->cwp) -> Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(debug_ena), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(...  ==>  Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(cwp), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(cop_en...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0002: applied. CCW(0<->1) -> Concat @ line 113: { cop_capture, timeout_value, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }  ==>  Concat @ line 113: { timeout_value, cop_capture, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0003: applied. CCW(1<->7) -> Concat @ line 115: { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck }  ==>  Concat @ line 115: { 7'b0, cwp, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cop_event, clck }",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0004: applied. LOR(Minus->Plus) -> Minus @ line 48: (DWIDTH - 1)  ==>  Plus @ line 0: (DWIDTH + 1)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_regs.v"
+      ],
+      "log": "M_0005: applied. DIE -> Partselect @ line 136: write_data[7:0]  ==>  Partselect @ line 136: write_data[15:8]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_wb_bus.v"
+      ],
+      "log": "M_0006: applied. CMC(true_only) -> Cond @ line 90: ((SINGLE_CYCLE)? rd_data_mux : rd_data_reg)  ==>  (cond removed)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_count.v"
+      ],
+      "log": "M_0007: applied. LOR(Lor->Land) -> Lor @ line 136: (sync_reset || reload_count || !cop_ena)  ==>  Land @ line 0: ((sync_reset || reload_count) && !cop_ena)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_regs.v"
+      ],
+      "log": "M_0008: applied. DMO -> Pointer @ line 113: write_data[4]  ==>  Pointer @ line 113: write_data[10] (new index=10)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_wb_bus.v"
+      ],
+      "log": "M_0009: applied. CSE(5'b1_011<->5'b1_010) -> CaseStatement @ line 130: case({ eight_bit_bus, wb_adr_i }) 5'b1_000: write_regs = 5'b00001; 5'b1_001: write_regs = 5'b00010; 5'b1_010: write_regs = 5'b00100; 5'b1...  ==>  CaseStatement @ line 130: case({ eight_bit_bus, wb_adr_i }) 5'b1_000: write_regs = 5'b00001; 5'b1_001: write_regs = 5'b00010; 5'b1_011: write_regs = 5'b00100; 5'b1...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0010: applied. LOR(Minus->Plus) -> Minus @ line 54: (DWIDTH - 1)  ==>  Plus @ line 0: (DWIDTH + 1)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_count.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 162: begin cop_irq <= 0; cop_irq_o <= 0; end  ==>  Block @ line 162: begin cop_irq <= 2; cop_irq_o <= 1; end",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_regs.v"
+      ],
+      "log": "M_0012: applied. DMO -> Pointer @ line 114: write_data[3]  ==>  Pointer @ line 114: write_data[14] (new index=14)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_wb_bus.v"
+      ],
+      "log": "M_0013: applied. CSE(4'b0_001<->4'b0_010) -> CaseStatement @ line 110: case({ eight_bit_bus, wb_adr_i }) 4'b1_000: rd_data_mux = read_regs[7:0]; 4'b1_001: rd_data_mux = read_regs[15:8]; 4'b1_010: rd_data_mux ...  ==>  CaseStatement @ line 110: case({ eight_bit_bus, wb_adr_i }) 4'b1_000: rd_data_mux = read_regs[7:0]; 4'b1_001: rd_data_mux = read_regs[15:8]; 4'b1_010: rd_data_mux ...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_count.v"
+      ],
+      "log": "M_0014: applied. LOR(Minus->Plus) -> Minus @ line 96: (cop_counter - 1)  ==>  Plus @ line 0: (cop_counter + 1)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_regs.v"
+      ],
+      "log": "M_0015: applied. CMC(true_only) -> Cond @ line 122: ((!cop_ena || !write_data[2])? write_data[5] : debug_ena)  ==>  (cond removed)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_wb_bus.v"
+      ],
+      "log": "M_0016: applied. DIE -> Partselect @ line 121: read_regs[47:32]  ==>  Partselect @ line 121: read_regs[15:0]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "cop_top.v"
+      ],
+      "log": "M_0017: applied. LOR(Minus->Plus) -> Minus @ line 73: (COUNT_SIZE - 1)  ==>  Plus @ line 0: (COUNT_SIZE + 1)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_count.v"
+      ],
+      "log": "M_0018: applied. LOR(Minus->Plus) -> Minus @ line 42: (COUNT_SIZE - 1)  ==>  Plus @ line 0: (COUNT_SIZE + 1)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cop_regs.v"
+      ],
+      "log": "M_0019: applied. LOR(Lor->Land) -> Lor @ line 123: (!cop_ena || !write_data[2])  ==>  Land @ line 0: (!cop_ena && !write_data[2])",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

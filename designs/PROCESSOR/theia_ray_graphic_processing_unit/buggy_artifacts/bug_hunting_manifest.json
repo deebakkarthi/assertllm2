@@ -1,0 +1,260 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "Collaterals.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(32'b0->32'b00000000000000000000000000000001) -> NonblockingSubstitution @ line 423: Q <= 32'b0;  ==>  NonblockingSubstitution @ line 423: Q <= 32'b00000000000000000000000000000001;",
+      "target_line": 423
+    },
+    {
+      "changed_rtl_files": [
+        "Module_BusArbitrer.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 415: (iRequest[i] & wCurrentMasterMask[i])  ==>  Or @ line 0: (iRequest[i] | wCurrentMasterMask[i])",
+      "target_line": 415
+    },
+    {
+      "changed_rtl_files": [
+        "Module_FixedPointDivision.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(iInputReady<->OutputReady) -> Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(wInputRea...  ==>  Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(DivReady)...",
+      "target_line": 484
+    },
+    {
+      "changed_rtl_files": [
+        "Module_FixedPointDivision.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 478: ((wDivisor[SIGN] == 1)? ~wDivisor + 1'b1 : wDivisor)  ==>  (cond removed)",
+      "target_line": 478
+    },
+    {
+      "changed_rtl_files": [
+        "Module_VectorALU.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 866: ((iOperation == 16'b0_010_110)? iInputReady : 0)  ==>  Cond @ line 866: ((iOperation == 16'b0_010_110)? 0 : iInputReady)",
+      "target_line": 866
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "Collaterals.v",
+      "target_line": 423,
+      "mutation_log": "applied. AVC(32'b0->32'b00000000000000000000000000000001) -> NonblockingSubstitution @ line 423: Q <= 32'b0;  ==>  NonblockingSubstitution @ line 423: Q <= 32'b00000000000000000000000000000001;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 379,
+            "base_end": 383,
+            "matched_start": 379,
+            "matched_end": 383
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "Module_BusArbitrer.v",
+      "target_line": 415,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 415: (iRequest[i] & wCurrentMasterMask[i])  ==>  Or @ line 0: (iRequest[i] | wCurrentMasterMask[i])",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 44,
+        "target_line": 415
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "Module_FixedPointDivision.v",
+      "target_line": 478,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 478: ((wDivisor[SIGN] == 1)? ~wDivisor + 1'b1 : wDivisor)  ==>  (cond removed)",
+      "applied": {
+        "mode": "cmc_cond_removed",
+        "applied": [
+          {
+            "line_index": 36,
+            "port": "Clock",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 73,
+            "port": "Reset",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 74,
+            "port": "Enable",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 38,
+            "port": "D",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 39,
+            "port": "Q",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 117,
+            "port": "iDividend",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 118,
+            "port": "iDivisor",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 119,
+            "port": "xQuotient",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 120,
+            "port": "iInputReady",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 121,
+            "port": "OutputReady",
+            "mode": "cmc_port_line"
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "Module_FixedPointDivision.v",
+      "target_line": 484,
+      "mutation_log": "applied. CSW(iInputReady<->OutputReady) -> Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(wInputRea...  ==>  Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(DivReady)...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 120,
+        "line_b": 121,
+        "token_a": "iInputReady",
+        "token_b": "OutputReady"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "Module_VectorALU.v",
+      "target_line": 866,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 866: ((iOperation == 16'b0_010_110)? iInputReady : 0)  ==>  Cond @ line 866: ((iOperation == 16'b0_010_110)? 0 : iInputReady)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 433,
+            "base_end": 438,
+            "matched_start": 433,
+            "matched_end": 438
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Collaterals.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_ArithmeticComparison.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_BusArbitrer.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_ControlRegister.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_ExecutionFSM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_FixedPointAddtionSubstraction.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_FixedPointDivision.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_FixedPointSquareRoot.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_Host.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_HostWBM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_InstructionDecode.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_InstructionEntryPoint.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_InstructionFetch.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_MEM2WBM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_OMemInterface.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_RAM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_ROM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_RadixRMul.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_SwapMemory.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_Swizzle.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_TMemInterface.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_VectorALU.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_WishBoneMaster.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Module_WishBoneSlave.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/THEIA.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Theia_Core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Unit_Control.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Unit_EXE.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Unit_IO.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/Unit_MEM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/merged_buggy_rtl/aDefinitions.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(32'b0->32'b00000000000000000000000000000001) -> NonblockingSubstitution @ line 423: Q <= 32'b0;  ==>  NonblockingSubstitution @ line 423: Q <= 32'b00000000000000000000000000000001;",
+      "operator": "AVC",
+      "target_module": "FFD_POSEDGE_SYNCRONOUS_RESET",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/include/Collaterals.v",
+      "target_signal": "Q",
+      "target_signal_id": "FFD_POSEDGE_SYNCRONOUS_RESET.Q"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 415: (iRequest[i] & wCurrentMasterMask[i])  ==>  Or @ line 0: (iRequest[i] | wCurrentMasterMask[i])",
+      "operator": "LOR",
+      "target_module": "Module_BusArbitrer",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/include/Module_BusArbitrer.v",
+      "target_signal": "iRequest",
+      "target_signal_id": "Module_BusArbitrer.iRequest"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(iInputReady<->OutputReady) -> Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(wInputRea...  ==>  Instance @ line 484: UDIV ( .Clock(Clock), .Reset(Reset), .iDividend(wAbsDividend), .iDivisor(wAbsDivisor), .xQuotient(wQuottientTemp), .iInputReady(DivReady)...",
+      "operator": "CSW",
+      "target_module": "SignedIntegerDivision",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/include/Module_FixedPointDivision.v",
+      "target_signal": "Clock",
+      "target_signal_id": "SignedIntegerDivision.Clock"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 478: ((wDivisor[SIGN] == 1)? ~wDivisor + 1'b1 : wDivisor)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "SignedIntegerDivision",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/include/Module_FixedPointDivision.v",
+      "target_signal": "wDivisor",
+      "target_signal_id": "SignedIntegerDivision.wDivisor"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 866: ((iOperation == 16'b0_010_110)? iInputReady : 0)  ==>  Cond @ line 866: ((iOperation == 16'b0_010_110)? 0 : iInputReady)",
+      "operator": "CMC",
+      "target_module": "VectorALU",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/include/Module_VectorALU.v",
+      "target_signal": "iInputReady",
+      "target_signal_id": "VectorALU.iInputReady"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/theia_ray_graphic_processing_unit/mutations",
+  "top_module": "THEIA",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/theia_ray_graphic_processing_unit/buggy_artifacts/consensus_merge_report"
+}

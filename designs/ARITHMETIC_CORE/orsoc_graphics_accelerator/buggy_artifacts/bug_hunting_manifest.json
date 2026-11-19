@@ -1,0 +1,201 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "gfx_blender.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SMC -> Block @ line 200: begin write_o <= 1'b0; if(ack_i) ack_o <= 1'b1; end  ==>  Block @ line 200: begin write_o <= 1'b1; if(ack_i) ack_o <= 1'b1; end",
+      "target_line": 200
+    },
+    {
+      "changed_rtl_files": [
+        "gfx_blender.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 221: (write_i & blending_enable_i)  ==>  Or @ line 0: (write_i | blending_enable_i)",
+      "target_line": 221
+    },
+    {
+      "changed_rtl_files": [
+        "gfx_blender.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 158: begin ack_o <= 1'b0; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...  ==>  Block @ line 158: begin ack_o <= 1'b1; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...",
+      "target_line": 158
+    },
+    {
+      "changed_rtl_files": [
+        "gfx_blender.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 145: pixel_x_o <= 1'b0;  ==>  NonblockingSubstitution @ line 145: pixel_x_o <= 1'b1;",
+      "target_line": 145
+    },
+    {
+      "changed_rtl_files": [
+        "gfx_blender.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 94: ((color_depth_i == 2'b01)? target_size_x_i * y_counter_i + { 16'h0, x_counter_i } << 1 : target_size_x_i * y_counter_i + { 16'h0, x_count...  ==>  (cond removed)",
+      "target_line": 94
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "gfx_blender.v",
+      "target_line": 94,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 94: ((color_depth_i == 2'b01)? target_size_x_i * y_counter_i + { 16'h0, x_counter_i } << 1 : target_size_x_i * y_counter_i + { 16'h0, x_count...  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 66,
+            "base_end": 68,
+            "matched_start": 66,
+            "matched_end": 68
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "gfx_blender.v",
+      "target_line": 145,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 145: pixel_x_o <= 1'b0;  ==>  NonblockingSubstitution @ line 145: pixel_x_o <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 100,
+        "target_line": 145
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "gfx_blender.v",
+      "target_line": 158,
+      "mutation_log": "applied. SMC -> Block @ line 158: begin ack_o <= 1'b0; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...  ==>  Block @ line 158: begin ack_o <= 1'b1; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 134,
+            "base_end": 135,
+            "matched_start": 133,
+            "matched_end": 134
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "gfx_blender.v",
+      "target_line": 200,
+      "mutation_log": "applied. SMC -> Block @ line 200: begin write_o <= 1'b0; if(ack_i) ack_o <= 1'b1; end  ==>  Block @ line 200: begin write_o <= 1'b1; if(ack_i) ack_o <= 1'b1; end",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "gfx_blender.v",
+      "target_line": 221,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 221: (write_i & blending_enable_i)  ==>  Or @ line 0: (write_i | blending_enable_i)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 144,
+        "target_line": 221
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/basic_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/div_uu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_blender.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_clip.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_color.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_cuvz.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_fragment_processor.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_interp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_line.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_params.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_rasterizer.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_renderer.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_transform.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_triangle.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_wbm_read.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_wbm_read_arbiter.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_wbm_write.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/merged_buggy_rtl/gfx_wbs.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SMC -> Block @ line 200: begin write_o <= 1'b0; if(ack_i) ack_o <= 1'b1; end  ==>  Block @ line 200: begin write_o <= 1'b1; if(ack_i) ack_o <= 1'b1; end",
+      "operator": "SMC",
+      "target_module": "gfx_blender",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/orsoc graphics accelerator/include/gfx_blender.v",
+      "target_signal": "ack_i",
+      "target_signal_id": "gfx_blender.ack_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 221: (write_i & blending_enable_i)  ==>  Or @ line 0: (write_i | blending_enable_i)",
+      "operator": "LOR",
+      "target_module": "gfx_blender",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/orsoc graphics accelerator/include/gfx_blender.v",
+      "target_signal": "blending_enable_i",
+      "target_signal_id": "gfx_blender.blending_enable_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 158: begin ack_o <= 1'b0; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...  ==>  Block @ line 158: begin ack_o <= 1'b1; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...",
+      "operator": "SMC",
+      "target_module": "gfx_blender",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/orsoc graphics accelerator/include/gfx_blender.v",
+      "target_signal": "pixel_color_i",
+      "target_signal_id": "gfx_blender.pixel_color_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 145: pixel_x_o <= 1'b0;  ==>  NonblockingSubstitution @ line 145: pixel_x_o <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "gfx_blender",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/orsoc graphics accelerator/include/gfx_blender.v",
+      "target_signal": "pixel_x_o",
+      "target_signal_id": "gfx_blender.pixel_x_o"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 94: ((color_depth_i == 2'b01)? target_size_x_i * y_counter_i + { 16'h0, x_counter_i } << 1 : target_size_x_i * y_counter_i + { 16'h0, x_count...  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "gfx_blender",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/orsoc graphics accelerator/include/gfx_blender.v",
+      "target_signal": "y_counter_i",
+      "target_signal_id": "gfx_blender.y_counter_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/mutations",
+  "top_module": "gfx_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0002",
+        "rtl_name": "gfx_blender.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/orsoc_graphics_accelerator/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "aes_128.v"
+      ],
+      "log": "M_0000: applied. AVC(0->1) -> Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:0] };  ==>  Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:1] };",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0001: applied. DMI -> Partselect @ line 26: p1[31:16]  ==>  Partselect @ line 26: p1[30:15]",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0002: applied. DIE -> Partselect @ line 27: p2[31:8]  ==>  Partselect @ line 27: p2[23:0]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0003: applied. CSE(8'h1f<->8'h06) -> CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...  ==>  CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0004: applied. DIE -> Partselect @ line 40: in[15:8]  ==>  Partselect @ line 40: in[23:16]",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0005: applied. DMI -> Partselect @ line 39: out[23:16]  ==>  Partselect @ line 39: out[22:15]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0006: applied. AVC(8'h6c->8'h6a) -> NonblockingSubstitution @ line 250: out <= 8'h6c;  ==>  NonblockingSubstitution @ line 250: out <= 8'h6a;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0007: applied. DIE -> Partselect @ line 38: in[31:24]  ==>  Partselect @ line 38: in[7:0]",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0008: applied. DMI -> Partselect @ line 52: out[23:16]  ==>  Partselect @ line 52: out[22:15]",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0009: applied. CCW(0<->1) -> Concat @ line 25: { p0[23:0], p0[31:24] }  ==>  Concat @ line 25: { p0[31:24], p0[23:0] }",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0010: applied. AVC(8'h8d->8'h8b) -> NonblockingSubstitution @ line 246: out <= 8'h8d;  ==>  NonblockingSubstitution @ line 246: out <= 8'h8b;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0011: applied. CSE(8'hc8<->8'h57) -> CaseStatement @ line 332: case(in) 8'h00: out <= 8'hc6; 8'h01: out <= 8'hf8; 8'h02: out <= 8'hee; 8'h03: out <= 8'hf6; 8'h04: out <= 8'hff; 8'h05: out <= 8'hd6; 8'...  ==>  CaseStatement @ line 332: case(in) 8'h00: out <= 8'hc6; 8'h01: out <= 8'hf8; 8'h02: out <= 8'hee; 8'h03: out <= 8'hf6; 8'h04: out <= 8'hff; 8'h05: out <= 8'hd6; 8'...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0012: applied. DMI -> Partselect @ line 40: in[15:8]  ==>  Partselect @ line 40: in[14:7]",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0013: applied. DIE -> Partselect @ line 51: out[31:24]  ==>  Partselect @ line 51: out[7:0]",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0014: applied. DMI -> Partselect @ line 25: p0[31:24]  ==>  Partselect @ line 25: p0[30:23]",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0015: applied. DIE -> Partselect @ line 26: p1[15:0]  ==>  Partselect @ line 26: p1[31:16]",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0016: applied. AVC(8'h67->8'h69) -> NonblockingSubstitution @ line 76: out <= 8'h67;  ==>  NonblockingSubstitution @ line 76: out <= 8'h69;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0017: applied. DIE -> Partselect @ line 41: in[7:0]  ==>  Partselect @ line 41: in[31:24]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0018: applied. DIE -> Partselect @ line 39: out[23:16]  ==>  Partselect @ line 39: out[15:8]",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/table.v"
+      ],
+      "log": "M_0019: applied. DMI -> Partselect @ line 27: p2[31:8]  ==>  Partselect @ line 27: p2[30:7]",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/amber",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0000: applied. CSE(4'd6<->4'd5) -> CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...  ==>  CaseStatement @ line 140: case(i_copro_crn) 4'd0: o_copro_read_data <= 32'h4156_0300; 4'd2: o_copro_read_data <= { 29'd0, cache_control }; 4'd3: o_copro_read_data ...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0001: applied. LOR(Land->Lor) -> Land @ line 132: (!i_fetch_stall && (i_copro_operation == 2'd2) && (i_copro_crn == 4'd1))  ==>  Lor @ line 0: (!i_fetch_stall && (i_copro_operation == 2'd2) || (i_copro_crn == 4'd1))",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0002: applied. CSE(4'd4<->4'd2) -> CaseStatement @ line 123: case(i_copro_crn) 4'd2: cache_control <= i_copro_write_data[2:0]; 4'd3: cacheable_area <= i_copro_write_data[31:0]; 4'd4: updateable_area...  ==>  CaseStatement @ line 123: case(i_copro_crn) 4'd4: cache_control <= i_copro_write_data[2:0]; 4'd3: cacheable_area <= i_copro_write_data[31:0]; 4'd2: updateable_area...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0003: applied. AVC(0->2) -> Assign @ line 93: assign o_cache_enable = cache_control[0];  ==>  Assign @ line 93: assign o_cache_enable = cache_control[2];",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0004: applied. CSW(i_select<->o_stall) -> Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(sel_cache), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable), ....  ==>  Instance @ line 273: u_cache ( .i_clk(i_clk), .i_select(cache_stall), .i_exclusive(i_exclusive), .i_write_data(i_write_data), .i_write_enable(i_write_enable),...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0005: applied. AVC(32'd0->32'd2) -> NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd0;  ==>  NonblockingSubstitution @ line 149: o_copro_read_data <= 32'd2;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0006: applied. LOR(Land->Lor) -> Land @ line 253: (address_cachable && i_address_valid && i_cache_enable)  ==>  Lor @ line 0: (address_cachable && i_address_valid || i_cache_enable)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0007: applied. CSW(i_select<->i_cache_req) -> Instance @ line 300: u_wishbone ( .i_clk(i_clk), .i_select(sel_wb), .i_write_data(i_write_data), .i_write_enable(i_write_enable), .i_byte_enable(i_byte_enable...  ==>  Instance @ line 300: u_wishbone ( .i_clk(i_clk), .i_select(cache_wb_req), .i_write_data(i_write_data), .i_write_enable(i_write_enable), .i_byte_enable(i_byte_...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0008: applied. AVC(25->26) -> Assign @ line 251: assign address_cachable = in_cachable_mem(i_address) && i_cacheable_area[i_address[25:21]];  ==>  Assign @ line 251: assign address_cachable = in_cachable_mem(i_address) && i_cacheable_area[i_address[26:21]];",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0009: applied. LOR(Lor->Land) -> Lor @ line 267: (!i_system_rdy || wb_stall)  ==>  Land @ line 0: (!i_system_rdy && wb_stall)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0010: applied. AVC(32'hffeeddcc->32'hffeeddce) -> Assign @ line 260: assign o_read_data = (sel_cache)? cache_read_data : (sel_wb)? i_wb_dat : 32'hffeeddcc;  ==>  Assign @ line 260: assign o_read_data = (sel_cache)? cache_read_data : (sel_wb)? i_wb_dat : 32'hffeeddce;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0011: applied. LOR(And->Or) -> And @ line 292: (o_wb_stb & ~i_wb_ack)  ==>  Or @ line 0: (o_wb_stb | ~i_wb_ack)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "a23_core.v"
+      ],
+      "log": "M_0012: applied. CSW(i_fetch_stall<->o_cache_enable) -> Instance @ line 335: u_coprocessor ( .i_clk(i_clk), .i_fetch_stall(fetch_stall), .i_copro_opcode1(copro_opcode1), .i_copro_opcode2(copro_opcode2), .i_copro_cr...  ==>  Instance @ line 335: u_coprocessor ( .i_clk(i_clk), .i_fetch_stall(cache_enable), .i_copro_opcode1(copro_opcode1), .i_copro_opcode2(copro_opcode2), .i_copro_c...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "a23_core.v"
+      ],
+      "log": "M_0013: applied. CSW(i_read_data<->o_imm32) -> Instance @ line 192: u_decode ( .i_clk(i_clk), .i_read_data(read_data), .i_execute_address(execute_address), .i_adex(adex), .i_iabt(1'd0), .i_dabt(1'd0), .i_a...  ==>  Instance @ line 192: u_decode ( .i_clk(i_clk), .i_read_data(imm32), .i_execute_address(execute_address), .i_adex(adex), .i_iabt(1'd0), .i_dabt(1'd0), .i_abt_s...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "a23_core.v"
+      ],
+      "log": "M_0014: applied. CSW(i_address<->i_address_nxt) -> Instance @ line 160: u_fetch ( .i_clk(i_clk), .i_address({ execute_address[31:2], 2'd0 }), .i_address_valid(execute_address_valid), .i_address_nxt(execute_add...  ==>  Instance @ line 160: u_fetch ( .i_clk(i_clk), .i_address(execute_address_nxt), .i_address_valid(execute_address_valid), .i_address_nxt({ execute_address[31:2]...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0015: applied. AVC(0->2) -> NonblockingSubstitution @ line 127: disruptive_area <= i_copro_write_data[31:0];  ==>  NonblockingSubstitution @ line 127: disruptive_area <= i_copro_write_data[31:2];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0016: applied. DMI -> Partselect @ line 251: i_address[25:21]  ==>  Partselect @ line 251: i_address[24:20]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_coprocessor.v"
+      ],
+      "log": "M_0017: applied. AVC(4'd1->4'd0) -> Assign @ line 132: assign copro15_reg1_write = !i_fetch_stall && (i_copro_operation == 2'd2) && (i_copro_crn == 4'd1);  ==>  Assign @ line 132: assign copro15_reg1_write = !i_fetch_stall && (i_copro_operation == 2'd2) && (i_copro_crn == 4'd0);",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0018: applied. LOR(Land->Lor) -> Land @ line 251: (in_cachable_mem(i_address) && i_cacheable_area[i_address[25:21]])  ==>  Lor @ line 0: (in_cachable_mem(i_address) || i_cacheable_area[i_address[25:21]])",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/a23_fetch.v"
+      ],
+      "log": "M_0019: applied. CMC(swap) -> Cond @ line 261: ((sel_wb)? i_wb_dat : 32'hffeeddcc)  ==>  Cond @ line 261: ((sel_wb)? 32'hffeeddcc : i_wb_dat)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

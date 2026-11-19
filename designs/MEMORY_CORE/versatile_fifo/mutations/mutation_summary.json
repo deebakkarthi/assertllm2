@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/versatile_fifo",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0000: applied. LOR(Plus->Minus) -> Plus @ line 56: (qi + { { length - 1{ 1'b0 } }, 1'b1 })  ==>  Minus @ line 0: (qi - { { length - 1{ 1'b0 } }, 1'b1 })",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0001: applied. CSW(fifo_empty<->rclk) -> Instance @ line 70: cmp2 ( .wptr(b_wadr), .rptr(a_radr), .fifo_empty(a_fifo_empty), .fifo_full(b_fifo_full), .wclk(b_clk), .rclk(a_clk), .rst(b_rst) )  ==>  Instance @ line 70: cmp2 ( .wptr(b_wadr), .rptr(a_radr), .fifo_empty(a_clk), .fifo_full(b_fifo_full), .wclk(b_clk), .rclk(a_fifo_empty), .rst(b_rst) )",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0002: applied. AVC(1'b0->1'b1) -> Assign @ line 58: assign a_dpram_adr = (a_wr)? { 1'b0, a_wadr_bin } : { 1'b1, a_radr_bin };  ==>  Assign @ line 58: assign a_dpram_adr = (a_wr)? { 1'b1, a_wadr_bin } : { 1'b1, a_radr_bin };",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0003: applied. CCW(0<->1) -> Concat @ line 265: { wptr[N:N-1], rptr[N:N-1] }  ==>  Concat @ line 265: { rptr[N:N-1], wptr[N:N-1] }",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0004: applied. CSW(fifo_empty<->wclk) -> Instance @ line 66: cmp1 ( .wptr(a_wadr), .rptr(b_radr), .fifo_empty(b_fifo_empty), .fifo_full(a_fifo_full), .wclk(a_clk), .rclk(b_clk), .rst(a_rst) )  ==>  Instance @ line 66: cmp1 ( .wptr(a_wadr), .rptr(b_radr), .fifo_empty(a_clk), .fifo_full(a_fifo_full), .wclk(b_fifo_empty), .rclk(b_clk), .rst(a_rst) )",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0005: applied. CSW(we_a<->we_b) -> Instance @ line 61: dpram ( .d_a(a_d), .q_a(a_q), .adr_a(a_dpram_adr), .we_a(a_wr), .clk_a(a_clk), .d_b(b_d), .q_b(b_q), .adr_b(b_dpram_adr), .we_b(b_wr), .c...  ==>  Instance @ line 61: dpram ( .d_a(a_d), .q_a(a_q), .adr_a(a_dpram_adr), .we_a(b_wr), .clk_a(a_clk), .d_b(b_d), .q_b(b_q), .adr_b(b_dpram_adr), .we_b(a_wr), .c...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0006: applied. CSW(aset<->q) -> Instance @ line 288: dff_sr_empty0 ( .aclr(rst), .aset(async_full), .clock(wclk), .data(async_full), .q(fifo_full2) )  ==>  Instance @ line 288: dff_sr_empty0 ( .aclr(rst), .aset(fifo_full2), .clock(wclk), .data(async_full), .q(async_full) )",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0007: applied. CSW(aset<->q) -> Instance @ line 289: dff_sr_empty1 ( .aclr(rst), .aset(async_full), .clock(wclk), .data(fifo_full2), .q(fifo_full) )  ==>  Instance @ line 289: dff_sr_empty1 ( .aclr(rst), .aset(fifo_full), .clock(wclk), .data(fifo_full2), .q(async_full) )",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0008: applied. DMS -> Srl @ line 70: (q_next >> 1)  ==>  Srl @ line 70: (q_next >> 7) (new shift=7)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0009: applied. CMC(true_only) -> Cond @ line 59: ((b_wr)? { 1'b1, b_wadr_bin } : { 1'b0, b_radr_bin })  ==>  (cond removed)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0010: applied. CMC(true_only) -> Cond @ line 58: ((a_wr)? { 1'b0, a_wadr_bin } : { 1'b1, a_radr_bin })  ==>  (cond removed)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "async_fifo_dw_simplex_top.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b1->1'b0) -> Assign @ line 59: assign b_dpram_adr = (b_wr)? { 1'b1, b_wadr_bin } : { 1'b0, b_radr_bin };  ==>  Assign @ line 59: assign b_dpram_adr = (b_wr)? { 1'b0, b_wadr_bin } : { 1'b0, b_radr_bin };",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0012: applied. LOR(Eq->NotEq) -> Eq @ line 285: (wptr == rptr)  ==>  NotEq @ line 0: (wptr != rptr)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0013: applied. LOR(Eq->NotEq) -> Eq @ line 286: (wptr == rptr)  ==>  NotEq @ line 0: (wptr != rptr)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 60: qi <= { length{ 1'b0 } };  ==>  NonblockingSubstitution @ line 60: qi <= { length{ 1'b1 } };",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0015: applied. LOR(Srl->Sll) -> Srl @ line 70: (q_next >> 1)  ==>  Sll @ line 0: (q_next << 1)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0016: applied. CCW(0<->1) -> Concat @ line 252: { wptr[N:N-1], rptr[N:N-1] }  ==>  Concat @ line 252: { rptr[N:N-1], wptr[N:N-1] }",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b1->1'b0) -> Assign @ line 56: assign q_next = qi + { { length - 1{ 1'b0 } }, 1'b1 };  ==>  Assign @ line 56: assign q_next = qi + { { length - 1{ 1'b0 } }, 1'b0 };",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 67: q <= { length{ 1'b0 } };  ==>  NonblockingSubstitution @ line 67: q <= { length{ 1'b1 } };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/async_fifo_dw_simplex_actel.v"
+      ],
+      "log": "M_0019: applied. AVC(1->3) -> NonblockingSubstitution @ line 70: q <= (q_next >> 1) ^ q_next;  ==>  NonblockingSubstitution @ line 70: q <= (q_next >> 3) ^ q_next;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

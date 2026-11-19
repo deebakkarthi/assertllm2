@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/orsoc graphics accelerator",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0000: applied. SMC -> Block @ line 200: begin write_o <= 1'b0; if(ack_i) ack_o <= 1'b1; end  ==>  Block @ line 200: begin write_o <= 1'b1; if(ack_i) ack_o <= 1'b1; end",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 221: (write_i & blending_enable_i)  ==>  Or @ line 0: (write_i | blending_enable_i)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0002: applied. SMC -> Block @ line 158: begin ack_o <= 1'b0; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...  ==>  Block @ line 158: begin ack_o <= 1'b1; if(write_i) begin if(!blending_enable_i) begin pixel_x_o <= x_counter_i; pixel_y_o <= y_counter_i; pixel_z_o <= z_i;...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 145: pixel_x_o <= 1'b0;  ==>  NonblockingSubstitution @ line 145: pixel_x_o <= 1'b1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0004: applied. CMC(true_only) -> Cond @ line 94: ((color_depth_i == 2'b01)? target_size_x_i * y_counter_i + { 16'h0, x_counter_i } << 1 : target_size_x_i * y_counter_i + { 16'h0, x_count...  ==>  (cond removed)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_clip.v"
+      ],
+      "log": "M_0005: applied. CSW(color_depth_i<->mem_lsb_i) -> Instance @ line 114: memory_proc ( .color_depth_i(2'b01), .mem_i(z_data_i), .mem_lsb_i(cuvz_pixel_x_i[1:0]), .color_o(z_value_at_target32), .sel_o() )  ==>  Instance @ line 114: memory_proc ( .color_depth_i(cuvz_pixel_x_i[1:0]), .mem_i(z_data_i), .mem_lsb_i(2'b01), .color_o(z_value_at_target32), .sel_o() )",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_transform.v"
+      ],
+      "log": "M_0006: applied. CCW(0<->1) -> Concat @ line 206: { ty, zeroes }  ==>  Concat @ line 206: { zeroes, ty }",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0007: applied. AVC(5->6) -> Assign @ line 114: assign target_color_g = (color_depth_i == 2'b00)? dest_color[7:0] : (color_depth_i == 2'b01)? dest_color[10:5] : target_data_i[15:8];  ==>  Assign @ line 114: assign target_color_g = (color_depth_i == 2'b00)? dest_color[7:0] : (color_depth_i == 2'b01)? dest_color[10:6] : target_data_i[15:8];",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0008: applied. LOR(Or->And) -> Or @ line 196: (!wbm_busy_i | target_request_o)  ==>  And @ line 0: (!wbm_busy_i & target_request_o)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_clip.v"
+      ],
+      "log": "M_0009: applied. LOR(Or->And) -> Or @ line 171: ((raster_pixel_x_i < clip_pixel0_x_i) | (raster_pixel_y_i < clip_pixel0_y_i) | (raster_pixel_x_i >= clip_pixel1_x_i) | (raster_pixel_y_i ...  ==>  And @ line 0: (((raster_pixel_x_i < clip_pixel0_x_i) | (raster_pixel_y_i < clip_pixel0_y_i) | (raster_pixel_x_i >= clip_pixel1_x_i)) & (raster_pixel_y_...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_clip.v"
+      ],
+      "log": "M_0010: applied. CMC(true_only) -> Cond @ line 171: ((raster_write_i)? (raster_pixel_x_i < clip_pixel0_x_i) | (raster_pixel_y_i < clip_pixel0_y_i) | (raster_pixel_x_i >= clip_pixel1_x_i) | ...  ==>  (cond removed)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_fragment_processor.v"
+      ],
+      "log": "M_0011: applied. CSW(color_depth_i<->mem_lsb_i) -> Instance @ line 97: color_proc ( .color_depth_i(color_depth_i), .mem_i(texture_data_i), .mem_lsb_i(u_i[1:0]), .color_o(mem_conv_color_o), .sel_o() )  ==>  Instance @ line 97: color_proc ( .color_depth_i(u_i[1:0]), .mem_i(texture_data_i), .mem_lsb_i(color_depth_i), .color_o(mem_conv_color_o), .sel_o() )",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0012: applied. CMC(true_only) -> Cond @ line 107: ((color_depth_i == 2'b01)? pixel_color_i[4:0] : pixel_color_i[7:0])  ==>  (cond removed)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0013: applied. SMC -> Block @ line 142: begin ack_o <= 1'b0; write_o <= 1'b0; pixel_x_o <= 1'b0; pixel_y_o <= 1'b0; pixel_z_o <= 1'b0; pixel_color_o <= 1'b0; target_request_o <=...  ==>  Block @ line 142: begin ack_o <= 1'b1; write_o <= 1'b1; pixel_x_o <= 1'b1; pixel_y_o <= 1'b1; pixel_z_o <= 1'b1; pixel_color_o <= 1'b1; target_request_o <=...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0014: applied. AVC(31->33) -> Assign @ line 97: assign target_addr_o = target_base_i + pixel_offset[31:2];  ==>  Assign @ line 97: assign target_addr_o = target_base_i + pixel_offset[29:2];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_renderer.v"
+      ],
+      "log": "M_0015: applied. AVC(2'b00->2'b01) -> Assign @ line 74: assign pixel_offset = (color_depth_i == 2'b00)? target_size_x_i * pixel_y_i + pixel_x_i : (color_depth_i == 2'b01)? target_size_x_i * pix...  ==>  Assign @ line 74: assign pixel_offset = (color_depth_i == 2'b01)? target_size_x_i * pixel_y_i + pixel_x_i : (color_depth_i == 2'b01)? target_size_x_i * pix...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_renderer.v"
+      ],
+      "log": "M_0016: applied. CSW(color_depth_i<->x_lsb_i) -> Instance @ line 93: depth_proc ( .color_depth_i(2'b01), .color_i({ { point_width{ 1'b0 } }, pixel_z_i[point_width-1:0] }), .x_lsb_i(pixel_x_i[1:0]), .mem_o(z...  ==>  Instance @ line 93: depth_proc ( .color_depth_i(pixel_x_i[1:0]), .color_i({ { point_width{ 1'b0 } }, pixel_z_i[point_width-1:0] }), .x_lsb_i(2'b01), .mem_o(z...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0017: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 188: target_request_o <= 1'b0;  ==>  NonblockingSubstitution @ line 188: target_request_o <= 1'b1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0018: applied. AVC(4'b1111->4'b0000) -> NonblockingSubstitution @ line 150: target_sel_o <= 4'b1111;  ==>  NonblockingSubstitution @ line 150: target_sel_o <= 4'b0000;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfx_blender.v"
+      ],
+      "log": "M_0019: applied. AVC(2'b00->2'b01) -> Assign @ line 93: assign pixel_offset = (color_depth_i == 2'b00)? target_size_x_i * y_counter_i + { 16'h0, x_counter_i } : (color_depth_i == 2'b01)? target...  ==>  Assign @ line 93: assign pixel_offset = (color_depth_i == 2'b01)? target_size_x_i * y_counter_i + { 16'h0, x_counter_i } : (color_depth_i == 2'b01)? target...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_conmax_ip_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "wb_conmax_top.v"
+      ],
+      "log": "M_0000: applied. CSW(wb_we_i<->s3_ack_i) -> Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0_...  ==>  Instance @ line 1880: m0 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m0_data_i), .wb_data_o(m0_data_o), .wb_addr_i(m0_addr_i), .wb_sel_i(m0_sel_i), .wb_we_i(m0s...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0001: applied. CSE(4'd12<->4'd9) -> CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...  ==>  CaseStatement @ line 671: case(slv_sel) 4'd0: wb_err_o = s0_err_i; 4'd1: wb_err_o = s1_err_i; 4'd2: wb_err_o = s2_err_i; 4'd3: wb_err_o = s3_err_i; 4'd4: wb_err_o ...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0002: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 607: s11_cyc_o <= #1 1'b1;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0003: applied. CMC(false_only) -> Cond @ line 559: ((wb_cyc_i & !wb_stb_i)? s14_cyc_o : (slv_sel == 4'd14)? wb_cyc_i : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_slave_if.v"
+      ],
+      "log": "M_0004: applied. CSE(3'd7<->3'd0) -> CaseStatement @ line 453: case(mast_sel) 3'd0: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...  ==>  CaseStatement @ line 453: case(mast_sel) 3'd7: wb_cyc_o = m0_cyc_i & m0_cyc_r; 3'd1: wb_cyc_o = m1_cyc_i & m1_cyc_r; 3'd2: wb_cyc_o = m2_cyc_i & m2_cyc_r; 3'd3: wb...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_slave_if.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 455: (m1_cyc_i & m1_cyc_r)  ==>  Or @ line 0: (m1_cyc_i | m1_cyc_r)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_slave_if.v"
+      ],
+      "log": "M_0006: applied. LOR(And->Or) -> And @ line 461: (m7_cyc_i & m7_cyc_r)  ==>  Or @ line 0: (m7_cyc_i | m7_cyc_r)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "wb_conmax_top.v"
+      ],
+      "log": "M_0007: applied. CSW(wb_we_i<->s6_err_i) -> Instance @ line 2930: m6 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m6_data_i), .wb_data_o(m6_data_o), .wb_addr_i(m6_addr_i), .wb_sel_i(m6_sel_i), .wb_we_i(m6_...  ==>  Instance @ line 2930: m6 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m6_data_i), .wb_data_o(m6_data_o), .wb_addr_i(m6_addr_i), .wb_sel_i(m6_sel_i), .wb_we_i(m6s...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0008: applied. AVC(4'd10->4'd11) -> Assign @ line 636: assign s10_stb_o = (slv_sel == 4'd10)? wb_stb_i : 1'b0;  ==>  Assign @ line 636: assign s10_stb_o = (slv_sel == 4'd11)? wb_stb_i : 1'b0;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0009: applied. CMC(true_only) -> Cond @ line 558: ((wb_cyc_i & !wb_stb_i)? s13_cyc_o : (slv_sel == 4'd13)? wb_cyc_i : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "wb_conmax_top.v"
+      ],
+      "log": "M_0010: applied. CSW(wb_we_i<->s3_ack_i) -> Instance @ line 2405: m3 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m3_data_i), .wb_data_o(m3_data_o), .wb_addr_i(m3_addr_i), .wb_sel_i(m3_sel_i), .wb_we_i(m3_...  ==>  Instance @ line 2405: m3 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m3_data_i), .wb_data_o(m3_data_o), .wb_addr_i(m3_addr_i), .wb_sel_i(m3_sel_i), .wb_we_i(m3s...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0011: applied. CSE(4'd6<->4'd2) -> CaseStatement @ line 647: case(slv_sel) 4'd0: wb_ack_o = s0_ack_i; 4'd1: wb_ack_o = s1_ack_i; 4'd2: wb_ack_o = s2_ack_i; 4'd3: wb_ack_o = s3_ack_i; 4'd4: wb_ack_o ...  ==>  CaseStatement @ line 647: case(slv_sel) 4'd0: wb_ack_o = s0_ack_i; 4'd1: wb_ack_o = s1_ack_i; 4'd6: wb_ack_o = s2_ack_i; 4'd3: wb_ack_o = s3_ack_i; 4'd4: wb_ack_o ...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0012: applied. AVC(1'b0->1'b1) -> Assign @ line 638: assign s12_stb_o = (slv_sel == 4'd12)? wb_stb_i : 1'b0;  ==>  Assign @ line 638: assign s12_stb_o = (slv_sel == 4'd12)? wb_stb_i : 1'b1;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0013: applied. AVC(4'd2->4'd3) -> Assign @ line 547: assign s2_cyc_o_next = (wb_cyc_i & !wb_stb_i)? s2_cyc_o : (slv_sel == 4'd2)? wb_cyc_i : 1'b0;  ==>  Assign @ line 547: assign s2_cyc_o_next = (wb_cyc_i & !wb_stb_i)? s2_cyc_o : (slv_sel == 4'd3)? wb_cyc_i : 1'b0;",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0014: applied. AVC(4'd3->4'd4) -> Assign @ line 548: assign s3_cyc_o_next = (wb_cyc_i & !wb_stb_i)? s3_cyc_o : (slv_sel == 4'd3)? wb_cyc_i : 1'b0;  ==>  Assign @ line 548: assign s3_cyc_o_next = (wb_cyc_i & !wb_stb_i)? s3_cyc_o : (slv_sel == 4'd4)? wb_cyc_i : 1'b0;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0015: applied. CMC(swap) -> Cond @ line 549: ((wb_cyc_i & !wb_stb_i)? s4_cyc_o : (slv_sel == 4'd4)? wb_cyc_i : 1'b0)  ==>  Cond @ line 549: ((wb_cyc_i & !wb_stb_i)? (slv_sel == 4'd4)? wb_cyc_i : 1'b0 : s4_cyc_o)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "wb_conmax_top.v"
+      ],
+      "log": "M_0016: applied. CSW(wb_we_i<->s13_ack_i) -> Instance @ line 2755: m5 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m5_data_i), .wb_data_o(m5_data_o), .wb_addr_i(m5_addr_i), .wb_sel_i(m5_sel_i), .wb_we_i(m5_...  ==>  Instance @ line 2755: m5 ( .clk_i(clk_i), .rst_i(rst_i), .wb_data_i(m5_data_i), .wb_data_o(m5_data_o), .wb_addr_i(m5_addr_i), .wb_sel_i(m5_sel_i), .wb_we_i(m5s...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0017: applied. CSE(4'd4<->4'd12) -> CaseStatement @ line 695: case(slv_sel) 4'd0: wb_rty_o = s0_rty_i; 4'd1: wb_rty_o = s1_rty_i; 4'd2: wb_rty_o = s2_rty_i; 4'd3: wb_rty_o = s3_rty_i; 4'd4: wb_rty_o ...  ==>  CaseStatement @ line 695: case(slv_sel) 4'd0: wb_rty_o = s0_rty_i; 4'd1: wb_rty_o = s1_rty_i; 4'd2: wb_rty_o = s2_rty_i; 4'd3: wb_rty_o = s3_rty_i; 4'd12: wb_rty_o...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 619: s14_cyc_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 619: s14_cyc_o <= #1 1'b1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_conmax_master_if.v"
+      ],
+      "log": "M_0019: applied. CMC(true_only) -> Cond @ line 560: ((wb_cyc_i & !wb_stb_i)? s15_cyc_o : (slv_sel == 4'd15)? wb_cyc_i : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

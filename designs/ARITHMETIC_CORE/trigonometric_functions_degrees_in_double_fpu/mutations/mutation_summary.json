@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/trigonometric functions degrees in double fpu",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/cosecant.v"
+      ],
+      "log": "M_0000: applied. AVC(64'h4008928aa26c4c08->64'h4008928aa26c4c07) -> NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c08;  ==>  NonblockingSubstitution @ line 95: data[62:0] <= 64'h4008928aa26c4c07;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosecant.v"
+      ],
+      "log": "M_0001: applied. CSE(32'd26<->32'd54) -> CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...  ==>  CaseStatement @ line 72: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca63b6cba7b71; 32'd2: data[62:0] <= 64'h403ca7596e27...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosine.v"
+      ],
+      "log": "M_0002: applied. AVC(64'h3fe5698496e20bd8->64'h3fe5698496e20bd6) -> NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd8;  ==>  NonblockingSubstitution @ line 122: data[62:0] <= 64'h3fe5698496e20bd6;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosine.v"
+      ],
+      "log": "M_0003: applied. LOR(Lor->Land) -> Lor @ line 59: ((quad == 2'b01) || (quad == 2'b10))  ==>  Land @ line 0: ((quad == 2'b01) && (quad == 2'b10))",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sine.v"
+      ],
+      "log": "M_0004: applied. DIE -> Partselect @ line 121: data[62:0]  ==>  Partselect @ line 121: data[63:1]",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tangent.v"
+      ],
+      "log": "M_0005: applied. CSE(32'd72<->32'd86) -> CaseStatement @ line 70: case(degrees) 32'd0: data[62:0] <= 64'h0000000000000000; 32'd1: data[62:0] <= 64'h3f91dfbd9410a422; 32'd2: data[62:0] <= 64'h3fa1e12295d6...  ==>  CaseStatement @ line 70: case(degrees) 32'd0: data[62:0] <= 64'h0000000000000000; 32'd1: data[62:0] <= 64'h3f91dfbd9410a422; 32'd2: data[62:0] <= 64'h3fa1e12295d6...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "top.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 109: (actv == 3'b001)  ==>  NotEq @ line 0: (actv != 3'b001)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "top.v"
+      ],
+      "log": "M_0007: applied. LOR(Minus->Plus) -> Minus @ line 187: (32'd180 - degrees)  ==>  Plus @ line 0: (32'd180 + degrees)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "top.v"
+      ],
+      "log": "M_0008: applied. CMC(false_only) -> Cond @ line 111: ((actv == 3'b011)? enable : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosine.v"
+      ],
+      "log": "M_0009: applied. CSE(32'd77<->32'd79) -> CaseStatement @ line 70: case(degrees) 32'd0: data[62:0] <= 64'h3ff0000000000000; 32'd1: data[62:0] <= 64'h3feffec097f5af8a; 32'd2: data[62:0] <= 64'h3feffb0278bf...  ==>  CaseStatement @ line 70: case(degrees) 32'd0: data[62:0] <= 64'h3ff0000000000000; 32'd1: data[62:0] <= 64'h3feffec097f5af8a; 32'd2: data[62:0] <= 64'h3feffb0278bf...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosecant.v"
+      ],
+      "log": "M_0010: applied. LOR(Lor->Land) -> Lor @ line 61: ((quad == 2'b10) || (quad == 2'b11))  ==>  Land @ line 0: ((quad == 2'b10) && (quad == 2'b11))",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cotangent.v"
+      ],
+      "log": "M_0011: applied. CSE(32'd73<->32'd53) -> CaseStatement @ line 71: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca51d76749a71; 32'd2: data[62:0] <= 64'h403ca2e17ec2...  ==>  CaseStatement @ line 71: case(degrees) 32'd0: data[62:0] <= 64'h7ff0000000000000; 32'd1: data[62:0] <= 64'h404ca51d76749a71; 32'd2: data[62:0] <= 64'h403ca2e17ec2...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cotangent.v"
+      ],
+      "log": "M_0012: applied. LOR(Lor->Land) -> Lor @ line 58: ((quad == 2'b01) || (quad == 2'b11))  ==>  Land @ line 0: ((quad == 2'b01) && (quad == 2'b11))",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/secant.v"
+      ],
+      "log": "M_0013: applied. LOR(Eq->NotEq) -> Eq @ line 59: (quad == 2'b01)  ==>  NotEq @ line 0: (quad != 2'b01)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sine.v"
+      ],
+      "log": "M_0014: applied. LOR(Eq->NotEq) -> Eq @ line 61: (quad == 2'b11)  ==>  NotEq @ line 0: (quad != 2'b11)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tangent.v"
+      ],
+      "log": "M_0015: applied. LOR(Eq->NotEq) -> Eq @ line 59: (quad == 2'b11)  ==>  NotEq @ line 0: (quad != 2'b11)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosecant.v"
+      ],
+      "log": "M_0016: applied. DIE -> Partselect @ line 106: data[62:0]  ==>  Partselect @ line 106: data[63:1]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cosine.v"
+      ],
+      "log": "M_0017: applied. SMC -> Block @ line 60: begin data[63] <= 1'b1; end  ==>  Block @ line 60: begin data[63] <= 1'b0; end",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/cotangent.v"
+      ],
+      "log": "M_0018: applied. DMO -> Pointer @ line 60: data[63]  ==>  Pointer @ line 60: data[25] (new index=25)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/secant.v"
+      ],
+      "log": "M_0019: applied. DMO -> Pointer @ line 66: data[63]  ==>  Pointer @ line 66: data[12] (new index=12)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

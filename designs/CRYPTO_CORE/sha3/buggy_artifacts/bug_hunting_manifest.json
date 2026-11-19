@@ -1,0 +1,188 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "f_permutation.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SRA -> deleted Assign @ line 46: assign ack = accept;",
+      "target_line": 46
+    },
+    {
+      "changed_rtl_files": [
+        "f_permutation.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 56: ((accept)? { in ^ out[1599:1599-575], out[1599-576:0] } : out)  ==>  (cond removed)",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "f_permutation.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. TRA -> deleted Always @ line 36: always @(posedge clk) if(reset) i <= 0; else i <= { i[9:0], accept };",
+      "target_line": 36
+    },
+    {
+      "changed_rtl_files": [
+        "padder.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 42: (~state & in_ready)  ==>  Or @ line 0: (~state | in_ready)",
+      "target_line": 42
+    },
+    {
+      "changed_rtl_files": [
+        "padder.v"
+      ],
+      "mutant_id": "M_0007",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 80: (is_last == 0)  ==>  NotEq @ line 0: (is_last != 0)",
+      "target_line": 80
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "f_permutation.v",
+      "target_line": 36,
+      "mutation_log": "applied. TRA -> deleted Always @ line 36: always @(posedge clk) if(reset) i <= 0; else i <= { i[9:0], accept };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 33,
+            "base_end": 44,
+            "matched_start": 33,
+            "matched_end": 44
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "f_permutation.v",
+      "target_line": 46,
+      "mutation_log": "applied. SRA -> deleted Assign @ line 46: assign ack = accept;",
+      "applied": {
+        "mode": "deletion",
+        "deleted_line_index": 34
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "f_permutation.v",
+      "target_line": 56,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 56: ((accept)? { in ^ out[1599:1599-575], out[1599-576:0] } : out)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 55,
+            "base_end": 56,
+            "matched_start": 43,
+            "matched_end": 44
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "padder.v",
+      "target_line": 42,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 42: (~state & in_ready)  ==>  Or @ line 0: (~state | in_ready)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 44,
+            "base_end": 49,
+            "matched_start": 44,
+            "matched_end": 49
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0007",
+      "target_rtl_file": "padder.v",
+      "target_line": 80,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 80: (is_last == 0)  ==>  NotEq @ line 0: (is_last != 0)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 92,
+        "target_line": 80
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl/f_permutation.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl/keccak.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl/padder.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl/padder1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl/rconst2in1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/merged_buggy_rtl/round2in1.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. SRA -> deleted Assign @ line 46: assign ack = accept;",
+      "operator": "SRA",
+      "target_module": "f_permutation",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sha3/include/f_permutation.v",
+      "target_signal": "ack",
+      "target_signal_id": "f_permutation.ack"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. TRA -> deleted Always @ line 36: always @(posedge clk) if(reset) i <= 0; else i <= { i[9:0], accept };",
+      "operator": "TRA",
+      "target_module": "f_permutation",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sha3/include/f_permutation.v",
+      "target_signal": "clk",
+      "target_signal_id": "f_permutation.clk"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 56: ((accept)? { in ^ out[1599:1599-575], out[1599-576:0] } : out)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "f_permutation",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sha3/include/f_permutation.v",
+      "target_signal": "in",
+      "target_signal_id": "f_permutation.in"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 42: (~state & in_ready)  ==>  Or @ line 0: (~state | in_ready)",
+      "operator": "LOR",
+      "target_module": "padder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sha3/include/padder.v",
+      "target_signal": "in",
+      "target_signal_id": "padder.in"
+    },
+    {
+      "mutant_id": "M_0007",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 80: (is_last == 0)  ==>  NotEq @ line 0: (is_last != 0)",
+      "operator": "LOR",
+      "target_module": "padder",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sha3/include/padder.v",
+      "target_signal": "is_last",
+      "target_signal_id": "padder.is_last"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/sha3/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/sha3/mutations",
+  "top_module": "keccak",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/sha3/buggy_artifacts/consensus_merge_report"
+}

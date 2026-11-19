@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/vga_lcd_controller",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "vga_enh_top.v"
+      ],
+      "log": "M_0000: applied. CSW(ctrl_HSyncL<->ctrl_pc) -> Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_hsl), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thle...  ==>  Instance @ line 427: pixel_generator ( .clk_i(wb_clk_i), .ctrl_ven(ctrl_ven), .ctrl_HSyncL(ctrl_pc), .Thsync(Thsync), .Thgdel(Thgdel), .Thgate(Thgate), .Thlen...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "vga_enh_top.v"
+      ],
+      "log": "M_0001: applied. DIE -> Partselect @ line 421: wbs_dat_i[23:0]  ==>  Partselect @ line 421: wbs_dat_i[31:8]",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_csm_pb.v"
+      ],
+      "log": "M_0002: applied. LOR(And->Or) -> And @ line 120: (acc1 & !ack1_o)  ==>  Or @ line 0: (acc1 | !ack1_o)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_csm_pb.v"
+      ],
+      "log": "M_0003: applied. CMC(true_only) -> Cond @ line 133: ((sel0)? dat0_i : dat1_i)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_pgen.v"
+      ],
+      "log": "M_0004: applied. LOR(And->Or) -> And @ line 453: (ddImDoneFifoQ & !dImDoneFifoQ)  ==>  Or @ line 0: (ddImDoneFifoQ | !dImDoneFifoQ)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_pgen.v"
+      ],
+      "log": "M_0005: applied. AVC(4'h0->4'h2) -> Assign @ line 579: assign cc0_adr_o = 4'h0;  ==>  Assign @ line 579: assign cc0_adr_o = 4'h2;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_wb_master.v"
+      ],
+      "log": "M_0006: applied. DMS -> Srl @ line 292: (Thgate >> 2)  ==>  Srl @ line 292: (Thgate >> 6) (new shift=6)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_wb_master.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 428: begin cyc_o <= #1 wb_cycle; stb_o <= #1 wb_cycle; sel_o <= #1 4'b1111; if(wb_cycle) begin if(cur_acc) cti_o <= #1 (&next_cursor_adr[8:0])...  ==>  Block @ line 428: begin cyc_o <= #1 wb_cycle; stb_o <= #1 wb_cycle; sel_o <= #1 4'b1110; if(wb_cycle) begin if(cur_acc) cti_o <= #1 (&next_cursor_adr[8:0])...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "vga_enh_top.v"
+      ],
+      "log": "M_0008: applied. CSW(wclr<->wreq) -> Instance @ line 505: line_fifo ( .rclk(clk_p_i), .wclk(wb_clk_i), .rclr(1'b0), .wclr(ctrl_ven_not), .wreq(line_fifo_wreq), .d(line_fifo_d), .rreq(line_fifo_rr...  ==>  Instance @ line 505: line_fifo ( .rclk(clk_p_i), .wclk(wb_clk_i), .rclr(1'b0), .wclr(line_fifo_wreq), .wreq(ctrl_ven_not), .d(line_fifo_d), .rreq(line_fifo_rr...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_csm_pb.v"
+      ],
+      "log": "M_0009: applied. CMC(false_only) -> Cond @ line 134: ((sel0)? req0_i && we0_i : req1_i && we1_i)  ==>  (cond removed)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_pgen.v"
+      ],
+      "log": "M_0010: applied. AVC(4'h0->4'h1) -> Assign @ line 523: assign cc1_adr_o = 4'h0;  ==>  Assign @ line 523: assign cc1_adr_o = 4'h1;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_wb_master.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 409: begin cyc_o <= #1 1'b0; stb_o <= #1 1'b0; sel_o <= #1 4'b1111; cti_o <= #1 3'b000; bte_o <= #1 2'b00; we_o <= #1 1'b0; end  ==>  Block @ line 409: begin cyc_o <= #1 1'b1; stb_o <= #1 1'b1; sel_o <= #1 4'b1110; cti_o <= #1 3'b001; bte_o <= #1 2'b10; we_o <= #1 1'b1; end",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "vga_enh_top.v"
+      ],
+      "log": "M_0012: applied. CSW(cyc_o<->stb_o) -> Instance @ line 363: wbm ( .clk_i(wb_clk_i), .rst_i(wb_rst_i), .nrst_i(arst), .cyc_o(wbm_cyc_o), .stb_o(wbm_stb_o), .cti_o(wbm_cti_o), .bte_o(wbm_bte_o), .we_...  ==>  Instance @ line 363: wbm ( .clk_i(wb_clk_i), .rst_i(wb_rst_i), .nrst_i(arst), .cyc_o(wbm_stb_o), .stb_o(wbm_cyc_o), .cti_o(wbm_cti_o), .bte_o(wbm_bte_o), .we_...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_fifo_dc.v"
+      ],
+      "log": "M_0013: applied. LOR(And->Or) -> And @ line 202: (empty & (rptr_gray == sswptr_gray))  ==>  Or @ line 0: (empty | (rptr_gray == sswptr_gray))",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_pgen.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 355: eoh <= #1 1'b0;  ==>  NonblockingSubstitution @ line 355: eoh <= #1 1'b1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_wb_master.v"
+      ],
+      "log": "M_0015: applied. SMC -> Block @ line 419: begin cyc_o <= #1 1'b0; stb_o <= #1 1'b0; sel_o <= #1 4'b1111; cti_o <= #1 3'b000; bte_o <= #1 2'b00; we_o <= #1 1'b0; end  ==>  Block @ line 419: begin cyc_o <= #1 1'b1; stb_o <= #1 1'b1; sel_o <= #1 4'b1110; cti_o <= #1 3'b001; bte_o <= #1 2'b01; we_o <= #1 1'b1; end",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "vga_enh_top.v"
+      ],
+      "log": "M_0016: applied. CSW(arst_i<->cursor1_en) -> Instance @ line 295: wbs ( .clk_i(wb_clk_i), .rst_i(wb_rst_i), .arst_i(arst), .adr_i(wbs_adr_i[11:2]), .dat_i(wbs_dat_i), .dat_o(wbs_dat_o), .sel_i(wbs_sel_i)...  ==>  Instance @ line 295: wbs ( .clk_i(wb_clk_i), .rst_i(wb_rst_i), .arst_i(cursor0_ld), .adr_i(wbs_adr_i[11:2]), .dat_i(wbs_dat_i), .dat_o(wbs_dat_o), .sel_i(wbs_...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_pgen.v"
+      ],
+      "log": "M_0017: applied. LOR(And->Or) -> And @ line 609: (~line_fifo_full & ~rgb_fifo_empty)  ==>  Or @ line 0: (~line_fifo_full | ~rgb_fifo_empty)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/vga_wb_master.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 411: stb_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 411: stb_o <= #1 1'b1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "vga_enh_top.v"
+      ],
+      "log": "M_0019: applied. CSW(dat0_o<->dat1_i) -> Instance @ line 406: clut_mem ( .clk_i(wb_clk_i), .req0_i(cp_clut_req), .ack0_o(cp_clut_ack), .adr0_i(cp_clut_adr), .dat0_i(24'h0), .dat0_o(cp_clut_q), .we0_i...  ==>  Instance @ line 406: clut_mem ( .clk_i(wb_clk_i), .req0_i(cp_clut_req), .ack0_o(cp_clut_ack), .adr0_i(cp_clut_adr), .dat0_i(24'h0), .dat0_o(wbs_dat_i[23:0]), ...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

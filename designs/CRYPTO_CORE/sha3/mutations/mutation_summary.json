@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sha3",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0000: applied. SRA -> deleted Assign @ line 46: assign ack = accept;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0001: applied. TRA -> deleted Always @ line 36: always @(posedge clk) if(reset) i <= 0; else i <= { i[9:0], accept };",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0002: applied. CMC(false_only) -> Cond @ line 56: ((accept)? { in ^ out[1599:1599-575], out[1599-576:0] } : out)  ==>  (cond removed)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0003: applied. LOR(And->Or) -> And @ line 34: (in_ready & ~calc)  ==>  Or @ line 0: (in_ready | ~calc)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0004: applied. CMC(true_only) -> Cond @ line 56: ((accept)? { in ^ out[1599:1599-575], out[1599-576:0] } : out)  ==>  (cond removed)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0005: applied. TRA -> deleted Always @ line 48: always @(posedge clk) if(reset) out_ready <= 0; else if(accept) out_ready <= 0; else if(i[10]) out_ready <= 1;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0006: applied. LOR(And->Or) -> And @ line 42: (~state & in_ready)  ==>  Or @ line 0: (~state | in_ready)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0007: applied. LOR(Eq->NotEq) -> Eq @ line 80: (is_last == 0)  ==>  NotEq @ line 0: (is_last != 0)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0008: applied. LOR(And->Or) -> And @ line 68: (state & out_ready)  ==>  Or @ line 0: (state | out_ready)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0009: applied. TRA -> deleted Always @ line 65: always @(posedge clk) if(reset) done <= 0; else if(state & out_ready) done <= 1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0010: applied. LOR(And->Or) -> And @ line 43: ((accept | state & ~buffer_full) & ~done)  ==>  Or @ line 0: (accept | state & ~buffer_full | ~done)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0011: applied. LOR(And->Or) -> And @ line 55: ({ i[7:0], 1'b1 } & { 9{ ~f_ack } })  ==>  Or @ line 0: ({ i[7:0], 1'b1 } | { 9{ ~f_ack } })",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0012: applied. TRA -> deleted Always @ line 59: always @(posedge clk) if(reset) state <= 0; else if(is_last) state <= 1;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0013: applied. TRA -> deleted Always @ line 51: always @(posedge clk) if(reset) i <= 0; else if(f_ack | update) i <= { i[7:0], 1'b1 } & { 9{ ~f_ack } };",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0014: applied. TRA -> deleted Always @ line 45: always @(posedge clk) if(reset) out <= 0; else if(update) out <= { out[575-64:0], v1 };",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0015: applied. TRA -> deleted Always @ line 40: always @(posedge clk) if(reset) calc <= 0; else calc <= calc & ~i[10] | accept;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0016: applied. LOR(Or->And) -> Or @ line 54: (f_ack | update)  ==>  And @ line 0: (f_ack & update)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0017: applied. LOR(And->Or) -> And @ line 42: (~state & in_ready & ~buffer_full)  ==>  Or @ line 0: (~state & in_ready | ~buffer_full)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f_permutation.v"
+      ],
+      "log": "M_0018: applied. SRI -> deleted IfStatement @ line 53: if(i[10]) out_ready <= 1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/padder.v"
+      ],
+      "log": "M_0019: applied. SMC -> Block @ line 76: begin v1 = 0; v1[7] = v1[7] | i[7]; end  ==>  Block @ line 76: begin v1 = 1; v1[7] = v1[7] | i[7]; end",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

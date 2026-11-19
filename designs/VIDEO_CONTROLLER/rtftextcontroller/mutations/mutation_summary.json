@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/rtftextcontroller",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/HVCounter.v"
+      ],
+      "log": "M_0000: applied. LOR(Minus->Plus) -> Minus @ line 111: (12'h000 - cnt_offs)  ==>  Plus @ line 0: (12'h000 + cnt_offs)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/HVCounter.v"
+      ],
+      "log": "M_0001: applied. CSW(ent<->enp) -> Instance @ line 104: u2 ( .clk(vclk), .clr_n(!rst), .ent(nxp), .enp(1'b1), .ld_n(!sync), .d(12'h000 - cnt_offs), .q(ctr1), .rco() )  ==>  Instance @ line 104: u2 ( .clk(vclk), .clr_n(!rst), .ent(1'b1), .enp(nxp), .ld_n(!sync), .d(12'h000 - cnt_offs), .q(ctr1), .rco() )",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ParallelToSerial.v"
+      ],
+      "log": "M_0002: applied. AVC(1->2) -> NonblockingSubstitution @ line 55: q <= { q[WID-1:1], qin };  ==>  NonblockingSubstitution @ line 55: q <= { q[WID-1:2], qin };",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/VT151.v"
+      ],
+      "log": "M_0003: applied. CSE(4'b0000<->4'b0001) -> CaseStatement @ line 28: case({ e_n, s }) 4'b0000: z <= i0; 4'b0001: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...  ==>  CaseStatement @ line 28: case({ e_n, s }) 4'b0001: z <= i0; 4'b0000: z <= i1; 4'b0010: z <= i2; 4'b0011: z <= i3; 4'b0100: z <= i4; 4'b0101: z <= i5; 4'b0110: z <...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/VT163.v"
+      ],
+      "log": "M_0004: applied. LOR(Plus->Minus) -> Plus @ line 30: (q + { { WID - 1{ 1'b0 } }, 1'b1 })  ==>  Minus @ line 0: (q - { { WID - 1{ 1'b0 } }, 1'b1 })",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0005: applied. CSW(we<->rclk) -> Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(1'b0), .wrst(1'b0), .rclk(vclk), .radr({ txtOut, ...  ==>  Instance @ line 226: charRam0 ( .wclk(clk_i), .wadr(adr_i[11:0]), .i(dat_i), .wo(chdat_o), .wce(cs_rom), .we(vclk), .wrst(1'b0), .rclk(1'b0), .radr({ txtOut, ...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0006: applied. AVC(2->0) -> NonblockingSubstitution @ line 520: iblank <= (row >= numRows) || (col >= numCols + 2) || (col < 2);  ==>  NonblockingSubstitution @ line 520: iblank <= (row >= numRows) || (col >= numCols + 2) || (col < 0);",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0007: applied. CCW(2<->4) -> Concat @ line 527: { blank, iblank, border, bpix, pix }  ==>  Concat @ line 527: { blank, iblank, pix, bpix, border }",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/VT151.v"
+      ],
+      "log": "M_0008: applied. CCW(0<->1) -> Concat @ line 28: { e_n, s }  ==>  Concat @ line 28: { s, e_n }",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rtfColorROM.v"
+      ],
+      "log": "M_0009: applied. CSE(5'd18<->5'd8) -> CaseStatement @ line 70: case(code) 5'd0: color = 24'h10_10_10; 5'd1: color = 24'hFF_FF_FF; 5'd2: color = 24'hE0_40_40; 5'd3: color = 24'h60_FF_FF; 5'd4: color = ...  ==>  CaseStatement @ line 70: case(code) 5'd0: color = 24'h10_10_10; 5'd1: color = 24'hFF_FF_FF; 5'd2: color = 24'hE0_40_40; 5'd3: color = 24'h60_FF_FF; 5'd4: color = ...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ParallelToSerial.v"
+      ],
+      "log": "M_0010: applied. CCW(0<->1) -> Concat @ line 55: { q[WID-1:1], qin }  ==>  Concat @ line 55: { qin, q[WID-1:1] }",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/VT151.v"
+      ],
+      "log": "M_0011: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 37: z <= { WID{ 1'b0 } };  ==>  NonblockingSubstitution @ line 37: z <= { WID{ 1'b1 } };",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/VT163.v"
+      ],
+      "log": "M_0012: applied. LOR(And->Or) -> And @ line 29: (enp & ent)  ==>  Or @ line 0: (enp | ent)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0013: applied. CSW(wadr<->radr) -> Instance @ line 204: colorRam0 ( .wclk(clk_i), .wadr(adr_i[13:1]), .i(dat_i), .wo(cdat_o), .wce(cs_color), .we(we_i), .wrst(1'b0), .rclk(vclk), .radr(txtAddr[...  ==>  Instance @ line 204: colorRam0 ( .wclk(clk_i), .wadr(txtAddr[12:0]), .i(dat_i), .wo(cdat_o), .wce(cs_color), .we(we_i), .wrst(1'b0), .rclk(vclk), .radr(adr_i[...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/VT163.v"
+      ],
+      "log": "M_0014: applied. AVC(1->0) -> Assign @ line 21: assign rco = &{ q[WID:1], ent };  ==>  Assign @ line 21: assign rco = &{ q[WID:2], ent };",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/edge_det.v"
+      ],
+      "log": "M_0015: applied. LOR(Lor->Land) -> Lor @ line 27: (edge_rising || edge_falling)  ==>  Land @ line 0: (edge_rising && edge_falling)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0016: applied. AVC(16'h0000->16'h0001) -> NonblockingSubstitution @ line 169: dat_o <= 16'h0000;  ==>  NonblockingSubstitution @ line 169: dat_o <= 16'h0001;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0017: applied. CSW(sync<->nxt_pos) -> Instance @ line 430: uhv2 ( .rst(rst_i), .vclk(vclk), .pixcce(eol), .sync(eof), .cnt_offs(windowTop), .pixsz(pixelHeight), .maxpix(maxScanline), .nxt_pix(nvp)...  ==>  Instance @ line 430: uhv2 ( .rst(rst_i), .vclk(vclk), .pixcce(eol), .sync(nxt_row), .cnt_offs(windowTop), .pixsz(pixelHeight), .maxpix(maxScanline), .nxt_pix(...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0018: applied. LOR(And->Or) -> And @ line 455: (eol & eof)  ==>  Or @ line 0: (eol | eof)",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfTextController.v"
+      ],
+      "log": "M_0019: applied. CSW(vclk<->sync) -> Instance @ line 412: uhv1 ( .rst(rst_i), .vclk(vclk), .pixcce(1'b1), .sync(eol), .cnt_offs(windowLeft), .pixsz(pixelWidth), .maxpix(maxScanpix), .nxt_pix(nhp)...  ==>  Instance @ line 412: uhv1 ( .rst(rst_i), .vclk(eol), .pixcce(1'b1), .sync(vclk), .cnt_offs(windowLeft), .pixsz(pixelWidth), .maxpix(maxScanpix), .nxt_pix(nhp)...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

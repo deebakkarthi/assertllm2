@@ -1,0 +1,187 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "USFFT64_2B.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. CSW(START<->RDY) -> Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy3), .DR(dr3), .DI(di3), .RDY(rdy4), .DOR(dr4), .DOI(di4) )  ==>  Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy4), .DR(dr3), .DI(di3), .RDY(rdy3), .DOR(dr4), .DOI(di4) )",
+      "target_line": 185
+    },
+    {
+      "changed_rtl_files": [
+        "bufram64c1.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(ADDRW<->ADDRR) -> Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrw), .ADDRR(addrr), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )  ==>  Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrr), .ADDRR(addrw), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )",
+      "target_line": 177
+    },
+    {
+      "changed_rtl_files": [
+        "cnorm.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(2->1) -> NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]);  ==>  NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 1] != DI[nb + 1]);",
+      "target_line": 167
+    },
+    {
+      "changed_rtl_files": [
+        "cnorm.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 170: ((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb]) || (DR[nb + 2] != DR[nb + 1]))  ==>  Land @ line 0: (((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb])) && (DR[nb + 2] != DR[nb +...",
+      "target_line": 170
+    },
+    {
+      "changed_rtl_files": [
+        "cnorm.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 166: case(SHIFT) 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...  ==>  CaseStatement @ line 166: case(SHIFT) 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...",
+      "target_line": 166
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "USFFT64_2B.v",
+      "target_line": 185,
+      "mutation_log": "applied. CSW(START<->RDY) -> Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy3), .DR(dr3), .DI(di3), .RDY(rdy4), .DOR(dr4), .DOI(di4) )  ==>  Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy4), .DR(dr3), .DI(di3), .RDY(rdy3), .DOR(dr4), .DOI(di4) )",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "bufram64c1.v",
+      "target_line": 177,
+      "mutation_log": "applied. CSW(ADDRW<->ADDRR) -> Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrw), .ADDRR(addrr), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )  ==>  Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrr), .ADDRR(addrw), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 112,
+        "line_b": 112,
+        "token_a": "ADDRW",
+        "token_b": "ADDRR"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "cnorm.v",
+      "target_line": 166,
+      "mutation_log": "applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 166: case(SHIFT) 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...  ==>  CaseStatement @ line 166: case(SHIFT) 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          100,
+          108
+        ],
+        "token_a": "2'b01",
+        "token_b": "2'b10",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "cnorm.v",
+      "target_line": 167,
+      "mutation_log": "applied. AVC(2->1) -> NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]);  ==>  NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 1] != DI[nb + 1]);",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 93,
+            "base_end": 114
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "cnorm.v",
+      "target_line": 170,
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 170: ((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb]) || (DR[nb + 2] != DR[nb + 1]))  ==>  Land @ line 0: (((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb])) && (DR[nb + 2] != DR[nb +...",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 93,
+            "base_end": 114
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/USFFT64_2B.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/WROM64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/bufram64c1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/cnorm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/fft8.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/mpu707.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/ram2x64c_1.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/ram64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/merged_buggy_rtl/rotator64_v.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(ADDRW<->ADDRR) -> Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrw), .ADDRR(addrr), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )  ==>  Instance @ line 177: URAM ( .CLK(CLK), .ED(ED), .WE(we), .ODD(odd), .ADDRW(addrr), .ADDRR(addrw), .DR(DR), .DI(DI), .DOR(DOR), .DOI(DOI) )",
+      "operator": "CSW",
+      "target_module": "BUFRAM64C1",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/include/bufram64c1.v",
+      "target_signal": "CLK",
+      "target_signal_id": "BUFRAM64C1.CLK"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(2->1) -> NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]);  ==>  NonblockingSubstitution @ line 167: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 1] != DI[nb + 1]);",
+      "operator": "AVC",
+      "target_module": "CNORM",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/include/cnorm.v",
+      "target_signal": "DI",
+      "target_signal_id": "CNORM.DI"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 166: case(SHIFT) 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...  ==>  CaseStatement @ line 166: case(SHIFT) 2'b10: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]); 2'b01: OVF <= (DR[nb + 2] != DR[nb + 1]) || (DI[nb + ...",
+      "operator": "CSE",
+      "target_module": "CNORM",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/include/cnorm.v",
+      "target_signal": "DR",
+      "target_signal_id": "CNORM.DR"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(Lor->Land) -> Lor @ line 170: ((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb]) || (DR[nb + 2] != DR[nb + 1]))  ==>  Land @ line 0: (((DR[nb + 2] != DR[nb + 1]) || (DI[nb + 2] != DI[nb + 1]) || (DR[nb + 2] != DR[nb]) || (DI[nb + 2] != DI[nb])) && (DR[nb + 2] != DR[nb +...",
+      "operator": "LOR",
+      "target_module": "CNORM",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/include/cnorm.v",
+      "target_signal": "DR",
+      "target_signal_id": "CNORM.DR"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. CSW(START<->RDY) -> Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy3), .DR(dr3), .DI(di3), .RDY(rdy4), .DOR(dr4), .DOI(di4) )  ==>  Instance @ line 185: U_MPU ( .CLK(CLK), .RST(RST), .ED(ED), .START(rdy4), .DR(dr3), .DI(di3), .RDY(rdy3), .DOR(dr4), .DOI(di4) )",
+      "operator": "CSW",
+      "target_module": "USFFT64_2B",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/USFFT64_2B.v",
+      "target_signal": "CLK",
+      "target_signal_id": "USFFT64_2B.CLK"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/mutations",
+  "top_module": "USFFT64_2B",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pipelined_fft_ifft_64_points_processor/buggy_artifacts/consensus_merge_report"
+}

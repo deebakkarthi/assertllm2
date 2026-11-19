@@ -1,0 +1,176 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_aes/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "aes_128.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:0] };  ==>  Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:1] };",
+      "target_line": 74
+    },
+    {
+      "changed_rtl_files": [
+        "table.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 26: p1[31:16]  ==>  Partselect @ line 26: p1[30:15]",
+      "target_line": 26
+    },
+    {
+      "changed_rtl_files": [
+        "table.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(8'h1f<->8'h06) -> CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...  ==>  CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...",
+      "target_line": 65
+    },
+    {
+      "changed_rtl_files": [
+        "table.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 40: in[15:8]  ==>  Partselect @ line 40: in[23:16]",
+      "target_line": 40
+    },
+    {
+      "changed_rtl_files": [
+        "table.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 27: p2[31:8]  ==>  Partselect @ line 27: p2[23:0]",
+      "target_line": 27
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "aes_128.v",
+      "target_line": 74,
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:0] };  ==>  Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:1] };",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "table.v",
+      "target_line": 26,
+      "mutation_log": "applied. DMI -> Partselect @ line 26: p1[31:16]  ==>  Partselect @ line 26: p1[30:15]",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "table.v",
+      "target_line": 27,
+      "mutation_log": "applied. DIE -> Partselect @ line 27: p2[31:8]  ==>  Partselect @ line 27: p2[23:0]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 35,
+        "target_line": 27
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "table.v",
+      "target_line": 40,
+      "mutation_log": "applied. DIE -> Partselect @ line 40: in[15:8]  ==>  Partselect @ line 40: in[23:16]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 76,
+        "target_line": 40
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "table.v",
+      "target_line": 65,
+      "mutation_log": "applied. CSE(8'h1f<->8'h06) -> CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...  ==>  CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 169,
+            "base_end": 170,
+            "matched_start": 169,
+            "matched_end": 170
+          },
+          {
+            "base_start": 144,
+            "base_end": 145,
+            "matched_start": 144,
+            "matched_end": 145
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_aes/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_aes/buggy_artifacts/merged_buggy_rtl/aes_128.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_aes/buggy_artifacts/merged_buggy_rtl/round.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_aes/buggy_artifacts/merged_buggy_rtl/table.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:0] };  ==>  Assign @ line 74: assign v0 = { k0[31:24] ^ rcon, k0[23:1] };",
+      "operator": "AVC",
+      "target_module": "expand_key_128",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes/aes_128.v",
+      "target_signal": "rcon",
+      "target_signal_id": "expand_key_128.rcon"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 26: p1[31:16]  ==>  Partselect @ line 26: p1[30:15]",
+      "operator": "DMI",
+      "target_module": "table_lookup",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes/include/table.v",
+      "target_signal": "p1",
+      "target_signal_id": "table_lookup.p1"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 27: p2[31:8]  ==>  Partselect @ line 27: p2[23:0]",
+      "operator": "DIE",
+      "target_module": "table_lookup",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes/include/table.v",
+      "target_signal": "p2",
+      "target_signal_id": "table_lookup.p2"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSE(8'h1f<->8'h06) -> CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...  ==>  CaseStatement @ line 65: case(in) 8'h00: out <= 8'h63; 8'h01: out <= 8'h7c; 8'h02: out <= 8'h77; 8'h03: out <= 8'h7b; 8'h04: out <= 8'hf2; 8'h05: out <= 8'h6b; 8'...",
+      "operator": "CSE",
+      "target_module": "S",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes/include/table.v",
+      "target_signal": "in",
+      "target_signal_id": "S.in"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DIE -> Partselect @ line 40: in[15:8]  ==>  Partselect @ line 40: in[23:16]",
+      "operator": "DIE",
+      "target_module": "S4",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes/include/table.v",
+      "target_signal": "in",
+      "target_signal_id": "S4.in"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/tiny_aes/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/tiny_aes/mutations",
+  "top_module": "aes_128",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/tiny_aes/buggy_artifacts/consensus_merge_report"
+}

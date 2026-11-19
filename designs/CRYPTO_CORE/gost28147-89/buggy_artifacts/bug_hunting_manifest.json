@@ -1,0 +1,179 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "gost89_cfb.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 31: busy <= 1;  ==>  NonblockingSubstitution @ line 31: busy <= 2;",
+      "target_line": 31
+    },
+    {
+      "changed_rtl_files": [
+        "gost89_ecb.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->0) -> NonblockingSubstitution @ line 142: busy <= 1;  ==>  NonblockingSubstitution @ line 142: busy <= 0;",
+      "target_line": 142
+    },
+    {
+      "changed_rtl_files": [
+        "gost89_ecb.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(11<->20) -> CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...  ==>  CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...",
+      "target_line": 167
+    },
+    {
+      "changed_rtl_files": [
+        "gost89_ecb.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 151: (!reset && !load_data)  ==>  Lor @ line 0: (!reset || !load_data)",
+      "target_line": 151
+    },
+    {
+      "changed_rtl_files": [
+        "gost89_ecb.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 140: in[63:32]  ==>  Partselect @ line 140: in[62:31]",
+      "target_line": 140
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "gost89_cfb.v",
+      "target_line": 31,
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 31: busy <= 1;  ==>  NonblockingSubstitution @ line 31: busy <= 2;",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "gost89_ecb.v",
+      "target_line": 140,
+      "mutation_log": "applied. DMI -> Partselect @ line 140: in[63:32]  ==>  Partselect @ line 140: in[62:31]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 164,
+        "target_line": 140
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "gost89_ecb.v",
+      "target_line": 142,
+      "mutation_log": "applied. AVC(1->0) -> NonblockingSubstitution @ line 142: busy <= 1;  ==>  NonblockingSubstitution @ line 142: busy <= 0;",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "gost89_ecb.v",
+      "target_line": 151,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 151: (!reset && !load_data)  ==>  Lor @ line 0: (!reset || !load_data)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 173,
+        "target_line": 151
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "gost89_ecb.v",
+      "target_line": 167,
+      "mutation_log": "applied. CSE(11<->20) -> CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...  ==>  CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 209,
+            "base_end": 210,
+            "matched_start": 209,
+            "matched_end": 210
+          },
+          {
+            "base_start": 200,
+            "base_end": 201,
+            "matched_start": 200,
+            "matched_end": 201
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl/gost89_cfb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl/gost89_ecb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl/gost89_mac.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl/gost89_pipelined_ecb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl/gost89_round.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/merged_buggy_rtl/gost89_sbox.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1->0) -> NonblockingSubstitution @ line 142: busy <= 1;  ==>  NonblockingSubstitution @ line 142: busy <= 0;",
+      "operator": "AVC",
+      "target_module": "gost89_ecb_encrypt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/include/gost89_ecb.v",
+      "target_signal": "busy",
+      "target_signal_id": "gost89_ecb_encrypt.busy"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMI -> Partselect @ line 140: in[63:32]  ==>  Partselect @ line 140: in[62:31]",
+      "operator": "DMI",
+      "target_module": "gost89_ecb_encrypt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/include/gost89_ecb.v",
+      "target_signal": "in",
+      "target_signal_id": "gost89_ecb_encrypt.in"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(11<->20) -> CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...  ==>  CaseStatement @ line 167: case(round_num) 0: round_key <= key[255:224]; 1: round_key <= key[223:192]; 2: round_key <= key[191:160]; 3: round_key <= key[159:128]; 4...",
+      "operator": "CSE",
+      "target_module": "gost89_ecb_encrypt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/include/gost89_ecb.v",
+      "target_signal": "key",
+      "target_signal_id": "gost89_ecb_encrypt.key"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 151: (!reset && !load_data)  ==>  Lor @ line 0: (!reset || !load_data)",
+      "operator": "LOR",
+      "target_module": "gost89_ecb_encrypt",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/include/gost89_ecb.v",
+      "target_signal": "load_data",
+      "target_signal_id": "gost89_ecb_encrypt.load_data"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1->2) -> NonblockingSubstitution @ line 31: busy <= 1;  ==>  NonblockingSubstitution @ line 31: busy <= 2;",
+      "operator": "AVC",
+      "target_module": "gost89_cfb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/gost89_cfb.v",
+      "target_signal": "busy",
+      "target_signal_id": "gost89_cfb.busy"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/gost28147-89/mutations",
+  "top_module": "gost89_cfb",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/gost28147-89/buggy_artifacts/consensus_merge_report"
+}

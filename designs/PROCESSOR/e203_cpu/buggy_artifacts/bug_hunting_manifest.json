@@ -1,0 +1,232 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "e203_clk_ctrl.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 967: (core_cgstop | core_biu_active)  ==>  And @ line 0: (core_cgstop & core_biu_active)",
+      "target_line": 967
+    },
+    {
+      "changed_rtl_files": [
+        "e203_clk_ctrl.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 966: (core_cgstop | core_lsu_active)  ==>  And @ line 0: (core_cgstop & core_lsu_active)",
+      "target_line": 966
+    },
+    {
+      "changed_rtl_files": [
+        "e203_core.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> Instance @ line 1639: u_e203_biu ( .biu_active(biu_active), .lsu2biu_icb_cmd_valid(lsu2biu_icb_cmd_valid), .lsu2biu_icb_cmd_ready(lsu2biu_icb_cmd_ready), .lsu2biu_icb_cmd_addr(... .ifu2biu_icb_cmd_lock(1'b0)...  ==>  Instance @ line 1639: u_e203_biu ( .biu_active(biu_active), .lsu2biu_icb_cmd_valid(lsu2biu_icb_cmd_valid), .lsu2biu_icb_cmd_ready(lsu2biu_icb_cmd_ready), .lsu2biu_icb_cmd_addr(... .ifu2biu_icb_cmd_lock(1'b1)...",
+      "target_line": 1639
+    },
+    {
+      "changed_rtl_files": [
+        "e203_core.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(commit_mret<->i_ready) -> Instance @ line 1369: u_e203_exu ( .excp_active(excp_active), .commit_mret(commit_mret), .commit_trap(commit_trap), .test_mode(test_mode), .core_wfi(core_wfi),...  ==>  Instance @ line 1369: u_e203_exu ( .excp_active(excp_active), .commit_mret(dec2ifu_remu), .commit_trap(commit_trap), .test_mode(test_mode), .core_wfi(core_wfi)...",
+      "target_line": 1369
+    },
+    {
+      "changed_rtl_files": [
+        "e203_core.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(itcm_nohold<->ifu_o_misalgn) -> Instance @ line 1259: u_e203_ifu ( .inspect_pc(inspect_pc), .ifu_active(ifu_active), .pc_rtvec(pc_rtvec), .itcm_nohold(itcm_nohold), .ifu2itcm_holdup(ifu2itcm_...  ==>  Instance @ line 1259: u_e203_ifu ( .inspect_pc(inspect_pc), .ifu_active(ifu_active), .pc_rtvec(pc_rtvec), .itcm_nohold(dec2ifu_mulhsu), .ifu2itcm_holdup(ifu2it...",
+      "target_line": 1259
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "e203_clk_ctrl.v",
+      "target_line": 966,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 966: (core_cgstop | core_lsu_active)  ==>  And @ line 0: (core_cgstop & core_lsu_active)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 73,
+            "base_end": 74,
+            "matched_start": 73,
+            "matched_end": 74
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "e203_clk_ctrl.v",
+      "target_line": 967,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 967: (core_cgstop | core_biu_active)  ==>  And @ line 0: (core_cgstop & core_biu_active)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 76,
+        "target_line": 967
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "e203_core.v",
+      "target_line": 1259,
+      "mutation_log": "applied. CSW(itcm_nohold<->ifu_o_misalgn) -> Instance @ line 1259: u_e203_ifu ( .inspect_pc(inspect_pc), .ifu_active(ifu_active), .pc_rtvec(pc_rtvec), .itcm_nohold(itcm_nohold), .ifu2itcm_holdup(ifu2itcm_...  ==>  Instance @ line 1259: u_e203_ifu ( .inspect_pc(inspect_pc), .ifu_active(ifu_active), .pc_rtvec(pc_rtvec), .itcm_nohold(dec2ifu_mulhsu), .ifu2itcm_holdup(ifu2it...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 381,
+        "line_b": 417,
+        "token_a": "itcm_nohold",
+        "token_b": "ifu_o_misalgn"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "e203_core.v",
+      "target_line": 1369,
+      "mutation_log": "applied. CSW(commit_mret<->i_ready) -> Instance @ line 1369: u_e203_exu ( .excp_active(excp_active), .commit_mret(commit_mret), .commit_trap(commit_trap), .test_mode(test_mode), .core_wfi(core_wfi),...  ==>  Instance @ line 1369: u_e203_exu ( .excp_active(excp_active), .commit_mret(dec2ifu_remu), .commit_trap(commit_trap), .test_mode(test_mode), .core_wfi(core_wfi)...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 498,
+        "line_b": 540,
+        "token_a": "commit_mret",
+        "token_b": "i_ready"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "e203_core.v",
+      "target_line": 1639,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> Instance @ line 1639: u_e203_biu ( .biu_active(biu_active), .lsu2biu_icb_cmd_valid(lsu2biu_icb_cmd_valid), .lsu2biu_icb_cmd_ready(lsu2biu_icb_cmd_ready), .lsu2biu_icb_cmd_addr(... .ifu2biu_icb_cmd_lock(1'b0)...  ==>  Instance @ line 1639: u_e203_biu ( .biu_active(biu_active), .lsu2biu_icb_cmd_valid(lsu2biu_icb_cmd_valid), .lsu2biu_icb_cmd_ready(lsu2biu_icb_cmd_ready), .lsu2biu_icb_cmd_addr(... .ifu2biu_icb_cmd_lock(1'b1)...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 910,
+            "base_end": 914,
+            "matched_start": 910,
+            "matched_end": 914
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/config.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_biu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_clk_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_clkgate.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_cpu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_dtcm_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu_bjp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu_csrctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu_dpath.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu_lsuagu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu_muldiv.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_alu_rglr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_branchslv.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_commit.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_csr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_decode.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_disp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_excp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_longpwbck.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_nice.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_oitf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_regfile.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_exu_wbck.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_ifu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_ifu_ifetch.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_ifu_ift2icb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_ifu_litebpu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_ifu_minidec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_irq_sync.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_itcm_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_lsu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_lsu_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_reset_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/e203_subsys_nice_core.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/sirv_1cyc_sram_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/sirv_gnrl_bufs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/sirv_gnrl_dffs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/sirv_gnrl_icbs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/sirv_gnrl_xchecker.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/merged_buggy_rtl/sirv_sram_icb_ctrl.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 967: (core_cgstop | core_biu_active)  ==>  And @ line 0: (core_cgstop & core_biu_active)",
+      "operator": "LOR",
+      "target_module": "e203_clk_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/e203_cpu/include/e203_clk_ctrl.v",
+      "target_signal": "core_biu_active",
+      "target_signal_id": "e203_clk_ctrl.core_biu_active"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> Instance @ line 1639: u_e203_biu ( .biu_active(biu_active), .lsu2biu_icb_cmd_valid(lsu2biu_icb_cmd_valid), .lsu2biu_icb_cmd_ready(lsu2biu_icb_cmd_ready), .lsu2biu_icb_cmd_addr(... .ifu2biu_icb_cmd_lock(1'b0)...  ==>  Instance @ line 1639: u_e203_biu ( .biu_active(biu_active), .lsu2biu_icb_cmd_valid(lsu2biu_icb_cmd_valid), .lsu2biu_icb_cmd_ready(lsu2biu_icb_cmd_ready), .lsu2biu_icb_cmd_addr(... .ifu2biu_icb_cmd_lock(1'b1)...",
+      "operator": "CSW",
+      "target_module": "e203_core",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/e203_cpu/include/e203_core.v",
+      "target_signal": "clint_icb_cmd_addr",
+      "target_signal_id": "e203_core.clint_icb_cmd_addr"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 966: (core_cgstop | core_lsu_active)  ==>  And @ line 0: (core_cgstop & core_lsu_active)",
+      "operator": "LOR",
+      "target_module": "e203_clk_ctrl",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/e203_cpu/include/e203_clk_ctrl.v",
+      "target_signal": "core_cgstop",
+      "target_signal_id": "e203_clk_ctrl.core_cgstop"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(commit_mret<->i_ready) -> Instance @ line 1369: u_e203_exu ( .excp_active(excp_active), .commit_mret(commit_mret), .commit_trap(commit_trap), .test_mode(test_mode), .core_wfi(core_wfi),...  ==>  Instance @ line 1369: u_e203_exu ( .excp_active(excp_active), .commit_mret(dec2ifu_remu), .commit_trap(commit_trap), .test_mode(test_mode), .core_wfi(core_wfi)...",
+      "operator": "CSW",
+      "target_module": "e203_core",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/e203_cpu/include/e203_core.v",
+      "target_signal": "clk_aon",
+      "target_signal_id": "e203_core.clk_aon"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(itcm_nohold<->ifu_o_misalgn) -> Instance @ line 1259: u_e203_ifu ( .inspect_pc(inspect_pc), .ifu_active(ifu_active), .pc_rtvec(pc_rtvec), .itcm_nohold(itcm_nohold), .ifu2itcm_holdup(ifu2itcm_...  ==>  Instance @ line 1259: u_e203_ifu ( .inspect_pc(inspect_pc), .ifu_active(ifu_active), .pc_rtvec(pc_rtvec), .itcm_nohold(dec2ifu_mulhsu), .ifu2itcm_holdup(ifu2it...",
+      "operator": "CSW",
+      "target_module": "e203_core",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/e203_cpu/include/e203_core.v",
+      "target_signal": "clk_core_ifu",
+      "target_signal_id": "e203_core.clk_core_ifu"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/mutations",
+  "top_module": "e203_cpu",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0001",
+        "rtl_name": "e203_core.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/e203_cpu/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0000: applied. AVC(0->1) -> NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:1];",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0001: applied. AVC(13->11) -> NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[11:0];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0002: applied. CMC(swap) -> Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b1 : 1'b0)  ==>  Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b0 : 1'b1)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0003: applied. CMC(false_only) -> Cond @ line 120: (((PWRITE == 1'b0) & (PENABLE == 1'b1) & (PADDR == 32'd4) & (PSELx == 1'b1))? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0004: applied. AVC(1'b1->1'b0) -> Assign @ line 123: assign PREADY = (((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1...  ==>  Assign @ line 123: assign PREADY = (((WR_ENA == 1'b0) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 117: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) & (PSELx == 1'b1))  ==>  Or @ line 0: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) | (PSELx == 1'b1))",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/module_i2c.v"
+      ],
+      "log": "M_0006: applied. CMC(true_only) -> Cond @ line 121: ((fifo_tx_f_empty == 1'b1)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/module_i2c.v"
+      ],
+      "log": "M_0007: applied. LOR(Land->Lor) -> Land @ line 790: ((DATA_CONFIG_REG[0] == 1'b1) && ((fifo_tx_f_empty == 1'b0) && (fifo_tx_f_full == 1'b0) || (fifo_tx_f_full == 1'b1)) && (DATA_CONFIG_REG[...  ==>  Lor @ line 0: ((DATA_CONFIG_REG[0] == 1'b1) && ((fifo_tx_f_empty == 1'b0) && (fifo_tx_f_full == 1'b0) || (fifo_tx_f_full == 1'b1)) || (DATA_CONFIG_REG[...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c.v"
+      ],
+      "log": "M_0008: applied. CSW(wr_en<->rd_en) -> Instance @ line 158: DUT_FIFO_RX ( .clock(PCLK), .reset(RESET_N), .wr_en(RX_WRITE_ENA), .rd_en(RX_RD_EN), .data_in(RX_DATA_IN), .f_full(RX_F_FULL), .f_empty(R...  ==>  Instance @ line 158: DUT_FIFO_RX ( .clock(PCLK), .reset(RESET_N), .wr_en(RX_RD_EN), .rd_en(RX_WRITE_ENA), .data_in(RX_DATA_IN), .f_full(RX_F_FULL), .f_empty(R...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c.v"
+      ],
+      "log": "M_0009: applied. LOR(Eq->NotEq) -> Eq @ line 104: (PRESETn == 0)  ==>  NotEq @ line 0: (PRESETn != 0)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "i2c.v"
+      ],
+      "log": "M_0010: applied. CSW(fifo_rx_wr_en<->fifo_tx_f_full) -> Instance @ line 197: DUT_I2C_INTERNAL_RX_TX ( .PCLK(PCLK), .PRESETn(PRESETn), .fifo_rx_wr_en(RX_WRITE_ENA), .fifo_rx_f_empty(RX_F_EMPTY), .fifo_rx_data_in(RX_...  ==>  Instance @ line 197: DUT_I2C_INTERNAL_RX_TX ( .PCLK(PCLK), .PRESETn(PRESETn), .fifo_rx_wr_en(TX_F_FULL), .fifo_rx_f_empty(RX_F_EMPTY), .fifo_rx_data_in(RX_DAT...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0011: applied. AVC(32'd0->32'd1) -> Assign @ line 126: assign WRITE_DATA_ON_TX = (PADDR == 32'd0)? PWDATA : PWDATA;  ==>  Assign @ line 126: assign WRITE_DATA_ON_TX = (PADDR == 32'd1)? PWDATA : PWDATA;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0012: applied. AVC(1'b0->1'b1) -> Assign @ line 117: assign WR_ENA = ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) & (PSELx == 1'b1))? 1'b1 : 1'b0;  ==>  Assign @ line 117: assign WR_ENA = ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) & (PSELx == 1'b1))? 1'b1 : 1'b1;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0013: applied. LOR(Eq->NotEq) -> Eq @ line 153: (PREADY == 1'b1)  ==>  NotEq @ line 0: (PREADY != 1'b1)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0014: applied. CMC(false_only) -> Cond @ line 129: ((PADDR == 32'd4)? READ_DATA_ON_RX : READ_DATA_ON_RX)  ==>  (cond removed)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0015: applied. LOR(Or->And) -> Or @ line 123: ((WR_ENA == 1'b1) | (RD_ENA == 1'b1))  ==>  And @ line 0: ((WR_ENA == 1'b1) & (RD_ENA == 1'b1))",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/module_i2c.v"
+      ],
+      "log": "M_0016: applied. LOR(Land->Lor) -> Land @ line 2587: (((fifo_rx_f_full == 1'b0) && (fifo_rx_f_empty == 1'b0) || (fifo_rx_f_full == 1'b0) && (fifo_rx_f_empty == 1'b1)) && (DATA_CONFIG_REG[1] ...  ==>  Lor @ line 0: ((fifo_rx_f_full == 1'b0) && (fifo_rx_f_empty == 1'b0) || (fifo_rx_f_full == 1'b0) && (fifo_rx_f_empty == 1'b1) || (DATA_CONFIG_REG[1] ==...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/apb.v"
+      ],
+      "log": "M_0017: applied. AVC(32'd4->32'd5) -> Assign @ line 129: assign PRDATA = (PADDR == 32'd4)? READ_DATA_ON_RX : READ_DATA_ON_RX;  ==>  Assign @ line 129: assign PRDATA = (PADDR == 32'd5)? READ_DATA_ON_RX : READ_DATA_ON_RX;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/module_i2c.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> Assign @ line 2025: assign ENABLE_SCL = ((state_rx == RESPONSE_CIN) || (state_rx == RESPONSE_ADDRESS) || (state_rx == RESPONSE_DATA0_1) || (state_rx == RESPO...  ==>  Assign @ line 2025: assign ENABLE_SCL = ((state_rx == RESPONSE_CIN) || (state_rx == RESPONSE_ADDRESS) || (state_rx == RESPONSE_DATA0_1) || (state_rx == RESPO...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/module_i2c.v"
+      ],
+      "log": "M_0019: applied. AVC(1'b1->1'b0) -> Assign @ line 2015: assign ENABLE_SDA = ((state_rx == RESPONSE_CIN) || (state_rx == RESPONSE_ADDRESS) || (state_rx == RESPONSE_DATA0_1) || (state_rx == RESPO...  ==>  Assign @ line 2015: assign ENABLE_SDA = ((state_rx == RESPONSE_CIN) || (state_rx == RESPONSE_ADDRESS) || (state_rx == RESPONSE_DATA0_1) || (state_rx == RESPO...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

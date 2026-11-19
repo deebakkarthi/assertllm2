@@ -1,0 +1,186 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "hpdmc_busif.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(3->5) -> Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:3];  ==>  Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:5];",
+      "target_line": 43
+    },
+    {
+      "changed_rtl_files": [
+        "hpdmc_busif.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 41: (fml_stb & mgmt_stb_en)  ==>  Or @ line 0: (fml_stb | mgmt_stb_en)",
+      "target_line": 41
+    },
+    {
+      "changed_rtl_files": [
+        "hpdmc_ctlif.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b01: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b10: csr_do <= { ti...  ==>  CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b10: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b01: csr_do <= { ti...",
+      "target_line": 147
+    },
+    {
+      "changed_rtl_files": [
+        "hpdmc_ctlif.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 99: begin sdram_cs_n <= 1'b1; sdram_we_n <= 1'b1; sdram_cas_n <= 1'b1; sdram_ras_n <= 1'b1; idelay_rst <= 1'b0; idelay_ce <= 1'b0; idelay_inc...  ==>  Block @ line 99: begin sdram_cs_n <= 1'b0; sdram_we_n <= 1'b0; sdram_cas_n <= 1'b0; sdram_ras_n <= 1'b0; idelay_rst <= 1'b1; idelay_ce <= 1'b1; idelay_inc...",
+      "target_line": 99
+    },
+    {
+      "changed_rtl_files": [
+        "hpdmc_ctlif.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(2'd0->2'd2) -> NonblockingSubstitution @ line 91: sdram_ba <= 2'd0;  ==>  NonblockingSubstitution @ line 91: sdram_ba <= 2'd2;",
+      "target_line": 91
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "hpdmc_busif.v",
+      "target_line": 41,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 41: (fml_stb & mgmt_stb_en)  ==>  Or @ line 0: (fml_stb | mgmt_stb_en)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 40,
+        "target_line": 41
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "hpdmc_busif.v",
+      "target_line": 43,
+      "mutation_log": "applied. AVC(3->5) -> Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:3];  ==>  Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:5];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 42,
+        "target_line": 43
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "hpdmc_ctlif.v",
+      "target_line": 91,
+      "mutation_log": "applied. AVC(2'd0->2'd2) -> NonblockingSubstitution @ line 91: sdram_ba <= 2'd0;  ==>  NonblockingSubstitution @ line 91: sdram_ba <= 2'd2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 90,
+        "target_line": 91
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "hpdmc_ctlif.v",
+      "target_line": 99,
+      "mutation_log": "applied. SMC -> Block @ line 99: begin sdram_cs_n <= 1'b1; sdram_we_n <= 1'b1; sdram_cas_n <= 1'b1; sdram_ras_n <= 1'b1; idelay_rst <= 1'b0; idelay_ce <= 1'b0; idelay_inc...  ==>  Block @ line 99: begin sdram_cs_n <= 1'b0; sdram_we_n <= 1'b0; sdram_cas_n <= 1'b0; sdram_ras_n <= 1'b0; idelay_rst <= 1'b1; idelay_ce <= 1'b1; idelay_inc...",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 81,
+            "base_end": 155
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "hpdmc_ctlif.v",
+      "target_line": 147,
+      "mutation_log": "applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b01: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b10: csr_do <= { ti...  ==>  CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b10: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b01: csr_do <= { ti...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          145,
+          151
+        ],
+        "token_a": "2'b01",
+        "token_b": "2'b10",
+        "changed_lines": 2
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_banktimer.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_busif.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_ctlif.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_datactl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_ddrio.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_iddr32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_iobuf32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_mgmt.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_obuft4.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_oddr32.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/merged_buggy_rtl/hpdmc_oddr4.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(3->5) -> Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:3];  ==>  Assign @ line 43: assign mgmt_address = fml_adr[sdram_depth-1:5];",
+      "operator": "AVC",
+      "target_module": "hpdmc_busif",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/hpdmc/include/hpdmc_busif.v",
+      "target_signal": "fml_adr",
+      "target_signal_id": "hpdmc_busif.fml_adr"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 41: (fml_stb & mgmt_stb_en)  ==>  Or @ line 0: (fml_stb | mgmt_stb_en)",
+      "operator": "LOR",
+      "target_module": "hpdmc_busif",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/hpdmc/include/hpdmc_busif.v",
+      "target_signal": "mgmt_stb",
+      "target_signal_id": "hpdmc_busif.mgmt_stb"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b01: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b10: csr_do <= { ti...  ==>  CaseStatement @ line 147: case(csr_a[1:0]) 2'b00: csr_do <= { sdram_cke, sdram_rst, bypass }; 2'b10: csr_do <= { sdram_ba, sdram_adr, 4'h0 }; 2'b01: csr_do <= { ti...",
+      "operator": "CSE",
+      "target_module": "hpdmc_ctlif",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/hpdmc/include/hpdmc_ctlif.v",
+      "target_signal": "csr_do",
+      "target_signal_id": "hpdmc_ctlif.csr_do"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. SMC -> Block @ line 99: begin sdram_cs_n <= 1'b1; sdram_we_n <= 1'b1; sdram_cas_n <= 1'b1; sdram_ras_n <= 1'b1; idelay_rst <= 1'b0; idelay_ce <= 1'b0; idelay_inc...  ==>  Block @ line 99: begin sdram_cs_n <= 1'b0; sdram_we_n <= 1'b0; sdram_cas_n <= 1'b0; sdram_ras_n <= 1'b0; idelay_rst <= 1'b1; idelay_ce <= 1'b1; idelay_inc...",
+      "operator": "SMC",
+      "target_module": "hpdmc_ctlif",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/hpdmc/include/hpdmc_ctlif.v",
+      "target_signal": "csr_we",
+      "target_signal_id": "hpdmc_ctlif.csr_we"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(2'd0->2'd2) -> NonblockingSubstitution @ line 91: sdram_ba <= 2'd0;  ==>  NonblockingSubstitution @ line 91: sdram_ba <= 2'd2;",
+      "operator": "AVC",
+      "target_module": "hpdmc_ctlif",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/hpdmc/include/hpdmc_ctlif.v",
+      "target_signal": "sdram_ba",
+      "target_signal_id": "hpdmc_ctlif.sdram_ba"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/hpdmc/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/hpdmc/mutations",
+  "top_module": "hpdmc",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/hpdmc/buggy_artifacts/consensus_merge_report"
+}

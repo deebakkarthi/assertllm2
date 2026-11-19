@@ -1,0 +1,173 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "sockit_owm.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 252: (bus_wen & (bus_adr[1:0] == 2'b00))  ==>  Or @ line 0: (bus_wen | (bus_adr[1:0] == 2'b00))",
+      "target_line": 252
+    },
+    {
+      "changed_rtl_files": [
+        "sockit_owm.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 352: ((OVD_E)? bus_wen_ctl_sts & bus_wdt[2] : 1'b0)  ==>  (cond removed)",
+      "target_line": 352
+    },
+    {
+      "changed_rtl_files": [
+        "sockit_owm.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(16->15) -> NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:16];  ==>  NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:15];",
+      "target_line": 272
+    },
+    {
+      "changed_rtl_files": [
+        "sockit_owm.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[0] == 1'b0);  ==>  Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[2] == 1'b0); (elaboration fix: parameter BAW=3)",
+      "target_line": 246
+    },
+    {
+      "changed_rtl_files": [
+        "sockit_owm.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 233: ((bus_adr[1] == 1'b0)? (bus_adr[0] == 1'b0)? bus_rdt_ctl_sts : bus_rdt_pwr_sel : (bus_adr[0] == 1'b0)? cdr_n : cdr_o)  ==>  (cond removed)",
+      "target_line": 233
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "sockit_owm.v",
+      "target_line": 233,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 233: ((bus_adr[1] == 1'b0)? (bus_adr[0] == 1'b0)? bus_rdt_ctl_sts : bus_rdt_pwr_sel : (bus_adr[0] == 1'b0)? cdr_n : cdr_o)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 119,
+            "base_end": 121,
+            "matched_start": 119,
+            "matched_end": 121
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "sockit_owm.v",
+      "target_line": 246,
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[0] == 1'b0);  ==>  Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[2] == 1'b0); (elaboration fix: parameter BAW=3)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 126,
+        "target_line": 246
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "sockit_owm.v",
+      "target_line": 252,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 252: (bus_wen & (bus_adr[1:0] == 2'b00))  ==>  Or @ line 0: (bus_wen | (bus_adr[1:0] == 2'b00))",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sockit_owm.v",
+      "target_line": 272,
+      "mutation_log": "applied. AVC(16->15) -> NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:16];  ==>  NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:15];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 148,
+        "target_line": 272
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "sockit_owm.v",
+      "target_line": 352,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 352: ((OVD_E)? bus_wen_ctl_sts & bus_wdt[2] : 1'b0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 214,
+        "target_line": 352
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/merged_buggy_rtl/onewire_slave_model.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/merged_buggy_rtl/onewire_tb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/merged_buggy_rtl/sockit_owm.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/merged_buggy_rtl/wishbone2bus.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 252: (bus_wen & (bus_adr[1:0] == 2'b00))  ==>  Or @ line 0: (bus_wen | (bus_adr[1:0] == 2'b00))",
+      "operator": "LOR",
+      "target_module": "sockit_owm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sockit/sockit_owm.v",
+      "target_signal": "bus_adr",
+      "target_signal_id": "sockit_owm.bus_adr"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 233: ((bus_adr[1] == 1'b0)? (bus_adr[0] == 1'b0)? bus_rdt_ctl_sts : bus_rdt_pwr_sel : (bus_adr[0] == 1'b0)? cdr_n : cdr_o)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "sockit_owm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sockit/sockit_owm.v",
+      "target_signal": "bus_rdt",
+      "target_signal_id": "sockit_owm.bus_rdt"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(16->15) -> NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:16];  ==>  NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:15];",
+      "operator": "AVC",
+      "target_module": "sockit_owm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sockit/sockit_owm.v",
+      "target_signal": "bus_wdt",
+      "target_signal_id": "sockit_owm.bus_wdt"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 352: ((OVD_E)? bus_wen_ctl_sts & bus_wdt[2] : 1'b0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "sockit_owm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sockit/sockit_owm.v",
+      "target_signal": "bus_wen",
+      "target_signal_id": "sockit_owm.bus_wen"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[0] == 1'b0);  ==>  Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[2] == 1'b0); (elaboration fix: parameter BAW=3)",
+      "operator": "AVC",
+      "target_module": "sockit_owm",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sockit/sockit_owm.v",
+      "target_signal": "bus_wen",
+      "target_signal_id": "sockit_owm.bus_wen"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/mutations",
+  "top_module": "sockit_owm",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/sockit/buggy_artifacts/consensus_merge_report"
+}

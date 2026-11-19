@@ -1,0 +1,186 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "gng_ctg.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(64'd0->64'd2) -> NonblockingSubstitution @ line 91: data_out <= 64'd0;  ==>  NonblockingSubstitution @ line 91: data_out <= 64'd2;",
+      "target_line": 91
+    },
+    {
+      "changed_rtl_files": [
+        "gng_interp.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 142: data_in[13]  ==>  Pointer @ line 142: data_in[11] (new index=11)",
+      "target_line": 142
+    },
+    {
+      "changed_rtl_files": [
+        "gng_interp.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 219: data_out <= { 1'b0, sum2_rnd };  ==>  NonblockingSubstitution @ line 219: data_out <= { 1'b1, sum2_rnd };",
+      "target_line": 219
+    },
+    {
+      "changed_rtl_files": [
+        "gng_interp.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(7->5) -> NonblockingSubstitution @ line 172: valid_in_r <= { valid_in_r[7:0], valid_in };  ==>  NonblockingSubstitution @ line 172: valid_in_r <= { valid_in_r[5:0], valid_in };",
+      "target_line": 172
+    },
+    {
+      "changed_rtl_files": [
+        "gng_interp.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(c0<->c1) -> Instance @ line 126: u_gng_coef ( .clk(clk), .addr(addr), .c0(c0), .c1(c1), .c2(c2) )  ==>  Instance @ line 126: u_gng_coef ( .clk(clk), .addr(addr), .c0(c1), .c1(c0), .c2(c2) )",
+      "target_line": 126
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "gng_ctg.v",
+      "target_line": 91,
+      "mutation_log": "applied. AVC(64'd0->64'd2) -> NonblockingSubstitution @ line 91: data_out <= 64'd0;  ==>  NonblockingSubstitution @ line 91: data_out <= 64'd2;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 90,
+        "target_line": 91
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "gng_interp.v",
+      "target_line": 126,
+      "mutation_log": "applied. CSW(c0<->c1) -> Instance @ line 126: u_gng_coef ( .clk(clk), .addr(addr), .c0(c0), .c1(c1), .c2(c2) )  ==>  Instance @ line 126: u_gng_coef ( .clk(clk), .addr(addr), .c0(c1), .c1(c0), .c2(c2) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 128,
+        "line_b": 129,
+        "token_a": "c0",
+        "token_b": "c1"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "gng_interp.v",
+      "target_line": 142,
+      "mutation_log": "applied. DMO -> Pointer @ line 142: data_in[13]  ==>  Pointer @ line 142: data_in[11] (new index=11)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 141,
+        "target_line": 142
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "gng_interp.v",
+      "target_line": 172,
+      "mutation_log": "applied. AVC(7->5) -> NonblockingSubstitution @ line 172: valid_in_r <= { valid_in_r[7:0], valid_in };  ==>  NonblockingSubstitution @ line 172: valid_in_r <= { valid_in_r[5:0], valid_in };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 175,
+            "base_end": 177,
+            "matched_start": 175,
+            "matched_end": 177
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "gng_interp.v",
+      "target_line": 219,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 219: data_out <= { 1'b0, sum2_rnd };  ==>  NonblockingSubstitution @ line 219: data_out <= { 1'b1, sum2_rnd };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 212,
+            "base_end": 220,
+            "matched_start": 224,
+            "matched_end": 232
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng_coef.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng_ctg.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng_interp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng_lzd.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng_smul_16_18.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/merged_buggy_rtl/gng_smul_16_18_sadd_37.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(64'd0->64'd2) -> NonblockingSubstitution @ line 91: data_out <= 64'd0;  ==>  NonblockingSubstitution @ line 91: data_out <= 64'd2;",
+      "operator": "AVC",
+      "target_module": "gng_ctg",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/gaussian noise generator/include/gng_ctg.v",
+      "target_signal": "data_out",
+      "target_signal_id": "gng_ctg.data_out"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 142: data_in[13]  ==>  Pointer @ line 142: data_in[11] (new index=11)",
+      "operator": "DMO",
+      "target_module": "gng_interp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/gaussian noise generator/include/gng_interp.v",
+      "target_signal": "data_in",
+      "target_signal_id": "gng_interp.data_in"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(7->5) -> NonblockingSubstitution @ line 172: valid_in_r <= { valid_in_r[7:0], valid_in };  ==>  NonblockingSubstitution @ line 172: valid_in_r <= { valid_in_r[5:0], valid_in };",
+      "operator": "AVC",
+      "target_module": "gng_interp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/gaussian noise generator/include/gng_interp.v",
+      "target_signal": "valid_in",
+      "target_signal_id": "gng_interp.valid_in"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 219: data_out <= { 1'b0, sum2_rnd };  ==>  NonblockingSubstitution @ line 219: data_out <= { 1'b1, sum2_rnd };",
+      "operator": "AVC",
+      "target_module": "gng_interp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/gaussian noise generator/include/gng_interp.v",
+      "target_signal": "data_out",
+      "target_signal_id": "gng_interp.data_out"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(c0<->c1) -> Instance @ line 126: u_gng_coef ( .clk(clk), .addr(addr), .c0(c0), .c1(c1), .c2(c2) )  ==>  Instance @ line 126: u_gng_coef ( .clk(clk), .addr(addr), .c0(c1), .c1(c0), .c2(c2) )",
+      "operator": "CSW",
+      "target_module": "gng_interp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/gaussian noise generator/include/gng_interp.v",
+      "target_signal": "clk",
+      "target_signal_id": "gng_interp.clk"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/gaussian_noise_generator/mutations",
+  "top_module": "gng",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/gaussian_noise_generator/buggy_artifacts/consensus_merge_report"
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pid_controller",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/CLA_fixed.v"
+      ],
+      "log": "M_0000: applied. AVC(0->1) -> Assign @ line 225: assign o_s[0] = P0[0] ^ i_c;  ==>  Assign @ line 225: assign o_s[0] = P0[1] ^ i_c;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/CLA_fixed.v"
+      ],
+      "log": "M_0001: applied. AVC(31->32) -> Assign @ line 257: assign o_c = G6[31];  ==>  Assign @ line 257: assign o_c = G6[30];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0002: applied. AVC(5->4) -> Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[5];  ==>  Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[4];",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0003: applied. CCW(3<->9) -> Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w27[1], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...  ==>  Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w21[4], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0004: applied. AVC(0->1) -> NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 0;  ==>  NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 1;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0005: applied. AVC(0->2) -> NonblockingSubstitution @ line 918: reg_layer_2_w18 <= 0;  ==>  NonblockingSubstitution @ line 918: reg_layer_2_w18 <= 2;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0006: applied. AVC(0->2) -> NonblockingSubstitution @ line 928: reg_layer_2_w28 <= 0;  ==>  NonblockingSubstitution @ line 928: reg_layer_2_w28 <= 2;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0007: applied. AVC(0->1) -> NonblockingSubstitution @ line 930: reg_layer_2_w30 <= 0;  ==>  NonblockingSubstitution @ line 930: reg_layer_2_w30 <= 1;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0008: applied. AVC(0->1) -> NonblockingSubstitution @ line 164: stage_0_ready <= 0;  ==>  NonblockingSubstitution @ line 164: stage_0_ready <= 1;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0009: applied. AVC(0->1) -> NonblockingSubstitution @ line 899: stage_1_ready <= 0;  ==>  NonblockingSubstitution @ line 899: stage_1_ready <= 1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0010: applied. AVC(5->6) -> Assign @ line 456: assign layer_1_w13[4] = layer_0_w13[5];  ==>  Assign @ line 456: assign layer_1_w13[4] = layer_0_w13[6];",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0011: applied. AVC(1->3) -> Assign @ line 309: assign layer_0_w31 = 1;  ==>  Assign @ line 309: assign layer_0_w31 = 3;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0012: applied. AVC(5->7) -> Assign @ line 428: assign layer_1_w11[3] = layer_0_w11[5];  ==>  Assign @ line 428: assign layer_1_w11[3] = layer_0_w11[3];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0013: applied. AVC(3->2) -> Assign @ line 1085: assign layer_3_w18[2] = reg_layer_2_w18[3];  ==>  Assign @ line 1085: assign layer_3_w18[2] = reg_layer_2_w18[2];",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0014: applied. AVC(0->1) -> Assign @ line 1360: assign A[11] = layer_4_w11[0];  ==>  Assign @ line 1360: assign A[11] = layer_4_w11[1];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0015: applied. AVC(1->0) -> Assign @ line 1387: assign B[24] = layer_4_w24[1];  ==>  Assign @ line 1387: assign B[24] = layer_4_w24[0];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0016: applied. DMO -> Pointer @ line 786: layer_2_w19[1]  ==>  Pointer @ line 786: layer_2_w19[0] (new index=0)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0017: applied. AVC(0->2) -> NonblockingSubstitution @ line 919: reg_layer_2_w19 <= 0;  ==>  NonblockingSubstitution @ line 919: reg_layer_2_w19 <= 2;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0018: applied. SMC -> Block @ line 161: begin md <= 0; mr <= 0; stage_0_ready <= 0; end  ==>  Block @ line 161: begin md <= 1; mr <= 1; stage_0_ready <= 2; end",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/16x16bit_multiplier_pipelined.v"
+      ],
+      "log": "M_0019: applied. AVC(5->3) -> Assign @ line 788: assign layer_2_w18[3] = layer_1_w18[5];  ==>  Assign @ line 788: assign layer_2_w18[3] = layer_1_w18[3];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

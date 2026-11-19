@@ -1,0 +1,209 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "BM_lamda.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(2->0) -> Assign @ line 79: assign L1 = L[2];  ==>  Assign @ line 79: assign L1 = L[4];",
+      "target_line": 79
+    },
+    {
+      "changed_rtl_files": [
+        "BM_lamda.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 130: begin L[1] <= 1; L[2] <= 0; L[3] <= 0; L[4] <= 0; L[5] <= 0; L[6] <= 0; L[7] <= 0; L[8] <= 0; L[9] <= 0; Lt[1] <= 1; Lt[2] <= 0; Lt[3] <=...  ==>  Block @ line 130: begin L[1] <= 0; L[2] <= 1; L[3] <= 1; L[4] <= 1; L[5] <= 2; L[6] <= 1; L[7] <= 1; L[8] <= 1; L[9] <= 2; Lt[1] <= 0; Lt[2] <= 1; Lt[3] <=...",
+      "target_line": 130
+    },
+    {
+      "changed_rtl_files": [
+        "GF_mult_add_syndromes.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 77: address_GF_dec <= 0;  ==>  NonblockingSubstitution @ line 77: address_GF_dec <= 1;",
+      "target_line": 77
+    },
+    {
+      "changed_rtl_files": [
+        "GF_mult_add_syndromes.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(clk<->re) -> Instance @ line 56: rom_instant ( .clk(clk), .re(CE || CE1), .address_read(address_GF_dec), .data_out(out_GF_dec) )  ==>  Instance @ line 56: rom_instant ( .clk(clk), .re(clk), .address_read(address_GF_dec), .data_out(out_GF_dec) )",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "Omega_Phy.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(4<->5) -> CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...  ==>  CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...",
+      "target_line": 186
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "BM_lamda.v",
+      "target_line": 79,
+      "mutation_log": "applied. AVC(2->0) -> Assign @ line 79: assign L1 = L[2];  ==>  Assign @ line 79: assign L1 = L[4];",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 47,
+            "base_end": 51,
+            "matched_start": 47,
+            "matched_end": 51
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "BM_lamda.v",
+      "target_line": 130,
+      "mutation_log": "applied. SMC -> Block @ line 130: begin L[1] <= 1; L[2] <= 0; L[3] <= 0; L[4] <= 0; L[5] <= 0; L[6] <= 0; L[7] <= 0; L[8] <= 0; L[9] <= 0; Lt[1] <= 1; Lt[2] <= 0; Lt[3] <=...  ==>  Block @ line 130: begin L[1] <= 0; L[2] <= 1; L[3] <= 1; L[4] <= 1; L[5] <= 2; L[6] <= 1; L[7] <= 1; L[8] <= 1; L[9] <= 2; Lt[1] <= 0; Lt[2] <= 1; Lt[3] <=...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 59,
+            "base_end": 327,
+            "matched_start": 88,
+            "matched_end": 356
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "GF_mult_add_syndromes.v",
+      "target_line": 56,
+      "mutation_log": "applied. CSW(clk<->re) -> Instance @ line 56: rom_instant ( .clk(clk), .re(CE || CE1), .address_read(address_GF_dec), .data_out(out_GF_dec) )  ==>  Instance @ line 56: rom_instant ( .clk(clk), .re(clk), .address_read(address_GF_dec), .data_out(out_GF_dec) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 57,
+        "line_b": 58,
+        "token_a": "clk",
+        "token_b": "re"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "GF_mult_add_syndromes.v",
+      "target_line": 77,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 77: address_GF_dec <= 0;  ==>  NonblockingSubstitution @ line 77: address_GF_dec <= 1;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 20,
+            "base_end": 20,
+            "matched_start": 76,
+            "matched_end": 76
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "Omega_Phy.v",
+      "target_line": 186,
+      "mutation_log": "applied. CSE(4<->5) -> CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...  ==>  CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          185,
+          277
+        ],
+        "token_a": "4",
+        "token_b": "5",
+        "changed_lines": 15
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/BM_lamda.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/DP_RAM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/GF_matrix_ascending_binary.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/GF_matrix_dec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/GF_mult_add_syndromes.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/Omega_Phy.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/RS_dec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/error_correction.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/input_syndromes.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/lamda_roots.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/out_stage.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/merged_buggy_rtl/transport_in2out.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(2->0) -> Assign @ line 79: assign L1 = L[2];  ==>  Assign @ line 79: assign L1 = L[4];",
+      "operator": "AVC",
+      "target_module": "BM_lamda",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/reed_solomon_decoder_204188/include/BM_lamda.v",
+      "target_signal": "L1",
+      "target_signal_id": "BM_lamda.L1"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 130: begin L[1] <= 1; L[2] <= 0; L[3] <= 0; L[4] <= 0; L[5] <= 0; L[6] <= 0; L[7] <= 0; L[8] <= 0; L[9] <= 0; Lt[1] <= 1; Lt[2] <= 0; Lt[3] <=...  ==>  Block @ line 130: begin L[1] <= 0; L[2] <= 1; L[3] <= 1; L[4] <= 1; L[5] <= 2; L[6] <= 1; L[7] <= 1; L[8] <= 1; L[9] <= 2; Lt[1] <= 0; Lt[2] <= 1; Lt[3] <=...",
+      "operator": "SMC",
+      "target_module": "BM_lamda",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/reed_solomon_decoder_204188/include/BM_lamda.v",
+      "target_signal": "Sm9",
+      "target_signal_id": "BM_lamda.Sm9"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 77: address_GF_dec <= 0;  ==>  NonblockingSubstitution @ line 77: address_GF_dec <= 1;",
+      "operator": "AVC",
+      "target_module": "GF_mult_add_syndromes",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/reed_solomon_decoder_204188/include/GF_mult_add_syndromes.v",
+      "target_signal": "address_GF_dec",
+      "target_signal_id": "GF_mult_add_syndromes.address_GF_dec"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(clk<->re) -> Instance @ line 56: rom_instant ( .clk(clk), .re(CE || CE1), .address_read(address_GF_dec), .data_out(out_GF_dec) )  ==>  Instance @ line 56: rom_instant ( .clk(clk), .re(clk), .address_read(address_GF_dec), .data_out(out_GF_dec) )",
+      "operator": "CSW",
+      "target_module": "GF_mult_add_syndromes",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/reed_solomon_decoder_204188/include/GF_mult_add_syndromes.v",
+      "target_signal": "clk",
+      "target_signal_id": "GF_mult_add_syndromes.clk"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSE(4<->5) -> CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...  ==>  CaseStatement @ line 186: case(cnt) 0: begin add_pow1 <= O[1]; add_pow2 <= O[2]; add_pow3 <= O[3]; end 1: begin add_pow1 <= O[4]; add_pow2 <= O[5]; add_pow3 <= O[6...",
+      "operator": "CSE",
+      "target_module": "Omega_Phy",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ECC_CORE/reed_solomon_decoder_204188/include/Omega_Phy.v",
+      "target_signal": "add_pow1",
+      "target_signal_id": "Omega_Phy.add_pow1"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/mutations",
+  "top_module": "RS_dec",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0001",
+        "rtl_name": "BM_lamda.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ECC_CORE/reed_solomon_decoder_204188/buggy_artifacts/consensus_merge_report"
+}

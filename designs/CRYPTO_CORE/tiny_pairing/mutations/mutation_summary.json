@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_pairing",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0000: applied. DMI -> Partselect @ line 39: reg_in[197:1]  ==>  Partselect @ line 39: reg_in[196:0]",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0001: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 103) (new shift=103)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0002: applied. TRA -> deleted Always @ line 41: always @(posedge clk) if(update) reg_out <= out; else if(ready) reg_out <= reg_out >> 1;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tiny.v"
+      ],
+      "log": "M_0003: applied. DIE -> Partselect @ line 56: ram_b_addr[5:0]  ==>  Partselect @ line 56: ram_b_addr[0:0]",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tiny.v"
+      ],
+      "log": "M_0004: applied. DIE -> Partselect @ line 63: ram_b_data_in[197:194]  ==>  Partselect @ line 63: ram_b_data_in[3:0]",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tiny.v"
+      ],
+      "log": "M_0005: applied. DIE -> Partselect @ line 61: muxer0_out[193:0]  ==>  Partselect @ line 61: muxer0_out[197:4]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0006: applied. LOR(Srl->Sll) -> Srl @ line 43: (reg_out >> 1)  ==>  Sll @ line 0: (reg_out << 1)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0007: applied. TRA -> deleted Always @ line 37: always @(posedge clk) if(update) reg_in <= 0; else if(ready) reg_in <= { i, reg_in[197:1] };",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tiny.v"
+      ],
+      "log": "M_0008: applied. DIE -> Partselect @ line 61: ram_b_data_in[193:0]  ==>  Partselect @ line 61: ram_b_data_in[197:4]",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0009: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 133) (new shift=133)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0010: applied. DIE -> Partselect @ line 39: reg_in[197:1]  ==>  Partselect @ line 39: reg_in[196:0]",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0011: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 71) (new shift=71)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0012: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 34) (new shift=34)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0013: applied. SRI -> deleted IfStatement @ line 39: if(ready) reg_in <= { i, reg_in[197:1] };",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0014: applied. SRI -> deleted IfStatement @ line 43: if(ready) reg_out <= reg_out >> 1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0015: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 169) (new shift=169)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0016: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 51) (new shift=51)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0017: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 128) (new shift=128)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tiny.v"
+      ],
+      "log": "M_0018: applied. DMI -> Partselect @ line 63: ram_b_data_in[197:194]  ==>  Partselect @ line 63: ram_b_data_in[196:193]",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "pairing.v"
+      ],
+      "log": "M_0019: applied. DMS -> Srl @ line 43: (reg_out >> 1)  ==>  Srl @ line 43: (reg_out >> 6) (new shift=6)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

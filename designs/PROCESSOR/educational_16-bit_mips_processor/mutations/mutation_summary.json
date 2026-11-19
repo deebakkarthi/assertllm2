@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/educational_16-bit_mips_processor",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/EX_stage.v"
+      ],
+      "log": "M_0000: applied. AVC(3->1) -> Assign @ line 111: assign ex_op_dest = pipeline_reg_in[3:1];  ==>  Assign @ line 111: assign ex_op_dest = pipeline_reg_in[1:1];",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/EX_stage.v"
+      ],
+      "log": "M_0001: applied. AVC(21->23) -> NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[21:0];  ==>  NonblockingSubstitution @ line 105: pipeline_reg_out[21:0] <= pipeline_reg_in[23:0];",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0002: applied. AVC(0->1) -> BlockingSubstitution @ line 319: branch_taken = 0;  ==>  BlockingSubstitution @ line 319: branch_taken = 1;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0003: applied. AVC(0->1) -> NonblockingSubstitution @ line 130: instruction_reg <= 0;  ==>  NonblockingSubstitution @ line 130: instruction_reg <= 1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0004: applied. CMC(true_only) -> Cond @ line 149: ((instruction_decode_en)? ir_dest : 0)  ==>  (cond removed)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0005: applied. LOR(Eq->NotEq) -> Eq @ line 311: (reg_read_data_1 == 0)  ==>  NotEq @ line 0: (reg_read_data_1 != 0)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/IF_stage.v"
+      ],
+      "log": "M_0006: applied. AVC(8'd1->8'd2) -> NonblockingSubstitution @ line 92: pc <= pc + 8'd1;  ==>  NonblockingSubstitution @ line 92: pc <= pc + 8'd2;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/MEM_stage.v"
+      ],
+      "log": "M_0007: applied. CSW(mem_write_data<->mem_read_data) -> Instance @ line 92: dmem ( .clk(clk), .mem_access_addr(ex_alu_result), .mem_write_data(mem_write_data), .mem_write_en(mem_write_en), .mem_read_data(mem_read_...  ==>  Instance @ line 92: dmem ( .clk(clk), .mem_access_addr(ex_alu_result), .mem_write_data(mem_read_data), .mem_write_en(mem_write_en), .mem_read_data(mem_write_...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/MEM_stage.v"
+      ],
+      "log": "M_0008: applied. AVC(0->1) -> NonblockingSubstitution @ line 103: pipeline_reg_out[36:0] <= 0;  ==>  NonblockingSubstitution @ line 103: pipeline_reg_out[36:0] <= 1;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/WB_stage.v"
+      ],
+      "log": "M_0009: applied. DIE -> Partselect @ line 84: pipeline_reg_in[20:5]  ==>  Partselect @ line 84: pipeline_reg_in[31:16]",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hazard_detection_unit.v"
+      ],
+      "log": "M_0010: applied. LOR(Eq->NotEq) -> Eq @ line 38: (decoding_op_src1 == mem_op_dest)  ==>  NotEq @ line 0: (decoding_op_src1 != mem_op_dest)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hazard_detection_unit.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 32: begin pipeline_stall_n = 1; if((decoding_op_src1 != 0) && ((decoding_op_src1 == ex_op_dest) || (decoding_op_src1 == mem_op_dest) || (deco...  ==>  Block @ line 32: begin pipeline_stall_n = 0; if((decoding_op_src1 != 0) && ((decoding_op_src1 == ex_op_dest) || (decoding_op_src1 == mem_op_dest) || (deco...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hazard_detection_unit.v"
+      ],
+      "log": "M_0012: applied. LOR(Lor->Land) -> Lor @ line 37: ((decoding_op_src1 == ex_op_dest) || (decoding_op_src1 == mem_op_dest) || (decoding_op_src1 == wb_op_dest))  ==>  Land @ line 0: (((decoding_op_src1 == ex_op_dest) || (decoding_op_src1 == mem_op_dest)) && (decoding_op_src1 == wb_op_dest))",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/register_file.v"
+      ],
+      "log": "M_0013: applied. CMC(false_only) -> Cond @ line 122: ((reg_read_addr_1 == 0)? 15'b0 : reg_array[reg_read_addr_1])  ==>  (cond removed)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0014: applied. AVC(0->2) -> Assign @ line 146: assign ir_op_code_with_bubble = (instruction_decode_en)? ir_op_code : 0;  ==>  Assign @ line 146: assign ir_op_code_with_bubble = (instruction_decode_en)? ir_op_code : 2;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0015: applied. AVC(10->9) -> Assign @ line 275: assign ex_alu_src2 = (alu_src2_mux)? { { 10{ ir_imm[5] } }, ir_imm } : reg_read_data_2;  ==>  Assign @ line 275: assign ex_alu_src2 = (alu_src2_mux)? { { 9{ ir_imm[5] } }, ir_imm } : reg_read_data_2;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/register_file.v"
+      ],
+      "log": "M_0016: applied. LOR(Eq->NotEq) -> Eq @ line 122: (reg_read_addr_1 == 0)  ==>  NotEq @ line 0: (reg_read_addr_1 != 0)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/register_file.v"
+      ],
+      "log": "M_0017: applied. CMC(true_only) -> Cond @ line 133: ((reg_read_addr_2 == 0)? 15'b0 : reg_array[reg_read_addr_2])  ==>  (cond removed)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/ID_stage.v"
+      ],
+      "log": "M_0018: applied. AVC(4'b1001->4'b1011) -> Assign @ line 336: assign decoding_op_src2 = ((ir_op_code == 4'b0000) || (ir_op_code == 4'b1001) || (ir_op_code == 4'b1010) || (ir_op_code == 4'b1100))? 3'b...  ==>  Assign @ line 336: assign decoding_op_src2 = ((ir_op_code == 4'b0000) || (ir_op_code == 4'b1011) || (ir_op_code == 4'b1010) || (ir_op_code == 4'b1100))? 3'b...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/MEM_stage.v"
+      ],
+      "log": "M_0019: applied. AVC(1->2) -> Assign @ line 114: assign mem_op_dest = pipeline_reg_in[3:1];  ==>  Assign @ line 114: assign mem_op_dest = pipeline_reg_in[3:2];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/tiny_aes",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "aes_128.v"
+      ],
+      "log": "M_0000: applied. SRA -> deleted Assign @ line 72: assign { k0, k1, k2, k3 } = in;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0001: applied. TRA -> deleted Always @ line 45: always @(posedge clk) state_out <= { z0, z1, z2, z3 };",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0002: applied. SRA -> deleted Assign @ line 65: assign { s0, s1, s2, s3 } = state_in;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0003: applied. SRA -> deleted Assign @ line 63: assign { k0, k1, k2, k3 } = key_in;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0004: applied. SRA -> deleted Assign @ line 30: assign { k0, k1, k2, k3 } = key;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0005: applied. SRA -> deleted Assign @ line 32: assign { s0, s1, s2, s3 } = state_in;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0006: applied. TRA -> deleted Always @ line 78: always @(posedge clk) state_out <= { z0, z1, z2, z3 };",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0007: applied. CCW(0<->1) -> Concat @ line 68: { p00, p01, p02, p03 }  ==>  Concat @ line 68: { p01, p00, p02, p03 }",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0008: applied. CCW(1<->2) -> Concat @ line 76: { p30, p01, p12, p23 }  ==>  Concat @ line 76: { p30, p12, p01, p23 }",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0009: applied. CCW(1<->2) -> Concat @ line 75: { p20, p31, p02, p13 }  ==>  Concat @ line 75: { p20, p02, p31, p13 }",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0010: applied. CCW(0<->2) -> LConcat @ line 65: { s0, s1, s2, s3 }  ==>  LConcat @ line 65: { s2, s1, s0, s3 }",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0011: applied. CCW(2<->3) -> LConcat @ line 65: { s0, s1, s2, s3 }  ==>  LConcat @ line 65: { s0, s1, s3, s2 }",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0012: applied. CCW(1<->2) -> LConcat @ line 65: { s0, s1, s2, s3 }  ==>  LConcat @ line 65: { s0, s2, s1, s3 }",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0013: applied. CCW(1<->3) -> LConcat @ line 65: { s0, s1, s2, s3 }  ==>  LConcat @ line 65: { s0, s3, s2, s1 }",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0014: applied. CCW(1<->2) -> LConcat @ line 32: { s0, s1, s2, s3 }  ==>  LConcat @ line 32: { s0, s2, s1, s3 }",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0015: applied. CCW(0<->1) -> LConcat @ line 32: { s0, s1, s2, s3 }  ==>  LConcat @ line 32: { s1, s0, s2, s3 }",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0016: applied. CCW(1<->3) -> LConcat @ line 32: { s0, s1, s2, s3 }  ==>  LConcat @ line 32: { s0, s3, s2, s1 }",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0017: applied. CCW(2<->3) -> Concat @ line 68: { p00, p01, p02, p03 }  ==>  Concat @ line 68: { p00, p01, p03, p02 }",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0018: applied. CCW(1<->3) -> Concat @ line 68: { p00, p01, p02, p03 }  ==>  Concat @ line 68: { p00, p03, p02, p01 }",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/round.v"
+      ],
+      "log": "M_0019: applied. CCW(1<->3) -> Concat @ line 75: { p20, p31, p02, p13 }  ==>  Concat @ line 75: { p20, p13, p02, p31 }",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

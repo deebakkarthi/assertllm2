@@ -1,0 +1,9 @@
+{
+  "blackbox_modules": [
+    "IDDR2",
+    "IOBUF",
+    "OBUFT",
+    "ODDR2"
+  ],
+  "notes": "Xilinx I/O and DDR output/input primitives (IOBUF, OBUFT, ODDR2, IDDR2); Jasper ENL058 without tech libs—use -bbox_m per Jasper hint."
+}

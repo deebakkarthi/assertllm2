@@ -1,0 +1,176 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "uart_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(ce_16<->ser_in) -> Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .ser_in(ser_in), .rx_data(rx_data), .new_rx_data(new_rx_data) )  ==>  Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ser_in), .ser_in(ce_16), .rx_data(rx_data), .new_rx_data(new_rx_data) )",
+      "target_line": 48
+    },
+    {
+      "changed_rtl_files": [
+        "uart_top.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(ser_out<->tx_busy) -> Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(ser_out), .tx_busy(tx_bus...  ==>  Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(tx_busy), .tx_busy(ser_ou...",
+      "target_line": 56
+    },
+    {
+      "changed_rtl_files": [
+        "baud_gen.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Plus->Minus) -> Plus @ line 39: (counter + baud_freq)  ==>  Minus @ line 0: (counter - baud_freq)",
+      "target_line": 39
+    },
+    {
+      "changed_rtl_files": [
+        "uart_rx.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 105: begin rx_data <= data_buf; new_rx_data <= 1'b1; end  ==>  Block @ line 105: begin rx_data <= data_buf; new_rx_data <= 1'b0; end",
+      "target_line": 105
+    },
+    {
+      "changed_rtl_files": [
+        "uart_tx.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 38: (tx_busy & ce_16)  ==>  Or @ line 0: (tx_busy | ce_16)",
+      "target_line": 38
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "baud_gen.v",
+      "target_line": 39,
+      "mutation_log": "applied. LOR(Plus->Minus) -> Plus @ line 39: (counter + baud_freq)  ==>  Minus @ line 0: (counter - baud_freq)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 38,
+        "target_line": 39
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "uart_rx.v",
+      "target_line": 105,
+      "mutation_log": "applied. SMC -> Block @ line 105: begin rx_data <= data_buf; new_rx_data <= 1'b1; end  ==>  Block @ line 105: begin rx_data <= data_buf; new_rx_data <= 1'b0; end",
+      "applied": {
+        "mode": "directed_block",
+        "line_span": [
+          95,
+          107
+        ],
+        "target_line": 105
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "uart_top.v",
+      "target_line": 48,
+      "mutation_log": "applied. CSW(ce_16<->ser_in) -> Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .ser_in(ser_in), .rx_data(rx_data), .new_rx_data(new_rx_data) )  ==>  Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ser_in), .ser_in(ce_16), .rx_data(rx_data), .new_rx_data(new_rx_data) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 50,
+        "line_b": 50,
+        "token_a": "ce_16",
+        "token_b": "ser_in"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "uart_top.v",
+      "target_line": 56,
+      "mutation_log": "applied. CSW(ser_out<->tx_busy) -> Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(ser_out), .tx_busy(tx_bus...  ==>  Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(tx_busy), .tx_busy(ser_ou...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 59,
+        "line_b": 59,
+        "token_a": "ser_out",
+        "token_b": "tx_busy"
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "uart_tx.v",
+      "target_line": 38,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 38: (tx_busy & ce_16)  ==>  Or @ line 0: (tx_busy | ce_16)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 37,
+        "target_line": 38
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts/merged_buggy_rtl/baud_gen.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts/merged_buggy_rtl/uart_rx.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts/merged_buggy_rtl/uart_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts/merged_buggy_rtl/uart_tx.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. LOR(Plus->Minus) -> Plus @ line 39: (counter + baud_freq)  ==>  Minus @ line 0: (counter - baud_freq)",
+      "operator": "LOR",
+      "target_module": "baud_gen",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/uart/include/baud_gen.v",
+      "target_signal": "baud_freq",
+      "target_signal_id": "baud_gen.baud_freq"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(ce_16<->ser_in) -> Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .ser_in(ser_in), .rx_data(rx_data), .new_rx_data(new_rx_data) )  ==>  Instance @ line 48: uart_rx_1 ( .clock(clock), .reset(reset), .ce_16(ser_in), .ser_in(ce_16), .rx_data(rx_data), .new_rx_data(new_rx_data) )",
+      "operator": "CSW",
+      "target_module": "uart_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/uart/uart_top.v",
+      "target_signal": "clock",
+      "target_signal_id": "uart_top.clock"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 105: begin rx_data <= data_buf; new_rx_data <= 1'b1; end  ==>  Block @ line 105: begin rx_data <= data_buf; new_rx_data <= 1'b0; end",
+      "operator": "SMC",
+      "target_module": "uart_rx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/uart/include/uart_rx.v",
+      "target_signal": "new_rx_data",
+      "target_signal_id": "uart_rx.new_rx_data"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. CSW(ser_out<->tx_busy) -> Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(ser_out), .tx_busy(tx_bus...  ==>  Instance @ line 56: uart_tx_1 ( .clock(clock), .reset(reset), .ce_16(ce_16), .tx_data(tx_data), .new_tx_data(new_tx_data), .ser_out(tx_busy), .tx_busy(ser_ou...",
+      "operator": "CSW",
+      "target_module": "uart_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/uart/uart_top.v",
+      "target_signal": "clock",
+      "target_signal_id": "uart_top.clock"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 38: (tx_busy & ce_16)  ==>  Or @ line 0: (tx_busy | ce_16)",
+      "operator": "LOR",
+      "target_module": "uart_tx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/uart/include/uart_tx.v",
+      "target_signal": "ce_16",
+      "target_signal_id": "uart_tx.ce_16"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/uart/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM_Refine/uart/mutations",
+  "top_module": "uart_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/uart/buggy_artifacts/consensus_merge_report"
+}

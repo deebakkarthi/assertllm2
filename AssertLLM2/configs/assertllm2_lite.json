@@ -1,0 +1,29 @@
+{
+  "lite": [
+    "assertllm2/arithmetic_core/gaussian_noise_generator",
+    "assertllm2/arithmetic_core/trigonometric_functions_degrees_in_double_fpu",
+    "assertllm2/arithmetic_core/viterbi_tx_rx",
+    "assertllm2/communication_controller/10gemac",
+    "assertllm2/communication_controller/ethernet",
+    "assertllm2/communication_controller/hardware_assisted_ieee_1588_ip_core",
+    "assertllm2/communication_controller/i2c_slave",
+    "assertllm2/communication_controller/quad_spi_flash_controller",
+    "assertllm2/communication_controller/rtfsimpleuart",
+    "assertllm2/communication_controller/sata_phy",
+    "assertllm2/coprocessor/xgate",
+    "assertllm2/crypto_core/galois_counter_mode_advanced_encryption_standard_g",
+    "assertllm2/crypto_core/pairing",
+    "assertllm2/dsp_core/ima_adpcm_encoder",
+    "assertllm2/ecc_core/reed_solomon_decoder_204188",
+    "assertllm2/library/srdy_drdy_library",
+    "assertllm2/memory_core/8_16_32_bit_sdram_controller",
+    "assertllm2/other/bubblesortmodule",
+    "assertllm2/other/programmable_interval_timer",
+    "assertllm2/processor/aemb",
+    "assertllm2/processor/altor32_alternative_lightweight_openrisc_cpu",
+    "assertllm2/processor/klc32",
+    "assertllm2/system_controller/pci_bridge",
+    "assertllm2/system_on_chip/wishbone_conmax_ip_core",
+    "assertllm2/video_controller/rtfspritecontroller_hardware_cursors"
+  ]
+}

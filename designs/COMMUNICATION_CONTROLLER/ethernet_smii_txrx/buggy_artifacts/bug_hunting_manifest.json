@@ -1,0 +1,174 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "smii_txrx.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 235: mrx_clk_tmp <= 1'b1;  ==>  NonblockingSubstitution @ line 235: mrx_clk_tmp <= 1'b0;",
+      "target_line": 235
+    },
+    {
+      "changed_rtl_files": [
+        "smii_txrx.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(7'b0001110->7'b0001111) -> NonblockingSubstitution @ line 194: { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001110;  ==>  NonblockingSubstitution @ line 194: { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001111;",
+      "target_line": 194
+    },
+    {
+      "changed_rtl_files": [
+        "smii_txrx.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 193: begin { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001110; rx_tmp <= 4'h0; mrxd <= 4'h0; end  ==>  Block @ line 193: begin { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001100; rx_tmp <= 4'h1; mrxd <= 4'h2; end",
+      "target_line": 193
+    },
+    {
+      "changed_rtl_files": [
+        "smii_txrx.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 183: (!mrxdv & state[8] & rx_tmp[3])  ==>  Or @ line 0: (!mrxdv & state[8] | rx_tmp[3])",
+      "target_line": 183
+    },
+    {
+      "changed_rtl_files": [
+        "smii_txrx.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 155: mtxd[3]  ==>  Pointer @ line 155: mtxd[0] (new index=0)",
+      "target_line": 155
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "smii_txrx.v",
+      "target_line": 155,
+      "mutation_log": "applied. DMO -> Pointer @ line 155: mtxd[3]  ==>  Pointer @ line 155: mtxd[0] (new index=0)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 55,
+        "target_line": 155
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "smii_txrx.v",
+      "target_line": 183,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 183: (!mrxdv & state[8] & rx_tmp[3])  ==>  Or @ line 0: (!mrxdv & state[8] | rx_tmp[3])",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 69,
+        "target_line": 183
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "smii_txrx.v",
+      "target_line": 193,
+      "mutation_log": "applied. SMC -> Block @ line 193: begin { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001110; rx_tmp <= 4'h0; mrxd <= 4'h0; end  ==>  Block @ line 193: begin { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001100; rx_tmp <= 4'h1; mrxd <= 4'h2; end",
+      "applied": {
+        "mode": "mutant_block_splice",
+        "cur_span": [
+          75,
+          78
+        ],
+        "mutant_span": [
+          75,
+          78
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "smii_txrx.v",
+      "target_line": 194,
+      "mutation_log": "applied. AVC(7'b0001110->7'b0001111) -> NonblockingSubstitution @ line 194: { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001110;  ==>  NonblockingSubstitution @ line 194: { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001111;",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 75,
+            "base_end": 76
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "smii_txrx.v",
+      "target_line": 235,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 235: mrx_clk_tmp <= 1'b1;  ==>  NonblockingSubstitution @ line 235: mrx_clk_tmp <= 1'b0;",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/buggy_artifacts/merged_buggy_rtl/smii_txrx.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 235: mrx_clk_tmp <= 1'b1;  ==>  NonblockingSubstitution @ line 235: mrx_clk_tmp <= 1'b0;",
+      "operator": "AVC",
+      "target_module": "smii_txrx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/ethernet smii txrx/smii_txrx.v",
+      "target_signal": "clk",
+      "target_signal_id": "smii_txrx.clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 183: (!mrxdv & state[8] & rx_tmp[3])  ==>  Or @ line 0: (!mrxdv & state[8] | rx_tmp[3])",
+      "operator": "LOR",
+      "target_module": "smii_txrx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/ethernet smii txrx/smii_txrx.v",
+      "target_signal": "mrxd",
+      "target_signal_id": "smii_txrx.mrxd"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. SMC -> Block @ line 193: begin { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001110; rx_tmp <= 4'h0; mrxd <= 4'h0; end  ==>  Block @ line 193: begin { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001100; rx_tmp <= 4'h1; mrxd <= 4'h2; end",
+      "operator": "SMC",
+      "target_module": "smii_txrx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/ethernet smii txrx/smii_txrx.v",
+      "target_signal": "mrxdv",
+      "target_signal_id": "smii_txrx.mrxdv"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(7'b0001110->7'b0001111) -> NonblockingSubstitution @ line 194: { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001110;  ==>  NonblockingSubstitution @ line 194: { mcrs, mrxdv, mrxerr, speed, duplex, link, jabber } <= 7'b0001111;",
+      "operator": "AVC",
+      "target_module": "smii_txrx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/ethernet smii txrx/smii_txrx.v",
+      "target_signal": "mrxerr",
+      "target_signal_id": "smii_txrx.mrxerr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 155: mtxd[3]  ==>  Pointer @ line 155: mtxd[0] (new index=0)",
+      "operator": "DMO",
+      "target_module": "smii_txrx",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION CONTROLLER/ethernet smii txrx/smii_txrx.v",
+      "target_signal": "mtxd",
+      "target_signal_id": "smii_txrx.mtxd"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/mutations",
+  "top_module": "smii_txrx",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/buggy_artifacts/consensus_merge_report"
+}

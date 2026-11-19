@@ -1,0 +1,181 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "present_encryptor_top.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(63->61) -> NonblockingSubstitution @ line 84: state <= data_i[63:0];  ==>  NonblockingSubstitution @ line 84: state <= data_i[61:0];",
+      "target_line": 84
+    },
+    {
+      "changed_rtl_files": [
+        "present_encryptor_top.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(data_o<->data_i) -> Instance @ line 55: present_cipher_sp ( .data_o(sub_per_output), .data_i(sub_per_input) )  ==>  Instance @ line 55: present_cipher_sp ( .data_o(sub_per_input), .data_i(sub_per_output) )",
+      "target_line": 55
+    },
+    {
+      "changed_rtl_files": [
+        "key_update.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 49: data_i[79:19]  ==>  Partselect @ line 49: data_i[78:18]",
+      "target_line": 49
+    },
+    {
+      "changed_rtl_files": [
+        "key_update.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(15->17) -> Assign @ line 51: assign s3 = { s2[79:20], s2[19:15] ^ round_counter, s2[14:0] };  ==>  Assign @ line 51: assign s3 = { s2[79:20], s2[19:17] ^ round_counter, s2[14:0] };",
+      "target_line": 51
+    },
+    {
+      "changed_rtl_files": [
+        "key_update.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(data_o<->data_i) -> Instance @ line 45: key_update_sbox ( .data_o(s2[79:76]), .data_i(s1[79:76]) )  ==>  Instance @ line 45: key_update_sbox ( .data_o(s1[79:76]), .data_i(s2[79:76]) )",
+      "target_line": 45
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "key_update.v",
+      "target_line": 45,
+      "mutation_log": "applied. CSW(data_o<->data_i) -> Instance @ line 45: key_update_sbox ( .data_o(s2[79:76]), .data_i(s1[79:76]) )  ==>  Instance @ line 45: key_update_sbox ( .data_o(s1[79:76]), .data_i(s2[79:76]) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 44,
+        "line_b": 44,
+        "token_a": "data_o",
+        "token_b": "data_i"
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "key_update.v",
+      "target_line": 49,
+      "mutation_log": "applied. DMI -> Partselect @ line 49: data_i[79:19]  ==>  Partselect @ line 49: data_i[78:18]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 48,
+        "target_line": 49
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "key_update.v",
+      "target_line": 51,
+      "mutation_log": "applied. AVC(15->17) -> Assign @ line 51: assign s3 = { s2[79:20], s2[19:15] ^ round_counter, s2[14:0] };  ==>  Assign @ line 51: assign s3 = { s2[79:20], s2[19:17] ^ round_counter, s2[14:0] };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 42,
+            "base_end": 43,
+            "matched_start": 42,
+            "matched_end": 43
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "present_encryptor_top.v",
+      "target_line": 55,
+      "mutation_log": "applied. CSW(data_o<->data_i) -> Instance @ line 55: present_cipher_sp ( .data_o(sub_per_output), .data_i(sub_per_input) )  ==>  Instance @ line 55: present_cipher_sp ( .data_o(sub_per_input), .data_i(sub_per_output) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 54,
+        "line_b": 54,
+        "token_a": "data_o",
+        "token_b": "data_i"
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "present_encryptor_top.v",
+      "target_line": 84,
+      "mutation_log": "applied. AVC(63->61) -> NonblockingSubstitution @ line 84: state <= data_i[63:0];  ==>  NonblockingSubstitution @ line 84: state <= data_i[61:0];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 83,
+        "target_line": 84
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl/key_update.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl/permutation.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl/present_encryptor_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl/sbox.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl/sub_per.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/merged_buggy_rtl/substitution.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 49: data_i[79:19]  ==>  Partselect @ line 49: data_i[78:18]",
+      "operator": "DMI",
+      "target_module": "key_update",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/include/key_update.v",
+      "target_signal": "data_i",
+      "target_signal_id": "key_update.data_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(data_o<->data_i) -> Instance @ line 45: key_update_sbox ( .data_o(s2[79:76]), .data_i(s1[79:76]) )  ==>  Instance @ line 45: key_update_sbox ( .data_o(s1[79:76]), .data_i(s2[79:76]) )",
+      "operator": "CSW",
+      "target_module": "key_update",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/include/key_update.v",
+      "target_signal": "data_o",
+      "target_signal_id": "key_update.data_o"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(63->61) -> NonblockingSubstitution @ line 84: state <= data_i[63:0];  ==>  NonblockingSubstitution @ line 84: state <= data_i[61:0];",
+      "operator": "AVC",
+      "target_module": "present_encryptor_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/present_encryptor_top.v",
+      "target_signal": "data_i",
+      "target_signal_id": "present_encryptor_top.data_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CSW(data_o<->data_i) -> Instance @ line 55: present_cipher_sp ( .data_o(sub_per_output), .data_i(sub_per_input) )  ==>  Instance @ line 55: present_cipher_sp ( .data_o(sub_per_input), .data_i(sub_per_output) )",
+      "operator": "CSW",
+      "target_module": "present_encryptor_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/present_encryptor_top.v",
+      "target_signal": "data_o",
+      "target_signal_id": "present_encryptor_top.data_o"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(15->17) -> Assign @ line 51: assign s3 = { s2[79:20], s2[19:15] ^ round_counter, s2[14:0] };  ==>  Assign @ line 51: assign s3 = { s2[79:20], s2[19:17] ^ round_counter, s2[14:0] };",
+      "operator": "AVC",
+      "target_module": "key_update",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/include/key_update.v",
+      "target_signal": "round_counter",
+      "target_signal_id": "key_update.round_counter"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/present_cipher_encryption_core/mutations",
+  "top_module": "present_encryptor_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/present_cipher_encryption_core/buggy_artifacts/consensus_merge_report"
+}

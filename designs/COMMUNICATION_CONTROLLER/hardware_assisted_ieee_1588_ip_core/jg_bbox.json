@@ -1,0 +1,6 @@
+{
+  "blackbox_modules": [
+    "dcfifo_128b_16"
+  ],
+  "notes": "Altera FIFO IP instantiated in ptp_queue.v; not in RTL tree. Jasper ENL058 suggests -bbox_m dcfifo_128b_16."
+}

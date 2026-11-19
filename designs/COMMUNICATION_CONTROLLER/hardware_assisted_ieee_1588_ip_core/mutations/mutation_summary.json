@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/hardware_assisted_ieee_1588_ip_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0000: applied. DMI -> Partselect @ line 125: addr_in[7:2]  ==>  Partselect @ line 125: addr_in[6:1]",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0001: applied. DIE -> Partselect @ line 260: adj_ld_data_out[31:0]  ==>  Partselect @ line 260: adj_ld_data_out[0:0]",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0002: applied. AVC(4->2) -> NonblockingSubstitution @ line 210: data_out_reg <= { 27'd0, reg_00[4:2], adj_ld_done_in, time_ok };  ==>  NonblockingSubstitution @ line 210: data_out_reg <= { 27'd0, reg_00[2:2], adj_ld_done_in, time_ok };",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0003: applied. DIE -> Partselect @ line 228: rx_q_stat_int[7:0]  ==>  Partselect @ line 228: rx_q_stat_int[0:0]",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0004: applied. AVC(31->32) -> NonblockingSubstitution @ line 237: data_out_reg <= { reg_64[31:24], 16'd0, tx_q_stat_int[7:0] };  ==>  NonblockingSubstitution @ line 237: data_out_reg <= { reg_64[30:24], 16'd0, tx_q_stat_int[7:0] };",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0005: applied. LOR(Land->Lor) -> Land @ line 175: (wr_in && cs_34)  ==>  Lor @ line 0: (wr_in || cs_34)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "ha1588.v"
+      ],
+      "log": "M_0006: applied. DIE -> Partselect @ line 58: addr_in[7:2]  ==>  Partselect @ line 58: addr_in[5:0]",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "ha1588.v"
+      ],
+      "log": "M_0007: applied. CSW(time_ld<->adj_ld) -> Instance @ line 120: u_rtc ( .rst(rtc_rst), .clk(rtc_clk), .time_ld(rtc_time_ld), .time_reg_ns_in(rtc_time_reg_ns), .time_reg_sec_in(rtc_time_reg_sec), .perio...  ==>  Instance @ line 120: u_rtc ( .rst(rtc_rst), .clk(rtc_clk), .time_ld(adj_ld_done), .time_reg_ns_in(rtc_time_reg_ns), .time_reg_sec_in(rtc_time_reg_sec), .perio...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tsu.v"
+      ],
+      "log": "M_0008: applied. LOR(And->Or) -> And @ line 292: (int_gmii_ctrl_d4 & !int_gmii_ctrl_d5)  ==>  Or @ line 0: (int_gmii_ctrl_d4 | !int_gmii_ctrl_d5)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tsu.v"
+      ],
+      "log": "M_0009: applied. CMC(true_only) -> Cond @ line 69: ((nibble_h)? gmii_data[3:0] : gmii_data_conv[7:4])  ==>  (cond removed)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0010: applied. DMI -> Partselect @ line 241: tx_q_data_int[95:64]  ==>  Partselect @ line 241: tx_q_data_int[94:63]",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "ha1588.v"
+      ],
+      "log": "M_0011: applied. CSW(addr_in<->rx_q_ptp_msgid_mask_out) -> Instance @ line 84: u_rgs ( .rst(rst), .clk(clk), .wr_in(wr_in), .rd_in(rd_in), .addr_in(byte_addr_in), .data_in(data_in), .data_out(data_out), .rtc_clk_in(r...  ==>  Instance @ line 84: u_rgs ( .rst(rst), .clk(clk), .wr_in(wr_in), .rd_in(rd_in), .addr_in(rx_q_ptp_msgid_mask), .data_in(data_in), .data_out(data_out), .rtc_c...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0012: applied. DIE -> Partselect @ line 259: period_adj_out[39:0]  ==>  Partselect @ line 259: period_adj_out[0:0]",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0013: applied. AVC(0->1) -> Assign @ line 258: assign period_out[39:0] = { reg_20[7:0], reg_24[31:0] };  ==>  Assign @ line 258: assign period_out[39:0] = { reg_20[7:1], reg_24[31:0] };",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0014: applied. DMI -> Partselect @ line 242: tx_q_data_int[63:32]  ==>  Partselect @ line 242: tx_q_data_int[62:31]",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tsu.v"
+      ],
+      "log": "M_0015: applied. CSW(int_valid<->int_sop) -> Instance @ line 333: parser ( .clk(gmii_clk), .rst(rst), .int_data(int_data_d1), .int_valid(int_valid_d1), .int_sop(int_sop_d1), .int_eop(int_eop_d1), .int_mo...  ==>  Instance @ line 333: parser ( .clk(gmii_clk), .rst(rst), .int_data(int_data_d1), .int_valid(int_sop_d1), .int_sop(int_valid_d1), .int_eop(int_eop_d1), .int_mo...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/reg.v"
+      ],
+      "log": "M_0016: applied. AVC(47->45) -> NonblockingSubstitution @ line 214: data_out_reg <= { 16'd0, time_reg_sec_int[47:32] };  ==>  NonblockingSubstitution @ line 214: data_out_reg <= { 16'd0, time_reg_sec_int[45:32] };",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tsu.v"
+      ],
+      "log": "M_0017: applied. CSW(wrclk<->rdempty) -> Instance @ line 355: queue ( .aclr(q_rst), .wrclk(q_wr_clk), .wrreq(q_wr_en && !q_wr_full), .data(q_wr_data), .wrfull(q_wr_full), .wrusedw(q_wrusedw), .rdclk(...  ==>  Instance @ line 355: queue ( .aclr(q_rst), .wrclk(q_rd_empty), .wrreq(q_wr_en && !q_wr_full), .data(q_wr_data), .wrfull(q_wr_full), .wrusedw(q_wrusedw), .rdcl...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/tsu.v"
+      ],
+      "log": "M_0018: applied. AVC(4'd0->4'd1) -> Assign @ line 371: assign q_rd_stat = { 4'd0, q_rdusedw };  ==>  Assign @ line 371: assign q_rd_stat = { 4'd1, q_rdusedw };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rtc.v"
+      ],
+      "log": "M_0019: applied. AVC(37->36) -> Assign @ line 161: assign time_ptp_ns = { 2'b00, time_acc_30n_08f[37:8] };  ==>  Assign @ line 161: assign time_ptp_ns = { 2'b00, time_acc_30n_08f[36:8] };",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

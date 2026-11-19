@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/s1_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/int_ctrl.v"
+      ],
+      "log": "M_0000: applied. AVC(11->9) -> BlockingSubstitution @ line 100: sys_interrupt_source_o = 11;  ==>  BlockingSubstitution @ line 100: sys_interrupt_source_o = 9;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/int_ctrl.v"
+      ],
+      "log": "M_0001: applied. LOR(Eq->NotEq) -> Eq @ line 47: (sys_reset_i == 1)  ==>  NotEq @ line 0: (sys_reset_i != 1)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rst_ctrl.v"
+      ],
+      "log": "M_0002: applied. SMC -> Block @ line 986: begin cluster_cken_o <= 0; cmp_grst_o <= 0; cmp_arst_o <= 0; ctu_tst_pre_grst_o <= 0; adbginit_o <= 0; gdbginit_o <= 0; sys_reset_final_o...  ==>  Block @ line 986: begin cluster_cken_o <= 1; cmp_grst_o <= 1; cmp_arst_o <= 1; ctu_tst_pre_grst_o <= 1; adbginit_o <= 1; gdbginit_o <= 1; sys_reset_final_o...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0003: applied. CSW(so<->adbginit_l) -> Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(scan0_7), .adbginit_l(adbginit_l), .arst_l(cmp_arst_l)...  ==>  Instance @ line 5243: spc_hdr ( .cluster_grst_l(spc_grst_l), .dbginit_l(spc_dbginit_l), .rclk(rclk), .so(adbginit_l), .adbginit_l(scan0_7), .arst_l(cmp_arst_l)...",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0004: applied. DIE -> Partselect @ line 3627: ctu_sscan_tid[3:0]  ==>  Partselect @ line 3627: ctu_sscan_tid[0:0]",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rst_ctrl.v"
+      ],
+      "log": "M_0005: applied. AVC(1->3) -> NonblockingSubstitution @ line 1025: adbginit_o <= 1;  ==>  NonblockingSubstitution @ line 1025: adbginit_o <= 3;",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rst_ctrl.v"
+      ],
+      "log": "M_0006: applied. AVC(0->2) -> NonblockingSubstitution @ line 989: cmp_arst_o <= 0;  ==>  NonblockingSubstitution @ line 989: cmp_arst_o <= 2;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rst_ctrl.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 998: begin cluster_cken_o <= 0; cmp_grst_o <= 0; cmp_arst_o <= 0; ctu_tst_pre_grst_o <= 0; adbginit_o <= 0; gdbginit_o <= 0; sys_reset_final_o...  ==>  Block @ line 998: begin cluster_cken_o <= 1; cmp_grst_o <= 1; cmp_arst_o <= 1; ctu_tst_pre_grst_o <= 1; adbginit_o <= 1; gdbginit_o <= 1; sys_reset_final_o...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0008: applied. CSW(si<->spu_mul_areg_shf) -> Instance @ line 4865: mul ( .si(scan1_2), .so(scan1_4), .grst_l(spc_grst_l), .arst_l(cmp_arst_l), .mul_exu_ack(mul_exu_ack), .mul_spu_ack(), .mul_spu_shf_ack()...  ==>  Instance @ line 4865: mul ( .si(1'b0), .so(scan1_4), .grst_l(spc_grst_l), .arst_l(cmp_arst_l), .mul_exu_ack(mul_exu_ack), .mul_spu_ack(), .mul_spu_shf_ack(), ....",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0009: applied. DIE -> Partselect @ line 3686: pcx_spc_grant_px[4:0]  ==>  Partselect @ line 3686: pcx_spc_grant_px[0:0]",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rst_ctrl.v"
+      ],
+      "log": "M_0010: applied. SMC -> Block @ line 1009: begin cluster_cken_o <= 0; cmp_grst_o <= 0; cmp_arst_o <= 1; ctu_tst_pre_grst_o <= 0; adbginit_o <= 1; gdbginit_o <= 0; sys_reset_final_o...  ==>  Block @ line 1009: begin cluster_cken_o <= 1; cmp_grst_o <= 1; cmp_arst_o <= 3; ctu_tst_pre_grst_o <= 1; adbginit_o <= 0; gdbginit_o <= 2; sys_reset_final_o...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0011: applied. DIE -> Partselect @ line 3626: const_cpuid[2:0]  ==>  Partselect @ line 3626: const_cpuid[3:1]",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0012: applied. CSW(wbm_spc_stall<->short_so0) -> Instance @ line 2731: ifu ( .wbm_spc_stall(wbm_spc_stall), .wbm_spc_resume(wbm_spc_resume), .short_si0(spc_scanin0), .short_si1(spc_scanin1), .short_so0(short_...  ==>  Instance @ line 2731: ifu ( .wbm_spc_stall(short_scan0_1), .wbm_spc_resume(wbm_spc_resume), .short_si0(spc_scanin0), .short_si1(spc_scanin1), .short_so0(wbm_sp...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/rst_ctrl.v"
+      ],
+      "log": "M_0013: applied. AVC(900->899) -> Assign @ line 1053: assign gclk_o = (cycle_counter > 900) & sys_clock_i;  ==>  Assign @ line 1053: assign gclk_o = (cycle_counter > 899) & sys_clock_i;",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0014: applied. DIE -> Partselect @ line 2944: const_maskid[7:0]  ==>  Partselect @ line 2944: const_maskid[0:0]",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0015: applied. CSW(si<->ctu_tst_scanmode) -> Instance @ line 5125: test_stub ( .so_2(), .long_chain_so_2(1'b0), .short_chain_so_2(1'b0), .si(scan1_4), .so(scan1_5), .long_chain_so_0(scan0_7), .short_chain...  ==>  Instance @ line 5125: test_stub ( .so_2(), .long_chain_so_2(1'b0), .short_chain_so_2(1'b0), .si(ctu_tst_scanmode), .so(scan1_5), .long_chain_so_0(scan0_7), .sh...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0016: applied. CSW(cpx_spc_data_rdy_cx2_buf<->cpx_spc_data_rdy_cx2) -> Instance @ line 2666: buf_cpx ( .cpx_spc_data_cx2_buf(cpx_spc_data_cx2_buf[145-1:0]), .cpx_spc_data_rdy_cx2_buf(cpx_spc_data_rdy_cx2_buf), .cpx_spc_data_cx2(cp...  ==>  Instance @ line 2666: buf_cpx ( .cpx_spc_data_cx2_buf(cpx_spc_data_cx2_buf[145-1:0]), .cpx_spc_data_rdy_cx2_buf(cpx_spc_data_rdy_cx2), .cpx_spc_data_cx2(cpx_sp...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sparc.v"
+      ],
+      "log": "M_0017: applied. CSW(ifu_tlu_wsr_inst_d<->efc_spc_dfuse_dshift) -> Instance @ line 3398: lsu ( .ifu_tlu_wsr_inst_d(ifu_lsu_wsr_inst_d), .lsu_ffu_st_dtlb_perr_g(lsu_ffu_st_dtlb_perr_g), .tlu_lsu_priv_trap_m(tlu_lsu_priv_trap_m)...  ==>  Instance @ line 3398: lsu ( .ifu_tlu_wsr_inst_d(efc_spc_dfuse_dshift), .lsu_ffu_st_dtlb_perr_g(lsu_ffu_st_dtlb_perr_g), .tlu_lsu_priv_trap_m(tlu_lsu_priv_trap_...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "s1_top.v"
+      ],
+      "log": "M_0018: applied. CSW(cmp_grst_o<->gdbginit_o) -> Instance @ line 1127: rst_ctrl_0 ( .sys_clock_i(sys_clock_i), .sys_reset_i(sys_reset_i), .cluster_cken_o(cluster_cken), .gclk_o(gclk), .cmp_grst_o(cmp_grst_l),...  ==>  Instance @ line 1127: rst_ctrl_0 ( .sys_clock_i(sys_clock_i), .sys_reset_i(sys_reset_i), .cluster_cken_o(cluster_cken), .gclk_o(gclk), .cmp_grst_o(gdbginit_l),...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "s1_top.v"
+      ],
+      "log": "M_0019: applied. CSW(spc_req_i<->spc_grant_o) -> Instance @ line 1090: spc2wbm_0 ( .sys_clock_i(sys_clock_i), .sys_reset_i(sys_reset_final), .sys_interrupt_source_i(sys_interrupt_source), .spc_req_i(spc_pcx_r...  ==>  Instance @ line 1090: spc2wbm_0 ( .sys_clock_i(sys_clock_i), .sys_reset_i(sys_reset_final), .sys_interrupt_source_i(sys_interrupt_source), .spc_req_i(pcx_spc_g...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

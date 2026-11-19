@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/ssp_uart",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0000: applied. AVC(1->0) -> Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 1];  ==>  Assign @ line 198: assign HF = Cnt[addr] | Cnt[addr - 0];",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0001: applied. AVC(0->2) -> NonblockingSubstitution @ line 173: nEF <= #1 0;  ==>  NonblockingSubstitution @ line 173: nEF <= #1 2;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0002: applied. LOR(And->Or) -> And @ line 118: (WE & ~FF)  ==>  Or @ line 0: (WE | ~FF)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/UART_RTO.v"
+      ],
+      "log": "M_0003: applied. CMC(true_only) -> Cond @ line 184: ((TC_CCnt)? CCntVal : CCnt - 1)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0004: applied. LOR(Or->And) -> Or @ line 876: (Rst | ClrTHR)  ==>  And @ line 0: (Rst & ClrTHR)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0005: applied. CSE(2'b01<->2'b10) -> CaseStatement @ line 935: case(MD) 2'b00: RxD <= #1 RxD_232; 2'b01: RxD <= #1 RxD_232; 2'b10: RxD <= #1 (TxIdle)? RxD_485 : 1; 2'b11: RxD <= #1 RxD_485; endcase  ==>  CaseStatement @ line 935: case(MD) 2'b00: RxD <= #1 RxD_232; 2'b10: RxD <= #1 RxD_232; 2'b01: RxD <= #1 (TxIdle)? RxD_485 : 1; 2'b11: RxD <= #1 RxD_485; endcase",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0006: applied. LOR(And->Or) -> And @ line 855: (SSP_WE & Sel_SPR & (SSP_DI[11:9] == pFThr))  ==>  Or @ line 0: (SSP_WE & Sel_SPR | (SSP_DI[11:9] == pFThr))",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0007: applied. AVC(10->12) -> Assign @ line 829: assign RE_RDR = Sel_RDR & ~SSP_WnR & (SSP_En & ~En) & RDR[10];  ==>  Assign @ line 829: assign RE_RDR = Sel_RDR & ~SSP_WnR & (SSP_En & ~En) & RDR[8];",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0008: applied. CSW(Len<->NumStop) -> Instance @ line 994: XMT ( .Rst(Rst), .Clk(Clk), .CE_16x(CE_16x), .Len(Len), .NumStop(NumStop), .ParEn(ParEn), .Par(Par), .TF_RE(RE_THR), .THR(THR), .TF_EF(TF...  ==>  Instance @ line 994: XMT ( .Rst(Rst), .Clk(Clk), .CE_16x(CE_16x), .Len(NumStop), .NumStop(Len), .ParEn(ParEn), .Par(Par), .TF_RE(RE_THR), .THR(THR), .TF_EF(TF...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0009: applied. AVC(1->0) -> NonblockingSubstitution @ line 938: RxD <= #1 (TxIdle)? RxD_485 : 1;  ==>  NonblockingSubstitution @ line 938: RxD <= #1 (TxIdle)? RxD_485 : 0;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0010: applied. CSW(NumStop<->RxD) -> Instance @ line 1023: RCV ( .Rst(Rst), .Clk(Clk), .CE_16x(CE_16x), .Len(Len), .NumStop(NumStop), .ParEn(ParEn), .Par(Par), .RxD(RxD), .RD(RD), .WE_RHR(WE_RHR),...  ==>  Instance @ line 1023: RCV ( .Rst(Rst), .Clk(Clk), .CE_16x(CE_16x), .Len(Len), .NumStop(RxD), .ParEn(ParEn), .Par(Par), .RxD(NumStop), .RD(RD), .WE_RHR(WE_RHR),...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0011: applied. CSW(den<->pls) -> Instance @ line 768: RED3 ( .den(RFC), .din(SCK), .clk(Clk), .rst(Rst), .trg(), .pls(ClrRHR) )  ==>  Instance @ line 768: RED3 ( .den(ClrRHR), .din(SCK), .clk(Clk), .rst(Rst), .trg(), .pls(RFC) )",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0012: applied. AVC(1->0) -> NonblockingSubstitution @ line 175: nEF <= #1 ~(RE & (Cnt == 1));  ==>  NonblockingSubstitution @ line 175: nEF <= #1 ~(RE & (Cnt == 0));",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0013: applied. LOR(And->Or) -> And @ line 189: (WE & &WCnt)  ==>  Or @ line 0: (WE | &WCnt)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "SSP_UART.v"
+      ],
+      "log": "M_0014: applied. LOR(And->Or) -> And @ line 829: (SSP_En & ~En)  ==>  Or @ line 0: (SSP_En | ~En)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0015: applied. LOR(And->Or) -> And @ line 119: (RE & ~EF)  ==>  Or @ line 0: (RE | ~EF)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/DPSFnmCE.v"
+      ],
+      "log": "M_0016: applied. LOR(And->Or) -> And @ line 175: (RE & (Cnt == 1))  ==>  Or @ line 0: (RE | (Cnt == 1))",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/UART_BRG.v"
+      ],
+      "log": "M_0017: applied. AVC(1->2) -> NonblockingSubstitution @ line 137: Divider <= #1 Divider - 1;  ==>  NonblockingSubstitution @ line 137: Divider <= #1 Divider - 2;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/UART_BRG.v"
+      ],
+      "log": "M_0018: applied. LOR(And->Or) -> And @ line 140: (TC_PSCntr & (Divider == 0))  ==>  Or @ line 0: (TC_PSCntr | (Divider == 0))",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/UART_INT.v"
+      ],
+      "log": "M_0019: applied. AVC(1->3) -> Assign @ line 187: assign Rst_iTHE = Rst | iTHE & Clr_Int & USR[1];  ==>  Assign @ line 187: assign Rst_iTHE = Rst | iTHE & Clr_Int & USR[3];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

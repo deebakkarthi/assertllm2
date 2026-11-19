@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "wb_dma_top.v"
+      ],
+      "log": "M_0000: applied. CSW(pointer0<->pointer18_s) -> Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer0), .pointer0_s(pointer0_s), .ch0_csr(c...  ==>  Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer18_s), .pointer0_s(pointer0_s), .ch0_cs...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0001: applied. DMO -> Pointer @ line 548: ack_o[23]  ==>  Pointer @ line 548: ack_o[13] (new index=13)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0002: applied. CSE(5'h1d<->5'h4) -> CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h4: adr0 = ch4_adr0; 5'h5: adr...  ==>  CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h1d: adr0 = ch4_adr0; 5'h5: ad...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0003: applied. AVC(13->14) -> Assign @ line 447: assign pri10[0] = ch10_csr[13];  ==>  Assign @ line 447: assign pri10[0] = ch10_csr[14];",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0004: applied. DMO -> Pointer @ line 537: ch12_csr[0]  ==>  Pointer @ line 537: ch12_csr[22] (new index=22)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0005: applied. CMC(swap) -> Cond @ line 457: ((pri_sel == 2'd0)? 1'b0 : ch13_csr[14])  ==>  Cond @ line 457: ((pri_sel == 2'd0)? ch13_csr[14] : 1'b0)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0006: applied. CMC(false_only) -> Cond @ line 460: ((pri_sel == 2'd0)? 1'b0 : ch14_csr[14])  ==>  (cond removed)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0007: applied. CMC(swap) -> Cond @ line 463: ((pri_sel == 2'd0)? 1'b0 : ch15_csr[14])  ==>  Cond @ line 463: ((pri_sel == 2'd0)? ch15_csr[14] : 1'b0)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0008: applied. DMO -> Pointer @ line 467: ch16_csr[15]  ==>  Pointer @ line 467: ch16_csr[4] (new index=4)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0009: applied. DMO -> Pointer @ line 470: ch17_csr[15]  ==>  Pointer @ line 470: ch17_csr[30] (new index=30)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0010: applied. AVC(15->16) -> Assign @ line 473: assign pri18[2] = (pri_sel == 2'd2)? ch18_csr[15] : 1'b0;  ==>  Assign @ line 473: assign pri18[2] = (pri_sel == 2'd2)? ch18_csr[16] : 1'b0;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0011: applied. AVC(19->18) -> Assign @ line 544: assign valid[19] = ch19_conf[0] & ch19_csr[0] & ((ch19_csr[5])? req_r[19] & !ack_o[19] : 1'b1);  ==>  Assign @ line 544: assign valid[19] = ch19_conf[0] & ch19_csr[0] & ((ch19_csr[5])? req_r[18] & !ack_o[19] : 1'b1);",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0012: applied. DMO -> Pointer @ line 526: ch1_csr[5]  ==>  Pointer @ line 526: ch1_csr[2] (new index=2)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0013: applied. LOR(And->Or) -> And @ line 634: (ch20_conf[0] & (ch_sel == 5'h14) & ch20_csr[5] & de_ack)  ==>  Or @ line 0: (ch20_conf[0] & (ch_sel == 5'h14) & ch20_csr[5] | de_ack)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_de.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> BlockingSubstitution @ line 589: dma_done_d = 1'b0;  ==>  BlockingSubstitution @ line 589: dma_done_d = 1'b1;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_de.v"
+      ],
+      "log": "M_0015: applied. DIE -> Partselect @ line 509: mast0_din[11:0]  ==>  Partselect @ line 509: mast0_din[31:20]",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_de.v"
+      ],
+      "log": "M_0016: applied. SMC -> Block @ line 720: begin de_fetch_descr = 1'b1; if(mast0_drdy_r) de_adr1_we = 1'b1; ptr_adr_low = 2'h3; ld_desc_sel = 1'b1; if(mast0_drdy) begin next_state ...  ==>  Block @ line 720: begin de_fetch_descr = 1'b0; if(mast0_drdy_r) de_adr1_we = 1'b1; ptr_adr_low = 2'h2; ld_desc_sel = 1'b0; if(mast0_drdy) begin next_state ...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "wb_dma_top.v"
+      ],
+      "log": "M_0017: applied. CSW(wbs_data_o<->wb_addr_i) -> Instance @ line 1147: u3 ( .clk(clk_i), .rst(~rst_i), .wbs_data_i(wb0s_data_i), .wbs_data_o(wb0s_data_o), .wb_addr_i(wb0_addr_i), .wb_sel_i(wb0_sel_i), .wb_we_...  ==>  Instance @ line 1147: u3 ( .clk(clk_i), .rst(~rst_i), .wbs_data_i(wb0s_data_i), .wbs_data_o(wb0_addr_i), .wb_addr_i(wb0s_data_o), .wb_sel_i(wb0_sel_i), .wb_we_...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0018: applied. CSE(5'h19<->5'h14) -> CaseStatement @ line 1043: case(ch_sel) 5'h0: am1 = ch0_am1; 5'h1: am1 = ch1_am1; 5'h2: am1 = ch2_am1; 5'h3: am1 = ch3_am1; 5'h4: am1 = ch4_am1; 5'h5: am1 = ch5_am1...  ==>  CaseStatement @ line 1043: case(ch_sel) 5'h0: am1 = ch0_am1; 5'h1: am1 = ch1_am1; 5'h2: am1 = ch2_am1; 5'h3: am1 = ch3_am1; 5'h4: am1 = ch4_am1; 5'h5: am1 = ch5_am1...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/wb_dma_ch_sel.v"
+      ],
+      "log": "M_0019: applied. DMO -> Pointer @ line 547: ch22_csr[0]  ==>  Pointer @ line 547: ch22_csr[16] (new index=16)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "blackbox_modules": [
+    "RAMB16_S36_S36",
+    "BUFGMUX"
+  ],
+  "notes": "Xilinx primitives from duram__verilog_TECH_xilinx.v and CLK_SWITCH__verilog_TECH_xilinx.v; not elaborated in Jasper (ENL058 without -bbox_m)."
+}

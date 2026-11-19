@@ -1,0 +1,172 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "16x16bit_multiplier_pipelined.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(5->4) -> Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[5];  ==>  Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[4];",
+      "target_line": 550
+    },
+    {
+      "changed_rtl_files": [
+        "16x16bit_multiplier_pipelined.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 0;  ==>  NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 1;",
+      "target_line": 931
+    },
+    {
+      "changed_rtl_files": [
+        "16x16bit_multiplier_pipelined.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CCW(3<->9) -> Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w27[1], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...  ==>  Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w21[4], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...",
+      "target_line": 275
+    },
+    {
+      "changed_rtl_files": [
+        "CLA_fixed.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 225: assign o_s[0] = P0[0] ^ i_c;  ==>  Assign @ line 225: assign o_s[0] = P0[1] ^ i_c;",
+      "target_line": 225
+    },
+    {
+      "changed_rtl_files": [
+        "CLA_fixed.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(31->32) -> Assign @ line 257: assign o_c = G6[31];  ==>  Assign @ line 257: assign o_c = G6[30];",
+      "target_line": 257
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "16x16bit_multiplier_pipelined.v",
+      "target_line": 275,
+      "mutation_log": "applied. CCW(3<->9) -> Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w27[1], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...  ==>  Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w21[4], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 337,
+            "base_end": 338,
+            "matched_start": 337,
+            "matched_end": 338
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "16x16bit_multiplier_pipelined.v",
+      "target_line": 550,
+      "mutation_log": "applied. AVC(5->4) -> Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[5];  ==>  Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[4];",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "16x16bit_multiplier_pipelined.v",
+      "target_line": 931,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 0;  ==>  NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 1167,
+        "target_line": 931
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "CLA_fixed.v",
+      "target_line": 225,
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 225: assign o_s[0] = P0[0] ^ i_c;  ==>  Assign @ line 225: assign o_s[0] = P0[1] ^ i_c;",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "CLA_fixed.v",
+      "target_line": 257,
+      "mutation_log": "applied. AVC(31->32) -> Assign @ line 257: assign o_c = G6[31];  ==>  Assign @ line 257: assign o_c = G6[30];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 1359,
+        "target_line": 257
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/merged_buggy_rtl/16x16bit_multiplier_pipelined.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/merged_buggy_rtl/CLA_fixed.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/merged_buggy_rtl/PID.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/merged_buggy_rtl/PID_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/merged_buggy_rtl/booth.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> Assign @ line 225: assign o_s[0] = P0[0] ^ i_c;  ==>  Assign @ line 225: assign o_s[0] = P0[1] ^ i_c;",
+      "operator": "AVC",
+      "target_module": "adder_32bit",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pid_controller/include/CLA_fixed.v",
+      "target_signal": "i_c",
+      "target_signal_id": "adder_32bit.i_c"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(31->32) -> Assign @ line 257: assign o_c = G6[31];  ==>  Assign @ line 257: assign o_c = G6[30];",
+      "operator": "AVC",
+      "target_module": "adder_32bit",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pid_controller/include/CLA_fixed.v",
+      "target_signal": "o_c",
+      "target_signal_id": "adder_32bit.o_c"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(5->4) -> Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[5];  ==>  Assign @ line 550: assign layer_1_w19[3] = layer_0_w19[4];",
+      "operator": "AVC",
+      "target_module": "multiplier_16x16bit_pipelined",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pid_controller/include/16x16bit_multiplier_pipelined.v",
+      "target_signal": "layer_0_w1",
+      "target_signal_id": "multiplier_16x16bit_pipelined.layer_0_w1"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CCW(3<->9) -> Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w27[1], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...  ==>  Concat @ line 275: { layer_0_w30, layer_0_w29[0], layer_0_w28[1], layer_0_w21[4], layer_0_w26[2], layer_0_w25[2], layer_0_w24[3], layer_0_w23[3], layer_0_w2...",
+      "operator": "CCW",
+      "target_module": "multiplier_16x16bit_pipelined",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pid_controller/include/16x16bit_multiplier_pipelined.v",
+      "target_signal": "layer_0_w30",
+      "target_signal_id": "multiplier_16x16bit_pipelined.layer_0_w30"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 0;  ==>  NonblockingSubstitution @ line 931: reg_layer_2_w31 <= 1;",
+      "operator": "AVC",
+      "target_module": "multiplier_16x16bit_pipelined",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/DSP_CORE/pid_controller/include/16x16bit_multiplier_pipelined.v",
+      "target_signal": "layer_2_w31",
+      "target_signal_id": "multiplier_16x16bit_pipelined.layer_2_w31"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/mutations",
+  "top_module": "PID",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/DSP_CORE/pid_controller/buggy_artifacts/consensus_merge_report"
+}

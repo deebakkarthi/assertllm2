@@ -1,0 +1,205 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "apb.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:1];",
+      "target_line": 155
+    },
+    {
+      "changed_rtl_files": [
+        "apb.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(13->11) -> NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[11:0];",
+      "target_line": 159
+    },
+    {
+      "changed_rtl_files": [
+        "apb.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b1 : 1'b0)  ==>  Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b0 : 1'b1)",
+      "target_line": 123
+    },
+    {
+      "changed_rtl_files": [
+        "apb.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 117: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) & (PSELx == 1'b1))  ==>  Or @ line 0: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) | (PSELx == 1'b1))",
+      "target_line": 117
+    },
+    {
+      "changed_rtl_files": [
+        "module_i2c.v"
+      ],
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 121: ((fifo_tx_f_empty == 1'b1)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "target_line": 121
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "apb.v",
+      "target_line": 117,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 117: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) & (PSELx == 1'b1))  ==>  Or @ line 0: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) | (PSELx == 1'b1))",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 88,
+            "base_end": 96,
+            "matched_start": 88,
+            "matched_end": 96
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "apb.v",
+      "target_line": 123,
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b1 : 1'b0)  ==>  Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b0 : 1'b1)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 90,
+        "target_line": 123
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "apb.v",
+      "target_line": 155,
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:1];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 154,
+        "target_line": 155
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "apb.v",
+      "target_line": 159,
+      "mutation_log": "applied. AVC(13->11) -> NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[11:0];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 158,
+        "target_line": 159
+      }
+    },
+    {
+      "mutant_id": "M_0006",
+      "target_rtl_file": "module_i2c.v",
+      "target_line": 121,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 121: ((fifo_tx_f_empty == 1'b1)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 207,
+            "base_end": 231,
+            "matched_start": 207,
+            "matched_end": 231
+          },
+          {
+            "base_start": 203,
+            "base_end": 205,
+            "matched_start": 203,
+            "matched_end": 205
+          },
+          {
+            "base_start": 201,
+            "base_end": 202,
+            "matched_start": 201,
+            "matched_end": 202
+          },
+          {
+            "base_start": 94,
+            "base_end": 199,
+            "matched_start": 94,
+            "matched_end": 199
+          },
+          {
+            "base_start": 79,
+            "base_end": 93,
+            "matched_start": 79,
+            "matched_end": 93
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/merged_buggy_rtl/apb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/merged_buggy_rtl/fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/merged_buggy_rtl/i2c.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/merged_buggy_rtl/module_i2c.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(0->1) -> NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 155: INTERNAL_I2C_REGISTER_CONFIG <= PWDATA[13:1];",
+      "operator": "AVC",
+      "target_module": "apb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/include/apb.v",
+      "target_signal": "INTERNAL_I2C_REGISTER_CONFIG",
+      "target_signal_id": "apb.INTERNAL_I2C_REGISTER_CONFIG"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(13->11) -> NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[13:0];  ==>  NonblockingSubstitution @ line 159: INTERNAL_I2C_REGISTER_TIMEOUT <= PWDATA[11:0];",
+      "operator": "AVC",
+      "target_module": "apb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/include/apb.v",
+      "target_signal": "INTERNAL_I2C_REGISTER_TIMEOUT",
+      "target_signal_id": "apb.INTERNAL_I2C_REGISTER_TIMEOUT"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(swap) -> Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b1 : 1'b0)  ==>  Cond @ line 123: ((((WR_ENA == 1'b1) | (RD_ENA == 1'b1) | (PADDR == 32'd8) | (PADDR == 32'd12)) & ((PENABLE == 1'b1) & (PSELx == 1'b1)))? 1'b0 : 1'b1)",
+      "operator": "CMC",
+      "target_module": "apb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/include/apb.v",
+      "target_signal": "PADDR",
+      "target_signal_id": "apb.PADDR"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 117: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) & (PSELx == 1'b1))  ==>  Or @ line 0: ((PWRITE == 1'b1) & (PENABLE == 1'b1) & (PADDR == 32'd0) | (PSELx == 1'b1))",
+      "operator": "LOR",
+      "target_module": "apb",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/include/apb.v",
+      "target_signal": "PSELx",
+      "target_signal_id": "apb.PSELx"
+    },
+    {
+      "mutant_id": "M_0006",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 121: ((fifo_tx_f_empty == 1'b1)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "module_i2c",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/include/module_i2c.v",
+      "target_signal": "fifo_tx_f_empty",
+      "target_signal_id": "module_i2c.fifo_tx_f_empty"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/apb_to_i2c/mutations",
+  "top_module": "i2c",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/apb_to_i2c/buggy_artifacts/consensus_merge_report"
+}

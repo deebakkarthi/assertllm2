@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/mix_columns.v"
+      ],
+      "log": "M_0000: applied. DMI -> Partselect @ line 236: in[127:96]  ==>  Partselect @ line 236: in[126:95]",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mix_columns.v"
+      ],
+      "log": "M_0001: applied. CSW(in<->out) -> Instance @ line 239: so3_u ( .in(in[31:0]), .out(so3) )  ==>  Instance @ line 239: so3_u ( .in(so3), .out(in[31:0]) )",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0002: applied. DIE -> Partselect @ line 309: key_in[127:64]  ==>  Partselect @ line 309: key_in[191:128]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0003: applied. CMC(true_only) -> Cond @ line 64: ((key_mode == 2'b01)? 4'd13 : 4'd15)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0004: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 338: key_ready <= 1'b1;  ==>  NonblockingSubstitution @ line 338: key_ready <= 1'b0;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0005: applied. LOR(Lor->Land) -> Lor @ line 293: (wr1 || wr2 || wr3 || init_wr1 || init_wr2 || init_wr3 || init_wr4)  ==>  Land @ line 0: ((wr1 || wr2 || wr3 || init_wr1 || init_wr2 || init_wr3) && init_wr4)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/shift_rows.v"
+      ],
+      "log": "M_0006: applied. DMI -> Partselect @ line 23: si[95:88]  ==>  Partselect @ line 23: si[94:87]",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "aes.v"
+      ],
+      "log": "M_0007: applied. AVC(128'b0->128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001) -> NonblockingSubstitution @ line 132: i_data_L[127:0] <= 128'b0;  ==>  NonblockingSubstitution @ line 132: i_data_L[127:0] <= 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "aes.v"
+      ],
+      "log": "M_0008: applied. LOR(Lor->Land) -> Lor @ line 167: (i_data_valid_L || sb_valid[2])  ==>  Land @ line 0: (i_data_valid_L && sb_valid[2])",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "aes.v"
+      ],
+      "log": "M_0009: applied. CSW(key_start<->key_ready) -> Instance @ line 297: u_key_exp ( .clk(clk), .reset(reset), .key_in(i_key[255:0]), .key_mode(i_key_mode[1:0]), .key_start(i_start), .wr(wr), .wr_addr(wr_addr[4...  ==>  Instance @ line 297: u_key_exp ( .clk(clk), .reset(reset), .key_in(i_key[255:0]), .key_mode(i_key_mode[1:0]), .key_start(o_key_ready), .wr(wr), .wr_addr(wr_ad...",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "aes.v"
+      ],
+      "log": "M_0010: applied. AVC(0->1) -> NonblockingSubstitution @ line 168: o_data[127:0] <= ark_data[127:0];  ==>  NonblockingSubstitution @ line 168: o_data[127:0] <= ark_data[127:1];",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "aes.v"
+      ],
+      "log": "M_0011: applied. AVC(2->0) -> NonblockingSubstitution @ line 185: o_data_valid <= sb_valid[2] && final_round;  ==>  NonblockingSubstitution @ line 185: o_data_valid <= sb_valid[0] && final_round;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/inv_shift_rows.v"
+      ],
+      "log": "M_0012: applied. DMI -> Partselect @ line 23: so[95:64]  ==>  Partselect @ line 23: so[94:63]",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0013: applied. DMI -> Partselect @ line 309: key_in[127:64]  ==>  Partselect @ line 309: key_in[126:63]",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0014: applied. CSW(enable<->ende) -> Instance @ line 195: u_1 ( .clk(clk), .reset(reset), .enable(1'b1), .din(sbox_in[15:8]), .ende(1'b0), .en_dout(sbox_out[15:8]), .de_dout() )  ==>  Instance @ line 195: u_1 ( .clk(clk), .reset(reset), .enable(1'b0), .din(sbox_in[15:8]), .ende(1'b1), .en_dout(sbox_out[15:8]), .de_dout() )",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0015: applied. AVC(4->6) -> NonblockingSubstitution @ line 328: wr_addr[4:0] <= wr_addr[4:0] + 1'b1;  ==>  NonblockingSubstitution @ line 328: wr_addr[4:0] <= wr_addr[2:0] + 1'b1;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sbox.v"
+      ],
+      "log": "M_0016: applied. DIE -> Partselect @ line 96: de_dout[7:0]  ==>  Partselect @ line 96: de_dout[0:0]",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/key_exp.v"
+      ],
+      "log": "M_0017: applied. DIE -> Partselect @ line 197: sbox_out[31:24]  ==>  Partselect @ line 197: sbox_out[7:0]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/mix_columns.v"
+      ],
+      "log": "M_0018: applied. CSW(in<->out) -> Instance @ line 237: so1_u ( .in(in[95:64]), .out(so1) )  ==>  Instance @ line 237: so1_u ( .in(so1), .out(in[95:64]) )",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sbox.v"
+      ],
+      "log": "M_0019: applied. AVC(7->5) -> Assign @ line 96: assign de_dout[7:0] = last_matrix_out_dec[7:0];  ==>  Assign @ line 96: assign de_dout[7:0] = last_matrix_out_dec[5:0];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "wb_dma_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(pointer0<->pointer18_s) -> Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer0), .pointer0_s(pointer0_s), .ch0_csr(c...  ==>  Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer18_s), .pointer0_s(pointer0_s), .ch0_cs...",
+      "target_line": 789
+    },
+    {
+      "changed_rtl_files": [
+        "wb_dma_ch_sel.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 548: ack_o[23]  ==>  Pointer @ line 548: ack_o[13] (new index=13)",
+      "target_line": 548
+    },
+    {
+      "changed_rtl_files": [
+        "wb_dma_ch_sel.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(5'h1d<->5'h4) -> CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h4: adr0 = ch4_adr0; 5'h5: adr...  ==>  CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h1d: adr0 = ch4_adr0; 5'h5: ad...",
+      "target_line": 920
+    },
+    {
+      "changed_rtl_files": [
+        "wb_dma_ch_sel.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 537: ch12_csr[0]  ==>  Pointer @ line 537: ch12_csr[22] (new index=22)",
+      "target_line": 537
+    },
+    {
+      "changed_rtl_files": [
+        "wb_dma_ch_sel.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(13->14) -> Assign @ line 447: assign pri10[0] = ch10_csr[13];  ==>  Assign @ line 447: assign pri10[0] = ch10_csr[14];",
+      "target_line": 447
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "wb_dma_ch_sel.v",
+      "target_line": 447,
+      "mutation_log": "applied. AVC(13->14) -> Assign @ line 447: assign pri10[0] = ch10_csr[13];  ==>  Assign @ line 447: assign pri10[0] = ch10_csr[14];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 331,
+        "target_line": 447
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "wb_dma_ch_sel.v",
+      "target_line": 537,
+      "mutation_log": "applied. DMO -> Pointer @ line 537: ch12_csr[0]  ==>  Pointer @ line 537: ch12_csr[22] (new index=22)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 400,
+            "base_end": 405,
+            "matched_start": 400,
+            "matched_end": 405
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "wb_dma_ch_sel.v",
+      "target_line": 548,
+      "mutation_log": "applied. DMO -> Pointer @ line 548: ack_o[23]  ==>  Pointer @ line 548: ack_o[13] (new index=13)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 553,
+        "target_line": 548
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "wb_dma_ch_sel.v",
+      "target_line": 920,
+      "mutation_log": "applied. CSE(5'h1d<->5'h4) -> CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h4: adr0 = ch4_adr0; 5'h5: adr...  ==>  CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h1d: adr0 = ch4_adr0; 5'h5: ad...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          912,
+          945
+        ],
+        "token_a": "5'h1d",
+        "token_b": "5'h4",
+        "changed_lines": 2
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "wb_dma_top.v",
+      "target_line": 789,
+      "mutation_log": "applied. CSW(pointer0<->pointer18_s) -> Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer0), .pointer0_s(pointer0_s), .ch0_csr(c...  ==>  Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer18_s), .pointer0_s(pointer0_s), .ch0_cs...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 712,
+        "line_b": 857,
+        "token_a": "pointer0",
+        "token_b": "pointer18_s"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_ch_arb.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_ch_pri_enc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_ch_rf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_ch_sel.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_de.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_inc30r.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_pri_enc_sub.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_rf.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_wb_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_wb_mast.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/merged_buggy_rtl/wb_dma_wb_slv.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(pointer0<->pointer18_s) -> Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer0), .pointer0_s(pointer0_s), .ch0_csr(c...  ==>  Instance @ line 789: u1 ( .clk(clk_i), .rst(~rst_i), .req_i(dma_req), .ack_o(dma_ack), .nd_i(dma_nd), .pointer0(pointer18_s), .pointer0_s(pointer0_s), .ch0_cs...",
+      "operator": "CSW",
+      "target_module": "wb_dma_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/wb_dma_top.v",
+      "target_signal": "clk_i",
+      "target_signal_id": "wb_dma_top.clk_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. DMO -> Pointer @ line 548: ack_o[23]  ==>  Pointer @ line 548: ack_o[13] (new index=13)",
+      "operator": "DMO",
+      "target_module": "wb_dma_ch_sel",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/include/wb_dma_ch_sel.v",
+      "target_signal": "ack_o",
+      "target_signal_id": "wb_dma_ch_sel.ack_o"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSE(5'h1d<->5'h4) -> CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h4: adr0 = ch4_adr0; 5'h5: adr...  ==>  CaseStatement @ line 920: case(ch_sel) 5'h0: adr0 = ch0_adr0; 5'h1: adr0 = ch1_adr0; 5'h2: adr0 = ch2_adr0; 5'h3: adr0 = ch3_adr0; 5'h1d: adr0 = ch4_adr0; 5'h5: ad...",
+      "operator": "CSE",
+      "target_module": "wb_dma_ch_sel",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/include/wb_dma_ch_sel.v",
+      "target_signal": "adr0",
+      "target_signal_id": "wb_dma_ch_sel.adr0"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(13->14) -> Assign @ line 447: assign pri10[0] = ch10_csr[13];  ==>  Assign @ line 447: assign pri10[0] = ch10_csr[14];",
+      "operator": "AVC",
+      "target_module": "wb_dma_ch_sel",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/include/wb_dma_ch_sel.v",
+      "target_signal": "ch10_csr",
+      "target_signal_id": "wb_dma_ch_sel.ch10_csr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. DMO -> Pointer @ line 537: ch12_csr[0]  ==>  Pointer @ line 537: ch12_csr[22] (new index=22)",
+      "operator": "DMO",
+      "target_module": "wb_dma_ch_sel",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/include/wb_dma_ch_sel.v",
+      "target_signal": "ch12_csr",
+      "target_signal_id": "wb_dma_ch_sel.ch12_csr"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/mutations",
+  "top_module": "wb_dma_top",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/SYSTEM_ON_CHIP/wishbone_dma_bridge_ip_core/buggy_artifacts/consensus_merge_report"
+}

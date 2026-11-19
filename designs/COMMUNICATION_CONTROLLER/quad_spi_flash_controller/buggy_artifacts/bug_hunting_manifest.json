@@ -1,0 +1,184 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "llqspi.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMO -> Pointer @ line 174: i_dat[1]  ==>  Pointer @ line 174: i_dat[3] (new index=3)",
+      "target_line": 174
+    },
+    {
+      "changed_rtl_files": [
+        "llqspi.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 309: ((i_hold)? 3'h4 : 3'h5)  ==>  (cond removed)",
+      "target_line": 309
+    },
+    {
+      "changed_rtl_files": [
+        "llqspi.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(3'b000->3'b001) -> NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b000 } + 6'h8 - 6'h4;  ==>  NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b001 } + 6'h8 - 6'h4;",
+      "target_line": 287
+    },
+    {
+      "changed_rtl_files": [
+        "llqspi.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 262: begin o_valid <= 1'b0; o_cs_n <= 1'b0; o_busy <= 1'b1; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...  ==>  Block @ line 262: begin o_valid <= 1'b1; o_cs_n <= 1'b1; o_busy <= 1'b0; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...",
+      "target_line": 262
+    },
+    {
+      "changed_rtl_files": [
+        "llqspi.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. SMC -> Block @ line 207: begin o_sck <= 1'b0; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...  ==>  Block @ line 207: begin o_sck <= 1'b1; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...",
+      "target_line": 207
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "llqspi.v",
+      "target_line": 174,
+      "mutation_log": "applied. DMO -> Pointer @ line 174: i_dat[1]  ==>  Pointer @ line 174: i_dat[3] (new index=3)",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "llqspi.v",
+      "target_line": 207,
+      "mutation_log": "applied. SMC -> Block @ line 207: begin o_sck <= 1'b0; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...  ==>  Block @ line 207: begin o_sck <= 1'b1; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 87,
+            "base_end": 90,
+            "matched_start": 87,
+            "matched_end": 90
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "llqspi.v",
+      "target_line": 262,
+      "mutation_log": "applied. SMC -> Block @ line 262: begin o_valid <= 1'b0; o_cs_n <= 1'b0; o_busy <= 1'b1; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...  ==>  Block @ line 262: begin o_valid <= 1'b1; o_cs_n <= 1'b1; o_busy <= 1'b0; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 117,
+            "base_end": 120,
+            "matched_start": 117,
+            "matched_end": 120
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "llqspi.v",
+      "target_line": 287,
+      "mutation_log": "applied. AVC(3'b000->3'b001) -> NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b000 } + 6'h8 - 6'h4;  ==>  NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b001 } + 6'h8 - 6'h4;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 131,
+        "target_line": 287
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "llqspi.v",
+      "target_line": 309,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 309: ((i_hold)? 3'h4 : 3'h5)  ==>  (cond removed)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 147,
+        "target_line": 309
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/buggy_artifacts/merged_buggy_rtl/llqspi.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/buggy_artifacts/merged_buggy_rtl/wbqspiflash.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMO -> Pointer @ line 174: i_dat[1]  ==>  Pointer @ line 174: i_dat[3] (new index=3)",
+      "operator": "DMO",
+      "target_module": "llqspi",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/include/llqspi.v",
+      "target_signal": "i_dat",
+      "target_signal_id": "llqspi.i_dat"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. SMC -> Block @ line 262: begin o_valid <= 1'b0; o_cs_n <= 1'b0; o_busy <= 1'b1; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...  ==>  Block @ line 262: begin o_valid <= 1'b1; o_cs_n <= 1'b1; o_busy <= 1'b0; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...",
+      "operator": "SMC",
+      "target_module": "llqspi",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/include/llqspi.v",
+      "target_signal": "i_dir",
+      "target_signal_id": "llqspi.i_dir"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 309: ((i_hold)? 3'h4 : 3'h5)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "llqspi",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/include/llqspi.v",
+      "target_signal": "i_hold",
+      "target_signal_id": "llqspi.i_hold"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(3'b000->3'b001) -> NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b000 } + 6'h8 - 6'h4;  ==>  NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b001 } + 6'h8 - 6'h4;",
+      "operator": "AVC",
+      "target_module": "llqspi",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/include/llqspi.v",
+      "target_signal": "i_len",
+      "target_signal_id": "llqspi.i_len"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. SMC -> Block @ line 207: begin o_sck <= 1'b0; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...  ==>  Block @ line 207: begin o_sck <= 1'b1; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...",
+      "operator": "SMC",
+      "target_module": "llqspi",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/include/llqspi.v",
+      "target_signal": "o_busy",
+      "target_signal_id": "llqspi.o_busy"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/mutations",
+  "top_module": "wbqspiflash",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 4,
+    "total": 5,
+    "failed": [
+      {
+        "mutant_id": "M_0004",
+        "rtl_name": "llqspi.v",
+        "verified": false,
+        "reason": "after_not_found"
+      }
+    ]
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller/buggy_artifacts/consensus_merge_report"
+}

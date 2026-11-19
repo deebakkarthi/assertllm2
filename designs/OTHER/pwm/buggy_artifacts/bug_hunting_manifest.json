@@ -1,0 +1,223 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "PWM.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 119: assign clk_source = (ctrl[0])? i_extclk : i_wb_clk;  ==>  Assign @ line 119: assign clk_source = (ctrl[2])? i_extclk : i_wb_clk;",
+      "target_line": 119
+    },
+    {
+      "changed_rtl_files": [
+        "PWM.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(7->9) -> Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[7];  ==>  Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[5];",
+      "target_line": 148
+    },
+    {
+      "changed_rtl_files": [
+        "down_clocking_even.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 36: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "target_line": 36
+    },
+    {
+      "changed_rtl_files": [
+        "down_clocking_odd.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 26: ((i_divisor != 0) && i_rst)  ==>  Lor @ line 0: ((i_divisor != 0) || i_rst)",
+      "target_line": 26
+    },
+    {
+      "changed_rtl_files": [
+        "down_clocking_odd.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 67: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "target_line": 67
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "PWM.v",
+      "target_line": 119,
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 119: assign clk_source = (ctrl[0])? i_extclk : i_wb_clk;  ==>  Assign @ line 119: assign clk_source = (ctrl[2])? i_extclk : i_wb_clk;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 70,
+            "base_end": 111,
+            "matched_start": 70,
+            "matched_end": 111
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "PWM.v",
+      "target_line": 148,
+      "mutation_log": "applied. AVC(7->9) -> Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[7];  ==>  Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[5];",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 115,
+            "base_end": 134,
+            "matched_start": 142,
+            "matched_end": 161
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "down_clocking_even.v",
+      "target_line": 36,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 36: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 19,
+            "base_end": 37,
+            "matched_start": 19,
+            "matched_end": 37
+          },
+          {
+            "base_start": 0,
+            "base_end": 8,
+            "matched_start": 0,
+            "matched_end": 8
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "down_clocking_odd.v",
+      "target_line": 26,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 26: ((i_divisor != 0) && i_rst)  ==>  Lor @ line 0: ((i_divisor != 0) || i_rst)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 24,
+            "base_end": 42,
+            "matched_start": 24,
+            "matched_end": 42
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "down_clocking_odd.v",
+      "target_line": 67,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 67: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 68,
+            "base_end": 69,
+            "matched_start": 53,
+            "matched_end": 54
+          },
+          {
+            "base_start": 61,
+            "base_end": 65,
+            "matched_start": 46,
+            "matched_end": 50
+          },
+          {
+            "base_start": 43,
+            "base_end": 43,
+            "matched_start": 66,
+            "matched_end": 66
+          },
+          {
+            "base_start": 0,
+            "base_end": 10,
+            "matched_start": 0,
+            "matched_end": 10
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/merged_buggy_rtl/PWM.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/merged_buggy_rtl/down_clocking_even.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/merged_buggy_rtl/down_clocking_odd.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/merged_buggy_rtl/minus_one.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 36: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "down_clocking_even",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/pwm/include/down_clocking_even.v",
+      "target_signal": "i_clk",
+      "target_signal_id": "down_clocking_even.i_clk"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 26: ((i_divisor != 0) && i_rst)  ==>  Lor @ line 0: ((i_divisor != 0) || i_rst)",
+      "operator": "LOR",
+      "target_module": "down_clocking_odd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/pwm/include/down_clocking_odd.v",
+      "target_signal": "i_rst",
+      "target_signal_id": "down_clocking_odd.i_rst"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 119: assign clk_source = (ctrl[0])? i_extclk : i_wb_clk;  ==>  Assign @ line 119: assign clk_source = (ctrl[2])? i_extclk : i_wb_clk;",
+      "operator": "AVC",
+      "target_module": "PWM",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/pwm/PWM.v",
+      "target_signal": "i_extclk",
+      "target_signal_id": "PWM.i_extclk"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(7->9) -> Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[7];  ==>  Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[5];",
+      "operator": "AVC",
+      "target_module": "PWM",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/pwm/PWM.v",
+      "target_signal": "i_wb_rst",
+      "target_signal_id": "PWM.i_wb_rst"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 67: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "down_clocking_odd",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/pwm/include/down_clocking_odd.v",
+      "target_signal": "i_clk",
+      "target_signal_id": "down_clocking_odd.i_clk"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/mutations",
+  "top_module": "PWM",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/pwm/buggy_artifacts/consensus_merge_report"
+}

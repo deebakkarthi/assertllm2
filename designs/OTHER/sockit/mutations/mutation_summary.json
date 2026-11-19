@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sockit",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0000: applied. LOR(And->Or) -> And @ line 252: (bus_wen & (bus_adr[1:0] == 2'b00))  ==>  Or @ line 0: (bus_wen | (bus_adr[1:0] == 2'b00))",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0001: applied. CMC(false_only) -> Cond @ line 233: ((bus_adr[1] == 1'b0)? (bus_adr[0] == 1'b0)? bus_rdt_ctl_sts : bus_rdt_pwr_sel : (bus_adr[0] == 1'b0)? cdr_n : cdr_o)  ==>  (cond removed)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0002: applied. LOR(And->Or) -> And @ line 251: (bus_ren & (bus_adr[1:0] == 2'b00))  ==>  Or @ line 0: (bus_ren | (bus_adr[1:0] == 2'b00))",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0003: applied. AVC(16->15) -> NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:16];  ==>  NonblockingSubstitution @ line 272: cdr_o <= bus_wdt[31:15];",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0004: applied. AVC(0->2) -> Assign @ line 253: assign bus_wen_pwr_sel = bus_wen & (bus_adr[1:0] == 2'b01);  ==>  Assign @ line 253: assign bus_wen_pwr_sel = bus_wen & (bus_adr[1:2] == 2'b01);",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0005: applied. CMC(true_only) -> Cond @ line 352: ((OVD_E)? bus_wen_ctl_sts & bus_wdt[2] : 1'b0)  ==>  (cond removed)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0006: applied. AVC(0->1) -> Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[0] == 1'b0);  ==>  Assign @ line 246: assign bus_wen_ctl_sts = bus_wen & (bus_adr[2] == 1'b0); (elaboration fix: parameter BAW=3)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0007: applied. AVC(16->14) -> NonblockingSubstitution @ line 317: owr_pwr <= bus_wdt[(BDW==32)?16:4:((BDW==32)?16:4)+OWN];  ==>  NonblockingSubstitution @ line 317: owr_pwr <= bus_wdt[(BDW==32)?14:4:((BDW==32)?16:4)+OWN];",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0008: applied. CCW(1<->5) -> Concat @ line 210: { irq_ena, irq_sts, 1'b0, owr_pwr[0], owr_cyc, owr_ovd, owr_rst, owr_dat }  ==>  Concat @ line 210: { irq_ena, owr_ovd, 1'b0, owr_pwr[0], owr_cyc, irq_sts, owr_rst, owr_dat }",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0009: applied. LOR(And->Or) -> And @ line 401: (owr_rst & (cnt == t_rsth))  ==>  Or @ line 0: (owr_rst | (cnt == t_rsth))",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0010: applied. CMC(true_only) -> Cond @ line 235: ((bus_adr[0] == 1'b0)? cdr_n : cdr_o)  ==>  (cond removed)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0011: applied. AVC(0->1) -> Assign @ line 245: assign bus_ren_ctl_sts = bus_ren & (bus_adr[0] == 1'b0);  ==>  Assign @ line 245: assign bus_ren_ctl_sts = bus_ren & (bus_adr[2] == 1'b0); (elaboration fix: parameter BAW=3)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0012: applied. AVC(1'b0->1'b1) -> Assign @ line 352: assign req_ovd = (OVD_E)? bus_wen_ctl_sts & bus_wdt[2] : 1'b0;  ==>  Assign @ line 352: assign req_ovd = (OVD_E)? bus_wen_ctl_sts & bus_wdt[2] : 1'b1;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0013: applied. AVC(0->2) -> Assign @ line 231: assign bus_rdt = (bus_adr[0] == 1'b0)? { bus_rdt_pwr_sel, bus_rdt_ctl_sts } : (cdr_o << 16) | cdr_n;  ==>  Assign @ line 231: assign bus_rdt = (bus_adr[2] == 1'b0)? { bus_rdt_pwr_sel, bus_rdt_ctl_sts } : (cdr_o << 16) | cdr_n; (elaboration fix: parameter BAW=3)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b0->1'b1) -> Assign @ line 216: assign bus_rdt_pwr_sel = { { 16 - OWN{ 1'b0 } }, owr_pwr, 4'h0, { 4 - SDW{ 1'b0 } }, owr_sel };  ==>  Assign @ line 216: assign bus_rdt_pwr_sel = { { 16 - OWN{ 1'b1 } }, owr_pwr, 4'h0, { 4 - SDW{ 1'b0 } }, owr_sel };",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0015: applied. AVC(1->3) -> NonblockingSubstitution @ line 362: owr_rst <= bus_wdt[1];  ==>  NonblockingSubstitution @ line 362: owr_rst <= bus_wdt[3];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0016: applied. CMC(true_only) -> Cond @ line 231: ((bus_adr[0] == 1'b0)? { bus_rdt_pwr_sel, bus_rdt_ctl_sts } : (cdr_o << 16) | cdr_n)  ==>  (cond removed)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0017: applied. AVC(1->3) -> Assign @ line 251: assign bus_ren_ctl_sts = bus_ren & (bus_adr[1:0] == 2'b00);  ==>  Assign @ line 251: assign bus_ren_ctl_sts = bus_ren & (bus_adr[3:0] == 2'b00);",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0018: applied. LOR(And->Or) -> And @ line 248: (bus_wen & (bus_adr[0] == 1'b1))  ==>  Or @ line 0: (bus_wen | (bus_adr[0] == 1'b1))",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "sockit_owm.v"
+      ],
+      "log": "M_0019: applied. CMC(swap) -> Cond @ line 384: ((&bus_wdt[1:0])? t_idl : (bus_wdt[1])? t_rst : t_bit)  ==>  Cond @ line 384: ((&bus_wdt[1:0])? (bus_wdt[1])? t_rst : t_bit : t_idl)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

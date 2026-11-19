@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/spi_core",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/fifo4.v"
+      ],
+      "log": "M_0000: applied. LOR(And->Or) -> And @ line 128: ((wp_p1 == rp) & we)  ==>  Or @ line 0: ((wp_p1 == rp) | we)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0001: applied. LOR(Eq->NotEq) -> Eq @ line 131: (adr_i == 2'b11)  ==>  NotEq @ line 0: (adr_i != 2'b11)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0002: applied. CSW(we<->full) -> Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wfwe), .dout(wfdout), .re(wfre), .full(wffull), .empty(wfempty) )  ==>  Instance @ line 205: wfifo ( .clk(clk_i), .rst(rst_i), .clr(~spe), .din(dat_i), .we(wffull), .dout(wfdout), .re(wfre), .full(wfwe), .empty(wfempty) )",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0003: applied. CSE(2'b01<->2'b00) -> CaseStatement @ line 141: case(adr_i) 2'b00: dat_o <= #1 spcr; 2'b01: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase  ==>  CaseStatement @ line 141: case(adr_i) 2'b01: dat_o <= #1 spcr; 2'b00: dat_o <= #1 spsr; 2'b10: dat_o <= #1 rfdout; 2'b11: dat_o <= #1 sper; endcase",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0004: applied. AVC(7->6) -> Assign @ line 309: assign mosi_o = treg[7];  ==>  Assign @ line 309: assign mosi_o = treg[6];",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 136: (wb_acc & (adr_i == 2'b10) & ack_o & we_i)  ==>  Or @ line 0: (wb_acc & (adr_i == 2'b10) & ack_o | we_i)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0006: applied. LOR(And->Or) -> And @ line 116: (cyc_i & stb_i)  ==>  Or @ line 0: (cyc_i | stb_i)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0007: applied. LOR(And->Or) -> And @ line 188: ((wfov | wcol) & ~(wr_spsr & dat_i[6]))  ==>  Or @ line 0: (wfov | wcol | ~(wr_spsr & dat_i[6]))",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0008: applied. CSE(2'b01<->2'b00) -> CaseStatement @ line 270: case(state) 2'b00: begin bcnt <= #1 3'h7; treg <= #1 wfdout; sck_o <= #1 cpol; if(~wfempty) begin wfre <= #1 1'b1; state <= #1 2'b01; if(...  ==>  CaseStatement @ line 270: case(state) 2'b01: begin bcnt <= #1 3'h7; treg <= #1 wfdout; sck_o <= #1 cpol; if(~wfempty) begin wfre <= #1 1'b1; state <= #1 2'b01; if(...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0009: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 263: sck_o <= #1 1'b0;  ==>  NonblockingSubstitution @ line 263: sck_o <= #1 1'b1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0010: applied. LOR(And->Or) -> And @ line 181: (wr_spsr & dat_i[7])  ==>  Or @ line 0: (wr_spsr | dat_i[7])",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 299: begin state <= #1 2'b01; sck_o <= #1 ~sck_o; end  ==>  Block @ line 299: begin state <= #1 2'b11; sck_o <= #1 ~sck_o; end",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0012: applied. LOR(And->Or) -> And @ line 149: (wb_acc & (adr_i == 2'b10) & ack_o)  ==>  Or @ line 0: (wb_acc & (adr_i == 2'b10) | ack_o)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0013: applied. DMO -> Pointer @ line 181: dat_i[7]  ==>  Pointer @ line 181: dat_i[4] (new index=4)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0014: applied. AVC(8'h10->8'h0e) -> NonblockingSubstitution @ line 129: spcr <= #1 dat_i | 8'h10;  ==>  NonblockingSubstitution @ line 129: spcr <= #1 dat_i | 8'h0e;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0015: applied. SMC -> Block @ line 295: begin state <= #1 2'b00; sck_o <= #1 cpol; rfwe <= #1 1'b1; end  ==>  Block @ line 295: begin state <= #1 2'b01; sck_o <= #1 cpol; rfwe <= #1 1'b0; end",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0016: applied. LOR(And->Or) -> And @ line 156: (wb_acc & !ack_o)  ==>  Or @ line 0: (wb_acc | !ack_o)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0017: applied. AVC(2'b10->2'b00) -> Assign @ line 149: assign rfre = wb_acc & (adr_i == 2'b10) & ack_o & ~we_i;  ==>  Assign @ line 149: assign rfre = wb_acc & (adr_i == 2'b00) & ack_o & ~we_i;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0018: applied. AVC(6->4) -> NonblockingSubstitution @ line 292: treg <= #1 { treg[6:0], miso_i };  ==>  NonblockingSubstitution @ line 292: treg <= #1 { treg[4:0], miso_i };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "simple_spi_top.v"
+      ],
+      "log": "M_0019: applied. DMO -> Pointer @ line 188: dat_i[6]  ==>  Pointer @ line 188: dat_i[3] (new index=3)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

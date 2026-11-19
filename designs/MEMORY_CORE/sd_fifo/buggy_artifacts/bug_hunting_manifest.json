@@ -1,0 +1,200 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "sd_fifo.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(fifo_empty<->fifo_full) -> Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_empty[2]), .fifo_full(fifo_full[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )  ==>  Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_full[2]), .fifo_full(fifo_empty[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )",
+      "target_line": 78
+    },
+    {
+      "changed_rtl_files": [
+        "sd_fifo.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 172: { sd_adr_i, radr1 }  ==>  Concat @ line 172: { radr1, sd_adr_i }",
+      "target_line": 172
+    },
+    {
+      "changed_rtl_files": [
+        "sd_fifo.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 166: ((sd_adr_i == 2'd3) & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) | !fifo_full[4])",
+      "target_line": 166
+    },
+    {
+      "changed_rtl_files": [
+        "sd_fifo.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 132: ((sd_adr_i == 2'd3) & sd_we_i & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) & sd_we_i | !fifo_full[4])",
+      "target_line": 132
+    },
+    {
+      "changed_rtl_files": [
+        "sd_fifo.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 73: (wb_adr_i == 2'd1)  ==>  NotEq @ line 0: (wb_adr_i != 2'd1)",
+      "target_line": 73
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "sd_fifo.v",
+      "target_line": 73,
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 73: (wb_adr_i == 2'd1)  ==>  NotEq @ line 0: (wb_adr_i != 2'd1)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 68,
+            "base_end": 76,
+            "matched_start": 68,
+            "matched_end": 76
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "sd_fifo.v",
+      "target_line": 78,
+      "mutation_log": "applied. CSW(fifo_empty<->fifo_full) -> Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_empty[2]), .fifo_full(fifo_full[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )  ==>  Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_full[2]), .fifo_full(fifo_empty[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 99,
+        "line_b": 100,
+        "token_a": "fifo_empty",
+        "token_b": "fifo_full"
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "sd_fifo.v",
+      "target_line": 132,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 132: ((sd_adr_i == 2'd3) & sd_we_i & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) & sd_we_i | !fifo_full[4])",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 136,
+            "base_end": 144,
+            "matched_start": 149,
+            "matched_end": 157
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "sd_fifo.v",
+      "target_line": 166,
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 166: ((sd_adr_i == 2'd3) & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) | !fifo_full[4])",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 161,
+            "base_end": 196,
+            "matched_start": 187,
+            "matched_end": 222
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "sd_fifo.v",
+      "target_line": 172,
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 172: { sd_adr_i, radr1 }  ==>  Concat @ line 172: { radr1, sd_adr_i }",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 194,
+        "target_line": 172
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/async_fifo_dw_simplex_actel.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/async_fifo_dw_simplex_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/async_fifo_mq.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/async_fifo_mq_md.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/dff_sr.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/gray_counter_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/sd_counter.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/sd_counter_defines.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/sd_fifo.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/versatile_fifo_async_cmp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/versatile_fifo_dual_port_ram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/versatile_fifo_dual_port_ram_dc_dw.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/versatile_fifo_dual_port_ram_dc_sw.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/versatile_fifo_dual_port_ram_sc_dw.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/merged_buggy_rtl/versatile_fifo_dual_port_ram_sc_sw.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(fifo_empty<->fifo_full) -> Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_empty[2]), .fifo_full(fifo_full[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )  ==>  Instance @ line 78: cmp2 ( .wptr(wptr2), .rptr(rptr2), .fifo_empty(fifo_full[2]), .fifo_full(fifo_empty[2]), .wclk(sd_clk), .rclk(wb_clk), .rst(rst) )",
+      "operator": "CSW",
+      "target_module": "sd_fifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/sd_fifo.v",
+      "target_signal": "fifo_empty",
+      "target_signal_id": "sd_fifo.fifo_empty"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 166: ((sd_adr_i == 2'd3) & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) | !fifo_full[4])",
+      "operator": "LOR",
+      "target_module": "sd_fifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/sd_fifo.v",
+      "target_signal": "fifo_full",
+      "target_signal_id": "sd_fifo.fifo_full"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 172: { sd_adr_i, radr1 }  ==>  Concat @ line 172: { radr1, sd_adr_i }",
+      "operator": "CCW",
+      "target_module": "sd_fifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/sd_fifo.v",
+      "target_signal": "sd_adr_i",
+      "target_signal_id": "sd_fifo.sd_adr_i"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(And->Or) -> And @ line 132: ((sd_adr_i == 2'd3) & sd_we_i & !fifo_full[4])  ==>  Or @ line 0: ((sd_adr_i == 2'd3) & sd_we_i | !fifo_full[4])",
+      "operator": "LOR",
+      "target_module": "sd_fifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/sd_fifo.v",
+      "target_signal": "sd_we_i",
+      "target_signal_id": "sd_fifo.sd_we_i"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Eq->NotEq) -> Eq @ line 73: (wb_adr_i == 2'd1)  ==>  NotEq @ line 0: (wb_adr_i != 2'd1)",
+      "operator": "LOR",
+      "target_module": "sd_fifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/sd_fifo.v",
+      "target_signal": "wb_adr_i",
+      "target_signal_id": "sd_fifo.wb_adr_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/MEMORY_CORE/sd_fifo/mutations",
+  "top_module": "sd_fifo",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/MEMORY_CORE/sd_fifo/buggy_artifacts/consensus_merge_report"
+}

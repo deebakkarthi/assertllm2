@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/sdc_controller",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/sd_bd.v"
+      ],
+      "log": "M_0000: applied. AVC(0->1) -> NonblockingSubstitution @ line 242: last_a_cmp <= 0;  ==>  NonblockingSubstitution @ line 242: last_a_cmp <= 1;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_bd.v"
+      ],
+      "log": "M_0001: applied. LOR(Plus->Minus) -> Plus @ line 250: (free_bd + 1)  ==>  Minus @ line 0: (free_bd - 1)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_bd.v"
+      ],
+      "log": "M_0002: applied. SMC -> Block @ line 209: begin new_bw <= 0; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...  ==>  Block @ line 209: begin new_bw <= 1; if(rst) begin m_wr_pnt <= 0; write_cnt <= 0; new_bw <= 0; read_cnt <= 0; end else if(we_m) begin if(free_bd > 0) begin...",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_cmd_master.v"
+      ],
+      "log": "M_0003: applied. LOR(And->Or) -> And @ line 389: (index_check_enable & (cmd_out[37:32] != cmd_in[37:32]))  ==>  Or @ line 0: (index_check_enable | (cmd_out[37:32] != cmd_in[37:32]))",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_cmd_master.v"
+      ],
+      "log": "M_0004: applied. DIE -> Partselect @ line 344: cmd_out[31:0]  ==>  Partselect @ line 344: cmd_out[39:8]",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_cmd_master.v"
+      ],
+      "log": "M_0005: applied. AVC(3->1) -> BlockingSubstitution @ line 349: settings[7] = CMD_SET_REG[3];  ==>  BlockingSubstitution @ line 349: settings[7] = CMD_SET_REG[1];",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_cmd_serial_host.v"
+      ],
+      "log": "M_0006: applied. DIE -> Partselect @ line 338: SETTING_IN[6:0]  ==>  Partselect @ line 338: SETTING_IN[15:9]",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_cmd_serial_host.v"
+      ],
+      "log": "M_0007: applied. AVC(16'b0000_0000_0000_0101->16'b0000000000000110) -> BlockingSubstitution @ line 558: STATUS[3:0] = 16'b0000_0000_0000_0101;  ==>  BlockingSubstitution @ line 558: STATUS[3:0] = 16'b0000000000000110;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_controller_wb.v"
+      ],
+      "log": "M_0008: applied. CSE(8'h48<->8'h28) -> CaseStatement @ line 374: case(wb_adr_i) 8'h00: wb_dat_o <= argument_reg; 8'h04: wb_dat_o <= cmd_setting_reg; 8'h08: wb_dat_o <= status_reg; 8'h0c: wb_dat_o <= cmd...  ==>  CaseStatement @ line 374: case(wb_adr_i) 8'h00: wb_dat_o <= argument_reg; 8'h04: wb_dat_o <= cmd_setting_reg; 8'h08: wb_dat_o <= status_reg; 8'h0c: wb_dat_o <= cmd...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_controller_wb.v"
+      ],
+      "log": "M_0009: applied. DMI -> Partselect @ line 345: wb_dat_i[31:16]  ==>  Partselect @ line 345: wb_dat_i[30:15]",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_fifo_rx_filler.v"
+      ],
+      "log": "M_0010: applied. CSW(wr<->full) -> Instance @ line 129: Rx_Fifo ( .d(dat_i), .wr(wr), .wclk(sd_clk), .q(dat_o), .rd(rd), .full(full), .empty(empty), .mem_empt(), .rclk(clk), .rst(rst | reset_rx...  ==>  Instance @ line 129: Rx_Fifo ( .d(dat_i), .wr(full), .wclk(sd_clk), .q(dat_o), .rd(rd), .full(wr), .empty(empty), .mem_empt(), .rclk(clk), .rst(rst | reset_rx...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "sdc_controller.v"
+      ],
+      "log": "M_0011: applied. AVC(0->1) -> Assign @ line 534: assign m_wb_cti_o = (start_tx_fifo)? m_wb_cti_o_tx : (start_rx_fifo)? m_wb_cti_o_rx : 0;  ==>  Assign @ line 534: assign m_wb_cti_o = (start_tx_fifo)? m_wb_cti_o_tx : (start_rx_fifo)? m_wb_cti_o_rx : 1;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "sdc_controller.v"
+      ],
+      "log": "M_0012: applied. AVC(0->2) -> Assign @ line 531: assign m_wb_cyc_o = (start_tx_fifo)? m_wb_cyc_o_tx : (start_rx_fifo)? m_wb_cyc_o_rx : 0;  ==>  Assign @ line 531: assign m_wb_cyc_o = (start_tx_fifo)? m_wb_cyc_o_tx : (start_rx_fifo)? m_wb_cyc_o_rx : 2;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "sdc_controller.v"
+      ],
+      "log": "M_0013: applied. AVC(0->2) -> Assign @ line 532: assign m_wb_stb_o = (start_tx_fifo)? m_wb_stb_o_tx : (start_rx_fifo)? m_wb_stb_o_rx : 0;  ==>  Assign @ line 532: assign m_wb_stb_o = (start_tx_fifo)? m_wb_stb_o_tx : (start_rx_fifo)? m_wb_stb_o_rx : 2;",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "sdc_controller.v"
+      ],
+      "log": "M_0014: applied. CSW(m_wb_we_o<->m_wb_bte_o) -> Instance @ line 444: fifo_filer_tx ( .clk(wb_clk_i), .rst(wb_rst_i | software_reset_reg[0]), .m_wb_adr_o(m_wb_adr_o_tx), .m_wb_we_o(m_wb_we_o_tx), .m_wb_dat_i...  ==>  Instance @ line 444: fifo_filer_tx ( .clk(wb_clk_i), .rst(wb_rst_i | software_reset_reg[0]), .m_wb_adr_o(m_wb_adr_o_tx), .m_wb_we_o(m_wb_bte_o_tx), .m_wb_dat_...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_bd.v"
+      ],
+      "log": "M_0015: applied. AVC(4->6) -> NonblockingSubstitution @ line 241: free_bd <= 32 / 4;  ==>  NonblockingSubstitution @ line 241: free_bd <= 32 / 6;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_cmd_master.v"
+      ],
+      "log": "M_0016: applied. SMC -> Block @ line 307: begin NORMAL_INT_REG[1] = card_present; NORMAL_INT_REG[2] = ~card_present; complete = 0; case(state) IDLE: begin go_idle_o = 0; req_out =...  ==>  Block @ line 307: begin NORMAL_INT_REG[1] = card_present; NORMAL_INT_REG[2] = ~card_present; complete = 1; case(state) IDLE: begin go_idle_o = 0; req_out =...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_controller_wb.v"
+      ],
+      "log": "M_0017: applied. AVC(0->1) -> NonblockingSubstitution @ line 248: clock_divider <= 0;  ==>  NonblockingSubstitution @ line 248: clock_divider <= 1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_controller_wb.v"
+      ],
+      "log": "M_0018: applied. AVC(0->1) -> NonblockingSubstitution @ line 243: cmd_setting_reg <= 0;  ==>  NonblockingSubstitution @ line 243: cmd_setting_reg <= 1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/sd_controller_wb.v"
+      ],
+      "log": "M_0019: applied. AVC(16->17) -> NonblockingSubstitution @ line 328: dat_in_m_rx_bd <= wb_dat_i[31:16];  ==>  NonblockingSubstitution @ line 328: dat_in_m_rx_bd <= wb_dat_i[31:17];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

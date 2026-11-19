@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/rtfsimpleuart",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/edge_det.v"
+      ],
+      "log": "M_0000: applied. LOR(And->Or) -> And @ line 56: (ed & ~i)  ==>  Or @ line 0: (ed | ~i)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0001: applied. CSW(ce<->i) -> Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(1'b1), .i(c[23]), .pe(baud16), .ne(), .ee() )  ==>  Instance @ line 362: ed0 ( .rst(rst_i), .clk(clk_i), .ce(c[23]), .i(1'b1), .pe(baud16), .ne(), .ee() )",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0002: applied. LOR(Land->Lor) -> Land @ line 268: (cyc_i && stb_i)  ==>  Lor @ line 0: (cyc_i || stb_i)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0003: applied. DMO -> Pointer @ line 388: dat_i[0]  ==>  Pointer @ line 388: dat_i[5] (new index=5)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0004: applied. CSE(4'd1<->4'd2) -> CaseStatement @ line 343: case(adr_i[3:0]) 4'd2: dat_o <= { dcdx[1], 1'b0, dsrx[1], ctsx[1], dcd_chg, 3'b0 }; 4'd3: dat_o <= { irq_o, 2'b0, irqenc, 2'b0 }; 4'd1: d...  ==>  CaseStatement @ line 343: case(adr_i[3:0]) 4'd1: dat_o <= { dcdx[1], 1'b0, dsrx[1], ctsx[1], dcd_chg, 3'b0 }; 4'd3: dat_o <= { irq_o, 2'b0, irqenc, 2'b0 }; 4'd2: d...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 291: (data_present_o & rx_present_ie)  ==>  Or @ line 0: (data_present_o | rx_present_ie)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0006: applied. AVC(0->1) -> NonblockingSubstitution @ line 404: dcdx <= { dcdx[0], ~dcd_ni };  ==>  NonblockingSubstitution @ line 404: dcdx <= { dcdx[1], ~dcd_ni };",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0007: applied. CSW(baud16x_ce<->clear) -> Instance @ line 310: uart_rx0 ( .rst_i(rst_i), .clk_i(clk_i), .cyc_i(cyc_i), .stb_i(stb_i), .cs_i(txrx), .we_i(we_i), .dat_o(rx_do), .baud16x_ce(baud16), .cle...  ==>  Instance @ line 310: uart_rx0 ( .rst_i(rst_i), .clk_i(clk_i), .cyc_i(cyc_i), .stb_i(stb_i), .cs_i(txrx), .we_i(we_i), .dat_o(rx_do), .baud16x_ce(clear), .clea...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0008: applied. AVC(0->1) -> NonblockingSubstitution @ line 407: dsrx <= { dsrx[0], ~dsr_ni };  ==>  NonblockingSubstitution @ line 407: dsrx <= { dsrx[1], ~dsr_ni };",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0009: applied. LOR(Land->Lor) -> Land @ line 282: (cyc_i && stb_i && we_i)  ==>  Lor @ line 0: (cyc_i && stb_i || we_i)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0010: applied. CSW(baud16x_ce<->empty) -> Instance @ line 326: uart_tx0 ( .rst_i(rst_i), .clk_i(clk_i), .cyc_i(cyc_i), .stb_i(stb_i), .cs_i(txrx), .we_i(we_i), .dat_i(dat_i), .baud16x_ce(baud16), .cts...  ==>  Instance @ line 326: uart_tx0 ( .rst_i(rst_i), .clk_i(clk_i), .cyc_i(cyc_i), .stb_i(stb_i), .cs_i(txrx), .we_i(we_i), .dat_i(dat_i), .baud16x_ce(tx_empty), .c...",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0011: applied. AVC(4'd13->4'd12) -> Assign @ line 282: assign clear = cyc_i && stb_i && we_i && (adr_i == 4'd13);  ==>  Assign @ line 282: assign clear = cyc_i && stb_i && we_i && (adr_i == 4'd12);",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0012: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 346: dat_o <= { 1'b0, tx_empty, tx_empty, 1'b0, frame_err, 1'b0, over_run, data_present_o };  ==>  NonblockingSubstitution @ line 346: dat_o <= { 1'b0, tx_empty, tx_empty, 1'b1, frame_err, 1'b0, over_run, data_present_o };",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0013: applied. AVC(2'b0->2'b10) -> NonblockingSubstitution @ line 345: dat_o <= { irq_o, 2'b0, irqenc, 2'b0 };  ==>  NonblockingSubstitution @ line 345: dat_o <= { irq_o, 2'b0, irqenc, 2'b10 };",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0014: applied. AVC(4->6) -> Assign @ line 268: assign cs = cyc_i && stb_i && (adr_i[31:4] == 28'hFFDC_0A0);  ==>  Assign @ line 268: assign cs = cyc_i && stb_i && (adr_i[31:6] == 28'hFFDC_0A0);",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0015: applied. AVC(0->1) -> NonblockingSubstitution @ line 401: ctsx <= { ctsx[0], ~cts_ni };  ==>  NonblockingSubstitution @ line 401: ctsx <= { ctsx[1], ~cts_ni };",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0016: applied. AVC(3->4) -> Assign @ line 270: assign vol_o = cs && (adr_i[3:2] == 2'b00);  ==>  Assign @ line 270: assign vol_o = cs && (adr_i[4:2] == 2'b00);",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0017: applied. DMO -> Pointer @ line 379: dat_i[0]  ==>  Pointer @ line 379: dat_i[6] (new index=6)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0018: applied. CSE(4'd6<->4'd9) -> CaseStatement @ line 376: case(adr_i) 4'd4: begin rx_present_ie <= dat_i[0]; tx_empty_ie <= dat_i[1]; dcd_ie <= dat_i[3]; end 4'd6: begin dtr_no <= ~dat_i[0]; rts_...  ==>  CaseStatement @ line 376: case(adr_i) 4'd4: begin rx_present_ie <= dat_i[0]; tx_empty_ie <= dat_i[1]; dcd_ie <= dat_i[3]; end 4'd9: begin dtr_no <= ~dat_i[0]; rts_...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "rtfSimpleUart.v"
+      ],
+      "log": "M_0019: applied. AVC(1->0) -> NonblockingSubstitution @ line 344: dat_o <= { dcdx[1], 1'b0, dsrx[1], ctsx[1], dcd_chg, 3'b0 };  ==>  NonblockingSubstitution @ line 344: dat_o <= { dcdx[1], 1'b0, dsrx[1], ctsx[0], dcd_chg, 3'b0 };",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

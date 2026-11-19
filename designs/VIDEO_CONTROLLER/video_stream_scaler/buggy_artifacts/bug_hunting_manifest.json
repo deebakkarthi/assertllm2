@@ -1,0 +1,176 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/video_stream_scaler/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "streamScaler.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 664: (((writeSelect[i] == 1'b1) && !forceRead)? writeEnable : 1'b0)  ==>  (cond removed)",
+      "target_line": 664
+    },
+    {
+      "changed_rtl_files": [
+        "streamScaler.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 660: (((writeSelect[i] == 1'b1) && !forceRead && writeEnable)? writeAddress : readAddress)  ==>  (cond removed)",
+      "target_line": 660
+    },
+    {
+      "changed_rtl_files": [
+        "streamScaler.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(advanceRead2<->forceRead) -> Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(advanceRead2), .advanceWrite(advanceWrite), .forceRead(f...  ==>  Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(forceRead), .advanceWrite(advanceWrite), .forceRead(adva...",
+      "target_line": 544
+    },
+    {
+      "changed_rtl_files": [
+        "streamScaler.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 0) & dInValid & nextDin;  ==>  Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 2) & dInValid & nextDin;",
+      "target_line": 540
+    },
+    {
+      "changed_rtl_files": [
+        "streamScaler.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1->3) -> NonblockingSubstitution @ line 233: dOutValidInt <= 1;  ==>  NonblockingSubstitution @ line 233: dOutValidInt <= 3;",
+      "target_line": 233
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "streamScaler.v",
+      "target_line": 233,
+      "mutation_log": "applied. AVC(1->3) -> NonblockingSubstitution @ line 233: dOutValidInt <= 1;  ==>  NonblockingSubstitution @ line 233: dOutValidInt <= 3;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 95,
+        "target_line": 233
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "streamScaler.v",
+      "target_line": 540,
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 0) & dInValid & nextDin;  ==>  Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 2) & dInValid & nextDin;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 321,
+        "target_line": 540
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "streamScaler.v",
+      "target_line": 544,
+      "mutation_log": "applied. CSW(advanceRead2<->forceRead) -> Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(advanceRead2), .advanceWrite(advanceWrite), .forceRead(f...  ==>  Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(forceRead), .advanceWrite(advanceWrite), .forceRead(adva...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 336,
+        "line_b": 338,
+        "token_a": "advanceRead2",
+        "token_b": "forceRead"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "streamScaler.v",
+      "target_line": 660,
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 660: (((writeSelect[i] == 1'b1) && !forceRead && writeEnable)? writeAddress : readAddress)  ==>  (cond removed)",
+      "applied": {
+        "mode": "cmc_cond_removed",
+        "applied": [
+          {
+            "line_index": 422,
+            "port": "addrA",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 424,
+            "port": "weA",
+            "mode": "cmc_port_line"
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "streamScaler.v",
+      "target_line": 664,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 664: (((writeSelect[i] == 1'b1) && !forceRead)? writeEnable : 1'b0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/video_stream_scaler/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/video_stream_scaler/buggy_artifacts/merged_buggy_rtl/streamScaler.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 664: (((writeSelect[i] == 1'b1) && !forceRead)? writeEnable : 1'b0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "ramFifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/streamScaler.v",
+      "target_signal": "forceRead",
+      "target_signal_id": "ramFifo.forceRead"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CMC(false_only) -> Cond @ line 660: (((writeSelect[i] == 1'b1) && !forceRead && writeEnable)? writeAddress : readAddress)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "ramFifo",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/streamScaler.v",
+      "target_signal": "readAddress",
+      "target_signal_id": "ramFifo.readAddress"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CSW(advanceRead2<->forceRead) -> Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(advanceRead2), .advanceWrite(advanceWrite), .forceRead(f...  ==>  Instance @ line 544: ramRB ( .clk(clk), .rst(rst | start), .advanceRead1(advanceRead1), .advanceRead2(forceRead), .advanceWrite(advanceWrite), .forceRead(adva...",
+      "operator": "CSW",
+      "target_module": "streamScaler",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/streamScaler.v",
+      "target_signal": "clk",
+      "target_signal_id": "streamScaler.clk"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1->3) -> NonblockingSubstitution @ line 233: dOutValidInt <= 1;  ==>  NonblockingSubstitution @ line 233: dOutValidInt <= 3;",
+      "operator": "AVC",
+      "target_module": "streamScaler",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/streamScaler.v",
+      "target_signal": "dOutValid",
+      "target_signal_id": "streamScaler.dOutValid"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(0->2) -> Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 0) & dInValid & nextDin;  ==>  Assign @ line 540: assign advanceWrite = (writeColCount == inputXRes) & (discardInput == 2) & dInValid & nextDin;",
+      "operator": "AVC",
+      "target_module": "streamScaler",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/streamScaler.v",
+      "target_signal": "inputXRes",
+      "target_signal_id": "streamScaler.inputXRes"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/VIDEO_CONTROLLER/video_stream_scaler/mutations",
+  "top_module": "streamScaler",
+  "merge_schema": "mutants_post_testing_directed_v4_clean_base",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/VIDEO_CONTROLLER/video_stream_scaler/buggy_artifacts/consensus_merge_report"
+}

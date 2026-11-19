@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/galois_counter_mode_advanced_encryption_standard_g",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/aes_cipher_top.v"
+      ],
+      "log": "M_0000: applied. CSW(wo_1<->wo_3) -> Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w1), .wo_2(w2), .wo_3(w3) )  ==>  Instance @ line 154: u0 ( .clk(clk), .kld(ld), .key(key), .wo_0(w0), .wo_1(w3), .wo_2(w2), .wo_3(w1) )",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aes_cipher_top.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 122: (!(|dcnt[3:1]) & dcnt[0] & !ld)  ==>  Or @ line 0: (!(|dcnt[3:1]) & dcnt[0] | !ld)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aes_cipher_top.v"
+      ],
+      "log": "M_0002: applied. DIE -> Partselect @ line 144: text_in_r[103:096]  ==>  Partselect @ line 144: text_in_r[31:24]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aes_cipher_top.v"
+      ],
+      "log": "M_0003: applied. DIE -> Partselect @ line 240: text_out[023:016]  ==>  Partselect @ line 240: text_out[111:104]",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0004: applied. AVC(82->81) -> Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[82] & b_in[11] ^ v_in[81] & b_in[...  ==>  Assign @ line 207: assign z_out[78] = z_in[78] ^ v_in[78] & b_in[15] ^ (v_in[79] & b_in[14] ^ v_in[80] & b_in[13]) ^ (v_in[81] & b_in[11] ^ v_in[81] & b_in[...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0005: applied. DMO -> Pointer @ line 168: v_out[59]  ==>  Pointer @ line 168: v_out[22] (new index=22)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "gcm_aes_v0.v"
+      ],
+      "log": "M_0006: applied. SMC -> Block @ line 344: begin nxt_state = state; we_y = 0; we_lenA = 0; we_lenC = 0; dii_data_not_ready = 1; aes_kld = 0; mux_aes_text_in_sel = 0; mux_yi_sel = 0...  ==>  Block @ line 344: begin nxt_state = state; we_y = 2; we_lenA = 1; we_lenC = 1; dii_data_not_ready = 2; aes_kld = 1; mux_aes_text_in_sel = 2; mux_yi_sel = 2...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aes_cipher_top.v"
+      ],
+      "log": "M_0007: applied. AVC(1->0) -> NonblockingSubstitution @ line 122: done <= !(|dcnt[3:1]) & dcnt[0] & !ld;  ==>  NonblockingSubstitution @ line 122: done <= !(|dcnt[3:0]) & dcnt[0] & !ld;",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0008: applied. AVC(9->10) -> Assign @ line 185: assign z_out[67] = z_in[67] ^ v_in[67] & b_in[15] ^ (v_in[68] & b_in[14] ^ v_in[69] & b_in[13]) ^ (v_in[71] & b_in[11] ^ v_in[70] & b_in[...  ==>  Assign @ line 185: assign z_out[67] = z_in[67] ^ v_in[67] & b_in[15] ^ (v_in[68] & b_in[14] ^ v_in[69] & b_in[13]) ^ (v_in[71] & b_in[11] ^ v_in[70] & b_in[...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0009: applied. DMO -> Pointer @ line 89: v_in[19]  ==>  Pointer @ line 89: v_in[22] (new index=22)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "gcm_aes_v0.v"
+      ],
+      "log": "M_0010: applied. AVC(0->1) -> BlockingSubstitution @ line 358: nxt_Tag_vld = 0;  ==>  BlockingSubstitution @ line 358: nxt_Tag_vld = 1;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "gcm_aes_v0.v"
+      ],
+      "log": "M_0011: applied. CSW(clk<->rst) -> Instance @ line 589: AES_ENC ( .done(aes_done), .text_out(aes_text_out[127:0]), .clk(clk), .rst(rst), .ld(aes_kld), .key(cii_K), .text_in(aes_text_in[127:0]) )  ==>  AVC(0->1) -> BlockingSubstitution @ line 190: aes_kld = 0;  ==>  BlockingSubstitution @ line 190: aes_kld = 1;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0012: applied. AVC(59->58) -> Assign @ line 136: assign v_out[43] = v_in[59];  ==>  Assign @ line 136: assign v_out[43] = v_in[58];",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0013: applied. DMO -> Pointer @ line 125: z_in[37]  ==>  Pointer @ line 125: z_in[112] (new index=112)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0014: applied. AVC(39->38) -> Assign @ line 96: assign v_out[23] = v_in[39];  ==>  Assign @ line 96: assign v_out[23] = v_in[38];",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0015: applied. AVC(42->40) -> Assign @ line 107: assign z_out[28] = z_in[28] ^ v_in[28] & b_in[15] ^ (v_in[29] & b_in[14] ^ v_in[30] & b_in[13]) ^ (v_in[32] & b_in[11] ^ v_in[31] & b_in[...  ==>  Assign @ line 107: assign z_out[28] = z_in[28] ^ v_in[28] & b_in[15] ^ (v_in[29] & b_in[14] ^ v_in[30] & b_in[13]) ^ (v_in[32] & b_in[11] ^ v_in[31] & b_in[...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/gfm128_16.v"
+      ],
+      "log": "M_0016: applied. AVC(5->3) -> Assign @ line 235: assign z_out[92] = z_in[92] ^ v_in[92] & b_in[15] ^ (v_in[93] & b_in[14] ^ v_in[94] & b_in[13]) ^ (v_in[96] & b_in[11] ^ v_in[95] & b_in[...  ==>  Assign @ line 235: assign z_out[92] = z_in[92] ^ v_in[92] & b_in[15] ^ (v_in[93] & b_in[14] ^ v_in[94] & b_in[13]) ^ (v_in[96] & b_in[11] ^ v_in[95] & b_in[...",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/aes_cipher_top.v"
+      ],
+      "log": "M_0017: applied. DMI -> Partselect @ line 135: text_in_r[031:024]  ==>  Partselect @ line 135: text_in_r[30:23]",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "gcm_aes_v0.v"
+      ],
+      "log": "M_0018: applied. AVC(127->126) -> BlockingSubstitution @ line 226: nxt_Out_data_star = { nxt_Out_data[127:72], 72'b0 };  ==>  BlockingSubstitution @ line 226: nxt_Out_data_star = { nxt_Out_data[126:72], 72'b0 };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "gcm_aes_v0.v"
+      ],
+      "log": "M_0019: applied. AVC(1->2) -> NonblockingSubstitution @ line 513: enc_byte_cnt <= #1 enc_byte_cnt + dii_data_size + 1;  ==>  NonblockingSubstitution @ line 513: enc_byte_cnt <= #1 enc_byte_cnt + dii_data_size + 2;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

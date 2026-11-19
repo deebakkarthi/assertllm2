@@ -1,0 +1,193 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "key_exp.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 309: key_in[127:64]  ==>  Partselect @ line 309: key_in[191:128]",
+      "target_line": 309
+    },
+    {
+      "changed_rtl_files": [
+        "key_exp.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 338: key_ready <= 1'b1;  ==>  NonblockingSubstitution @ line 338: key_ready <= 1'b0;",
+      "target_line": 338
+    },
+    {
+      "changed_rtl_files": [
+        "key_exp.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 64: ((key_mode == 2'b01)? 4'd13 : 4'd15)  ==>  (cond removed)",
+      "target_line": 64
+    },
+    {
+      "changed_rtl_files": [
+        "mix_columns.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 236: in[127:96]  ==>  Partselect @ line 236: in[126:95]",
+      "target_line": 236
+    },
+    {
+      "changed_rtl_files": [
+        "mix_columns.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(in<->out) -> Instance @ line 239: so3_u ( .in(in[31:0]), .out(so3) )  ==>  Instance @ line 239: so3_u ( .in(so3), .out(in[31:0]) )",
+      "target_line": 239
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "key_exp.v",
+      "target_line": 64,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 64: ((key_mode == 2'b01)? 4'd13 : 4'd15)  ==>  (cond removed)",
+      "applied": {
+        "mode": "cmc_cond_removed",
+        "applied": [
+          {
+            "line_index": 193,
+            "port": "clk",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 194,
+            "port": "reset",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 195,
+            "port": "enable",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 196,
+            "port": "din",
+            "mode": "cmc_port_line"
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "key_exp.v",
+      "target_line": 309,
+      "mutation_log": "applied. DIE -> Partselect @ line 309: key_in[127:64]  ==>  Partselect @ line 309: key_in[191:128]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 308,
+        "target_line": 309
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "key_exp.v",
+      "target_line": 338,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 338: key_ready <= 1'b1;  ==>  NonblockingSubstitution @ line 338: key_ready <= 1'b0;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 337,
+        "target_line": 338
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "mix_columns.v",
+      "target_line": 236,
+      "mutation_log": "applied. DMI -> Partselect @ line 236: in[127:96]  ==>  Partselect @ line 236: in[126:95]",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "mix_columns.v",
+      "target_line": 239,
+      "mutation_log": "applied. CSW(in<->out) -> Instance @ line 239: so3_u ( .in(in[31:0]), .out(so3) )  ==>  Instance @ line 239: so3_u ( .in(so3), .out(in[31:0]) )",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 137,
+        "line_b": 138,
+        "token_a": "in",
+        "token_b": "out"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/aes.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/inv_shift_rows.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/key_exp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/mix_columns.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/ram_16x64.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/sbox.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/shift_rows.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/merged_buggy_rtl/xram_16x64.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. DMI -> Partselect @ line 236: in[127:96]  ==>  Partselect @ line 236: in[126:95]",
+      "operator": "DMI",
+      "target_module": "inv_mix_columns",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/include/mix_columns.v",
+      "target_signal": "in",
+      "target_signal_id": "inv_mix_columns.in"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(in<->out) -> Instance @ line 239: so3_u ( .in(in[31:0]), .out(so3) )  ==>  Instance @ line 239: so3_u ( .in(so3), .out(in[31:0]) )",
+      "operator": "CSW",
+      "target_module": "inv_mix_columns",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/include/mix_columns.v",
+      "target_signal": "out",
+      "target_signal_id": "inv_mix_columns.out"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. DIE -> Partselect @ line 309: key_in[127:64]  ==>  Partselect @ line 309: key_in[191:128]",
+      "operator": "DIE",
+      "target_module": "key_exp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/include/key_exp.v",
+      "target_signal": "key_in",
+      "target_signal_id": "key_exp.key_in"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 64: ((key_mode == 2'b01)? 4'd13 : 4'd15)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "key_exp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/include/key_exp.v",
+      "target_signal": "key_mode",
+      "target_signal_id": "key_exp.key_mode"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 338: key_ready <= 1'b1;  ==>  NonblockingSubstitution @ line 338: key_ready <= 1'b0;",
+      "operator": "AVC",
+      "target_module": "key_exp",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/include/key_exp.v",
+      "target_signal": "key_ready",
+      "target_signal_id": "key_exp.key_ready"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/mutations",
+  "top_module": "aes",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/CRYPTO_CORE/high_throughput_and_low_area_aes_core/buggy_artifacts/consensus_merge_report"
+}

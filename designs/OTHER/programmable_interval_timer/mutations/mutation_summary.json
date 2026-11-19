@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/programmable_interval_timer",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/pit_count.v"
+      ],
+      "log": "M_0000: applied. AVC(0->1) -> NonblockingSubstitution @ line 83: cnt_flag_o <= 0;  ==>  NonblockingSubstitution @ line 83: cnt_flag_o <= 1;",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_count.v"
+      ],
+      "log": "M_0001: applied. LOR(Land->Lor) -> Land @ line 92: (rollover && counter_sync && !sync_reset)  ==>  Lor @ line 0: (rollover && counter_sync || !sync_reset)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_prescale.v"
+      ],
+      "log": "M_0002: applied. CMC(swap) -> Cond @ line 102: ((pit_slave)? ext_sync_i : cnt_sync_o)  ==>  Cond @ line 102: ((pit_slave)? cnt_sync_o : ext_sync_i)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_regs.v"
+      ],
+      "log": "M_0003: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b0;  ==>  NonblockingSubstitution @ line 92: pit_flg_clr <= 1'b1;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_regs.v"
+      ],
+      "log": "M_0004: applied. CSE(4'b0001<->4'b0011) -> CaseStatement @ line 98: case(write_regs) 4'b0011: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...  ==>  CaseStatement @ line 98: case(write_regs) 4'b0001: begin pit_slave <= write_data[15]; pit_pre <= write_data[11:8]; pit_flg_clr <= write_data[2]; pit_ien <= write_...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_wb_bus.v"
+      ],
+      "log": "M_0005: applied. DIE -> Partselect @ line 121: read_regs[47:32]  ==>  Partselect @ line 121: read_regs[15:0]",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_wb_bus.v"
+      ],
+      "log": "M_0006: applied. CSE(4'b0_000<->4'b0_001) -> CaseStatement @ line 130: case({ eight_bit_bus, address }) 4'b1_000: write_regs = 4'b0001; 4'b1_001: write_regs = 4'b0010; 4'b1_010: write_regs = 4'b0100; 4'b1_011...  ==>  CaseStatement @ line 130: case({ eight_bit_bus, address }) 4'b1_000: write_regs = 4'b0001; 4'b1_001: write_regs = 4'b0010; 4'b1_010: write_regs = 4'b0100; 4'b1_011...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "pit_top.v"
+      ],
+      "log": "M_0007: applied. CSW(pit_slave<->pit_flg_clr) -> Instance @ line 111: regs ( .mod_value(mod_value), .pit_pre_scl(pit_pre_scl), .pit_slave(pit_slave), .pit_flg_clr(pit_flg_clr), .pit_ien(pit_ien), .cnt_sync_o...  ==>  Instance @ line 111: regs ( .mod_value(mod_value), .pit_pre_scl(pit_pre_scl), .pit_slave(pit_flg_clr), .pit_flg_clr(pit_slave), .pit_ien(pit_ien), .cnt_sync_o...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_count.v"
+      ],
+      "log": "M_0008: applied. LOR(Plus->Minus) -> Plus @ line 76: (cnt_n + 1)  ==>  Minus @ line 0: (cnt_n - 1)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_prescale.v"
+      ],
+      "log": "M_0009: applied. LOR(Land->Lor) -> Land @ line 108: (pit_slave && div_1 && ext_sync_i)  ==>  Lor @ line 0: (pit_slave && div_1 || ext_sync_i)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_regs.v"
+      ],
+      "log": "M_0010: applied. AVC(7->5) -> Assign @ line 73: assign write_data = (DWIDTH == 8)? { write_bus[7:0], write_bus[7:0] } : write_bus;  ==>  Assign @ line 73: assign write_data = (DWIDTH == 8)? { write_bus[7:0], write_bus[5:0] } : write_bus;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_wb_bus.v"
+      ],
+      "log": "M_0011: applied. CMC(swap) -> Cond @ line 90: ((SINGLE_CYCLE)? wb_adr_i : addr_latch)  ==>  Cond @ line 90: ((SINGLE_CYCLE)? addr_latch : wb_adr_i)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_prescale.v"
+      ],
+      "log": "M_0012: applied. CSE(8<->0) -> CaseStatement @ line 70: case(divisor) 0: end_count = 1; 1: end_count = 2; 2: end_count = 4; 3: end_count = 8; 4: end_count = 10; 5: end_count = 100; 6: end_count...  ==>  CaseStatement @ line 70: case(divisor) 8: end_count = 1; 1: end_count = 2; 2: end_count = 4; 3: end_count = 8; 4: end_count = 10; 5: end_count = 100; 6: end_count...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_regs.v"
+      ],
+      "log": "M_0013: applied. CMC(false_only) -> Cond @ line 73: ((DWIDTH == 8)? { write_bus[7:0], write_bus[7:0] } : write_bus)  ==>  (cond removed)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_count.v"
+      ],
+      "log": "M_0014: applied. LOR(Lor->Land) -> Lor @ line 82: (clear_counter || pit_flg_clr)  ==>  Land @ line 0: (clear_counter && pit_flg_clr)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_prescale.v"
+      ],
+      "log": "M_0015: applied. CSE(10<->8) -> CaseStatement @ line 83: case(divisor) 0: end_count = 1; 1: end_count = 2; 2: end_count = 4; 3: end_count = 8; 4: end_count = 16; 5: end_count = 32; 6: end_count ...  ==>  CaseStatement @ line 83: case(divisor) 0: end_count = 1; 1: end_count = 2; 2: end_count = 4; 3: end_count = 8; 4: end_count = 16; 5: end_count = 32; 6: end_count ...",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_regs.v"
+      ],
+      "log": "M_0016: applied. AVC(0->1) -> NonblockingSubstitution @ line 130: pit_irq_o <= 0;  ==>  NonblockingSubstitution @ line 130: pit_irq_o <= 1;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_count.v"
+      ],
+      "log": "M_0017: applied. LOR(Eq->NotEq) -> Eq @ line 63: (mod_value == 1)  ==>  NotEq @ line 0: (mod_value != 1)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_regs.v"
+      ],
+      "log": "M_0018: applied. AVC(0->1) -> NonblockingSubstitution @ line 128: pit_irq_o <= 0;  ==>  NonblockingSubstitution @ line 128: pit_irq_o <= 1;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/pit_count.v"
+      ],
+      "log": "M_0019: applied. LOR(Lor->Land) -> Lor @ line 65: ((cnt_n == mod_value) || no_div)  ==>  Land @ line 0: ((cnt_n == mod_value) && no_div)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

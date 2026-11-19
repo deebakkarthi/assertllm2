@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/LIBRARY/real-time-clock",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/hexmap.v"
+      ],
+      "log": "M_0000: applied. CSE(4'hf<->4'h9) -> CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...  ==>  CaseStatement @ line 64: case(i_hex) 4'h0: o_map <= { 7'b1111110 }; 4'h1: o_map <= { 7'b0110000 }; 4'h2: o_map <= { 7'b1101101 }; 4'h3: o_map <= { 7'b1111001 }; 4...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0001: applied. AVC(2->1) -> Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b011);  ==>  Assign @ line 68: assign al_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[1:0] == 3'b011);",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0002: applied. DMI -> Partselect @ line 143: i_wb_data[31:22]  ==>  Partselect @ line 143: i_wb_data[30:21]",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0003: applied. LOR(Land->Lor) -> Land @ line 65: (i_wb_cyc && i_wb_stb)  ==>  Lor @ line 0: (i_wb_cyc || i_wb_stb)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0004: applied. AVC(2->0) -> Assign @ line 67: assign sw_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b010);  ==>  Assign @ line 67: assign sw_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[0:0] == 3'b010);",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0005: applied. CSE(3'b010<->3'b111) -> CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b010: o_data <= stopwatch; ...  ==>  CaseStatement @ line 484: case(i_wb_addr[2:0]) 3'b000: o_data <= { clock[31:22], ck_last_clock }; 3'b001: o_data <= { 6'h00, timer }; 3'b111: o_data <= stopwatch; ...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0006: applied. AVC(13->14) -> Assign @ line 476: assign o_led = (tm_alarm || al_tripped)? { 16{ ck_sub[7] } } : { ledreg[17:10], ledreg[10], ledreg[11], ledreg[12], ledreg[13], ledreg[14...  ==>  Assign @ line 476: assign o_led = (tm_alarm || al_tripped)? { 16{ ck_sub[7] } } : { ledreg[17:10], ledreg[10], ledreg[11], ledreg[12], ledreg[14], ledreg[14...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0007: applied. AVC(0->1) -> NonblockingSubstitution @ line 464: o_sseg <= { (dmask[3])? w_sseg[31:24] : 8'h00, (dmask[2])? w_sseg[23:16] : 8'h00, (dmask[1])? w_sseg[15:8] : 8'h00, (dmask[0])? w_sseg[7:...  ==>  NonblockingSubstitution @ line 464: o_sseg <= { (dmask[3])? w_sseg[31:24] : 8'h00, (dmask[2])? w_sseg[23:16] : 8'h00, (dmask[1])? w_sseg[15:8] : 8'h00, (dmask[1])? w_sseg[7:...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0008: applied. DIE -> Partselect @ line 350: i_wb_data[15:8]  ==>  Partselect @ line 350: i_wb_data[23:16]",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0009: applied. LOR(Land->Lor) -> Land @ line 66: (i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b001))  ==>  Lor @ line 0: (i_wb_cyc && i_wb_stb || (i_wb_addr[2:0] == 3'b001))",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0010: applied. DMO -> Pointer @ line 310: i_wb_data[0]  ==>  Pointer @ line 310: i_wb_data[4] (new index=4)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 256: begin sw_pps <= 1'b0; if(sw_running) begin if(ck_carry) begin sw_sub <= sw_sub + 1; sw_pps <= sw_sub == 8'hff; end end stopwatch[7:1] <= ...  ==>  Block @ line 256: begin sw_pps <= 1'b1; if(sw_running) begin if(ck_carry) begin sw_sub <= sw_sub + 1; sw_pps <= sw_sub == 8'hff; end end stopwatch[7:1] <= ...",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0012: applied. LOR(Land->Lor) -> Land @ line 221: (tm_sel && i_wb_we)  ==>  Lor @ line 0: (tm_sel || i_wb_we)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0013: applied. AVC(7->5) -> NonblockingSubstitution @ line 492: o_data <= { hack_counter[7:0], 24'h00 };  ==>  NonblockingSubstitution @ line 492: o_data <= { hack_counter[5:0], 24'h00 };",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0014: applied. LOR(Land->Lor) -> Land @ line 68: (i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b011))  ==>  Lor @ line 0: (i_wb_cyc && i_wb_stb || (i_wb_addr[2:0] == 3'b011))",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0015: applied. AVC(3'b000->3'b001) -> Assign @ line 65: assign ck_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b000);  ==>  Assign @ line 65: assign ck_sel = i_wb_cyc && i_wb_stb && (i_wb_addr[2:0] == 3'b001);",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0016: applied. DMO -> Pointer @ line 311: i_wb_data[1]  ==>  Pointer @ line 311: i_wb_data[27] (new index=27)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0017: applied. LOR(Land->Lor) -> Land @ line 339: (al_sel && i_wb_we)  ==>  Lor @ line 0: (al_sel || i_wb_we)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/hexmap.v"
+      ],
+      "log": "M_0018: applied. AVC(7'b0110000->7'b0110001) -> NonblockingSubstitution @ line 66: o_map <= { 7'b0110000 };  ==>  NonblockingSubstitution @ line 66: o_map <= { 7'b0110001 };",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "rtcclock.v"
+      ],
+      "log": "M_0019: applied. AVC(39->38) -> NonblockingSubstitution @ line 491: o_data <= hack_counter[39:8];  ==>  NonblockingSubstitution @ line 491: o_data <= hack_counter[38:8];",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

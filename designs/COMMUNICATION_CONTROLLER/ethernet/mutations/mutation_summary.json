@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ethernet",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0000: applied. CSW(RxValid<->r_PassAll) -> Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(RxValid), .RxStartFrm...  ==>  Instance @ line 295: receivecontrol1 ( .MTxClk(MTxClk), .MRxClk(MRxClk), .TxReset(TxReset), .RxReset(RxReset), .RxData(RxData), .RxValid(r_PassAll), .RxStartF...",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0001: applied. LOR(Or->And) -> Or @ line 286: (PadIn | SendingCtrlFrm)  ==>  And @ line 0: (PadIn & SendingCtrlFrm)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0002: applied. CMC(true_only) -> Cond @ line 282: ((CtrlMux)? ControlData[7:0] : TxDataIn[7:0])  ==>  (cond removed)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0003: applied. LOR(And->Or) -> And @ line 264: (~TxStartFrmIn & ~BlockTxDone & TxDoneIn)  ==>  Or @ line 0: (~TxStartFrmIn & ~BlockTxDone | TxDoneIn)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0004: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b1;  ==>  NonblockingSubstitution @ line 213: TxUsedDataOutDetected <= 1'b0;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_macstatus.v"
+      ],
+      "log": "M_0005: applied. AVC(3->5) -> Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[3:0] == 4'he);  ==>  Assign @ line 317: assign SetInvalidSymbol = MRxDV & MRxErr & (MRxD[1:0] == 4'he);",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_macstatus.v"
+      ],
+      "log": "M_0006: applied. LOR(And->Or) -> And @ line 357: (~Collision & (RxByteCnt[5:0] == CollValid[5:0]))  ==>  Or @ line 0: (~Collision | (RxByteCnt[5:0] == CollValid[5:0]))",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_macstatus.v"
+      ],
+      "log": "M_0007: applied. DMO -> Pointer @ line 292: RxStateData[0]  ==>  Pointer @ line 292: RxStateData[1] (new index=1)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_macstatus.v"
+      ],
+      "log": "M_0008: applied. DIE -> Partselect @ line 283: r_MinFL[15:0]  ==>  Partselect @ line 283: r_MinFL[0:0]",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0009: applied. LOR(Or->And) -> Or @ line 406: (WCtrlData | WCtrlDataStart | RStat | RStatStart | SyncStatMdcEn)  ==>  And @ line 0: ((WCtrlData | WCtrlDataStart | RStat | RStatStart) & SyncStatMdcEn)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_miim.v"
+      ],
+      "log": "M_0010: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 313: WCtrlDataStart <= 1'b0;  ==>  NonblockingSubstitution @ line 313: WCtrlDataStart <= 1'b1;",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_registers.v"
+      ],
+      "log": "M_0011: applied. LOR(Eq->NotEq) -> Eq @ line 694: (Address == 8'h13)  ==>  NotEq @ line 0: (Address != 8'h13)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_registers.v"
+      ],
+      "log": "M_0012: applied. CSW(Write<->SyncReset) -> Instance @ line 1107: MAC_ADDR1_1 ( .DataIn(DataIn[8+7:8]), .DataOut(MAC_ADDR1Out[8+7:8]), .Write(MAC_ADDR1_Wr[1]), .Clk(Clk), .Reset(Reset), .SyncReset(1'b0) )  ==>  Instance @ line 1107: MAC_ADDR1_1 ( .DataIn(DataIn[8+7:8]), .DataOut(MAC_ADDR1Out[8+7:8]), .Write(1'b0), .Clk(Clk), .Reset(Reset), .SyncReset(MAC_ADDR1_Wr[1]) )",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_registers.v"
+      ],
+      "log": "M_0013: applied. CSE(8'h10<->8'h6) -> CaseStatement @ line 1237: case(Address) 8'h0: DataOut = MODEROut; 8'h1: DataOut = INT_SOURCEOut; 8'h2: DataOut = INT_MASKOut; 8'h3: DataOut = IPGTOut; 8'h4: DataOu...  ==>  CaseStatement @ line 1237: case(Address) 8'h0: DataOut = MODEROut; 8'h1: DataOut = INT_SOURCEOut; 8'h2: DataOut = INT_MASKOut; 8'h3: DataOut = IPGTOut; 8'h4: DataOu...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_rxethmac.v"
+      ],
+      "log": "M_0014: applied. SMC -> Block @ line 454: begin RxStartFrm_d <= 1'b0; RxStartFrm <= 1'b0; end  ==>  Block @ line 454: begin RxStartFrm_d <= 1'b1; RxStartFrm <= 1'b1; end",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "eth_top.v"
+      ],
+      "log": "M_0015: applied. AVC(11->12) -> Assign @ line 909: assign RegCs[1] = wb_stb_i & wb_cyc_i & ByteSelected & ~wb_adr_i[11] & ~wb_adr_i[10] & wb_sel_i[1];  ==>  Assign @ line 909: assign RegCs[1] = wb_stb_i & wb_cyc_i & ByteSelected & ~wb_adr_i[10] & ~wb_adr_i[10] & wb_sel_i[1];",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0016: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 222: TxAbortInLatched <= 1'b0;  ==>  NonblockingSubstitution @ line 222: TxAbortInLatched <= 1'b1;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0017: applied. CMC(false_only) -> Cond @ line 278: ((CtrlMux)? TxCtrlEndFrm : TxEndFrmIn)  ==>  (cond removed)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0018: applied. AVC(7->9) -> Assign @ line 282: assign TxDataOut[7:0] = (CtrlMux)? ControlData[7:0] : TxDataIn[7:0];  ==>  Assign @ line 282: assign TxDataOut[7:0] = (CtrlMux)? ControlData[7:0] : TxDataIn[5:0];",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/eth_maccontrol.v"
+      ],
+      "log": "M_0019: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 223: TxDoneInLatched <= 1'b0;  ==>  NonblockingSubstitution @ line 223: TxDoneInLatched <= 1'b1;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

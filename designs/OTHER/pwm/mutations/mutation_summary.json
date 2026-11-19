@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/pwm",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_even.v"
+      ],
+      "log": "M_0000: applied. CMC(false_only) -> Cond @ line 36: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_odd.v"
+      ],
+      "log": "M_0001: applied. LOR(Land->Lor) -> Land @ line 26: ((i_divisor != 0) && i_rst)  ==>  Lor @ line 0: ((i_divisor != 0) || i_rst)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0002: applied. AVC(0->2) -> Assign @ line 119: assign clk_source = (ctrl[0])? i_extclk : i_wb_clk;  ==>  Assign @ line 119: assign clk_source = (ctrl[2])? i_extclk : i_wb_clk;",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0003: applied. CMC(false_only) -> Cond @ line 119: ((ctrl[0])? i_extclk : i_wb_clk)  ==>  (cond removed)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0004: applied. AVC(7->9) -> Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[7];  ==>  Assign @ line 148: assign rst_ct = i_wb_rst | ctrl[5];",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_odd.v"
+      ],
+      "log": "M_0005: applied. CMC(false_only) -> Cond @ line 67: ((go)? clk : i_clk)  ==>  (cond removed)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0006: applied. AVC(0->2) -> Assign @ line 212: assign o_pwm = (ctrl[4])? pts : 0;  ==>  Assign @ line 212: assign o_pwm = (ctrl[4])? pts : 2;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_even.v"
+      ],
+      "log": "M_0007: applied. LOR(Land->Lor) -> Land @ line 21: ((i_divisor != 0) && i_rst)  ==>  Lor @ line 0: ((i_divisor != 0) || i_rst)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_odd.v"
+      ],
+      "log": "M_0008: applied. AVC(0->1) -> Assign @ line 26: assign go = (i_divisor != 0) && i_rst;  ==>  Assign @ line 26: assign go = (i_divisor != 1) && i_rst;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0009: applied. LOR(And->Or) -> And @ line 49: (i_wb_cyc & i_wb_stb & i_wb_we)  ==>  Or @ line 0: (i_wb_cyc & i_wb_stb | i_wb_we)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0010: applied. LOR(Or->And) -> Or @ line 148: (i_wb_rst | ctrl[7])  ==>  And @ line 0: (i_wb_rst & ctrl[7])",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_even.v"
+      ],
+      "log": "M_0011: applied. AVC(0->1) -> Assign @ line 21: assign go = (i_divisor != 0) && i_rst;  ==>  Assign @ line 21: assign go = (i_divisor != 1) && i_rst;",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0012: applied. CSE(0<->1) -> CaseStatement @ line 162: case(pwm) 1: begin if(ct >= period_1) ct <= 0; else ct <= ct + 1; if(ct < DC_1) pts <= 1; else pts <= 0; end 0: begin case(state_timer) 0...  ==>  CaseStatement @ line 162: case(pwm) 0: begin if(ct >= period_1) ct <= 0; else ct <= ct + 1; if(ct < DC_1) pts <= 1; else pts <= 0; end 1: begin case(state_timer) 0...",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0013: applied. AVC(0->1) -> NonblockingSubstitution @ line 103: clrint <= 0;  ==>  NonblockingSubstitution @ line 103: clrint <= 1;",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0014: applied. CSE(1<->2) -> CaseStatement @ line 85: case(state) 1: begin if(write) begin if(i_wb_data[7]) begin ctrl[5] <= 0; state <= 0; end else if(!i_wb_data[5]) begin ctrl[5] <= 0; if(!...  ==>  CaseStatement @ line 85: case(state) 2: begin if(write) begin if(i_wb_data[7]) begin ctrl[5] <= 0; state <= 0; end else if(!i_wb_data[5]) begin ctrl[5] <= 0; if(!...",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0015: applied. CMC(swap) -> Cond @ line 150: ((switch_ack_clrint)? clrint : 0)  ==>  Cond @ line 150: ((switch_ack_clrint)? 0 : clrint)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_odd.v"
+      ],
+      "log": "M_0016: applied. AVC(0->2) -> NonblockingSubstitution @ line 30: a <= 0;  ==>  NonblockingSubstitution @ line 30: a <= 2;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/down_clocking_odd.v"
+      ],
+      "log": "M_0017: applied. AVC(0->1) -> NonblockingSubstitution @ line 55: b <= 0;  ==>  NonblockingSubstitution @ line 55: b <= 1;",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0018: applied. AVC(0->1) -> Assign @ line 149: assign timer_irq = (pwm)? 0 : pts;  ==>  Assign @ line 149: assign timer_irq = (pwm)? 1 : pts;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "PWM.v"
+      ],
+      "log": "M_0019: applied. AVC(0->1) -> Assign @ line 133: assign clk = (divisor[0])? oclk : eclk;  ==>  Assign @ line 133: assign clk = (divisor[1])? oclk : eclk;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

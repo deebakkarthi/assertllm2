@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM_Refine/ecg",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/f3m.v"
+      ],
+      "log": "M_0000: applied. AVC(1->0) -> Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 1] };  ==>  Assign @ line 121: assign c[i+1:i] = { a[i], a[i + 0] };",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0001: applied. AVC(0->1) -> NonblockingSubstitution @ line 243: x3 <= 0;  ==>  NonblockingSubstitution @ line 243: x3 <= 1;",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0002: applied. SMC -> Block @ line 290: begin done <= 0; x3 <= 0; y3 <= 0; end  ==>  Block @ line 290: begin done <= 1; x3 <= 1; y3 <= 1; end",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0003: applied. LOR(And->Or) -> And @ line 204: (y2[i] & zero1)  ==>  Or @ line 0: (y2[i] | zero1)",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0004: applied. AVC(0->2) -> NonblockingSubstitution @ line 291: x3 <= 0;  ==>  NonblockingSubstitution @ line 291: x3 <= 2;",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0005: applied. LOR(And->Or) -> And @ line 203: (x1[i] & zero2)  ==>  Or @ line 0: (x1[i] | zero2)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0006: applied. LOR(Eq->NotEq) -> Eq @ line 158: (x1 == x2)  ==>  NotEq @ line 0: (x1 != x2)",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0007: applied. LOR(Eq->NotEq) -> Eq @ line 159: (y1 == y2)  ==>  NotEq @ line 0: (y1 != y2)",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0008: applied. LOR(Or->And) -> Or @ line 156: (zero1 | zero2)  ==>  And @ line 0: (zero1 & zero2)",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0009: applied. SMC -> Block @ line 178: begin x3 <= 0; y3 <= 0; end  ==>  Block @ line 178: begin x3 <= 1; y3 <= 2; end",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0010: applied. CMC(swap) -> Cond @ line 184: ((use1)? y3a : (cond5)? y3b : y3c)  ==>  Cond @ line 184: ((use1)? (cond5)? y3b : y3c : y3a)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0011: applied. SMC -> Block @ line 246: begin done <= 1; x3 <= v4; y3 <= v6; end  ==>  Block @ line 246: begin done <= 0; x3 <= v4; y3 <= v6; end",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0012: applied. LOR(Eq->NotEq) -> Eq @ line 160: (y1 == ny2)  ==>  NotEq @ line 0: (y1 != ny2)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0013: applied. CMC(false_only) -> Cond @ line 183: ((use1)? x3a : (cond5)? x3b : x3c)  ==>  (cond removed)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0014: applied. SMC -> Block @ line 242: begin done <= 0; x3 <= 0; y3 <= 0; end  ==>  Block @ line 242: begin done <= 1; x3 <= 1; y3 <= 1; end",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0015: applied. AVC(0->1) -> NonblockingSubstitution @ line 179: x3 <= 0;  ==>  NonblockingSubstitution @ line 179: x3 <= 1;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0016: applied. SMC -> Block @ line 294: begin done <= 1; x3 <= v9; y3 <= v10; end  ==>  Block @ line 294: begin done <= 0; x3 <= v9; y3 <= v10; end",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0017: applied. LOR(And->Or) -> And @ line 197: (zero1 & zero2)  ==>  Or @ line 0: (zero1 | zero2)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/f3m.v"
+      ],
+      "log": "M_0018: applied. CCW(0<->1) -> Concat @ line 121: { a[i], a[i + 1] }  ==>  Concat @ line 121: { a[i + 1], a[i] }",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "point_add.v"
+      ],
+      "log": "M_0019: applied. DMS -> Srl @ line 238: (K >> 1)  ==>  Srl @ line 238: (K >> 2) (new shift=2)",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

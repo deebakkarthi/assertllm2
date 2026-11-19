@@ -1,0 +1,197 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "altor32_dcache.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(data_i<->evict_addr_i) -> Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(req_data), .data_o(data_r), .fill_i(fill), .evict_i(evict), ....  ==>  Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(line_address), .data_o(data_r), .fill_i(fill), .evict_i(evict...",
+      "target_line": 899
+    },
+    {
+      "changed_rtl_files": [
+        "altor32_dcache.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. SMC -> Block @ line 649: begin cache_wr <= 4'b0; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data_i;...  ==>  Block @ line 649: begin cache_wr <= 4'b0001; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data...",
+      "target_line": 649
+    },
+    {
+      "changed_rtl_files": [
+        "altor32_dcache.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 569: (flush_i | req_flush)  ==>  And @ line 0: (flush_i & req_flush)",
+      "target_line": 569
+    },
+    {
+      "changed_rtl_files": [
+        "altor32_dcache.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b0;  ==>  NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b1;",
+      "target_line": 531
+    },
+    {
+      "changed_rtl_files": [
+        "altor32_dcache.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(13->12) -> Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[13:0];  ==>  Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[12:0];",
+      "target_line": 184
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "altor32_dcache.v",
+      "target_line": 184,
+      "mutation_log": "applied. AVC(13->12) -> Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[13:0];  ==>  Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[12:0];",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 99,
+        "target_line": 184
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "altor32_dcache.v",
+      "target_line": 531,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b0;  ==>  NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 229,
+        "target_line": 531
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "altor32_dcache.v",
+      "target_line": 569,
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 569: (flush_i | req_flush)  ==>  And @ line 0: (flush_i & req_flush)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 108,
+        "target_line": 569
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "altor32_dcache.v",
+      "target_line": 649,
+      "mutation_log": "applied. SMC -> Block @ line 649: begin cache_wr <= 4'b0; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data_i;...  ==>  Block @ line 649: begin cache_wr <= 4'b0001; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data...",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 447,
+            "base_end": 448,
+            "matched_start": 447,
+            "matched_end": 448
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "altor32_dcache.v",
+      "target_line": 899,
+      "mutation_log": "applied. CSW(data_i<->evict_addr_i) -> Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(req_data), .data_o(data_r), .fill_i(fill), .evict_i(evict), ....  ==>  Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(line_address), .data_o(data_r), .fill_i(fill), .evict_i(evict...",
+      "applied": {
+        "mode": "base_snapshot"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_alu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_dcache.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_dcache_mem_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_defs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_dfu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_exec.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_fetch.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_funcs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_icache.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_lfu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_lsu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_noicache.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_ram_dp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_ram_sp.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_regfile_alt.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_regfile_sim.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_regfile_xil.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_wb_fetch.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/altor32_writeback.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/cpu.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/cpu_if.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/dmem_mux3.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/intr_defs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/intr_periph.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/soc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/soc_pif8.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/timer_defs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/merged_buggy_rtl/timer_periph.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(data_i<->evict_addr_i) -> Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(req_data), .data_o(data_r), .fill_i(fill), .evict_i(evict), ....  ==>  Instance @ line 899: u_mem_if ( .clk_i(clk_i), .rst_i(rst_i), .address_i(muxed_address), .data_i(line_address), .data_o(data_r), .fill_i(fill), .evict_i(evict...",
+      "operator": "CSW",
+      "target_module": "altor32_dcache",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/include/altor32_dcache.v",
+      "target_signal": "address_i",
+      "target_signal_id": "altor32_dcache.address_i"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b0;  ==>  NonblockingSubstitution @ line 531: tag_data_in[CACHE_TAG_VALID_BIT] <= 1'b1;",
+      "operator": "AVC",
+      "target_module": "altor32_dcache",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/include/altor32_dcache.v",
+      "target_signal": "data_i",
+      "target_signal_id": "altor32_dcache.data_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(13->12) -> Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[13:0];  ==>  Assign @ line 184: assign line_address[CACHE_TAG_ADDR_HIGH:CACHE_TAG_ADDR_LOW] = tag_data_out[12:0];",
+      "operator": "AVC",
+      "target_module": "altor32_dcache",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/include/altor32_dcache.v",
+      "target_signal": "data_o",
+      "target_signal_id": "altor32_dcache.data_o"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Or->And) -> Or @ line 569: (flush_i | req_flush)  ==>  And @ line 0: (flush_i & req_flush)",
+      "operator": "LOR",
+      "target_module": "altor32_dcache",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/include/altor32_dcache.v",
+      "target_signal": "flush_i",
+      "target_signal_id": "altor32_dcache.flush_i"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. SMC -> Block @ line 649: begin cache_wr <= 4'b0; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data_i;...  ==>  Block @ line 649: begin cache_wr <= 4'b0001; case(state) STATE_IDLE: begin if(stb_i & we_i & cacheable & ~(flush_i | req_flush)) begin cache_data_w <= data...",
+      "operator": "SMC",
+      "target_module": "altor32_dcache",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/include/altor32_dcache.v",
+      "target_signal": "sel_i",
+      "target_signal_id": "altor32_dcache.sel_i"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/mutations",
+  "top_module": "cpu",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/altor32-alternative_lightweight_openrisc_cpu/buggy_artifacts/consensus_merge_report"
+}

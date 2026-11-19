@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/quad_spi_flash_controller",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0000: applied. DMO -> Pointer @ line 174: i_dat[1]  ==>  Pointer @ line 174: i_dat[3] (new index=3)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0001: applied. SMC -> Block @ line 262: begin o_valid <= 1'b0; o_cs_n <= 1'b0; o_busy <= 1'b1; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...  ==>  Block @ line 262: begin o_valid <= 1'b1; o_cs_n <= 1'b1; o_busy <= 1'b0; o_sck <= i_hold; if(~o_busy && i_wr) begin state <= 3'h2; o_busy <= 1'b1; o_sck <=...",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0002: applied. CMC(false_only) -> Cond @ line 309: ((i_hold)? 3'h4 : 3'h5)  ==>  (cond removed)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0003: applied. AVC(3'b000->3'b001) -> NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b000 } + 6'h8 - 6'h4;  ==>  NonblockingSubstitution @ line 287: spi_len <= { 1'b0, i_len, 3'b001 } + 6'h8 - 6'h4;",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0004: applied. SMC -> Block @ line 207: begin o_sck <= 1'b0; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...  ==>  Block @ line 207: begin o_sck <= 1'b1; if(o_sck == 1'b0) begin state <= 3'h2; spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1); if(r_spd) r_word <= { r_word[27:...",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0005: applied. SMC -> Block @ line 236: begin o_sck <= 1'b0; o_busy <= 1'b1; if(r_spd) begin o_dat <= r_word[31:28]; r_word <= { r_word[27:0], 4'h0 }; spi_len <= spi_len - 6'h4;...  ==>  Block @ line 236: begin o_sck <= 1'b1; o_busy <= 1'b0; if(r_spd) begin o_dat <= r_word[31:28]; r_word <= { r_word[27:0], 4'h0 }; spi_len <= spi_len - 6'h4;...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0006: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 281: o_mod <= (i_spd)? { 1'b1, i_dir } : 2'b00;  ==>  NonblockingSubstitution @ line 281: o_mod <= (i_spd)? { 1'b0, i_dir } : 2'b00;",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 190: begin o_cs_n <= 1'b1; o_valid <= 1'b0; o_busy <= 1'b0; o_mod <= 2'b00; if(i_wr) begin r_word <= i_word; state <= 3'h1; r_spd <= i_spd; r_...  ==>  Block @ line 190: begin o_cs_n <= 1'b0; o_valid <= 1'b1; o_busy <= 1'b1; o_mod <= 2'b01; if(i_wr) begin r_word <= i_word; state <= 3'h1; r_spd <= i_spd; r_...",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0008: applied. AVC(4'hd->4'hf) -> BlockingSubstitution @ line 184: o_dat = 4'hd;  ==>  BlockingSubstitution @ line 184: o_dat = 4'hf;",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0009: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 334: o_valid <= 1'b0;  ==>  NonblockingSubstitution @ line 334: o_valid <= 1'b1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0010: applied. AVC(0->1) -> NonblockingSubstitution @ line 305: o_word <= { r_input[27:0], i_dat };  ==>  NonblockingSubstitution @ line 305: o_word <= { r_input[27:1], i_dat };",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0011: applied. AVC(6'h4->6'h5) -> NonblockingSubstitution @ line 212: spi_len <= spi_len - ((r_spd)? 6'h4 : 6'h1);  ==>  NonblockingSubstitution @ line 212: spi_len <= spi_len - ((r_spd)? 6'h5 : 6'h1);",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0012: applied. DMO -> Pointer @ line 354: i_word[31]  ==>  Pointer @ line 354: i_word[26] (new index=26)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0013: applied. LOR(Land->Lor) -> Land @ line 271: (~o_busy && i_wr)  ==>  Lor @ line 0: (~o_busy || i_wr)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0014: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 347: o_mod <= (i_spd)? { 1'b1, i_dir } : 2'b00;  ==>  NonblockingSubstitution @ line 347: o_mod <= (i_spd)? { 1'b0, i_dir } : 2'b00;",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0015: applied. AVC(3'h5->3'h7) -> NonblockingSubstitution @ line 360: state <= (i_hold)? 3'h4 : 3'h5;  ==>  NonblockingSubstitution @ line 360: state <= (i_hold)? 3'h4 : 3'h7;",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0016: applied. LOR(Minus->Plus) -> Minus @ line 245: (spi_len - 6'h4)  ==>  Plus @ line 0: (spi_len + 6'h4)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0017: applied. SMC -> Block @ line 272: begin state <= 3'h2; o_busy <= 1'b1; o_sck <= 1'b0; r_spd <= i_spd; r_dir <= i_dir; o_mod <= (i_spd)? { 1'b1, i_dir } : 2'b00; if(i_spd) ...  ==>  Block @ line 272: begin state <= 3'h1; o_busy <= 1'b0; o_sck <= 1'b1; r_spd <= i_spd; r_dir <= i_dir; o_mod <= (i_spd)? { 1'b1, i_dir } : 2'b00; if(i_spd) ...",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0018: applied. AVC(3'h3->3'h4) -> NonblockingSubstitution @ line 233: o_busy <= (state != 3'h3) || ~i_wr;  ==>  NonblockingSubstitution @ line 233: o_busy <= (state != 3'h4) || ~i_wr;",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llqspi.v"
+      ],
+      "log": "M_0019: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 203: o_busy <= 1'b1;  ==>  NonblockingSubstitution @ line 203: o_busy <= 1'b0;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

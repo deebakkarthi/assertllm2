@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/wishbone_high_performance_z80",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "z80_core_top.v"
+      ],
+      "log": "M_0000: applied. CSW(wb_dat_o<->alu8_out) -> Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(wb_dat...  ==>  Instance @ line 177: i_z80_memstate2 ( .wb_adr_o(wb_adr_o), .wb_we_o(wb_we_o), .wb_cyc_o(wb_cyc_o), .wb_stb_o(wb_stb_o), .wb_tga_o(wb_tga_o), .wb_dat_o(er), ....",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "z80_core_top.v"
+      ],
+      "log": "M_0001: applied. LOR(And->Or) -> And @ line 227: (~wb_adr_o[15] & (wb_tga_o == 2'b00))  ==>  Or @ line 0: (~wb_adr_o[15] | (wb_tga_o == 2'b00))",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0002: applied. DMO -> Pointer @ line 1736: add16[11]  ==>  Pointer @ line 1736: add16[13] (new index=13)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0003: applied. DMI -> Partselect @ line 1403: adr_alu[15:8]  ==>  Partselect @ line 1403: adr_alu[14:7]",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0004: applied. DMO -> Pointer @ line 1744: alu8_out[5]  ==>  Pointer @ line 1744: alu8_out[7] (new index=7)",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0005: applied. CMC(swap) -> Cond @ line 823: ((ed_blk_cp)? ar : (ir2[9])? 8'h0 : (ir2[7])? ar : (ir2[0])? 8'hff : 8'h00)  ==>  Cond @ line 823: ((ed_blk_cp)? (ir2[9])? 8'h0 : (ir2[7])? ar : (ir2[0])? 8'hff : 8'h00 : ar)",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0006: applied. LOR(Or->And) -> Or @ line 770: ({ 8{ ir2[5:3] == REG8_B } } & br | { 8{ ir2[5:3] == REG8_C } } & cr | { 8{ ir2[5:3] == REG8_D } } & dr)  ==>  And @ line 0: (({ 8{ ir2[5:3] == REG8_B } } & br | { 8{ ir2[5:3] == REG8_C } } & cr) & ({ 8{ ir2[5:3] == REG8_D } } & dr))",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0007: applied. CCW(0<->1) -> Concat @ line 1730: { br, cr }  ==>  Concat @ line 1730: { cr, br }",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0008: applied. AVC(8'h00->8'h01) -> Assign @ line 955: assign decb_alu = br + ((exec_decb)? 8'hff : (cr_eq0)? 8'hff : 8'h00);  ==>  Assign @ line 955: assign decb_alu = br + ((exec_decb)? 8'hff : (cr_eq0)? 8'hff : 8'h01);",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "z80_core_top.v"
+      ],
+      "log": "M_0009: applied. LOR(Or->And) -> Or @ line 232: (ce_sram | bist_io_ack | wb_ack_i)  ==>  And @ line 0: ((ce_sram | bist_io_ack) & wb_ack_i)",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "z80_core_top.v"
+      ],
+      "log": "M_0010: applied. CSW(we<->oe) -> Instance @ line 236: i_z80_sram ( .clk(wb_clk_i), .rst(wb_rst_i), .ce(ce_sram), .we(wb_we_o), .oe(1'b1), .addr(wb_adr_o[14:0]), .di(wb_dat_o), .dout(sdram_do) )  ==>  Instance @ line 236: i_z80_sram ( .clk(wb_clk_i), .rst(wb_rst_i), .ce(ce_sram), .we(1'b1), .oe(wb_we_o), .addr(wb_adr_o[14:0]), .di(wb_dat_o), .dout(sdram_do) )",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0011: applied. LOR(And->Or) -> And @ line 1203: ((ir2[2:0] == REG8_C) & bit_alu_act & exec_ir2)  ==>  Or @ line 0: ((ir2[2:0] == REG8_C) & bit_alu_act | exec_ir2)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0012: applied. CMC(true_only) -> Cond @ line 955: ((exec_decb)? 8'hff : (cr_eq0)? 8'hff : 8'h00)  ==>  (cond removed)",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0013: applied. AVC(6->4) -> Assign @ line 1708: assign upd_fr = exec_ir2 & (upd_fr_alu8 | upd_fr_add16 | upd_fr_edadd16 | upd_fr_sh | upd_fr_cbsh | (CB_BIT == ir2[9:6]) | ed_blk_cp | (E...  ==>  Assign @ line 1708: assign upd_fr = exec_ir2 & (upd_fr_alu8 | upd_fr_add16 | upd_fr_edadd16 | upd_fr_sh | upd_fr_cbsh | (CB_BIT == ir2[9:6]) | ed_blk_cp | (E...",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "z80_core_top.v"
+      ],
+      "log": "M_0014: applied. CMC(false_only) -> Cond @ line 229: ((sram_addr)? sdram_do : (bist_io_ack)? bist_dat_o : wb_dat_i)  ==>  (cond removed)",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "z80_core_top.v"
+      ],
+      "log": "M_0015: applied. LOR(And->Or) -> And @ line 228: (sram_addr & wb_cyc_o & wb_stb_o)  ==>  Or @ line 0: (sram_addr & wb_cyc_o | wb_stb_o)",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0016: applied. AVC(7->6) -> Assign @ line 748: assign src_lr = (ir2dd)? ixr[7:0] : (ir2fd)? iyr[7:0] : lr;  ==>  Assign @ line 748: assign src_lr = (ir2dd)? ixr[6:0] : (ir2fd)? iyr[7:0] : lr;",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0017: applied. LOR(Or->And) -> Or @ line 1381: (ir2dd | ir2fd)  ==>  And @ line 0: (ir2dd & ir2fd)",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0018: applied. AVC(2'b00->2'b01) -> Assign @ line 780: assign src_dbl = { 16{ ir2[5:4] == 2'b00 } } & { br, cr } | { 16{ ir2[5:4] == 2'b01 } } & { dr, er } | { 16{ ir2[5:4] == 2'b10 } } & src_...  ==>  Assign @ line 780: assign src_dbl = { 16{ ir2[5:4] == 2'b01 } } & { br, cr } | { 16{ ir2[5:4] == 2'b01 } } & { dr, er } | { 16{ ir2[5:4] == 2'b10 } } & src_...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/z80_inst_exec.v"
+      ],
+      "log": "M_0019: applied. AVC(2->3) -> Assign @ line 1049: assign upd_ar = upd_a_alu8 | up_a_sh_alu | up_a_src_pqr | up_a_n | (ir2 == EXsAF_AFp) | (ir2 == EXX) | (ir2 == DAA) | (ir2 == CPL) | (ir2...  ==>  Assign @ line 1049: assign upd_ar = upd_a_alu8 | up_a_sh_alu | up_a_src_pqr | up_a_n | (ir2 == EXsAF_AFp) | (ir2 == EXX) | (ir2 == DAA) | (ir2 == CPL) | (ir2...",
+      "mutant_id": "M_0019"
+    }
+  ]
+}

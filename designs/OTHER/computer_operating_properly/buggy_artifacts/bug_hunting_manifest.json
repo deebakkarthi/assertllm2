@@ -1,0 +1,185 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "cop_top.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(cop_event<->cop_ena) -> Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_event), .por...  ==>  Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_ena), .por_r...",
+      "target_line": 149
+    },
+    {
+      "changed_rtl_files": [
+        "cop_top.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(debug_ena<->cwp) -> Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(debug_ena), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(...  ==>  Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(cwp), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(cop_en...",
+      "target_line": 122
+    },
+    {
+      "changed_rtl_files": [
+        "cop_top.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 113: { cop_capture, timeout_value, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }  ==>  Concat @ line 113: { timeout_value, cop_capture, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }",
+      "target_line": 113
+    },
+    {
+      "changed_rtl_files": [
+        "cop_top.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 48: (DWIDTH - 1)  ==>  Plus @ line 0: (DWIDTH + 1)",
+      "target_line": 48
+    },
+    {
+      "changed_rtl_files": [
+        "cop_regs.v"
+      ],
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DIE -> Partselect @ line 136: write_data[7:0]  ==>  Partselect @ line 136: write_data[15:8]",
+      "target_line": 136
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0005",
+      "target_rtl_file": "cop_regs.v",
+      "target_line": 136,
+      "mutation_log": "applied. DIE -> Partselect @ line 136: write_data[7:0]  ==>  Partselect @ line 136: write_data[15:8]",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 134,
+        "target_line": 136
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "cop_top.v",
+      "target_line": 48,
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 48: (DWIDTH - 1)  ==>  Plus @ line 0: (DWIDTH + 1)",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 38,
+            "base_end": 45,
+            "matched_start": 38,
+            "matched_end": 45
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "cop_top.v",
+      "target_line": 113,
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 113: { cop_capture, timeout_value, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }  ==>  Concat @ line 113: { timeout_value, cop_capture, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 46,
+            "base_end": 118,
+            "matched_start": 98,
+            "matched_end": 170
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "cop_top.v",
+      "target_line": 122,
+      "mutation_log": "applied. CSW(debug_ena<->cwp) -> Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(debug_ena), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(...  ==>  Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(cwp), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(cop_en...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 127,
+        "line_b": 131,
+        "token_a": "debug_ena",
+        "token_b": "cwp"
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "cop_top.v",
+      "target_line": 149,
+      "mutation_log": "applied. CSW(cop_event<->cop_ena) -> Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_event), .por...  ==>  Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_ena), .por_r...",
+      "applied": {
+        "mode": "csw_instance_ports",
+        "line_a": 151,
+        "line_b": 166,
+        "token_a": "cop_event",
+        "token_b": "cop_ena"
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts/merged_buggy_rtl/cop_count.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts/merged_buggy_rtl/cop_regs.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts/merged_buggy_rtl/cop_top.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts/merged_buggy_rtl/cop_wb_bus.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSW(cop_event<->cop_ena) -> Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_event), .por...  ==>  Instance @ line 149: counter ( .cop_counter(cop_counter), .cop_capture(cop_capture), .cop_rst_o(cop_rst_o), .cop_irq_o(cop_irq_o), .cop_event(cop_ena), .por_r...",
+      "operator": "CSW",
+      "target_module": "cop_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/computer_operating_properly/cop_top.v",
+      "target_signal": "cop_irq_o",
+      "target_signal_id": "cop_top.cop_irq_o"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. CSW(debug_ena<->cwp) -> Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(debug_ena), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(...  ==>  Instance @ line 122: regs ( .cop_irq_en(cop_irq_en), .timeout_value(timeout_value), .debug_ena(cwp), .stop_ena(stop_ena), .wait_ena(wait_ena), .cop_ena(cop_en...",
+      "operator": "CSW",
+      "target_module": "cop_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/computer_operating_properly/cop_top.v",
+      "target_signal": "wb_dat_i",
+      "target_signal_id": "cop_top.wb_dat_i"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CCW(0<->1) -> Concat @ line 113: { cop_capture, timeout_value, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }  ==>  Concat @ line 113: { timeout_value, cop_capture, { 7'b0, cop_event, cop_irq_en, debug_ena, stop_ena, wait_ena, cop_ena, cwp, clck } }",
+      "operator": "CCW",
+      "target_module": "cop_top",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/computer_operating_properly/cop_top.v",
+      "target_signal": "cop_capture",
+      "target_signal_id": "cop_top.cop_capture"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. LOR(Minus->Plus) -> Minus @ line 48: (DWIDTH - 1)  ==>  Plus @ line 0: (DWIDTH + 1)",
+      "operator": "LOR",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/computer_operating_properly/cop_top.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.cop_top"
+    },
+    {
+      "mutant_id": "M_0005",
+      "mutation_log": "applied. DIE -> Partselect @ line 136: write_data[7:0]  ==>  Partselect @ line 136: write_data[15:8]",
+      "operator": "DIE",
+      "target_module": "__untargeted__",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/OTHER/computer_operating_properly/include/cop_regs.v",
+      "target_signal": null,
+      "target_signal_id": "__untargeted__.cop_regs"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/computer_operating_properly/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/OTHER/computer_operating_properly/mutations",
+  "top_module": "cop_top",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/OTHER/computer_operating_properly/buggy_artifacts/consensus_merge_report"
+}

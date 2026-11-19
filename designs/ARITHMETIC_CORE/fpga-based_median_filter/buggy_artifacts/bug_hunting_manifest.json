@@ -1,0 +1,182 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "dff_3_pipe.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b1 } };",
+      "target_line": 52
+    },
+    {
+      "changed_rtl_files": [
+        "state_machine.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b1 } };",
+      "target_line": 106
+    },
+    {
+      "changed_rtl_files": [
+        "state_machine.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b1;  ==>  NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b0;",
+      "target_line": 78
+    },
+    {
+      "changed_rtl_files": [
+        "state_machine.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(10'd0->10'd1) -> NonblockingSubstitution @ line 67: window_column_counter <= 10'd0;  ==>  NonblockingSubstitution @ line 67: window_column_counter <= 10'd1;",
+      "target_line": 67
+    },
+    {
+      "changed_rtl_files": [
+        "state_machine.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 60: waddr <= waddr + 1'b1;  ==>  NonblockingSubstitution @ line 60: waddr <= waddr + 1'b0;",
+      "target_line": 60
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "dff_3_pipe.v",
+      "target_line": 52,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b1 } };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 51,
+            "base_end": 54,
+            "matched_start": 51,
+            "matched_end": 54
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "state_machine.v",
+      "target_line": 60,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 60: waddr <= waddr + 1'b1;  ==>  NonblockingSubstitution @ line 60: waddr <= waddr + 1'b0;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 59,
+        "target_line": 60
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "state_machine.v",
+      "target_line": 67,
+      "mutation_log": "applied. AVC(10'd0->10'd1) -> NonblockingSubstitution @ line 67: window_column_counter <= 10'd0;  ==>  NonblockingSubstitution @ line 67: window_column_counter <= 10'd1;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 66,
+        "target_line": 67
+      }
+    },
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "state_machine.v",
+      "target_line": 78,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b1;  ==>  NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b0;",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 77,
+        "target_line": 78
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "state_machine.v",
+      "target_line": 106,
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b1 } };",
+      "applied": {
+        "mode": "positional_hunk",
+        "applied": [
+          {
+            "base_start": 54,
+            "base_end": 61
+          }
+        ]
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/common_network.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/dff_3_pipe.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/dual_port_ram.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/median.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/node.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/pixel_network.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/merged_buggy_rtl/state_machine.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 52: q0 <= { DATA_WIDTH{ 1'b1 } };",
+      "operator": "AVC",
+      "target_module": "dff_3_pipe",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/fpga-based median filter/include/dff_3_pipe.v",
+      "target_signal": "q0",
+      "target_signal_id": "dff_3_pipe.q0"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b0 } };  ==>  NonblockingSubstitution @ line 106: raddr_b <= { LUT_ADDR_WIDTH{ 1'b1 } };",
+      "operator": "AVC",
+      "target_module": "state_machine",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/fpga-based median filter/include/state_machine.v",
+      "target_signal": "raddr_b",
+      "target_signal_id": "state_machine.raddr_b"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b1;  ==>  NonblockingSubstitution @ line 78: raddr_c <= raddr_c + 1'b0;",
+      "operator": "AVC",
+      "target_module": "state_machine",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/fpga-based median filter/include/state_machine.v",
+      "target_signal": "raddr_c",
+      "target_signal_id": "state_machine.raddr_c"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 60: waddr <= waddr + 1'b1;  ==>  NonblockingSubstitution @ line 60: waddr <= waddr + 1'b0;",
+      "operator": "AVC",
+      "target_module": "state_machine",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/fpga-based median filter/include/state_machine.v",
+      "target_signal": "waddr",
+      "target_signal_id": "state_machine.waddr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(10'd0->10'd1) -> NonblockingSubstitution @ line 67: window_column_counter <= 10'd0;  ==>  NonblockingSubstitution @ line 67: window_column_counter <= 10'd1;",
+      "operator": "AVC",
+      "target_module": "state_machine",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/ARITHMETIC CORE/fpga-based median filter/include/state_machine.v",
+      "target_signal": "window_column_counter",
+      "target_signal_id": "state_machine.window_column_counter"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/ARITHMETIC_CORE/fpga-based_median_filter/mutations",
+  "top_module": "median",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/ARITHMETIC_CORE/fpga-based_median_filter/buggy_artifacts/consensus_merge_report"
+}

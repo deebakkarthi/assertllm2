@@ -1,0 +1,203 @@
+{
+  "artifact_root": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts",
+  "enabled": true,
+  "inserted_mutations": [
+    {
+      "changed_rtl_files": [
+        "light8080.v"
+      ],
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b1 : 1'b0;  ==>  Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b0 : 1'b0;",
+      "target_line": 347
+    },
+    {
+      "changed_rtl_files": [
+        "light8080.v"
+      ],
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 469: (intr && inte_reg && !int_pending)  ==>  Lor @ line 0: (intr && inte_reg || !int_pending)",
+      "target_line": 469
+    },
+    {
+      "changed_rtl_files": [
+        "light8080.v"
+      ],
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b1, data_in };  ==>  NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b0, data_in };",
+      "target_line": 373
+    },
+    {
+      "changed_rtl_files": [
+        "light8080.v"
+      ],
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 327: (((uc_flags1 == 3'b010) || inta_reg)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "target_line": 327
+    },
+    {
+      "changed_rtl_files": [
+        "micro_rom.v"
+      ],
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(9'h0d0<->9'h00b) -> CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...  ==>  CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...",
+      "target_line": 28
+    }
+  ],
+  "merged_operations": [
+    {
+      "mutant_id": "M_0002",
+      "target_rtl_file": "light8080.v",
+      "target_line": 327,
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 327: (((uc_flags1 == 3'b010) || inta_reg)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "applied": {
+        "mode": "cmc_cond_removed",
+        "applied": [
+          {
+            "line_index": 379,
+            "port": "clock",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 380,
+            "port": "uc_addr",
+            "mode": "cmc_port_line"
+          },
+          {
+            "line_index": 381,
+            "port": "uc_dout",
+            "mode": "cmc_port_line"
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0001",
+      "target_rtl_file": "light8080.v",
+      "target_line": 347,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b1 : 1'b0;  ==>  Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b0 : 1'b0;",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 130,
+            "base_end": 134,
+            "matched_start": 130,
+            "matched_end": 134
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0004",
+      "target_rtl_file": "light8080.v",
+      "target_line": 373,
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b1, data_in };  ==>  NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b0, data_in };",
+      "applied": {
+        "mode": "mutant_diff_fallback",
+        "applied_hunks": [
+          {
+            "base_start": 135,
+            "base_end": 163,
+            "matched_start": 159,
+            "matched_end": 187
+          }
+        ]
+      }
+    },
+    {
+      "mutant_id": "M_0003",
+      "target_rtl_file": "light8080.v",
+      "target_line": 469,
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 469: (intr && inte_reg && !int_pending)  ==>  Lor @ line 0: (intr && inte_reg || !int_pending)",
+      "applied": {
+        "mode": "directed_line",
+        "line_index": 473,
+        "target_line": 469
+      }
+    },
+    {
+      "mutant_id": "M_0000",
+      "target_rtl_file": "micro_rom.v",
+      "target_line": 28,
+      "mutation_log": "applied. CSE(9'h0d0<->9'h00b) -> CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...  ==>  CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...",
+      "applied": {
+        "mode": "cse_case_swap",
+        "case_span": [
+          27,
+          541
+        ],
+        "token_a": "9'h0d0",
+        "token_b": "9'h00b",
+        "changed_lines": 2
+      }
+    }
+  ],
+  "merged_rtl_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl",
+  "merged_rtl_filelist": [
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl/intr_ctrl.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl/l80soc.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl/light8080.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl/micro_rom.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl/ram_image.v",
+    "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/merged_buggy_rtl/uart.v"
+  ],
+  "selected_mutants": [
+    {
+      "mutant_id": "M_0000",
+      "mutation_log": "applied. CSE(9'h0d0<->9'h00b) -> CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...  ==>  CaseStatement @ line 28: case(uc_addr) 9'h000: uc_dat <= 32'b00000000000000000000000000000000; 9'h001: uc_dat <= 32'b00000000000001001000000001000100; 9'h002: uc_...",
+      "operator": "CSE",
+      "target_module": "micro_rom",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/include/micro_rom.v",
+      "target_signal": "uc_addr",
+      "target_signal_id": "micro_rom.uc_addr"
+    },
+    {
+      "mutant_id": "M_0001",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b1 : 1'b0;  ==>  Assign @ line 347: assign fetch = ((uc_addr[7:4] == 4'b0) && load_addr)? 1'b0 : 1'b0;",
+      "operator": "AVC",
+      "target_module": "light8080",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/light8080.v",
+      "target_signal": "fetch",
+      "target_signal_id": "light8080.fetch"
+    },
+    {
+      "mutant_id": "M_0002",
+      "mutation_log": "applied. CMC(true_only) -> Cond @ line 327: (((uc_flags1 == 3'b010) || inta_reg)? 1'b1 : 1'b0)  ==>  (cond removed)",
+      "operator": "CMC",
+      "target_module": "light8080",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/light8080.v",
+      "target_signal": "inta",
+      "target_signal_id": "light8080.inta"
+    },
+    {
+      "mutant_id": "M_0003",
+      "mutation_log": "applied. LOR(Land->Lor) -> Land @ line 469: (intr && inte_reg && !int_pending)  ==>  Lor @ line 0: (intr && inte_reg || !int_pending)",
+      "operator": "LOR",
+      "target_module": "light8080",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/light8080.v",
+      "target_signal": "intr",
+      "target_signal_id": "light8080.intr"
+    },
+    {
+      "mutant_id": "M_0004",
+      "mutation_log": "applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b1, data_in };  ==>  NonblockingSubstitution @ line 373: next_uc_addr <= { 1'b0, data_in };",
+      "operator": "AVC",
+      "target_module": "light8080",
+      "target_rtl_file": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/light8080.v",
+      "target_signal": "data_in",
+      "target_signal_id": "light8080.data_in"
+    }
+  ],
+  "selection_policy": "first_k_non_overlapping_successful_mutants_prechecked",
+  "selection_size": 5,
+  "single_bug_mutants_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/single_bug_mutants",
+  "source_mutations_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/AssertLLM2.0_designs/PROCESSOR/lightweight_8080_compatible_core/mutations",
+  "top_module": "light8080",
+  "merge_schema": "consensus_merge_v1",
+  "merge_verification": {
+    "verified": 5,
+    "total": 5,
+    "failed": []
+  },
+  "consensus_merge_report_dir": "/local/home/ywu092/code/AssertLLM2_benchmark/designs/PROCESSOR/lightweight_8080_compatible_core/buggy_artifacts/consensus_merge_report"
+}

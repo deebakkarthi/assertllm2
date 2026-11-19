@@ -1,0 +1,146 @@
+{
+  "cache_schema": "assertbench_mutations_v1",
+  "dataset_root": "/local/home/ywu092/code/AssertLLM/AssertLLM2.0_designs/COMMUNICATION_CONTROLLER/sdspi",
+  "mutants": [
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0000: applied. CMC(swap) -> Cond @ line 181: ((i_bus_grant)? 4'h3 : 4'h2)  ==>  Cond @ line 181: ((i_bus_grant)? 4'h2 : 4'h3)",
+      "mutant_id": "M_0000"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0001: applied. DMO -> Pointer @ line 183: i_byte[7]  ==>  Pointer @ line 183: i_byte[1] (new index=1)",
+      "mutant_id": "M_0001"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0002: applied. LOR(Lor->Land) -> Lor @ line 146: (!i_cs || !i_bus_grant)  ==>  Land @ line 0: (!i_cs && !i_bus_grant)",
+      "mutant_id": "M_0002"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0003: applied. AVC(6->4) -> NonblockingSubstitution @ line 224: r_ireg <= { r_ireg[6:0], i_miso };  ==>  NonblockingSubstitution @ line 224: r_ireg <= { r_ireg[4:0], i_miso };",
+      "mutant_id": "M_0003"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0004: applied. SMC -> Block @ line 216: begin r_state <= 4'h1; r_idle <= 1'b1; o_stb <= 1'b1; o_byte <= r_ireg; end  ==>  Block @ line 216: begin r_state <= 4'h0; r_idle <= 1'b0; o_stb <= 1'b0; o_byte <= r_ireg; end",
+      "mutant_id": "M_0004"
+    },
+    {
+      "applied_to_source_files": [
+        "sdspi.v"
+      ],
+      "log": "M_0005: applied. CCW(4<->5) -> Concat @ line 941: { ll_cmd_stb && ll_idle || ll_out_stb, ll_cmd_stb, ll_idle, ll_out_stb, o_cs_n, o_sck, o_mosi, i_miso, r_cmd_state, i_bus_grant, r_rsp_st...  ==>  Concat @ line 941: { ll_cmd_stb && ll_idle || ll_out_stb, ll_cmd_stb, ll_idle, ll_out_stb, o_sck, o_cs_n, o_mosi, i_miso, r_cmd_state, i_bus_grant, r_rsp_st...",
+      "mutant_id": "M_0005"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0006: applied. SMC -> Block @ line 158: begin o_stb <= 1'b0; o_cs_n <= !i_cs; if(!i_cs) begin r_state <= 4'h0; r_idle <= 1'b0; o_sclk <= 1'b1; end else if(!r_z_counter) begin r_...  ==>  Block @ line 158: begin o_stb <= 1'b1; o_cs_n <= !i_cs; if(!i_cs) begin r_state <= 4'h0; r_idle <= 1'b0; o_sclk <= 1'b1; end else if(!r_z_counter) begin r_...",
+      "mutant_id": "M_0006"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0007: applied. SMC -> Block @ line 179: begin r_byte <= i_byte[7:0]; r_state <= (i_bus_grant)? 4'h3 : 4'h2; r_idle <= 1'b0; o_mosi <= i_byte[7]; end  ==>  Block @ line 179: begin r_byte <= i_byte[7:0]; r_state <= (i_bus_grant)? 4'h3 : 4'h2; r_idle <= 1'b1; o_mosi <= i_byte[7]; end",
+      "mutant_id": "M_0007"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0008: applied. SMC -> Block @ line 210: begin o_mosi <= r_byte[7]; r_byte <= { r_byte[6:0], 1'b1 }; r_state <= r_state + 1; o_sclk <= 1'b0; if(r_state >= 4'h3 + 8) begin r_state...  ==>  Block @ line 210: begin o_mosi <= r_byte[7]; r_byte <= { r_byte[6:0], 1'b1 }; r_state <= r_state + 1; o_sclk <= 1'b1; if(r_state >= 4'h3 + 8) begin r_state...",
+      "mutant_id": "M_0008"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0009: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 159: o_stb <= 1'b0;  ==>  NonblockingSubstitution @ line 159: o_stb <= 1'b1;",
+      "mutant_id": "M_0009"
+    },
+    {
+      "applied_to_source_files": [
+        "sdspi.v"
+      ],
+      "log": "M_0010: applied. LOR(Eq->NotEq) -> Eq @ line 127: (i_wb_addr == 2'h0)  ==>  NotEq @ line 0: (i_wb_addr != 2'h0)",
+      "mutant_id": "M_0010"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0011: applied. LOR(Land->Lor) -> Land @ line 229: (i_cs && i_bus_grant)  ==>  Lor @ line 0: (i_cs || i_bus_grant)",
+      "mutant_id": "M_0011"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0012: applied. AVC(1'b1->1'b0) -> NonblockingSubstitution @ line 165: o_sclk <= 1'b1;  ==>  NonblockingSubstitution @ line 165: o_sclk <= 1'b0;",
+      "mutant_id": "M_0012"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0013: applied. LOR(Land->Lor) -> Land @ line 126: (i_stb && o_idle)  ==>  Lor @ line 0: (i_stb || o_idle)",
+      "mutant_id": "M_0013"
+    },
+    {
+      "applied_to_source_files": [
+        "sdspi.v"
+      ],
+      "log": "M_0014: applied. AVC(2'h0->2'h1) -> NonblockingSubstitution @ line 126: r_cmd_stb <= !r_cmd_busy && i_wb_stb && !o_wb_stall && i_wb_we && (i_wb_addr == 2'h0);  ==>  NonblockingSubstitution @ line 126: r_cmd_stb <= !r_cmd_busy && i_wb_stb && !o_wb_stall && i_wb_we && (i_wb_addr == 2'h1);",
+      "mutant_id": "M_0014"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0015: applied. SMC -> Block @ line 167: begin r_idle <= 1'b0; if(byte_accepted) begin r_byte <= { i_byte[6:0], 1'b1 }; r_state <= 4'h3 + 1; o_mosi <= i_byte[7]; end end  ==>  Block @ line 167: begin r_idle <= 1'b1; if(byte_accepted) begin r_byte <= { i_byte[6:0], 1'b1 }; r_state <= 4'h3 + 1; o_mosi <= i_byte[7]; end end",
+      "mutant_id": "M_0015"
+    },
+    {
+      "applied_to_source_files": [
+        "sdspi.v"
+      ],
+      "log": "M_0016: applied. LOR(Land->Lor) -> Land @ line 129: (i_wb_stb && !o_wb_stall)  ==>  Lor @ line 0: (i_wb_stb || !o_wb_stall)",
+      "mutant_id": "M_0016"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0017: applied. AVC(7->8) -> NonblockingSubstitution @ line 183: o_mosi <= i_byte[7];  ==>  NonblockingSubstitution @ line 183: o_mosi <= i_byte[6];",
+      "mutant_id": "M_0017"
+    },
+    {
+      "applied_to_source_files": [
+        "sdspi.v"
+      ],
+      "log": "M_0018: applied. AVC(1'b0->1'b1) -> NonblockingSubstitution @ line 533: o_wb_data <= { need_reset, 11'h00, 2'h0, r_err_token, fifo_crc_err, r_cmd_err, r_cmd_busy, 1'b0, r_fifo_id, r_use_fifo, r_fifo_wr, r_cmd_...  ==>  NonblockingSubstitution @ line 533: o_wb_data <= { need_reset, 11'h00, 2'h0, r_err_token, fifo_crc_err, r_cmd_err, r_cmd_busy, 1'b1, r_fifo_id, r_use_fifo, r_fifo_wr, r_cmd_...",
+      "mutant_id": "M_0018"
+    },
+    {
+      "applied_to_source_files": [
+        "include/llsdspi.v"
+      ],
+      "log": "M_0019: applied. AVC(4'h2->4'h1) -> NonblockingSubstitution @ line 181: r_state <= (i_bus_grant)? 4'h3 : 4'h2;  ==>  NonblockingSubstitution @ line 181: r_state <= (i_bus_grant)? 4'h3 : 4'h1;",
+      "mutant_id": "M_0019"
+    }
+  ]
+}
