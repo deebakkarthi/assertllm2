@@ -36,9 +36,7 @@
       "filelist": [
         "../designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/FT816Float.v"
       ],
-      "incdir": [
-        "../designs/ARITHMETIC_CORE/ft816float-floating_point_accelerator/include"
-      ],
+      "incdir": [],
       "top_module": "FT816Float"
     },
     "clock_reset": {
@@ -435,9 +433,7 @@
       "filelist": [
         "../designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/smii_txrx.v"
       ],
-      "incdir": [
-        "../designs/COMMUNICATION_CONTROLLER/ethernet_smii_txrx/include"
-      ],
+      "incdir": [],
       "top_module": "smii_txrx"
     },
     "clock_reset": {
@@ -1347,9 +1343,7 @@
       "filelist": [
         "../designs/DSP_CORE/ima_adpcm_decoder/ima_adpcm_dec.v"
       ],
-      "incdir": [
-        "../designs/DSP_CORE/ima_adpcm_decoder/include"
-      ],
+      "incdir": [],
       "top_module": "ima_adpcm_dec"
     },
     "clock_reset": {
@@ -1370,9 +1364,7 @@
       "filelist": [
         "../designs/DSP_CORE/ima_adpcm_encoder/ima_adpcm_enc.v"
       ],
-      "incdir": [
-        "../designs/DSP_CORE/ima_adpcm_encoder/include"
-      ],
+      "incdir": [],
       "top_module": "ima_adpcm_enc"
     },
     "clock_reset": {
@@ -1485,9 +1477,7 @@
       "filelist": [
         "../designs/ECC_CORE/rs_5_3_gf256/RS_5_3_GF256.v"
       ],
-      "incdir": [
-        "../designs/ECC_CORE/rs_5_3_gf256/include"
-      ],
+      "incdir": [],
       "top_module": "RS_5_3_GF256"
     },
     "clock_reset": {
@@ -2008,9 +1998,7 @@
       "filelist": [
         "../designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/wbicapetwo.v"
       ],
-      "incdir": [
-        "../designs/OTHER/xilinx_configuration_port_icape2_via_wishbone/include"
-      ],
+      "incdir": [],
       "top_module": "wbicapetwo"
     },
     "clock_reset": {
@@ -2979,9 +2967,7 @@
       "filelist": [
         "../designs/VIDEO_CONTROLLER/video_stream_scaler/streamScaler.v"
       ],
-      "incdir": [
-        "../designs/VIDEO_CONTROLLER/video_stream_scaler/include"
-      ],
+      "incdir": [],
       "top_module": "streamScaler"
     },
     "clock_reset": {

@@ -39,7 +39,7 @@ DEFAULT_RESULTS_JSON = SCRIPT_DIR / "out" / "batch_results_assertllm2_parallel.j
 DEFAULT_OUTPUT_DIR = "out"
 DEFAULT_METHOD = "plain_prompt"
 DEFAULT_LLM_PROVIDER = "gemini"
-DEFAULT_MODEL_ID = "gemini-2.5-pro"
+DEFAULT_MODEL_ID = "gemini-3.5-flash-lite"
 
 TEMPLATE_KEYS = ["llm", "formal", "mutation", "bug_hunting", "seed", "design_type", "spec_input_source"]
 
